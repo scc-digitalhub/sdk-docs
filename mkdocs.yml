@@ -1,8 +1,29 @@
 # mkdocs.yml
 site_name: Digitalhub SDK documentation
 
+extra:
+  site: https://scc-digitalhub.github.io/sdk-docs
+  docs_version: !ENV [DOCS_VERSION, 'current']
+  versions: !ENV [VERSIONS]
+  
+extra_css:
+  - !ENV [USER_STYLESHEETS_PORTAL_SELECTION, "stylesheets/portal_selection.css"]
+  - !ENV [USER_STYLESHEETS_COLORS, "stylesheets/colors.css"]
+
 theme:
   name: "material"
+  custom_dir: custom/
+  palette:
+    # Palette toggle for light mode
+    - scheme: orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
 
 plugins:
   - mkdocstrings:
