@@ -3,9 +3,9 @@ site_name: Digitalhub SDK documentation
 
 extra:
   site: https://scc-digitalhub.github.io/sdk-docs
-  docs_version: !ENV [DOCS_VERSION, 'current']
+  docs_version: !ENV [DOCS_VERSION, "current"]
   versions: !ENV [VERSIONS]
-  
+
 extra_css:
   - !ENV [USER_STYLESHEETS_PORTAL_SELECTION, "stylesheets/portal_selection.css"]
   - !ENV [USER_STYLESHEETS_COLORS, "stylesheets/colors.css"]
@@ -34,7 +34,7 @@ plugins:
             docstring_style: numpy
 
 nav:
-  - index: index.md
+  - Index: index.md
   - Installation: install/install.md
   - Entities:
       - Projects:
