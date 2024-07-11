@@ -1448,6 +1448,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#digitalhub_ml.entities.models.entity.Model.as_file" class="md-nav__link">
+    <span class="md-ellipsis">
+      as_file
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#digitalhub_ml.entities.models.entity.Model.download" class="md-nav__link">
     <span class="md-ellipsis">
       download
@@ -1655,6 +1664,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#digitalhub_ml.entities.models.entity.Model.as_file" class="md-nav__link">
+    <span class="md-ellipsis">
+      as_file
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#digitalhub_ml.entities.models.entity.Model.download" class="md-nav__link">
     <span class="md-ellipsis">
       download
@@ -1746,8 +1764,6 @@
 <a id="digitalhub_ml.entities.models.entity"></a>
     <div class="doc doc-contents first">
 
-      <p>Model module.</p>
-
 
 
   <div class="doc doc-children">
@@ -1779,7 +1795,10 @@
 
               <details class="quote">
                 <summary>Source code in <code>digitalhub_ml/entities/models/entity.py</code></summary>
-                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 30</span>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
 <span class="normal"> 31</span>
 <span class="normal"> 32</span>
 <span class="normal"> 33</span>
@@ -2098,38 +2117,7 @@
 <span class="normal">346</span>
 <span class="normal">347</span>
 <span class="normal">348</span>
-<span class="normal">349</span>
-<span class="normal">350</span>
-<span class="normal">351</span>
-<span class="normal">352</span>
-<span class="normal">353</span>
-<span class="normal">354</span>
-<span class="normal">355</span>
-<span class="normal">356</span>
-<span class="normal">357</span>
-<span class="normal">358</span>
-<span class="normal">359</span>
-<span class="normal">360</span>
-<span class="normal">361</span>
-<span class="normal">362</span>
-<span class="normal">363</span>
-<span class="normal">364</span>
-<span class="normal">365</span>
-<span class="normal">366</span>
-<span class="normal">367</span>
-<span class="normal">368</span>
-<span class="normal">369</span>
-<span class="normal">370</span>
-<span class="normal">371</span>
-<span class="normal">372</span>
-<span class="normal">373</span>
-<span class="normal">374</span>
-<span class="normal">375</span>
-<span class="normal">376</span>
-<span class="normal">377</span>
-<span class="normal">378</span>
-<span class="normal">379</span>
-<span class="normal">380</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Model</span><span class="p">(</span><span class="n">Entity</span><span class="p">):</span>
+<span class="normal">349</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Model</span><span class="p">(</span><span class="n">Entity</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A class representing a model.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -2268,9 +2256,32 @@
     <span class="c1">#  Model methods</span>
     <span class="c1">#############################</span>
 
+    <span class="k">def</span> <span class="nf">as_file</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get model as file. In the case of a local store, the store returns the current</span>
+<span class="sd">        path of the model. In the case of a remote store, the model is downloaded in</span>
+<span class="sd">        a temporary directory.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            Path of the model (temporary or not).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Check if target path is provided and if it is remote</span>
+        <span class="n">trg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_remote</span><span class="p">(</span><span class="n">trg</span><span class="p">)</span>
+
+        <span class="c1"># If local store, return local model path</span>
+        <span class="c1"># Check if source path is provided and if it is local</span>
+        <span class="n">store</span> <span class="o">=</span> <span class="n">get_store</span><span class="p">(</span><span class="n">trg</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">store</span><span class="o">.</span><span class="n">is_local</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_check_local</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">src_path</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">src_path</span>
+
+        <span class="k">return</span> <span class="n">store</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">trg</span><span class="p">)</span>
+
     <span class="k">def</span> <span class="nf">download</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">target</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">destination</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
@@ -2279,12 +2290,10 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        target : str</span>
-<span class="sd">            Target path is the remote path of the model</span>
 <span class="sd">        destination : str</span>
-<span class="sd">            Destination path as filename</span>
+<span class="sd">            Destination path as filename.</span>
 <span class="sd">        overwrite : bool</span>
-<span class="sd">            Specify if overwrite an existing file</span>
+<span class="sd">            Specify if overwrite an existing file. Default value is False.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -2292,88 +2301,63 @@
 <span class="sd">            Path of the downloaded model.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="c1"># Check if target path is provided and if it is remote</span>
-        <span class="n">trg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parameter_or_default</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_check_remote</span><span class="p">(</span><span class="n">trg</span><span class="p">)</span>
+        <span class="c1"># Check if target path is remote</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_remote</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 
         <span class="c1"># Check if download destination path is specified and rebuild it if necessary</span>
         <span class="k">if</span> <span class="n">destination</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">filename</span> <span class="o">=</span> <span class="n">urlparse</span><span class="p">(</span><span class="n">trg</span><span class="p">)</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-            <span class="n">destination</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="si">}</span><span class="s2">/models/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">kind</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">urlparse</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">name</span>
+            <span class="n">destination</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">ENTITY_TYPE</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="c1"># Check if destination path is local</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_local</span><span class="p">(</span><span class="n">destination</span><span class="p">)</span>
 
         <span class="c1"># Check if destination path exists for overwrite</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_check_overwrite</span><span class="p">(</span><span class="n">destination</span><span class="p">,</span> <span class="n">overwrite</span><span class="p">)</span>
+        <span class="n">check_overwrite</span><span class="p">(</span><span class="n">destination</span><span class="p">,</span> <span class="n">overwrite</span><span class="p">)</span>
 
         <span class="c1"># Download model and return path</span>
-        <span class="n">store</span> <span class="o">=</span> <span class="n">get_store</span><span class="p">(</span><span class="n">trg</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">store</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">trg</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>
+        <span class="n">store</span> <span class="o">=</span> <span class="n">get_store</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">store</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">upload</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">upload</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Upload model to remote storage from source path to target destination.</span>
+<span class="sd">        Upload model to remote storage from given local path to</span>
+<span class="sd">        spec path destination.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        source : str</span>
 <span class="sd">            Source path is the local path of the model.</span>
-<span class="sd">        target : str</span>
-<span class="sd">            Target path is the remote path of the model.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        str</span>
 <span class="sd">            Path of the uploaded model.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># Check if target path is provided and if it is remote</span>
-        <span class="n">trg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parameter_or_default</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_check_remote</span><span class="p">(</span><span class="n">trg</span><span class="p">)</span>
+        <span class="c1"># Check if target path is remote</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_remote</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 
         <span class="c1"># Check if source path is provided and if it is local</span>
-        <span class="k">if</span> <span class="n">source</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">EntityError</span><span class="p">(</span><span class="s2">&quot;Source path is not specified.&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_check_local</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+        <span class="n">src</span> <span class="o">=</span> <span class="n">source</span> <span class="k">if</span> <span class="n">source</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">src_path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_local</span><span class="p">(</span><span class="n">src</span><span class="p">)</span>
 
-        <span class="c1"># Get store</span>
-        <span class="n">store</span> <span class="o">=</span> <span class="n">get_store</span><span class="p">(</span><span class="n">trg</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">store</span><span class="o">.</span><span class="n">is_local</span><span class="p">():</span>
-            <span class="k">raise</span> <span class="n">EntityError</span><span class="p">(</span><span class="s2">&quot;Cannot target local store for upload.&quot;</span><span class="p">)</span>
+        <span class="c1"># Get store and upload model and return remote path</span>
+        <span class="n">store</span> <span class="o">=</span> <span class="n">get_store</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">target</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="n">upload</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+        <span class="n">file_info</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="n">get_file_info</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">src</span><span class="p">)</span>
 
-        <span class="c1"># Upload model and return remote path</span>
-        <span class="k">return</span> <span class="n">store</span><span class="o">.</span><span class="n">upload</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">trg</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">file_info</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">add_file</span><span class="p">(</span><span class="n">file_info</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">update</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">target</span>
 
     <span class="c1">#############################</span>
     <span class="c1">#  Private Helpers</span>
     <span class="c1">#############################</span>
-
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">_parameter_or_default</span><span class="p">(</span><span class="n">parameter</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Check whether a parameter is specified or not. If not, return the default value. If also</span>
-<span class="sd">        the default value is not specified, raise an exception. If parameter is specified, but</span>
-<span class="sd">        default value is not, return the parameter and set the default value to the parameter.</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        parameter : str</span>
-<span class="sd">            Parameter to check.</span>
-<span class="sd">        default : str</span>
-<span class="sd">            Default value.</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        str</span>
-<span class="sd">            Parameter or default value.</span>
-
-<span class="sd">        Raises</span>
-<span class="sd">        ------</span>
-<span class="sd">        EntityError</span>
-<span class="sd">            If parameter and default value are not specified.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">parameter</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">default</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="n">EntityError</span><span class="p">(</span><span class="s2">&quot;Path is not specified.&quot;</span><span class="p">)</span>
-            <span class="k">return</span> <span class="n">default</span>
-        <span class="k">return</span> <span class="n">parameter</span>
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">_check_local</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -2394,7 +2378,7 @@
 <span class="sd">        EntityError</span>
 <span class="sd">            If source path is not local.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">map_uri_scheme</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="o">!=</span> <span class="s2">&quot;local&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">check_local_path</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
             <span class="k">raise</span> <span class="n">EntityError</span><span class="p">(</span><span class="s2">&quot;Only local paths are supported for source paths.&quot;</span><span class="p">)</span>
 
     <span class="nd">@staticmethod</span>
@@ -2416,32 +2400,8 @@
 <span class="sd">        EntityError</span>
 <span class="sd">            If source path is local.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">map_uri_scheme</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;local&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">check_local_path</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
             <span class="k">raise</span> <span class="n">EntityError</span><span class="p">(</span><span class="s2">&quot;Only remote paths are supported for target paths.&quot;</span><span class="p">)</span>
-
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">_check_overwrite</span><span class="p">(</span><span class="n">dst</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">overwrite</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Check if destination path exists for overwrite.</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        dst : str</span>
-<span class="sd">            Destination path as filename.</span>
-<span class="sd">        overwrite : bool</span>
-<span class="sd">            Specify if overwrite an existing file.</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        None</span>
-
-<span class="sd">        Raises</span>
-<span class="sd">        ------</span>
-<span class="sd">        Exception</span>
-<span class="sd">            If destination path exists and overwrite is False.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">Path</span><span class="p">(</span><span class="n">dst</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">overwrite</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">EntityError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Resource </span><span class="si">{</span><span class="n">dst</span><span class="si">}</span><span class="s2"> already exists.&quot;</span><span class="p">)</span>
 
     <span class="c1">#############################</span>
     <span class="c1">#  Static interface methods</span>
@@ -2637,7 +2597,10 @@
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_ml/entities/models/entity.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">37</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
 <span class="normal">38</span>
 <span class="normal">39</span>
 <span class="normal">40</span>
@@ -2679,10 +2642,7 @@
 <span class="normal">76</span>
 <span class="normal">77</span>
 <span class="normal">78</span>
-<span class="normal">79</span>
-<span class="normal">80</span>
-<span class="normal">81</span>
-<span class="normal">82</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<span class="normal">79</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="n">project</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -2737,8 +2697,99 @@
 <div class="doc doc-object doc-function">
 
 
+<h3 id="digitalhub_ml.entities.models.entity.Model.as_file" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">as_file</span><span class="p">()</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Get model as file. In the case of a local store, the store returns the current
+path of the model. In the case of a remote store, the model is downloaded in
+a temporary directory.</p>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Path of the model (temporary or not).</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+            <details class="quote">
+              <summary>Source code in <code>digitalhub_ml/entities/models/entity.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">as_file</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get model as file. In the case of a local store, the store returns the current</span>
+<span class="sd">    path of the model. In the case of a remote store, the model is downloaded in</span>
+<span class="sd">    a temporary directory.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    str</span>
+<span class="sd">        Path of the model (temporary or not).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Check if target path is provided and if it is remote</span>
+    <span class="n">trg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">path</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_check_remote</span><span class="p">(</span><span class="n">trg</span><span class="p">)</span>
+
+    <span class="c1"># If local store, return local model path</span>
+    <span class="c1"># Check if source path is provided and if it is local</span>
+    <span class="n">store</span> <span class="o">=</span> <span class="n">get_store</span><span class="p">(</span><span class="n">trg</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">store</span><span class="o">.</span><span class="n">is_local</span><span class="p">():</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_local</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">src_path</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">src_path</span>
+
+    <span class="k">return</span> <span class="n">store</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">trg</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h3 id="digitalhub_ml.entities.models.entity.Model.download" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">download</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">download</span><span class="p">(</span><span class="n">destination</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
 
 </h3>
 
@@ -2760,27 +2811,13 @@
       </thead>
       <tbody>
           <tr class="doc-section-item">
-            <td><code>target</code></td>
-            <td>
-                  <code>str</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Target path is the remote path of the model</p>
-              </div>
-            </td>
-            <td>
-                  <code>None</code>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
             <td><code>destination</code></td>
             <td>
                   <code>str</code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Destination path as filename</p>
+                <p>Destination path as filename.</p>
               </div>
             </td>
             <td>
@@ -2794,7 +2831,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Specify if overwrite an existing file</p>
+                <p>Specify if overwrite an existing file. Default value is False.</p>
               </div>
             </td>
             <td>
@@ -2829,28 +2866,7 @@
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_ml/entities/models/entity.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">169</span>
-<span class="normal">170</span>
-<span class="normal">171</span>
-<span class="normal">172</span>
-<span class="normal">173</span>
-<span class="normal">174</span>
-<span class="normal">175</span>
-<span class="normal">176</span>
-<span class="normal">177</span>
-<span class="normal">178</span>
-<span class="normal">179</span>
-<span class="normal">180</span>
-<span class="normal">181</span>
-<span class="normal">182</span>
-<span class="normal">183</span>
-<span class="normal">184</span>
-<span class="normal">185</span>
-<span class="normal">186</span>
-<span class="normal">187</span>
-<span class="normal">188</span>
-<span class="normal">189</span>
-<span class="normal">190</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">190</span>
 <span class="normal">191</span>
 <span class="normal">192</span>
 <span class="normal">193</span>
@@ -2867,9 +2883,29 @@
 <span class="normal">204</span>
 <span class="normal">205</span>
 <span class="normal">206</span>
-<span class="normal">207</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">download</span><span class="p">(</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">download</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
-    <span class="n">target</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">destination</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
@@ -2878,12 +2914,10 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    target : str</span>
-<span class="sd">        Target path is the remote path of the model</span>
 <span class="sd">    destination : str</span>
-<span class="sd">        Destination path as filename</span>
+<span class="sd">        Destination path as filename.</span>
 <span class="sd">    overwrite : bool</span>
-<span class="sd">        Specify if overwrite an existing file</span>
+<span class="sd">        Specify if overwrite an existing file. Default value is False.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -2891,21 +2925,24 @@
 <span class="sd">        Path of the downloaded model.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="c1"># Check if target path is provided and if it is remote</span>
-    <span class="n">trg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parameter_or_default</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">_check_remote</span><span class="p">(</span><span class="n">trg</span><span class="p">)</span>
+    <span class="c1"># Check if target path is remote</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">path</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_check_remote</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 
     <span class="c1"># Check if download destination path is specified and rebuild it if necessary</span>
     <span class="k">if</span> <span class="n">destination</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">filename</span> <span class="o">=</span> <span class="n">urlparse</span><span class="p">(</span><span class="n">trg</span><span class="p">)</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">destination</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="si">}</span><span class="s2">/models/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">kind</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">urlparse</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">name</span>
+        <span class="n">destination</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">ENTITY_TYPE</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="c1"># Check if destination path is local</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_check_local</span><span class="p">(</span><span class="n">destination</span><span class="p">)</span>
 
     <span class="c1"># Check if destination path exists for overwrite</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">_check_overwrite</span><span class="p">(</span><span class="n">destination</span><span class="p">,</span> <span class="n">overwrite</span><span class="p">)</span>
+    <span class="n">check_overwrite</span><span class="p">(</span><span class="n">destination</span><span class="p">,</span> <span class="n">overwrite</span><span class="p">)</span>
 
     <span class="c1"># Download model and return path</span>
-    <span class="n">store</span> <span class="o">=</span> <span class="n">get_store</span><span class="p">(</span><span class="n">trg</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">store</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">trg</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>
+    <span class="n">store</span> <span class="o">=</span> <span class="n">get_store</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">store</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -2979,7 +3016,10 @@
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_ml/entities/models/entity.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">130</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
 <span class="normal">131</span>
 <span class="normal">132</span>
 <span class="normal">133</span>
@@ -2994,10 +3034,7 @@
 <span class="normal">142</span>
 <span class="normal">143</span>
 <span class="normal">144</span>
-<span class="normal">145</span>
-<span class="normal">146</span>
-<span class="normal">147</span>
-<span class="normal">148</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">export</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="normal">145</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">export</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Export object as a YAML file.</span>
 
@@ -3060,7 +3097,10 @@
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_ml/entities/models/entity.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">116</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
 <span class="normal">117</span>
 <span class="normal">118</span>
 <span class="normal">119</span>
@@ -3069,10 +3109,7 @@
 <span class="normal">122</span>
 <span class="normal">123</span>
 <span class="normal">124</span>
-<span class="normal">125</span>
-<span class="normal">126</span>
-<span class="normal">127</span>
-<span class="normal">128</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Model</span><span class="p">:</span>
+<span class="normal">125</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Model</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Refresh object from backend.</span>
 
@@ -3158,7 +3195,10 @@
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_ml/entities/models/entity.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 88</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
 <span class="normal"> 89</span>
 <span class="normal"> 90</span>
 <span class="normal"> 91</span>
@@ -3181,10 +3221,7 @@
 <span class="normal">108</span>
 <span class="normal">109</span>
 <span class="normal">110</span>
-<span class="normal">111</span>
-<span class="normal">112</span>
-<span class="normal">113</span>
-<span class="normal">114</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">update</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Model</span><span class="p">:</span>
+<span class="normal">111</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">update</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Model</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Save entity into backend.</span>
 
@@ -3221,14 +3258,15 @@
 
 
 <h3 id="digitalhub_ml.entities.models.entity.Model.upload" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">upload</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">upload</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
 
 </h3>
 
 
     <div class="doc doc-contents ">
 
-      <p>Upload model to remote storage from source path to target destination.</p>
+      <p>Upload model to remote storage from given local path to
+spec path destination.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -3250,20 +3288,6 @@
             <td>
               <div class="doc-md-description">
                 <p>Source path is the local path of the model.</p>
-              </div>
-            </td>
-            <td>
-                  <code>None</code>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td><code>target</code></td>
-            <td>
-                  <code>str</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Target path is the remote path of the model.</p>
               </div>
             </td>
             <td>
@@ -3298,28 +3322,7 @@
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_ml/entities/models/entity.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">209</span>
-<span class="normal">210</span>
-<span class="normal">211</span>
-<span class="normal">212</span>
-<span class="normal">213</span>
-<span class="normal">214</span>
-<span class="normal">215</span>
-<span class="normal">216</span>
-<span class="normal">217</span>
-<span class="normal">218</span>
-<span class="normal">219</span>
-<span class="normal">220</span>
-<span class="normal">221</span>
-<span class="normal">222</span>
-<span class="normal">223</span>
-<span class="normal">224</span>
-<span class="normal">225</span>
-<span class="normal">226</span>
-<span class="normal">227</span>
-<span class="normal">228</span>
-<span class="normal">229</span>
-<span class="normal">230</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">230</span>
 <span class="normal">231</span>
 <span class="normal">232</span>
 <span class="normal">233</span>
@@ -3329,38 +3332,63 @@
 <span class="normal">237</span>
 <span class="normal">238</span>
 <span class="normal">239</span>
-<span class="normal">240</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">upload</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">upload</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Upload model to remote storage from source path to target destination.</span>
+<span class="sd">    Upload model to remote storage from given local path to</span>
+<span class="sd">    spec path destination.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    source : str</span>
 <span class="sd">        Source path is the local path of the model.</span>
-<span class="sd">    target : str</span>
-<span class="sd">        Target path is the remote path of the model.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    str</span>
 <span class="sd">        Path of the uploaded model.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># Check if target path is provided and if it is remote</span>
-    <span class="n">trg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parameter_or_default</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">_check_remote</span><span class="p">(</span><span class="n">trg</span><span class="p">)</span>
+    <span class="c1"># Check if target path is remote</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">path</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_check_remote</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 
     <span class="c1"># Check if source path is provided and if it is local</span>
-    <span class="k">if</span> <span class="n">source</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="n">EntityError</span><span class="p">(</span><span class="s2">&quot;Source path is not specified.&quot;</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">_check_local</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+    <span class="n">src</span> <span class="o">=</span> <span class="n">source</span> <span class="k">if</span> <span class="n">source</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">src_path</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_check_local</span><span class="p">(</span><span class="n">src</span><span class="p">)</span>
 
-    <span class="c1"># Get store</span>
-    <span class="n">store</span> <span class="o">=</span> <span class="n">get_store</span><span class="p">(</span><span class="n">trg</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">store</span><span class="o">.</span><span class="n">is_local</span><span class="p">():</span>
-        <span class="k">raise</span> <span class="n">EntityError</span><span class="p">(</span><span class="s2">&quot;Cannot target local store for upload.&quot;</span><span class="p">)</span>
+    <span class="c1"># Get store and upload model and return remote path</span>
+    <span class="n">store</span> <span class="o">=</span> <span class="n">get_store</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="n">target</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="n">upload</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+    <span class="n">file_info</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="n">get_file_info</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">src</span><span class="p">)</span>
 
-    <span class="c1"># Upload model and return remote path</span>
-    <span class="k">return</span> <span class="n">store</span><span class="o">.</span><span class="n">upload</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">trg</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">file_info</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">add_file</span><span class="p">(</span><span class="n">file_info</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">update</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">target</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -3443,21 +3471,21 @@
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_ml/entities/models/entity.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">447</span>
-<span class="normal">448</span>
-<span class="normal">449</span>
-<span class="normal">450</span>
-<span class="normal">451</span>
-<span class="normal">452</span>
-<span class="normal">453</span>
-<span class="normal">454</span>
-<span class="normal">455</span>
-<span class="normal">456</span>
-<span class="normal">457</span>
-<span class="normal">458</span>
-<span class="normal">459</span>
-<span class="normal">460</span>
-<span class="normal">461</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">model_from_dict</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Model</span><span class="p">:</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">434</span>
+<span class="normal">435</span>
+<span class="normal">436</span>
+<span class="normal">437</span>
+<span class="normal">438</span>
+<span class="normal">439</span>
+<span class="normal">440</span>
+<span class="normal">441</span>
+<span class="normal">442</span>
+<span class="normal">443</span>
+<span class="normal">444</span>
+<span class="normal">445</span>
+<span class="normal">446</span>
+<span class="normal">447</span>
+<span class="normal">448</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">model_from_dict</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Model</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Create Model instance from a dictionary.</span>
 
@@ -3482,7 +3510,7 @@
 
 
 <h2 id="digitalhub_ml.entities.models.entity.model_from_parameters" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">model_from_parameters</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">embedded</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">model_from_parameters</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">embedded</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">framework</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
 
 </h2>
 
@@ -3616,8 +3644,52 @@
             </td>
           </tr>
           <tr class="doc-section-item">
+            <td><code>path</code></td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Object path on local file system or remote storage.
+If not provided, it's generated.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code>framework</code></td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Model framework (e.g. 'pytorch').</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code>algorithm</code></td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Model algorithm (e.g. 'resnet').</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
             <td><code>**kwargs</code></td>
             <td>
+                  <code>dict</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -3656,7 +3728,38 @@
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_ml/entities/models/entity.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">383</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">352</span>
+<span class="normal">353</span>
+<span class="normal">354</span>
+<span class="normal">355</span>
+<span class="normal">356</span>
+<span class="normal">357</span>
+<span class="normal">358</span>
+<span class="normal">359</span>
+<span class="normal">360</span>
+<span class="normal">361</span>
+<span class="normal">362</span>
+<span class="normal">363</span>
+<span class="normal">364</span>
+<span class="normal">365</span>
+<span class="normal">366</span>
+<span class="normal">367</span>
+<span class="normal">368</span>
+<span class="normal">369</span>
+<span class="normal">370</span>
+<span class="normal">371</span>
+<span class="normal">372</span>
+<span class="normal">373</span>
+<span class="normal">374</span>
+<span class="normal">375</span>
+<span class="normal">376</span>
+<span class="normal">377</span>
+<span class="normal">378</span>
+<span class="normal">379</span>
+<span class="normal">380</span>
+<span class="normal">381</span>
+<span class="normal">382</span>
+<span class="normal">383</span>
 <span class="normal">384</span>
 <span class="normal">385</span>
 <span class="normal">386</span>
@@ -3704,20 +3807,7 @@
 <span class="normal">428</span>
 <span class="normal">429</span>
 <span class="normal">430</span>
-<span class="normal">431</span>
-<span class="normal">432</span>
-<span class="normal">433</span>
-<span class="normal">434</span>
-<span class="normal">435</span>
-<span class="normal">436</span>
-<span class="normal">437</span>
-<span class="normal">438</span>
-<span class="normal">439</span>
-<span class="normal">440</span>
-<span class="normal">441</span>
-<span class="normal">442</span>
-<span class="normal">443</span>
-<span class="normal">444</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">model_from_parameters</span><span class="p">(</span>
+<span class="normal">431</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">model_from_parameters</span><span class="p">(</span>
     <span class="n">project</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">kind</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -3726,6 +3816,9 @@
     <span class="n">source</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">labels</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">embedded</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">framework</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">algorithm</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Model</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -3749,7 +3842,14 @@
 <span class="sd">        A description of the model.</span>
 <span class="sd">    embedded : bool</span>
 <span class="sd">        Flag to determine if object must be embedded in project.</span>
-<span class="sd">    **kwargs</span>
+<span class="sd">    path : str</span>
+<span class="sd">        Object path on local file system or remote storage.</span>
+<span class="sd">        If not provided, it&#39;s generated.</span>
+<span class="sd">    framework : str</span>
+<span class="sd">        Model framework (e.g. &#39;pytorch&#39;).</span>
+<span class="sd">    algorithm : str</span>
+<span class="sd">        Model algorithm (e.g. &#39;resnet&#39;).</span>
+<span class="sd">    **kwargs : dict</span>
 <span class="sd">        Spec keyword arguments.</span>
 
 <span class="sd">    Returns</span>
@@ -3757,6 +3857,8 @@
 <span class="sd">    Model</span>
 <span class="sd">        An instance of the created model.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">EntityError</span><span class="p">(</span><span class="s2">&quot;Path must be provided.&quot;</span><span class="p">)</span>
     <span class="n">uuid</span> <span class="o">=</span> <span class="n">build_uuid</span><span class="p">(</span><span class="n">uuid</span><span class="p">)</span>
     <span class="n">metadata</span> <span class="o">=</span> <span class="n">build_metadata</span><span class="p">(</span>
         <span class="n">kind</span><span class="p">,</span>
@@ -3768,7 +3870,13 @@
         <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span>
         <span class="n">embedded</span><span class="o">=</span><span class="n">embedded</span><span class="p">,</span>
     <span class="p">)</span>
-    <span class="n">spec</span> <span class="o">=</span> <span class="n">build_spec</span><span class="p">(</span><span class="n">kind</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">spec</span> <span class="o">=</span> <span class="n">build_spec</span><span class="p">(</span>
+        <span class="n">kind</span><span class="p">,</span>
+        <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span>
+        <span class="n">framework</span><span class="o">=</span><span class="n">framework</span><span class="p">,</span>
+        <span class="n">algorithm</span><span class="o">=</span><span class="n">algorithm</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">)</span>
     <span class="n">status</span> <span class="o">=</span> <span class="n">build_status</span><span class="p">(</span><span class="n">kind</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">Model</span><span class="p">(</span>
         <span class="n">project</span><span class="o">=</span><span class="n">project</span><span class="p">,</span>

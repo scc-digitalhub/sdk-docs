@@ -1528,8 +1528,6 @@
 <a id="digitalhub_core.entities._builders.spec"></a>
     <div class="doc doc-contents first">
 
-      <p>Spec factory entity.</p>
-
 
 
   <div class="doc doc-children">
@@ -1605,6 +1603,7 @@ constructor.</p>
           <tr class="doc-section-item">
             <td><code>**kwargs</code></td>
             <td>
+                  <code>dict</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -1643,7 +1642,10 @@ constructor.</p>
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_core/entities/_builders/spec.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">16</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
 <span class="normal">17</span>
 <span class="normal">18</span>
 <span class="normal">19</span>
@@ -1670,10 +1672,7 @@ constructor.</p>
 <span class="normal">40</span>
 <span class="normal">41</span>
 <span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">build_spec</span><span class="p">(</span><span class="n">kind</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">validate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Spec</span><span class="p">:</span>
+<span class="normal">43</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">build_spec</span><span class="p">(</span><span class="n">kind</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">validate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Spec</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Build entity spec object. The builder takes as input</span>
 <span class="sd">    the kind of spec&#39;s object to build, a validation flag</span>
@@ -1690,7 +1689,7 @@ constructor.</p>
 <span class="sd">        Registry entry kind.</span>
 <span class="sd">    validate : bool</span>
 <span class="sd">        Flag to determine if validate kwargs.</span>
-<span class="sd">    **kwargs</span>
+<span class="sd">    **kwargs : dict</span>
 <span class="sd">        Keyword arguments for the constructor.</span>
 
 <span class="sd">    Returns</span>
