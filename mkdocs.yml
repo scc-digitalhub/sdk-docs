@@ -12,7 +12,7 @@ extra_css:
 
 theme:
   name: "material"
-  #custom_dir: custom/
+  custom_dir: custom/
   palette:
     # Palette toggle for light mode
     - scheme: orange
