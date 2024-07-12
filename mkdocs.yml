@@ -85,4 +85,5 @@ nav:
           - Status: entities/models/status.md
   - Runtimes:
       - Python: runtimes/python.md
+      - DBT: runtimes/dbt.md
   - Kubernetes resources: runtimes/kubernetes-resources.md
