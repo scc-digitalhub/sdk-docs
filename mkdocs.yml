@@ -83,3 +83,6 @@ nav:
           - CRUD: entities/models/crud.md
           - Spec: entities/models/spec.md
           - Status: entities/models/status.md
+  - Runtimes:
+      - Python: runtimes/python.md
+  - Kubernetes resources: runtimes/kubernetes-resources.md
