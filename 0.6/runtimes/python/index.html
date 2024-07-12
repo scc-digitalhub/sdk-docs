@@ -1619,6 +1619,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Source code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#parameters-composition" class="md-nav__link">
     <span class="md-ellipsis">
       Parameters composition
@@ -1648,15 +1657,6 @@
         
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#source-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Source code
-    </span>
-  </a>
   
 </li>
         
@@ -1794,15 +1794,29 @@
 
               
             
-          </ul>
-        </nav>
-      
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Container
+  </span>
+  
+
+      </a>
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
   
   
   
@@ -1817,6 +1831,14 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1891,6 +1913,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Source code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#parameters-composition" class="md-nav__link">
     <span class="md-ellipsis">
       Parameters composition
@@ -1920,15 +1951,6 @@
         
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#source-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Source code
-    </span>
-  </a>
   
 </li>
         
@@ -2122,6 +2144,50 @@ def func5(di: Dataitem, param1: str):
    # into runs inputs paramaters
    # param1 is a string, it must be mapped into runs input parameters
 </code></pre>
+<h3 id="source-code">Source code</h3>
+<p>Once you have defined your function, you can store your code in several ways. You will then refernce the source code according to a specific <code>Function</code> parameter as shown in the following table:</p>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>local file path</td>
+<td>code_src</td>
+<td><code>str</code></td>
+<td>"path/to/file.py"</td>
+</tr>
+<tr>
+<td>remote git repository</td>
+<td>code_src</td>
+<td><code>str</code></td>
+<td>"git+https://github.com/some-user/some-repo"</td>
+</tr>
+<tr>
+<td>zip s3 archive</td>
+<td>code_src</td>
+<td><code>str</code></td>
+<td>"zip+s3://some-bucket/some-key.zip"</td>
+</tr>
+<tr>
+<td>base64 encoded string</td>
+<td>base64</td>
+<td><code>str</code></td>
+<td>"encodedstring"</td>
+</tr>
+<tr>
+<td>string</td>
+<td>code</td>
+<td><code>str</code></td>
+<td>"def func():\n   return \"hello world\""</td>
+</tr>
+</tbody>
+</table>
 <h3 id="parameters-composition">Parameters composition</h3>
 <h4 id="inputs">Inputs</h4>
 <p>To properly pass the parameters you need to your function, you must map them in the <code>function.run()</code> method.
@@ -2172,50 +2238,6 @@ sdk_function.run(inputs={&quot;di&quot;: sdk_dataitem.key},
                  outputs={&quot;result&quot;: &quot;named_result&quot;,
                           &quot;other_result&quot;: &quot;named_other_result&quot;})
 </code></pre>
-<h3 id="source-code">Source code</h3>
-<p>Once you have defined your function, you can store your code in several ways. You will then refernce the source code according to a specific <code>Function</code> parameter as shown in the following table:</p>
-<table>
-<thead>
-<tr>
-<th>Format</th>
-<th>Parameter</th>
-<th>Type</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>local file path</td>
-<td>code_src</td>
-<td><code>str</code></td>
-<td>"path/to/file.py"</td>
-</tr>
-<tr>
-<td>remote git repository</td>
-<td>code_src</td>
-<td><code>str</code></td>
-<td>"git+https://github.com/some-user/some-repo"</td>
-</tr>
-<tr>
-<td>zip s3 archive</td>
-<td>code_src</td>
-<td><code>str</code></td>
-<td>"zip+s3://some-bucket/some-key.zip"</td>
-</tr>
-<tr>
-<td>base64 encoded string</td>
-<td>base64</td>
-<td><code>str</code></td>
-<td>"encodedstring"</td>
-</tr>
-<tr>
-<td>string</td>
-<td>code</td>
-<td><code>str</code></td>
-<td>"def func():\n   return \"hello world\""</td>
-</tr>
-</tbody>
-</table>
 <h3 id="function">Function</h3>
 <p>The python runtime introduces a function of kind <code>python</code>. The syntax for creating a <code>Function</code> is the same as the <a href="../../entities/functions/crud/">new_function</a> method.</p>
 <h4 id="function-parameters">Function parameters</h4>
