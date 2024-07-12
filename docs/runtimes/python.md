@@ -80,6 +80,18 @@ def func5(di: Dataitem, param1: str):
    # param1 is a string, it must be mapped into runs input parameters
 ```
 
+### Source code
+
+Once you have defined your function, you can store your code in several ways. You will then refernce the source code according to a specific `Function` parameter as shown in the following table:
+
+| Format | Parameter | Type | Example |
+| --- | --- | --- | --- |
+| local file path | code_src | `str` | "path/to/file.py" |
+| remote git repository | code_src | `str` | "git+https://github.com/some-user/some-repo" |
+| zip s3 archive | code_src | `str` | "zip+s3://some-bucket/some-key.zip" |
+| base64 encoded string | base64 | `str` | "encodedstring" |
+| string | code | `str` | "def func():\n   return \"hello world\"" |
+
 ### Parameters composition
 
 #### Inputs
@@ -138,18 +150,6 @@ sdk_function.run(inputs={"di": sdk_dataitem.key},
                  outputs={"result": "named_result",
                           "other_result": "named_other_result"})
 ```
-
-### Source code
-
-Once you have defined your function, you can store your code in several ways. You will then refernce the source code according to a specific `Function` parameter as shown in the following table:
-
-| Format | Parameter | Type | Example |
-| --- | --- | --- | --- |
-| local file path | code_src | `str` | "path/to/file.py" |
-| remote git repository | code_src | `str` | "git+https://github.com/some-user/some-repo" |
-| zip s3 archive | code_src | `str` | "zip+s3://some-bucket/some-key.zip" |
-| base64 encoded string | base64 | `str` | "encodedstring" |
-| string | code | `str` | "def func():\n   return \"hello world\"" |
 
 ### Function
 
