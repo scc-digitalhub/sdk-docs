@@ -37,54 +37,57 @@ nav:
   - Index: index.md
   - Quickstart: quickstart/quickstart.md
   - Installation: install/install.md
-  - Entities:
-      - Projects:
-          - Entity and methods: entities/projects/entity.md
-          - CRUD: entities/projects/crud.md
-          - Spec: entities/projects/spec.md
-          - Status: entities/projects/status.md
-      - Functions:
-          - Entity and methods: entities/functions/entity.md
-          - CRUD: entities/functions/crud.md
-          - Spec: entities/functions/spec.md
-          - Status: entities/functions/status.md
-      - Workflows:
-          - Entity and methods: entities/workflows/entity.md
-          - CRUD: entities/workflows/crud.md
-          - Spec: entities/workflows/spec.md
-          - Status: entities/workflows/status.md
-      - Tasks:
-          - Entity and methods: entities/tasks/entity.md
-          - CRUD: entities/tasks/crud.md
-          - Spec: entities/tasks/spec.md
-          - Status: entities/tasks/status.md
-      - Runs:
-          - Entity and methods: entities/runs/entity.md
-          - CRUD: entities/runs/crud.md
-          - Spec: entities/runs/spec.md
-          - Status: entities/runs/status.md
-      - Artifacts:
-          - Entity and methods: entities/artifacts/entity.md
-          - CRUD: entities/artifacts/crud.md
-          - Spec: entities/artifacts/spec.md
-          - Status: entities/artifacts/status.md
-      - Secrets:
-          - Entity and methods: entities/secrets/entity.md
-          - CRUD: entities/secrets/crud.md
-          - Spec: entities/secrets/spec.md
-          - Status: entities/secrets/status.md
-      - Dataitems:
-          - Entity and methods: entities/dataitems/entity.md
-          - CRUD: entities/dataitems/crud.md
-          - Spec: entities/dataitems/spec.md
-          - Status: entities/dataitems/status.md
-      - Models:
-          - Entity and methods: entities/models/entity.md
-          - CRUD: entities/models/crud.md
-          - Spec: entities/models/spec.md
-          - Status: entities/models/status.md
   - Runtimes:
+      - Runtimes: runtimes/runtimes.md
       - Python: runtimes/python.md
       - DBT: runtimes/dbt.md
       - Container: runtimes/container.md
       - Kubernetes resources: runtimes/kubernetes-resources.md
+  - API:
+      - API: api/api.md
+      - Entities:
+          - Projects:
+              - Entity and methods: api/entities/projects/entity.md
+              - CRUD: api/entities/projects/crud.md
+              - Spec: api/entities/projects/spec.md
+              - Status: api/entities/projects/status.md
+          - Functions:
+              - Entity and methods: api/entities/functions/entity.md
+              - CRUD: api/entities/functions/crud.md
+              - Spec: api/entities/functions/spec.md
+              - Status: api/entities/functions/status.md
+          - Workflows:
+              - Entity and methods: api/entities/workflows/entity.md
+              - CRUD: api/entities/workflows/crud.md
+              - Spec: api/entities/workflows/spec.md
+              - Status: api/entities/workflows/status.md
+          - Tasks:
+              - Entity and methods: api/entities/tasks/entity.md
+              - CRUD: api/entities/tasks/crud.md
+              - Spec: api/entities/tasks/spec.md
+              - Status: api/entities/tasks/status.md
+          - Runs:
+              - Entity and methods: api/entities/runs/entity.md
+              - CRUD: api/entities/runs/crud.md
+              - Spec: api/entities/runs/spec.md
+              - Status: api/entities/runs/status.md
+          - Artifacts:
+              - Entity and methods: api/entities/artifacts/entity.md
+              - CRUD: api/entities/artifacts/crud.md
+              - Spec: api/entities/artifacts/spec.md
+              - Status: api/entities/artifacts/status.md
+          - Secrets:
+              - Entity and methods: api/entities/secrets/entity.md
+              - CRUD: api/entities/secrets/crud.md
+              - Spec: api/entities/secrets/spec.md
+              - Status: api/entities/secrets/status.md
+          - Dataitems:
+              - Entity and methods: api/entities/dataitems/entity.md
+              - CRUD: api/entities/dataitems/crud.md
+              - Spec: api/entities/dataitems/spec.md
+              - Status: api/entities/dataitems/status.md
+          - Models:
+              - Entity and methods: api/entities/models/entity.md
+              - CRUD: api/entities/models/crud.md
+              - Spec: api/entities/models/spec.md
+              - Status: api/entities/models/status.md

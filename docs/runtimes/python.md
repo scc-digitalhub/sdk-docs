@@ -153,7 +153,7 @@ sdk_function.run(inputs={"di": sdk_dataitem.key},
 
 ### Function
 
-The python runtime introduces a function of kind `python`. The syntax for creating a `Function` is the same as the [new_function](../entities/functions/crud.md) method.
+The python runtime introduces a function of kind `python`.
 
 #### Function parameters
 

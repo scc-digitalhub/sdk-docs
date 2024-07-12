@@ -23,8 +23,6 @@ With the Container runtime you can launch pods and services on Kubernetes. It is
 
 The Container runtime introduces a function of kind `container` that allows you to deploy deployments, jobs and services on Kubernetes.
 
-he syntax for creating a `Function` is the same as the [new_function](../entities/functions/crud.md) method.
-
 #### Function parameters
 
 | Name | Type | Description | Default |
