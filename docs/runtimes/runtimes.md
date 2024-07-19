@@ -13,3 +13,4 @@ Runtimes define the key point of extension of the platform: new runtimes may be 
 - [Python](python.md)
 - [Container](container.md)
 - [DBT](dbt.md)
+- [KFP](kfp.md)

@@ -42,6 +42,7 @@ nav:
       - Python: runtimes/python.md
       - DBT: runtimes/dbt.md
       - Container: runtimes/container.md
+      - KFP: runtimes/kfp.md
       - Kubernetes resources: runtimes/kubernetes-resources.md
   - API:
       - API: api/api.md
