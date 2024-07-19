@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.28">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.6543a935.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.76a95c52.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -1813,8 +1813,7 @@
 
               <details class="quote">
                 <summary>Source code in <code>digitalhub_core/entities/tasks/entity.py</code></summary>
-                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 24</span>
-<span class="normal"> 25</span>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 25</span>
 <span class="normal"> 26</span>
 <span class="normal"> 27</span>
 <span class="normal"> 28</span>
@@ -2079,9 +2078,7 @@
 <span class="normal">287</span>
 <span class="normal">288</span>
 <span class="normal">289</span>
-<span class="normal">290</span>
-<span class="normal">291</span>
-<span class="normal">292</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Task</span><span class="p">(</span><span class="n">Entity</span><span class="p">):</span>
+<span class="normal">290</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Task</span><span class="p">(</span><span class="n">Entity</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A class representing a task.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -2108,7 +2105,7 @@
 <span class="sd">        uuid : str</span>
 <span class="sd">            UUID.</span>
 <span class="sd">        kind : str</span>
-<span class="sd">            Kind of the object.</span>
+<span class="sd">            Kind the object.</span>
 <span class="sd">        metadata : Metadata</span>
 <span class="sd">            Metadata of the object.</span>
 <span class="sd">        spec : TaskSpec</span>
@@ -2152,14 +2149,12 @@
         <span class="n">obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">update</span><span class="p">:</span>
-            <span class="n">api</span> <span class="o">=</span> <span class="n">api_ctx_create</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ENTITY_TYPE</span><span class="p">)</span>
-            <span class="n">new_obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_context</span><span class="p">()</span><span class="o">.</span><span class="n">create_object</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span>
+            <span class="n">new_obj</span> <span class="o">=</span> <span class="n">create_entity_api_ctx</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ENTITY_TYPE</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_update_attributes</span><span class="p">(</span><span class="n">new_obj</span><span class="p">)</span>
             <span class="k">return</span> <span class="bp">self</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">updated</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;metadata&quot;</span><span class="p">][</span><span class="s2">&quot;updated&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_timestamp</span><span class="p">()</span>
-        <span class="n">api</span> <span class="o">=</span> <span class="n">api_ctx_update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ENTITY_TYPE</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
-        <span class="n">new_obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_context</span><span class="p">()</span><span class="o">.</span><span class="n">update_object</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span>
+        <span class="n">new_obj</span> <span class="o">=</span> <span class="n">update_entity_api_ctx</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ENTITY_TYPE</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_update_attributes</span><span class="p">(</span><span class="n">new_obj</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span>
 
@@ -2172,9 +2167,8 @@
 <span class="sd">        Task</span>
 <span class="sd">            Entity refreshed.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">api</span> <span class="o">=</span> <span class="n">api_ctx_read</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ENTITY_TYPE</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
-        <span class="n">obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_context</span><span class="p">()</span><span class="o">.</span><span class="n">read_object</span><span class="p">(</span><span class="n">api</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_update_attributes</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+        <span class="n">new_obj</span> <span class="o">=</span> <span class="n">read_entity_api_ctx</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_update_attributes</span><span class="p">(</span><span class="n">new_obj</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span>
 
     <span class="k">def</span> <span class="nf">export</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -2228,7 +2222,7 @@
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        run_kind : str</span>
-<span class="sd">            Kind of the run.</span>
+<span class="sd">            Kind the object.</span>
 <span class="sd">        local_execution : bool</span>
 <span class="sd">            Flag to indicate if the run will be executed locally.</span>
 <span class="sd">        **kwargs : dict</span>
@@ -2281,36 +2275,36 @@
             <span class="k">return</span> <span class="n">run_from_parameters</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">new_run</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">get_run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Run</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">get_run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Run</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get run.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        entity_id : str</span>
-<span class="sd">            Entity ID.</span>
+<span class="sd">        entity_key : str</span>
+<span class="sd">            Entity key.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        Run</span>
 <span class="sd">            Run object.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">get_run</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="p">,</span> <span class="n">entity_id</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">get_run</span><span class="p">(</span><span class="n">entity_key</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">delete_run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">delete_run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Delete run.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        entity_id : str</span>
-<span class="sd">            Entity ID.</span>
+<span class="sd">        entity_key : str</span>
+<span class="sd">            Entity key.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        None</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">delete_run</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="p">,</span> <span class="n">entity_id</span><span class="p">)</span>
+        <span class="n">delete_run</span><span class="p">(</span><span class="n">entity_key</span><span class="p">)</span>
 
     <span class="c1">#############################</span>
     <span class="c1">#  Static interface methods</span>
@@ -2425,7 +2419,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Kind of the object.</p>
+                <p>Kind the object.</p>
               </div>
             </td>
             <td>
@@ -2493,8 +2487,7 @@
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_core/entities/tasks/entity.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">31</span>
-<span class="normal">32</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">32</span>
 <span class="normal">33</span>
 <span class="normal">34</span>
 <span class="normal">35</span>
@@ -2534,7 +2527,8 @@
 <span class="normal">69</span>
 <span class="normal">70</span>
 <span class="normal">71</span>
-<span class="normal">72</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<span class="normal">72</span>
+<span class="normal">73</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="n">project</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">uuid</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -2554,7 +2548,7 @@
 <span class="sd">    uuid : str</span>
 <span class="sd">        UUID.</span>
 <span class="sd">    kind : str</span>
-<span class="sd">        Kind of the object.</span>
+<span class="sd">        Kind the object.</span>
 <span class="sd">    metadata : Metadata</span>
 <span class="sd">        Metadata of the object.</span>
 <span class="sd">    spec : TaskSpec</span>
@@ -2586,7 +2580,7 @@
 
 
 <h3 id="digitalhub_core.entities.tasks.entity.Task.delete_run" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">delete_run</span><span class="p">(</span><span class="n">entity_id</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">delete_run</span><span class="p">(</span><span class="n">entity_key</span><span class="p">)</span></code>
 
 </h3>
 
@@ -2608,13 +2602,13 @@
       </thead>
       <tbody>
           <tr class="doc-section-item">
-            <td><code>entity_id</code></td>
+            <td><code>entity_key</code></td>
             <td>
                   <code>str</code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Entity ID.</p>
+                <p>Entity key.</p>
               </div>
             </td>
             <td>
@@ -2649,7 +2643,9 @@
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_core/entities/tasks/entity.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">240</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
 <span class="normal">241</span>
 <span class="normal">242</span>
 <span class="normal">243</span>
@@ -2660,22 +2656,20 @@
 <span class="normal">248</span>
 <span class="normal">249</span>
 <span class="normal">250</span>
-<span class="normal">251</span>
-<span class="normal">252</span>
-<span class="normal">253</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">delete_run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="normal">251</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">delete_run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Delete run.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    entity_id : str</span>
-<span class="sd">        Entity ID.</span>
+<span class="sd">    entity_key : str</span>
+<span class="sd">        Entity key.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    None</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">delete_run</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="p">,</span> <span class="n">entity_id</span><span class="p">)</span>
+    <span class="n">delete_run</span><span class="p">(</span><span class="n">entity_key</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -2749,7 +2743,9 @@
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_core/entities/tasks/entity.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">120</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
 <span class="normal">121</span>
 <span class="normal">122</span>
 <span class="normal">123</span>
@@ -2765,9 +2761,7 @@
 <span class="normal">133</span>
 <span class="normal">134</span>
 <span class="normal">135</span>
-<span class="normal">136</span>
-<span class="normal">137</span>
-<span class="normal">138</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">export</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="normal">136</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">export</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Export object as a YAML file.</span>
 
@@ -2796,7 +2790,7 @@
 
 
 <h3 id="digitalhub_core.entities.tasks.entity.Task.get_run" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">get_run</span><span class="p">(</span><span class="n">entity_id</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">get_run</span><span class="p">(</span><span class="n">entity_key</span><span class="p">)</span></code>
 
 </h3>
 
@@ -2818,13 +2812,13 @@
       </thead>
       <tbody>
           <tr class="doc-section-item">
-            <td><code>entity_id</code></td>
+            <td><code>entity_key</code></td>
             <td>
                   <code>str</code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Entity ID.</p>
+                <p>Entity key.</p>
               </div>
             </td>
             <td>
@@ -2859,7 +2853,9 @@
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_core/entities/tasks/entity.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">224</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
 <span class="normal">225</span>
 <span class="normal">226</span>
 <span class="normal">227</span>
@@ -2871,23 +2867,21 @@
 <span class="normal">233</span>
 <span class="normal">234</span>
 <span class="normal">235</span>
-<span class="normal">236</span>
-<span class="normal">237</span>
-<span class="normal">238</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Run</span><span class="p">:</span>
+<span class="normal">236</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Run</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get run.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    entity_id : str</span>
-<span class="sd">        Entity ID.</span>
+<span class="sd">    entity_key : str</span>
+<span class="sd">        Entity key.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    Run</span>
 <span class="sd">        Run object.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">get_run</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="p">,</span> <span class="n">entity_id</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">get_run</span><span class="p">(</span><span class="n">entity_key</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -2961,7 +2955,9 @@
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_core/entities/tasks/entity.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">206</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
 <span class="normal">207</span>
 <span class="normal">208</span>
 <span class="normal">209</span>
@@ -2975,9 +2971,7 @@
 <span class="normal">217</span>
 <span class="normal">218</span>
 <span class="normal">219</span>
-<span class="normal">220</span>
-<span class="normal">221</span>
-<span class="normal">222</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">new_run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Run</span><span class="p">:</span>
+<span class="normal">220</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">new_run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Run</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Create a new run.</span>
 
@@ -3038,7 +3032,8 @@
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_core/entities/tasks/entity.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">106</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">105</span>
+<span class="normal">106</span>
 <span class="normal">107</span>
 <span class="normal">108</span>
 <span class="normal">109</span>
@@ -3048,9 +3043,7 @@
 <span class="normal">113</span>
 <span class="normal">114</span>
 <span class="normal">115</span>
-<span class="normal">116</span>
-<span class="normal">117</span>
-<span class="normal">118</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Task</span><span class="p">:</span>
+<span class="normal">116</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Task</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Refresh object from backend.</span>
 
@@ -3059,9 +3052,8 @@
 <span class="sd">    Task</span>
 <span class="sd">        Entity refreshed.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">api</span> <span class="o">=</span> <span class="n">api_ctx_read</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ENTITY_TYPE</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
-    <span class="n">obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_context</span><span class="p">()</span><span class="o">.</span><span class="n">read_object</span><span class="p">(</span><span class="n">api</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">_update_attributes</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="n">new_obj</span> <span class="o">=</span> <span class="n">read_entity_api_ctx</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_update_attributes</span><span class="p">(</span><span class="n">new_obj</span><span class="p">)</span>
     <span class="k">return</span> <span class="bp">self</span>
 </code></pre></div></td></tr></table></div>
             </details>
@@ -3101,7 +3093,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Kind of the run.</p>
+                <p>Kind the object.</p>
               </div>
             </td>
             <td>
@@ -3164,7 +3156,9 @@
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_core/entities/tasks/entity.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">159</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
 <span class="normal">160</span>
 <span class="normal">161</span>
 <span class="normal">162</span>
@@ -3191,9 +3185,7 @@
 <span class="normal">183</span>
 <span class="normal">184</span>
 <span class="normal">185</span>
-<span class="normal">186</span>
-<span class="normal">187</span>
-<span class="normal">188</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">run</span><span class="p">(</span>
+<span class="normal">186</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">run</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="n">run_kind</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">local_execution</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -3205,7 +3197,7 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    run_kind : str</span>
-<span class="sd">        Kind of the run.</span>
+<span class="sd">        Kind the object.</span>
 <span class="sd">    local_execution : bool</span>
 <span class="sd">        Flag to indicate if the run will be executed locally.</span>
 <span class="sd">    **kwargs : dict</span>
@@ -3296,8 +3288,7 @@
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_core/entities/tasks/entity.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 78</span>
-<span class="normal"> 79</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 79</span>
 <span class="normal"> 80</span>
 <span class="normal"> 81</span>
 <span class="normal"> 82</span>
@@ -3321,8 +3312,7 @@
 <span class="normal">100</span>
 <span class="normal">101</span>
 <span class="normal">102</span>
-<span class="normal">103</span>
-<span class="normal">104</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">update</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Task</span><span class="p">:</span>
+<span class="normal">103</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">update</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Task</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Save entity into backend.</span>
 
@@ -3339,14 +3329,12 @@
     <span class="n">obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="n">update</span><span class="p">:</span>
-        <span class="n">api</span> <span class="o">=</span> <span class="n">api_ctx_create</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ENTITY_TYPE</span><span class="p">)</span>
-        <span class="n">new_obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_context</span><span class="p">()</span><span class="o">.</span><span class="n">create_object</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span>
+        <span class="n">new_obj</span> <span class="o">=</span> <span class="n">create_entity_api_ctx</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ENTITY_TYPE</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_update_attributes</span><span class="p">(</span><span class="n">new_obj</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span>
 
     <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">updated</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;metadata&quot;</span><span class="p">][</span><span class="s2">&quot;updated&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_timestamp</span><span class="p">()</span>
-    <span class="n">api</span> <span class="o">=</span> <span class="n">api_ctx_update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ENTITY_TYPE</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
-    <span class="n">new_obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_context</span><span class="p">()</span><span class="o">.</span><span class="n">update_object</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span>
+    <span class="n">new_obj</span> <span class="o">=</span> <span class="n">update_entity_api_ctx</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ENTITY_TYPE</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_update_attributes</span><span class="p">(</span><span class="n">new_obj</span><span class="p">)</span>
     <span class="k">return</span> <span class="bp">self</span>
 </code></pre></div></td></tr></table></div>
@@ -3431,7 +3419,9 @@
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_core/entities/tasks/entity.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">346</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">344</span>
+<span class="normal">345</span>
+<span class="normal">346</span>
 <span class="normal">347</span>
 <span class="normal">348</span>
 <span class="normal">349</span>
@@ -3443,9 +3433,7 @@
 <span class="normal">355</span>
 <span class="normal">356</span>
 <span class="normal">357</span>
-<span class="normal">358</span>
-<span class="normal">359</span>
-<span class="normal">360</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">task_from_dict</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Task</span><span class="p">:</span>
+<span class="normal">358</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">task_from_dict</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Task</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Create Task object from dictionary.</span>
 
@@ -3470,7 +3458,7 @@
 
 
 <h2 id="digitalhub_core.entities.tasks.entity.task_from_parameters" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">task_from_parameters</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">task_from_parameters</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">git_source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
 
 </h2>
 
@@ -3512,7 +3500,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Kind of the object.</p>
+                <p>Kind the object.</p>
               </div>
             </td>
             <td>
@@ -3526,7 +3514,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>ID of the object in form of UUID.</p>
+                <p>ID of the object (UUID4).</p>
               </div>
             </td>
             <td>
@@ -3534,7 +3522,7 @@
             </td>
           </tr>
           <tr class="doc-section-item">
-            <td><code>source</code></td>
+            <td><code>git_source</code></td>
             <td>
                   <code>str</code>
             </td>
@@ -3603,7 +3591,9 @@
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_core/entities/tasks/entity.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">295</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
 <span class="normal">296</span>
 <span class="normal">297</span>
 <span class="normal">298</span>
@@ -3649,13 +3639,11 @@
 <span class="normal">338</span>
 <span class="normal">339</span>
 <span class="normal">340</span>
-<span class="normal">341</span>
-<span class="normal">342</span>
-<span class="normal">343</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">task_from_parameters</span><span class="p">(</span>
+<span class="normal">341</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">task_from_parameters</span><span class="p">(</span>
     <span class="n">project</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">kind</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">uuid</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">source</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">git_source</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">labels</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Task</span><span class="p">:</span>
@@ -3667,10 +3655,10 @@
 <span class="sd">    project : str</span>
 <span class="sd">        Project name.</span>
 <span class="sd">    kind : str</span>
-<span class="sd">        Kind of the object.</span>
+<span class="sd">        Kind the object.</span>
 <span class="sd">    uuid : str</span>
-<span class="sd">        ID of the object in form of UUID.</span>
-<span class="sd">    source : str</span>
+<span class="sd">        ID of the object (UUID4).</span>
+<span class="sd">    git_source : str</span>
 <span class="sd">        Remote git source for object.</span>
 <span class="sd">    labels : list[str]</span>
 <span class="sd">        List of labels.</span>
@@ -3687,7 +3675,7 @@
         <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">,</span>
         <span class="n">project</span><span class="o">=</span><span class="n">project</span><span class="p">,</span>
         <span class="n">name</span><span class="o">=</span><span class="n">uuid</span><span class="p">,</span>
-        <span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span>
+        <span class="n">source</span><span class="o">=</span><span class="n">git_source</span><span class="p">,</span>
         <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">spec</span> <span class="o">=</span> <span class="n">build_spec</span><span class="p">(</span><span class="n">kind</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>

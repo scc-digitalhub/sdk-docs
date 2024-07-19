@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.28">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.6543a935.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.76a95c52.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -2362,7 +2362,8 @@ all its objects are unreacheable.</p>
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_core/entities/projects/crud.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">264</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">263</span>
+<span class="normal">264</span>
 <span class="normal">265</span>
 <span class="normal">266</span>
 <span class="normal">267</span>
@@ -2394,13 +2395,7 @@ all its objects are unreacheable.</p>
 <span class="normal">293</span>
 <span class="normal">294</span>
 <span class="normal">295</span>
-<span class="normal">296</span>
-<span class="normal">297</span>
-<span class="normal">298</span>
-<span class="normal">299</span>
-<span class="normal">300</span>
-<span class="normal">301</span>
-<span class="normal">302</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">delete_project</span><span class="p">(</span>
+<span class="normal">296</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">delete_project</span><span class="p">(</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">cascade</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="n">clean_context</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
@@ -2430,15 +2425,10 @@ all its objects are unreacheable.</p>
 <span class="sd">        Response from backend.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">client</span> <span class="o">=</span> <span class="n">get_client</span><span class="p">(</span><span class="n">local</span><span class="p">)</span>
-    <span class="n">api</span> <span class="o">=</span> <span class="n">api_base_delete</span><span class="p">(</span><span class="s2">&quot;projects&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-    <span class="n">params</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;params&quot;</span><span class="p">,</span> <span class="p">{})</span>
-    <span class="k">if</span> <span class="n">params</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">params</span><span class="p">:</span>
-        <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;params&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;params&quot;</span><span class="p">][</span><span class="s2">&quot;cascade&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">cascade</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">delete_object</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">delete_entity_api_base</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">ENTITY_TYPE</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">cascade</span><span class="o">=</span><span class="n">cascade</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">clean_context</span><span class="p">:</span>
         <span class="n">delete_context</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">response</span>
+    <span class="k">return</span> <span class="n">obj</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -2839,8 +2829,7 @@ all its objects are unreacheable.</p>
 <span class="normal">227</span>
 <span class="normal">228</span>
 <span class="normal">229</span>
-<span class="normal">230</span>
-<span class="normal">231</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_project</span><span class="p">(</span>
+<span class="normal">230</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_project</span><span class="p">(</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">local</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -2869,9 +2858,8 @@ all its objects are unreacheable.</p>
 <span class="sd">        Object instance.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">build_client</span><span class="p">(</span><span class="n">local</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
-    <span class="n">api</span> <span class="o">=</span> <span class="n">api_base_read</span><span class="p">(</span><span class="s2">&quot;projects&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
     <span class="n">client</span> <span class="o">=</span> <span class="n">get_client</span><span class="p">(</span><span class="n">local</span><span class="p">)</span>
-    <span class="n">obj</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">read_object</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">read_entity_api_base</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">ENTITY_TYPE</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;local&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">local</span>
     <span class="n">project</span> <span class="o">=</span> <span class="n">create_project_from_dict</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">_setup_project</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">setup_kwargs</span><span class="p">)</span>
@@ -2976,7 +2964,8 @@ all its objects are unreacheable.</p>
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_core/entities/projects/crud.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">234</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">233</span>
+<span class="normal">234</span>
 <span class="normal">235</span>
 <span class="normal">236</span>
 <span class="normal">237</span>
@@ -3002,8 +2991,7 @@ all its objects are unreacheable.</p>
 <span class="normal">257</span>
 <span class="normal">258</span>
 <span class="normal">259</span>
-<span class="normal">260</span>
-<span class="normal">261</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">import_project</span><span class="p">(</span>
+<span class="normal">260</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">import_project</span><span class="p">(</span>
     <span class="n">file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">local</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -3237,7 +3225,7 @@ all its objects are unreacheable.</p>
 
 
 <h2 id="digitalhub_core.entities.projects.crud.new_project" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">new_project</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">local</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">setup_kwargs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">new_project</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">git_source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">local</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">setup_kwargs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
 
 </h2>
 
@@ -3265,7 +3253,7 @@ all its objects are unreacheable.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Name that identifies the object.</p>
+                <p>Object name.</p>
               </div>
             </td>
             <td>
@@ -3279,7 +3267,7 @@ all its objects are unreacheable.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Description of the object.</p>
+                <p>Description of the object (human readable).</p>
               </div>
             </td>
             <td>
@@ -3287,7 +3275,7 @@ all its objects are unreacheable.</p>
             </td>
           </tr>
           <tr class="doc-section-item">
-            <td><code>source</code></td>
+            <td><code>git_source</code></td>
             <td>
                   <code>str</code>
             </td>
@@ -3467,7 +3455,7 @@ all its objects are unreacheable.</p>
 <span class="normal">194</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">new_project</span><span class="p">(</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">source</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">git_source</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">labels</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">local</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -3481,10 +3469,10 @@ all its objects are unreacheable.</p>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    name : str</span>
-<span class="sd">        Name that identifies the object.</span>
+<span class="sd">        Object name.</span>
 <span class="sd">    description : str</span>
-<span class="sd">        Description of the object.</span>
-<span class="sd">    source : str</span>
+<span class="sd">        Description of the object (human readable).</span>
+<span class="sd">    git_source : str</span>
 <span class="sd">        Remote git source for object.</span>
 <span class="sd">    labels : list[str]</span>
 <span class="sd">        List of labels.</span>
@@ -3509,7 +3497,7 @@ all its objects are unreacheable.</p>
         <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
         <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;project&quot;</span><span class="p">,</span>
         <span class="n">description</span><span class="o">=</span><span class="n">description</span><span class="p">,</span>
-        <span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span>
+        <span class="n">git_source</span><span class="o">=</span><span class="n">git_source</span><span class="p">,</span>
         <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span>
         <span class="n">local</span><span class="o">=</span><span class="n">local</span><span class="p">,</span>
         <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span>
@@ -3605,11 +3593,11 @@ all its objects are unreacheable.</p>
       <tbody>
           <tr class="doc-section-item">
             <td>
-                  <code>dict</code>
+                  <code><a class="autorefs autorefs-internal" title="digitalhub_core.entities.projects.entity.Project" href="../entity/#digitalhub_core.entities.projects.entity.Project">Project</a></code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Response from backend.</p>
+                <p>Object instance.</p>
               </div>
             </td>
           </tr>
@@ -3618,7 +3606,13 @@ all its objects are unreacheable.</p>
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_core/entities/projects/crud.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">305</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">299</span>
+<span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
 <span class="normal">306</span>
 <span class="normal">307</span>
 <span class="normal">308</span>
@@ -3632,13 +3626,7 @@ all its objects are unreacheable.</p>
 <span class="normal">316</span>
 <span class="normal">317</span>
 <span class="normal">318</span>
-<span class="normal">319</span>
-<span class="normal">320</span>
-<span class="normal">321</span>
-<span class="normal">322</span>
-<span class="normal">323</span>
-<span class="normal">324</span>
-<span class="normal">325</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">update_project</span><span class="p">(</span><span class="n">entity</span><span class="p">:</span> <span class="n">Project</span><span class="p">,</span> <span class="n">local</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="normal">319</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">update_project</span><span class="p">(</span><span class="n">entity</span><span class="p">:</span> <span class="n">Project</span><span class="p">,</span> <span class="n">local</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Project</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Update object in backend.</span>
 
@@ -3653,12 +3641,12 @@ all its objects are unreacheable.</p>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    dict</span>
-<span class="sd">        Response from backend.</span>
+<span class="sd">    Project</span>
+<span class="sd">        Object instance.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">api</span> <span class="o">=</span> <span class="n">api_base_update</span><span class="p">(</span><span class="s2">&quot;projects&quot;</span><span class="p">,</span> <span class="n">entity</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
     <span class="n">client</span> <span class="o">=</span> <span class="n">get_client</span><span class="p">(</span><span class="n">local</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">client</span><span class="o">.</span><span class="n">update_object</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="n">entity</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">update_entity_api_base</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">ENTITY_TYPE</span><span class="p">,</span> <span class="n">entity</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">entity</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">create_project_from_dict</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -4290,8 +4278,7 @@ all its objects are unreacheable.</p>
 <span class="normal">221</span>
 <span class="normal">222</span>
 <span class="normal">223</span>
-<span class="normal">224</span>
-<span class="normal">225</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_project</span><span class="p">(</span>
+<span class="normal">224</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_project</span><span class="p">(</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">local</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -4320,9 +4307,8 @@ all its objects are unreacheable.</p>
 <span class="sd">        Object instance.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">build_client</span><span class="p">(</span><span class="n">local</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
-    <span class="n">api</span> <span class="o">=</span> <span class="n">api_base_read</span><span class="p">(</span><span class="s2">&quot;projects&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
     <span class="n">client</span> <span class="o">=</span> <span class="n">get_client</span><span class="p">(</span><span class="n">local</span><span class="p">)</span>
-    <span class="n">obj</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">read_object</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">read_entity_api_base</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">ENTITY_TYPE</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;local&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">local</span>
     <span class="n">project</span> <span class="o">=</span> <span class="n">create_project_from_dict</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">_setup_project</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">setup_kwargs</span><span class="p">)</span>
@@ -4427,7 +4413,8 @@ all its objects are unreacheable.</p>
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_data/entities/projects/crud.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">228</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">227</span>
+<span class="normal">228</span>
 <span class="normal">229</span>
 <span class="normal">230</span>
 <span class="normal">231</span>
@@ -4453,8 +4440,7 @@ all its objects are unreacheable.</p>
 <span class="normal">251</span>
 <span class="normal">252</span>
 <span class="normal">253</span>
-<span class="normal">254</span>
-<span class="normal">255</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">import_project</span><span class="p">(</span>
+<span class="normal">254</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">import_project</span><span class="p">(</span>
     <span class="n">file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">local</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -4716,7 +4702,7 @@ all its objects are unreacheable.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Name that identifies the object.</p>
+                <p>Object name.</p>
               </div>
             </td>
             <td>
@@ -4730,7 +4716,7 @@ all its objects are unreacheable.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Description of the object.</p>
+                <p>Description of the object (human readable).</p>
               </div>
             </td>
             <td>
@@ -4932,9 +4918,9 @@ all its objects are unreacheable.</p>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    name : str</span>
-<span class="sd">        Name that identifies the object.</span>
+<span class="sd">        Object name.</span>
 <span class="sd">    description : str</span>
-<span class="sd">        Description of the object.</span>
+<span class="sd">        Description of the object (human readable).</span>
 <span class="sd">    git_source : str</span>
 <span class="sd">        Remote git source for object.</span>
 <span class="sd">    labels : list[str]</span>
@@ -5599,8 +5585,7 @@ all its objects are unreacheable.</p>
 <span class="normal">221</span>
 <span class="normal">222</span>
 <span class="normal">223</span>
-<span class="normal">224</span>
-<span class="normal">225</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_project</span><span class="p">(</span>
+<span class="normal">224</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_project</span><span class="p">(</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">local</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -5629,9 +5614,8 @@ all its objects are unreacheable.</p>
 <span class="sd">        Object instance.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">build_client</span><span class="p">(</span><span class="n">local</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
-    <span class="n">api</span> <span class="o">=</span> <span class="n">api_base_read</span><span class="p">(</span><span class="s2">&quot;projects&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
     <span class="n">client</span> <span class="o">=</span> <span class="n">get_client</span><span class="p">(</span><span class="n">local</span><span class="p">)</span>
-    <span class="n">obj</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">read_object</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">read_entity_api_base</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">ENTITY_TYPE</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;local&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">local</span>
     <span class="n">project</span> <span class="o">=</span> <span class="n">create_project_from_dict</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">_setup_project</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">setup_kwargs</span><span class="p">)</span>
@@ -5736,7 +5720,8 @@ all its objects are unreacheable.</p>
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_ml/entities/projects/crud.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">228</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">227</span>
+<span class="normal">228</span>
 <span class="normal">229</span>
 <span class="normal">230</span>
 <span class="normal">231</span>
@@ -5762,8 +5747,7 @@ all its objects are unreacheable.</p>
 <span class="normal">251</span>
 <span class="normal">252</span>
 <span class="normal">253</span>
-<span class="normal">254</span>
-<span class="normal">255</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">import_project</span><span class="p">(</span>
+<span class="normal">254</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">import_project</span><span class="p">(</span>
     <span class="n">file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">local</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -5997,7 +5981,7 @@ all its objects are unreacheable.</p>
 
 
 <h2 id="digitalhub_ml.entities.projects.crud.new_project" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">new_project</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">local</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">setup_kwargs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">new_project</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">git_source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">local</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">setup_kwargs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
 
 </h2>
 
@@ -6025,7 +6009,7 @@ all its objects are unreacheable.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Name that identifies the object.</p>
+                <p>Object name.</p>
               </div>
             </td>
             <td>
@@ -6039,7 +6023,7 @@ all its objects are unreacheable.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Description of the object.</p>
+                <p>Description of the object (human readable).</p>
               </div>
             </td>
             <td>
@@ -6047,7 +6031,7 @@ all its objects are unreacheable.</p>
             </td>
           </tr>
           <tr class="doc-section-item">
-            <td><code>source</code></td>
+            <td><code>git_source</code></td>
             <td>
                   <code>str</code>
             </td>
@@ -6227,7 +6211,7 @@ all its objects are unreacheable.</p>
 <span class="normal">188</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">new_project</span><span class="p">(</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">source</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">git_source</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">labels</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">local</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -6241,10 +6225,10 @@ all its objects are unreacheable.</p>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    name : str</span>
-<span class="sd">        Name that identifies the object.</span>
+<span class="sd">        Object name.</span>
 <span class="sd">    description : str</span>
-<span class="sd">        Description of the object.</span>
-<span class="sd">    source : str</span>
+<span class="sd">        Description of the object (human readable).</span>
+<span class="sd">    git_source : str</span>
 <span class="sd">        Remote git source for object.</span>
 <span class="sd">    labels : list[str]</span>
 <span class="sd">        List of labels.</span>
@@ -6269,7 +6253,7 @@ all its objects are unreacheable.</p>
         <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
         <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;project&quot;</span><span class="p">,</span>
         <span class="n">description</span><span class="o">=</span><span class="n">description</span><span class="p">,</span>
-        <span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span>
+        <span class="n">git_source</span><span class="o">=</span><span class="n">git_source</span><span class="p">,</span>
         <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span>
         <span class="n">local</span><span class="o">=</span><span class="n">local</span><span class="p">,</span>
         <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span>

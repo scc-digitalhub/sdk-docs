@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.28">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.6543a935.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.76a95c52.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -1105,9 +1105,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_core.entities.artifacts.crud.get_artifact_from_key" class="md-nav__link">
+  <a href="#digitalhub_core.entities.artifacts.crud.get_artifact_versions" class="md-nav__link">
     <span class="md-ellipsis">
-      get_artifact_from_key
+      get_artifact_versions
     </span>
   </a>
   
@@ -1126,6 +1126,15 @@
   <a href="#digitalhub_core.entities.artifacts.crud.list_artifacts" class="md-nav__link">
     <span class="md-ellipsis">
       list_artifacts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#digitalhub_core.entities.artifacts.crud.log_artifact" class="md-nav__link">
+    <span class="md-ellipsis">
+      log_artifact
     </span>
   </a>
   
@@ -1666,9 +1675,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_core.entities.artifacts.crud.get_artifact_from_key" class="md-nav__link">
+  <a href="#digitalhub_core.entities.artifacts.crud.get_artifact_versions" class="md-nav__link">
     <span class="md-ellipsis">
-      get_artifact_from_key
+      get_artifact_versions
     </span>
   </a>
   
@@ -1687,6 +1696,15 @@
   <a href="#digitalhub_core.entities.artifacts.crud.list_artifacts" class="md-nav__link">
     <span class="md-ellipsis">
       list_artifacts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#digitalhub_core.entities.artifacts.crud.log_artifact" class="md-nav__link">
+    <span class="md-ellipsis">
+      log_artifact
     </span>
   </a>
   
@@ -1813,21 +1831,21 @@
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_core/entities/artifacts/crud.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">27</span>
 <span class="normal">28</span>
 <span class="normal">29</span>
 <span class="normal">30</span>
 <span class="normal">31</span>
 <span class="normal">32</span>
-<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">create_artifact</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Artifact</span><span class="p">:</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">create_artifact</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Artifact</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Create a new artifact with the provided parameters.</span>
 
@@ -1915,22 +1933,22 @@
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_core/entities/artifacts/crud.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">44</span>
 <span class="normal">45</span>
 <span class="normal">46</span>
 <span class="normal">47</span>
 <span class="normal">48</span>
 <span class="normal">49</span>
 <span class="normal">50</span>
-<span class="normal">51</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">create_artifact_from_dict</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Artifact</span><span class="p">:</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">create_artifact_from_dict</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Artifact</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Create a new Artifact instance from a dictionary.</span>
 
@@ -1956,7 +1974,7 @@
 
 
 <h2 id="digitalhub_core.entities.artifacts.crud.delete_artifact" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">delete_artifact</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">entity_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">entity_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">delete_all_versions</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">delete_artifact</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="n">project</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">entity_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">delete_all_versions</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
 
 </h2>
 
@@ -1978,13 +1996,13 @@
       </thead>
       <tbody>
           <tr class="doc-section-item">
-            <td><code>project</code></td>
+            <td><code>identifier</code></td>
             <td>
                   <code>str</code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Project name.</p>
+                <p>Entity key or name.</p>
               </div>
             </td>
             <td>
@@ -1992,13 +2010,13 @@
             </td>
           </tr>
           <tr class="doc-section-item">
-            <td><code>entity_name</code></td>
+            <td><code>project</code></td>
             <td>
                   <code>str</code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Entity name.</p>
+                <p>Project name.</p>
               </div>
             </td>
             <td>
@@ -2026,7 +2044,8 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Delete all versions of the named entity. Entity name is required.</p>
+                <p>Delete all versions of the named entity.
+Use entity name instead of entity key as identifier.</p>
               </div>
             </td>
             <td>
@@ -2075,28 +2094,7 @@
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_core/entities/artifacts/crud.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">189</span>
-<span class="normal">190</span>
-<span class="normal">191</span>
-<span class="normal">192</span>
-<span class="normal">193</span>
-<span class="normal">194</span>
-<span class="normal">195</span>
-<span class="normal">196</span>
-<span class="normal">197</span>
-<span class="normal">198</span>
-<span class="normal">199</span>
-<span class="normal">200</span>
-<span class="normal">201</span>
-<span class="normal">202</span>
-<span class="normal">203</span>
-<span class="normal">204</span>
-<span class="normal">205</span>
-<span class="normal">206</span>
-<span class="normal">207</span>
-<span class="normal">208</span>
-<span class="normal">209</span>
-<span class="normal">210</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">210</span>
 <span class="normal">211</span>
 <span class="normal">212</span>
 <span class="normal">213</span>
@@ -2123,9 +2121,18 @@
 <span class="normal">234</span>
 <span class="normal">235</span>
 <span class="normal">236</span>
-<span class="normal">237</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">delete_artifact</span><span class="p">(</span>
-    <span class="n">project</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="n">entity_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">delete_artifact</span><span class="p">(</span>
+    <span class="n">identifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">project</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">entity_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">delete_all_versions</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
@@ -2135,14 +2142,15 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
+<span class="sd">    identifier : str</span>
+<span class="sd">        Entity key or name.</span>
 <span class="sd">    project : str</span>
 <span class="sd">        Project name.</span>
-<span class="sd">    entity_name : str</span>
-<span class="sd">        Entity name.</span>
 <span class="sd">    entity_id : str</span>
 <span class="sd">        Entity ID.</span>
 <span class="sd">    delete_all_versions : bool</span>
-<span class="sd">        Delete all versions of the named entity. Entity name is required.</span>
+<span class="sd">        Delete all versions of the named entity.</span>
+<span class="sd">        Use entity name instead of entity key as identifier.</span>
 <span class="sd">    **kwargs : dict</span>
 <span class="sd">        Parameters to pass to the API call.</span>
 
@@ -2151,27 +2159,14 @@
 <span class="sd">    dict</span>
 <span class="sd">        Response from backend.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">entity_id</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">entity_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Either entity_name or entity_id must be provided.&quot;</span><span class="p">)</span>
-
-    <span class="n">context</span> <span class="o">=</span> <span class="n">get_context</span><span class="p">(</span><span class="n">project</span><span class="p">)</span>
-
-    <span class="n">params</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;params&quot;</span><span class="p">,</span> <span class="p">{})</span>
-    <span class="k">if</span> <span class="n">params</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">params</span><span class="p">:</span>
-        <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;params&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
-
-    <span class="k">if</span> <span class="n">entity_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">api</span> <span class="o">=</span> <span class="n">api_ctx_delete</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">ENTITY_TYPE</span><span class="p">,</span> <span class="n">entity_id</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;params&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">entity_name</span>
-        <span class="n">api</span> <span class="o">=</span> <span class="n">api_ctx_list</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">ENTITY_TYPE</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">delete_all_versions</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">context</span><span class="o">.</span><span class="n">delete_object</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="n">obj</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">list_objects</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">entity_id</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
-
-    <span class="n">api</span> <span class="o">=</span> <span class="n">api_ctx_delete</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">ENTITY_TYPE</span><span class="p">,</span> <span class="n">entity_id</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">context</span><span class="o">.</span><span class="n">delete_object</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">delete_entity_api_ctx</span><span class="p">(</span>
+        <span class="n">identifier</span><span class="o">=</span><span class="n">identifier</span><span class="p">,</span>
+        <span class="n">entity_type</span><span class="o">=</span><span class="n">ENTITY_TYPE</span><span class="p">,</span>
+        <span class="n">project</span><span class="o">=</span><span class="n">project</span><span class="p">,</span>
+        <span class="n">entity_id</span><span class="o">=</span><span class="n">entity_id</span><span class="p">,</span>
+        <span class="n">delete_all_versions</span><span class="o">=</span><span class="n">delete_all_versions</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -2182,7 +2177,7 @@
 
 
 <h2 id="digitalhub_core.entities.artifacts.crud.get_artifact" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">get_artifact</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">entity_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">entity_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">get_artifact</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="n">project</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">entity_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
 
 </h2>
 
@@ -2204,13 +2199,13 @@
       </thead>
       <tbody>
           <tr class="doc-section-item">
-            <td><code>project</code></td>
+            <td><code>identifier</code></td>
             <td>
                   <code>str</code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Project name.</p>
+                <p>Entity key or name.</p>
               </div>
             </td>
             <td>
@@ -2218,13 +2213,13 @@
             </td>
           </tr>
           <tr class="doc-section-item">
-            <td><code>entity_name</code></td>
+            <td><code>project</code></td>
             <td>
                   <code>str</code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Entity name.</p>
+                <p>Project name.</p>
               </div>
             </td>
             <td>
@@ -2287,15 +2282,7 @@
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_core/entities/artifacts/crud.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">118</span>
-<span class="normal">119</span>
-<span class="normal">120</span>
-<span class="normal">121</span>
-<span class="normal">122</span>
-<span class="normal">123</span>
-<span class="normal">124</span>
-<span class="normal">125</span>
-<span class="normal">126</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">126</span>
 <span class="normal">127</span>
 <span class="normal">128</span>
 <span class="normal">129</span>
@@ -2323,16 +2310,25 @@
 <span class="normal">151</span>
 <span class="normal">152</span>
 <span class="normal">153</span>
-<span class="normal">154</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_artifact</span><span class="p">(</span><span class="n">project</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">entity_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">entity_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Artifact</span><span class="p">:</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_artifact</span><span class="p">(</span>
+    <span class="n">identifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">project</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">entity_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Artifact</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get object from backend.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
+<span class="sd">    identifier : str</span>
+<span class="sd">        Entity key or name.</span>
 <span class="sd">    project : str</span>
 <span class="sd">        Project name.</span>
-<span class="sd">    entity_name : str</span>
-<span class="sd">        Entity name.</span>
 <span class="sd">    entity_id : str</span>
 <span class="sd">        Entity ID.</span>
 <span class="sd">    **kwargs : dict</span>
@@ -2343,23 +2339,14 @@
 <span class="sd">    Artifact</span>
 <span class="sd">        Object instance.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">entity_id</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">entity_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Either entity_name or entity_id must be provided.&quot;</span><span class="p">)</span>
-
-    <span class="n">context</span> <span class="o">=</span> <span class="n">get_context</span><span class="p">(</span><span class="n">project</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="n">entity_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">params</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;params&quot;</span><span class="p">,</span> <span class="p">{})</span>
-        <span class="k">if</span> <span class="n">params</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">params</span><span class="p">:</span>
-            <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;params&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
-
-        <span class="n">api</span> <span class="o">=</span> <span class="n">api_ctx_list</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">ENTITY_TYPE</span><span class="p">)</span>
-        <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;params&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">entity_name</span>
-        <span class="n">obj</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">list_objects</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">api</span> <span class="o">=</span> <span class="n">api_ctx_read</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">ENTITY_TYPE</span><span class="p">,</span> <span class="n">entity_id</span><span class="p">)</span>
-        <span class="n">obj</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">read_object</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">create_artifact_from_dict</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">read_entity_api_ctx</span><span class="p">(</span>
+        <span class="n">identifier</span><span class="p">,</span>
+        <span class="n">ENTITY_TYPE</span><span class="p">,</span>
+        <span class="n">project</span><span class="o">=</span><span class="n">project</span><span class="p">,</span>
+        <span class="n">entity_id</span><span class="o">=</span><span class="n">entity_id</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">artifact_from_dict</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -2369,15 +2356,15 @@
 <div class="doc doc-object doc-function">
 
 
-<h2 id="digitalhub_core.entities.artifacts.crud.get_artifact_from_key" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">get_artifact_from_key</span><span class="p">(</span><span class="n">key</span><span class="p">)</span></code>
+<h2 id="digitalhub_core.entities.artifacts.crud.get_artifact_versions" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_artifact_versions</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="n">project</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
 
 </h2>
 
 
     <div class="doc doc-contents ">
 
-      <p>Get artifact from key.</p>
+      <p>Get object versions from backend.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -2392,18 +2379,68 @@
       </thead>
       <tbody>
           <tr class="doc-section-item">
-            <td><code>key</code></td>
+            <td><code>identifier</code></td>
             <td>
                   <code>str</code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Key of the artifact.
-It's format is store://<project>/artifacts/<kind>/<name>:<uuid>.</p>
+                <p>Entity key or name.</p>
               </div>
             </td>
             <td>
                 <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code>project</code></td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Project name.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code>**kwargs</code></td>
+            <td>
+                  <code>dict</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Parameters to pass to the API call.</p>
+              </div>
+            </td>
+            <td>
+                  <code>{}</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code>list[<a class="autorefs autorefs-internal" title="digitalhub_core.entities.artifacts.entity.Artifact" href="../entity/#digitalhub_core.entities.artifacts.entity.Artifact">Artifact</a>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>List of object instances.</p>
+              </div>
             </td>
           </tr>
       </tbody>
@@ -2411,29 +2448,63 @@ It's format is store://<project>/artifacts/<kind>/<name>:<uuid>.</p>
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_core/entities/artifacts/crud.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">157</span>
-<span class="normal">158</span>
-<span class="normal">159</span>
-<span class="normal">160</span>
-<span class="normal">161</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">161</span>
 <span class="normal">162</span>
 <span class="normal">163</span>
 <span class="normal">164</span>
 <span class="normal">165</span>
 <span class="normal">166</span>
 <span class="normal">167</span>
-<span class="normal">168</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_artifact_from_key</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Artifact</span><span class="p">:</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_artifact_versions</span><span class="p">(</span>
+    <span class="n">identifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">project</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Artifact</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Get artifact from key.</span>
+<span class="sd">    Get object versions from backend.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    key : str</span>
-<span class="sd">        Key of the artifact.</span>
-<span class="sd">        It&#39;s format is store://&lt;project&gt;/artifacts/&lt;kind&gt;/&lt;name&gt;:&lt;uuid&gt;.</span>
+<span class="sd">    identifier : str</span>
+<span class="sd">        Entity key or name.</span>
+<span class="sd">    project : str</span>
+<span class="sd">        Project name.</span>
+<span class="sd">    **kwargs : dict</span>
+<span class="sd">        Parameters to pass to the API call.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list[Artifact]</span>
+<span class="sd">        List of object instances.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">project</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">uuid</span> <span class="o">=</span> <span class="n">parse_entity_key</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">get_artifact</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">entity_id</span><span class="o">=</span><span class="n">uuid</span><span class="p">)</span>
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">read_entity_api_ctx_versions</span><span class="p">(</span>
+        <span class="n">identifier</span><span class="p">,</span>
+        <span class="n">entity_type</span><span class="o">=</span><span class="n">ENTITY_TYPE</span><span class="p">,</span>
+        <span class="n">project</span><span class="o">=</span><span class="n">project</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">artifact_from_dict</span><span class="p">(</span><span class="n">o</span><span class="p">)</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">obj</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -2507,22 +2578,22 @@ It's format is store://<project>/artifacts/<kind>/<name>:<uuid>.</p>
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_core/entities/artifacts/crud.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">171</span>
-<span class="normal">172</span>
-<span class="normal">173</span>
-<span class="normal">174</span>
-<span class="normal">175</span>
-<span class="normal">176</span>
-<span class="normal">177</span>
-<span class="normal">178</span>
-<span class="normal">179</span>
-<span class="normal">180</span>
-<span class="normal">181</span>
-<span class="normal">182</span>
-<span class="normal">183</span>
-<span class="normal">184</span>
-<span class="normal">185</span>
-<span class="normal">186</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">import_artifact</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Artifact</span><span class="p">:</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">import_artifact</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Artifact</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Import an Artifact object from a file using the specified file path.</span>
 
@@ -2583,6 +2654,20 @@ It's format is store://<project>/artifacts/<kind>/<name>:<uuid>.</p>
                 <em>required</em>
             </td>
           </tr>
+          <tr class="doc-section-item">
+            <td><code>**kwargs</code></td>
+            <td>
+                  <code>dict</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Parameters to pass to the API call.</p>
+              </div>
+            </td>
+            <td>
+                  <code>{}</code>
+            </td>
+          </tr>
       </tbody>
     </table>
 
@@ -2598,11 +2683,11 @@ It's format is store://<project>/artifacts/<kind>/<name>:<uuid>.</p>
       <tbody>
           <tr class="doc-section-item">
             <td>
-                  <code>list[dict]</code>
+                  <code>list[<a class="autorefs autorefs-internal" title="digitalhub_core.entities.artifacts.entity.Artifact" href="../entity/#digitalhub_core.entities.artifacts.entity.Artifact">Artifact</a>]</code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>List of artifacts dict representations.</p>
+                <p>List of artifacts.</p>
               </div>
             </td>
           </tr>
@@ -2611,22 +2696,28 @@ It's format is store://<project>/artifacts/<kind>/<name>:<uuid>.</p>
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_core/entities/artifacts/crud.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">258</span>
-<span class="normal">259</span>
-<span class="normal">260</span>
-<span class="normal">261</span>
-<span class="normal">262</span>
-<span class="normal">263</span>
-<span class="normal">264</span>
-<span class="normal">265</span>
-<span class="normal">266</span>
-<span class="normal">267</span>
-<span class="normal">268</span>
-<span class="normal">269</span>
-<span class="normal">270</span>
-<span class="normal">271</span>
-<span class="normal">272</span>
-<span class="normal">273</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">list_artifacts</span><span class="p">(</span><span class="n">project</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span>
+<span class="normal">286</span>
+<span class="normal">287</span>
+<span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">list_artifacts</span><span class="p">(</span><span class="n">project</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Artifact</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    List all objects from backend.</span>
 
@@ -2634,14 +2725,250 @@ It's format is store://<project>/artifacts/<kind>/<name>:<uuid>.</p>
 <span class="sd">    ----------</span>
 <span class="sd">    project : str</span>
 <span class="sd">        Project name.</span>
+<span class="sd">    **kwargs : dict</span>
+<span class="sd">        Parameters to pass to the API call.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    list[dict]</span>
-<span class="sd">        List of artifacts dict representations.</span>
+<span class="sd">    list[Artifact]</span>
+<span class="sd">        List of artifacts.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">api</span> <span class="o">=</span> <span class="n">api_ctx_list</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">ENTITY_TYPE</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">get_context</span><span class="p">(</span><span class="n">project</span><span class="p">)</span><span class="o">.</span><span class="n">list_objects</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">objs</span> <span class="o">=</span> <span class="n">list_entity_api_ctx</span><span class="p">(</span>
+        <span class="n">project</span><span class="o">=</span><span class="n">project</span><span class="p">,</span>
+        <span class="n">entity_type</span><span class="o">=</span><span class="n">ENTITY_TYPE</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">artifact_from_dict</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">objs</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="digitalhub_core.entities.artifacts.crud.log_artifact" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">log_artifact</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Create and upload an artifact.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code>project</code></td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Project name.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code>name</code></td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Object name.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code>kind</code></td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Kind the object.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code>path</code></td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Destination path of the artifact.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code>source_path</code></td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Artifact location on local machine.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code>**kwargs</code></td>
+            <td>
+                  <code>dict</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>New artifact parameters.</p>
+              </div>
+            </td>
+            <td>
+                  <code>{}</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><a class="autorefs autorefs-internal" title="digitalhub_core.entities.artifacts.entity.Artifact" href="../entity/#digitalhub_core.entities.artifacts.entity.Artifact">Artifact</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Instance of Artifact class.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+            <details class="quote">
+              <summary>Source code in <code>digitalhub_core/entities/artifacts/crud.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">299</span>
+<span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span>
+<span class="normal">314</span>
+<span class="normal">315</span>
+<span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span>
+<span class="normal">328</span>
+<span class="normal">329</span>
+<span class="normal">330</span>
+<span class="normal">331</span>
+<span class="normal">332</span>
+<span class="normal">333</span>
+<span class="normal">334</span>
+<span class="normal">335</span>
+<span class="normal">336</span>
+<span class="normal">337</span>
+<span class="normal">338</span>
+<span class="normal">339</span>
+<span class="normal">340</span>
+<span class="normal">341</span>
+<span class="normal">342</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">log_artifact</span><span class="p">(</span>
+    <span class="n">project</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">kind</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">source_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Artifact</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create and upload an artifact.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    project : str</span>
+<span class="sd">        Project name.</span>
+<span class="sd">    name : str</span>
+<span class="sd">        Object name.</span>
+<span class="sd">    kind : str</span>
+<span class="sd">        Kind the object.</span>
+<span class="sd">    path : str</span>
+<span class="sd">        Destination path of the artifact.</span>
+<span class="sd">    source_path : str</span>
+<span class="sd">        Artifact location on local machine.</span>
+<span class="sd">    **kwargs : dict</span>
+<span class="sd">        New artifact parameters.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Artifact</span>
+<span class="sd">        Instance of Artifact class.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">source_path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Either path or source_path must be provided.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Build path if not provided from source filename</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">get_file_name</span><span class="p">(</span><span class="n">source_path</span><span class="p">)</span>
+        <span class="n">uuid</span> <span class="o">=</span> <span class="n">build_uuid</span><span class="p">()</span>
+        <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;uuid&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">uuid</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;s3://</span><span class="si">{</span><span class="n">get_s3_bucket</span><span class="p">()</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">project</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">ENTITY_TYPE</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">uuid</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">new_artifact</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="n">project</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">upload</span><span class="p">(</span><span class="n">source_path</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">obj</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -2652,7 +2979,7 @@ It's format is store://<project>/artifacts/<kind>/<name>:<uuid>.</p>
 
 
 <h2 id="digitalhub_core.entities.artifacts.crud.new_artifact" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">new_artifact</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">embedded</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">src_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">new_artifact</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">git_source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">embedded</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">src_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
 
 </h2>
 
@@ -2694,7 +3021,7 @@ It's format is store://<project>/artifacts/<kind>/<name>:<uuid>.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Name that identifies the object.</p>
+                <p>Object name.</p>
               </div>
             </td>
             <td>
@@ -2708,7 +3035,7 @@ It's format is store://<project>/artifacts/<kind>/<name>:<uuid>.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Kind of the object.</p>
+                <p>Kind the object.</p>
               </div>
             </td>
             <td>
@@ -2722,7 +3049,7 @@ It's format is store://<project>/artifacts/<kind>/<name>:<uuid>.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>ID of the object in form of UUID.</p>
+                <p>ID of the object (UUID4).</p>
               </div>
             </td>
             <td>
@@ -2736,7 +3063,7 @@ It's format is store://<project>/artifacts/<kind>/<name>:<uuid>.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Description of the object.</p>
+                <p>Description of the object (human readable).</p>
               </div>
             </td>
             <td>
@@ -2744,7 +3071,7 @@ It's format is store://<project>/artifacts/<kind>/<name>:<uuid>.</p>
             </td>
           </tr>
           <tr class="doc-section-item">
-            <td><code>source</code></td>
+            <td><code>git_source</code></td>
             <td>
                   <code>str</code>
             </td>
@@ -2856,15 +3183,7 @@ If not provided, it's generated.</p>
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_core/entities/artifacts/crud.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 54</span>
-<span class="normal"> 55</span>
-<span class="normal"> 56</span>
-<span class="normal"> 57</span>
-<span class="normal"> 58</span>
-<span class="normal"> 59</span>
-<span class="normal"> 60</span>
-<span class="normal"> 61</span>
-<span class="normal"> 62</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 62</span>
 <span class="normal"> 63</span>
 <span class="normal"> 64</span>
 <span class="normal"> 65</span>
@@ -2917,13 +3236,21 @@ If not provided, it's generated.</p>
 <span class="normal">112</span>
 <span class="normal">113</span>
 <span class="normal">114</span>
-<span class="normal">115</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">new_artifact</span><span class="p">(</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">new_artifact</span><span class="p">(</span>
     <span class="n">project</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">kind</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">uuid</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">source</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">git_source</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">labels</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">embedded</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -2938,14 +3265,14 @@ If not provided, it's generated.</p>
 <span class="sd">    project : str</span>
 <span class="sd">        Project name.</span>
 <span class="sd">    name : str</span>
-<span class="sd">        Name that identifies the object.</span>
+<span class="sd">        Object name.</span>
 <span class="sd">    kind : str</span>
-<span class="sd">        Kind of the object.</span>
+<span class="sd">        Kind the object.</span>
 <span class="sd">    uuid : str</span>
-<span class="sd">        ID of the object in form of UUID.</span>
+<span class="sd">        ID of the object (UUID4).</span>
 <span class="sd">    description : str</span>
-<span class="sd">        Description of the object.</span>
-<span class="sd">    source : str</span>
+<span class="sd">        Description of the object (human readable).</span>
+<span class="sd">    git_source : str</span>
 <span class="sd">        Remote git source for object.</span>
 <span class="sd">    labels : list[str]</span>
 <span class="sd">        List of labels.</span>
@@ -2970,7 +3297,7 @@ If not provided, it's generated.</p>
         <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">,</span>
         <span class="n">uuid</span><span class="o">=</span><span class="n">uuid</span><span class="p">,</span>
         <span class="n">description</span><span class="o">=</span><span class="n">description</span><span class="p">,</span>
-        <span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span>
+        <span class="n">git_source</span><span class="o">=</span><span class="n">git_source</span><span class="p">,</span>
         <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span>
         <span class="n">embedded</span><span class="o">=</span><span class="n">embedded</span><span class="p">,</span>
         <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span>
@@ -3024,6 +3351,20 @@ If not provided, it's generated.</p>
                 <em>required</em>
             </td>
           </tr>
+          <tr class="doc-section-item">
+            <td><code>**kwargs</code></td>
+            <td>
+                  <code>dict</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Parameters to pass to the API call.</p>
+              </div>
+            </td>
+            <td>
+                  <code>{}</code>
+            </td>
+          </tr>
       </tbody>
     </table>
 
@@ -3039,11 +3380,11 @@ If not provided, it's generated.</p>
       <tbody>
           <tr class="doc-section-item">
             <td>
-                  <code>dict</code>
+                  <code><a class="autorefs autorefs-internal" title="digitalhub_core.entities.artifacts.entity.Artifact" href="../entity/#digitalhub_core.entities.artifacts.entity.Artifact">Artifact</a></code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Response from backend.</p>
+                <p>Entity updated.</p>
               </div>
             </td>
           </tr>
@@ -3052,22 +3393,30 @@ If not provided, it's generated.</p>
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_core/entities/artifacts/crud.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">240</span>
-<span class="normal">241</span>
-<span class="normal">242</span>
-<span class="normal">243</span>
-<span class="normal">244</span>
-<span class="normal">245</span>
-<span class="normal">246</span>
-<span class="normal">247</span>
-<span class="normal">248</span>
-<span class="normal">249</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">249</span>
 <span class="normal">250</span>
 <span class="normal">251</span>
 <span class="normal">252</span>
 <span class="normal">253</span>
 <span class="normal">254</span>
-<span class="normal">255</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">update_artifact</span><span class="p">(</span><span class="n">entity</span><span class="p">:</span> <span class="n">Artifact</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">update_artifact</span><span class="p">(</span><span class="n">entity</span><span class="p">:</span> <span class="n">Artifact</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Artifact</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Update object in backend.</span>
 
@@ -3075,14 +3424,22 @@ If not provided, it's generated.</p>
 <span class="sd">    ----------</span>
 <span class="sd">    entity : Artifact</span>
 <span class="sd">        The object to update.</span>
+<span class="sd">    **kwargs : dict</span>
+<span class="sd">        Parameters to pass to the API call.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    dict</span>
-<span class="sd">        Response from backend.</span>
+<span class="sd">    Artifact</span>
+<span class="sd">        Entity updated.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">api</span> <span class="o">=</span> <span class="n">api_ctx_update</span><span class="p">(</span><span class="n">entity</span><span class="o">.</span><span class="n">project</span><span class="p">,</span> <span class="n">ENTITY_TYPE</span><span class="p">,</span> <span class="n">entity_id</span><span class="o">=</span><span class="n">entity</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">get_context</span><span class="p">(</span><span class="n">entity</span><span class="o">.</span><span class="n">project</span><span class="p">)</span><span class="o">.</span><span class="n">update_object</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="n">entity</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">update_entity_api_ctx</span><span class="p">(</span>
+        <span class="n">project</span><span class="o">=</span><span class="n">entity</span><span class="o">.</span><span class="n">project</span><span class="p">,</span>
+        <span class="n">entity_type</span><span class="o">=</span><span class="n">ENTITY_TYPE</span><span class="p">,</span>
+        <span class="n">entity_id</span><span class="o">=</span><span class="n">entity</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+        <span class="n">entity_dict</span><span class="o">=</span><span class="n">entity</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(),</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">artifact_from_dict</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
