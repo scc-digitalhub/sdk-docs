@@ -1978,6 +1978,7 @@
 <p>With the Container runtime you can launch pods and services on Kubernetes. It is built having <strong>remote online execution</strong> capabilities.</p>
 <h3 id="function">Function</h3>
 <p>The Container runtime introduces a function of kind <code>container</code> that allows you to deploy deployments, jobs and services on Kubernetes.</p>
+<p>he syntax for creating a <code>Function</code> is the same as the <a href="../entities/functions/crud.md">new_function</a> method.</p>
 <h4 id="function-parameters">Function parameters</h4>
 <table>
 <thead>
@@ -2005,7 +2006,7 @@
 <td>kind</td>
 <td>str</td>
 <td>Kind of the object</td>
-<td>required (must be <code>python</code>)</td>
+<td>required (must be <code>container</code>)</td>
 </tr>
 <tr>
 <td>uuid</td>
@@ -2038,6 +2039,12 @@
 <td>True</td>
 </tr>
 <tr>
+<td>image</td>
+<td>str</td>
+<td>The image to use</td>
+<td>None</td>
+</tr>
+<tr>
 <td>base_image</td>
 <td>str</td>
 <td>The base container image</td>
@@ -2062,7 +2069,7 @@
 
 project = dh.get_or_create_project('my_project')
 function = dh.new_function(
-    kind='dbt',
+    kind='container',
     name='my_function',
     image=&quot;hello-world:latest&quot;
 )
@@ -2090,54 +2097,54 @@ function = dh.new_function(
 <tr>
 <td>action</td>
 <td>str</td>
-<td>Task action. Must be one of: <li><code>job</code></li><li><code>serve</code></li><li><code>build</code></li></td>
+<td>Task action. Must be one of: <li><code>job</code></li><li><code>deploy</code></li><li><code>build</code></li><li><code>build</code></li></td>
 <td>required</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../kubernetes-resources/#node_selector">node_selector</a></td>
+<td><a href="../tasks/kubernetes-resources.md#node_selector">node_selector</a></td>
 <td>list[dict]</td>
 <td>Node selector</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../kubernetes-resources/#volumes">volumes</a></td>
+<td><a href="../tasks/kubernetes-resources.md#volumes">volumes</a></td>
 <td>list[dict]</td>
 <td>List of volumes</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../kubernetes-resources/#resources">resources</a></td>
+<td><a href="../tasks/kubernetes-resources.md#resources">resources</a></td>
 <td>dict</td>
 <td>Resources restrictions</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../kubernetes-resources/#affinity">affinity</a></td>
+<td><a href="../tasks/kubernetes-resources.md#affinity">affinity</a></td>
 <td>dict</td>
 <td>Affinity</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../kubernetes-resources/#tolerations">tolerations</a></td>
+<td><a href="../tasks/kubernetes-resources.md#tolerations">tolerations</a></td>
 <td>list[dict]</td>
 <td>Tolerations</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../kubernetes-resources/#envs">envs</a></td>
+<td><a href="../tasks/kubernetes-resources.md#envs">envs</a></td>
 <td>list[dict]</td>
 <td>Env variables</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../kubernetes-resources/#secrets">secrets</a></td>
+<td><a href="../tasks/kubernetes-resources.md#secrets">secrets</a></td>
 <td>list[str]</td>
 <td>List of secret names</td>
 <td>None</td>
