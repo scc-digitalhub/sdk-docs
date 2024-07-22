@@ -53,7 +53,7 @@ The DBT runtime introduces a function of kind `dbt` that allows you to execute s
 | --- | --- | --- | --- |
 | project | str | Project name | required (if creating from library) |
 | name | str | Name that identifies the object | required |
-| kind | str | Kind of the object | required (must be `python`) |
+| kind | str | Kind of the object | required (must be `dbt`) |
 | uuid | str | ID of the object in form of UUID | None |
 | description | str | Description of the object | None |
 | git_source | str | Remote git source for object | None |
@@ -102,13 +102,13 @@ A `Task` is created with the `run()` method, so it's not managed directly by the
 | Name | Type | Description | Default | Kind specific |
 | --- | --- | --- | --- | --- |
 | action | str | Task action. Must be one of: <li>`transform`</li> | required | |
-| [node_selector](./kubernetes-resources.md#node_selector) | list[dict] | Node selector | None | |
-| [volumes](./kubernetes-resources.md#volumes) | list[dict] | List of volumes | None | |
-| [resources](./kubernetes-resources.md#resources) | dict | Resources restrictions | None | |
-| [affinity](./kubernetes-resources.md#affinity) | dict | Affinity | None | |
-| [tolerations](./kubernetes-resources.md#tolerations) | list[dict] | Tolerations | None | |
-| [envs](./kubernetes-resources.md#envs) | list[dict] | Env variables | None | |
-| [secrets](./kubernetes-resources.md#secrets) | list[str] | List of secret names | None | |
+| [node_selector](../tasks/kubernetes-resources.md#node_selector) | list[dict] | Node selector | None | |
+| [volumes](../tasks/kubernetes-resources.md#volumes) | list[dict] | List of volumes | None | |
+| [resources](../tasks/kubernetes-resources.md#resources) | dict | Resources restrictions | None | |
+| [affinity](../tasks/kubernetes-resources.md#affinity) | dict | Affinity | None | |
+| [tolerations](../tasks/kubernetes-resources.md#tolerations) | list[dict] | Tolerations | None | |
+| [envs](../tasks/kubernetes-resources.md#envs) | list[dict] | Env variables | None | |
+| [secrets](../tasks/kubernetes-resources.md#secrets) | list[str] | List of secret names | None | |
 
 #### Task example
 
