@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.30">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.76a95c52.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.3cba04c6.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
@@ -3003,7 +3003,7 @@ Use entity name instead of entity key as identifier.</p>
 
 
 <h2 id="digitalhub_data.entities.dataitems.crud.log_dataitem" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">log_dataitem</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">log_dataitem</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
 
 </h2>
 
@@ -3067,20 +3067,6 @@ Use entity name instead of entity key as identifier.</p>
             </td>
           </tr>
           <tr class="doc-section-item">
-            <td><code>path</code></td>
-            <td>
-                  <code>str</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Destination path of the dataitem.</p>
-              </div>
-            </td>
-            <td>
-                  <code>None</code>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
             <td><code>data</code></td>
             <td>
                   <code><span title="typing.Any">Any</span></code>
@@ -3088,6 +3074,20 @@ Use entity name instead of entity key as identifier.</p>
             <td>
               <div class="doc-md-description">
                 <p>Dataframe to log.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code>path</code></td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Destination path of the dataitem.</p>
               </div>
             </td>
             <td>
@@ -3195,8 +3195,8 @@ Use entity name instead of entity key as identifier.</p>
     <span class="n">project</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">kind</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
     <span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">data</span><span class="p">:</span> <span class="n">Any</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">extension</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dataitem</span><span class="p">:</span>
@@ -3211,10 +3211,10 @@ Use entity name instead of entity key as identifier.</p>
 <span class="sd">        Object name.</span>
 <span class="sd">    kind : str</span>
 <span class="sd">        Kind the object.</span>
-<span class="sd">    path : str</span>
-<span class="sd">        Destination path of the dataitem.</span>
 <span class="sd">    data : Any</span>
 <span class="sd">        Dataframe to log.</span>
+<span class="sd">    path : str</span>
+<span class="sd">        Destination path of the dataitem.</span>
 <span class="sd">    extension : str</span>
 <span class="sd">        Extension of the dataitem.</span>
 <span class="sd">    **kwargs : dict</span>
