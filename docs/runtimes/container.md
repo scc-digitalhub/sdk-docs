@@ -23,8 +23,6 @@ With the Container runtime you can launch pods and services on Kubernetes. It is
 
 The Container runtime introduces a function of kind `container` that allows you to deploy deployments, jobs and services on Kubernetes.
 
-he syntax for creating a `Function` is the same as the [new_function](../entities/functions/crud.md) method.
-
 #### Function parameters
 
 | Name | Type | Description | Default |
@@ -84,13 +82,14 @@ The Container runtime introduces three task's kinds:
 | Name | Type | Description | Default | Kind specific |
 | --- | --- | --- | --- | --- |
 | action | str | Task action. Must be one of: <li>`job`</li><li>`deploy`</li><li>`build`</li><li>`build`</li> | required | |
-| [node_selector](../tasks/kubernetes-resources.md#node_selector) | list[dict] | Node selector | None | |
-| [volumes](../tasks/kubernetes-resources.md#volumes) | list[dict] | List of volumes | None | |
-| [resources](../tasks/kubernetes-resources.md#resources) | dict | Resources restrictions | None | |
-| [affinity](../tasks/kubernetes-resources.md#affinity) | dict | Affinity | None | |
-| [tolerations](../tasks/kubernetes-resources.md#tolerations) | list[dict] | Tolerations | None | |
-| [envs](../tasks/kubernetes-resources.md#envs) | list[dict] | Env variables | None | |
-| [secrets](../tasks/kubernetes-resources.md#secrets) | list[str] | List of secret names | None | |
+| [node_selector](kubernetes-resources.md#node_selector) | list[dict] | Node selector | None | |
+| [volumes](kubernetes-resources.md#volumes) | list[dict] | List of volumes | None | |
+| [resources](kubernetes-resources.md#resources) | dict | Resources restrictions | None | |
+| [affinity](kubernetes-resources.md#affinity) | dict | Affinity | None | |
+| [tolerations](kubernetes-resources.md#tolerations) | list[dict] | Tolerations | None | |
+| [envs](kubernetes-resources.md#envs) | list[dict] | Env variables | None | |
+| [secrets](kubernetes-resources.md#secrets) | list[str] | List of secret names | None | |
+| [profile](kubernetes-resources.md#profile) | str | Profile template | None | |
 | backoff_limit | int | Backoff limit | None | `job` |
 | schedule | str | Schedule for the job | None | `job` |
 | instructions | list[str] | Build instructions to be executed as RUN instructions in Dockerfile.<br>Example: `apt install git -y` | None | `build` |

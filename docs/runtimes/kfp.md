@@ -86,7 +86,7 @@ The kfp runtime introduces a function of kind `kfp`.
 | [code_src](#source) | str | URI pointer to source code | None |
 | code | str | Source code (plain text)| None |
 | base64 | str | Source code (base64 encoded)| None |
-| handler | str | Function entrypoint | None |
+| [handler](#handler) | str | Function entrypoint | None |
 | lang | str | Source code language (hint)| None |
 | image | str | Image where the workflow will be executed | None |
 | tag | str | Tag of the image where the workflow will be executed | None |
@@ -101,6 +101,38 @@ Source code can be specified with `code_src` as an URI. It can have three differ
 | git+https | "git+https://github.com/some-user/some-repo" | Remote git repository |
 | zip+s3 | "zip+s3://some-bucket/some-key.zip" | Remote zip s3 archive |
 
+##### Handler
+
+The handler is the entrypoint of the function. If you provide as `code_src` a git or s3 URI, the handler must be formatted as `path.to.module:handler(function-name)`. If you provide a local file path, the handler must be formatted as `handler(function-name)`.
+
+Examples:
+
+```python
+# main.py
+#
+# def function(...):
+#   ...
+
+func = dh.new_function(project="my-project",
+                       name="my-workflow",
+                       kind="pipeline",
+                       code_src="main.py",
+                       handler="function")
+
+# or
+# git repo tree
+#
+# root
+# |- main.py -> contains function
+# |- other-module.py
+
+func = dh.new_function(project="my-project",
+                       name="my-workflow",
+                       kind="pipeline",
+                       code_src="git+https://github.com/some-user/some-repo",
+                       handler="main:function")
+```
+
 #### Workflow example
 
 ```python
@@ -110,20 +142,16 @@ import digitalhub_core as dh
 
 workflow = project.new_workflow(name="workflow",
                                 kind="kfp",
-                                source={
-                                 "source": "pipeline.py",
-                                 "handler": "handler",
-                              })
+                                code_src="pipeline.py",
+                                handler="handler")
 
 # .. or from sdk
 
 workflow = dh.new_workflow(project="my-project",
                            name="workflow",
                            kind="kfp",
-                           source={
-                              "source": "pipeline.py",
-                              "handler": "handler",
-                           })
+                           code_src="pipeline.py",
+                           handler="handler")
 ```
 
 ### Task
@@ -143,6 +171,7 @@ A `Task` is created with the `run()` method, so it's not managed directly by the
 | [tolerations](./kubernetes-resources.md#tolerations) | list[dict] | Tolerations | None | |
 | [envs](./kubernetes-resources.md#envs) | list[dict] | Env variables | None | |
 | [secrets](./kubernetes-resources.md#secrets) | list[str] | List of secret names | None | |
+| [profile](./kubernetes-resources.md#profile) | str | Profile template | None | |
 | schedule | str | Task schedule as cron expression | None | |
 
 #### Task example

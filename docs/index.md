@@ -6,5 +6,6 @@ This documentation is generated from the [Digitalhub SDK](https://github.com/scc
 
 - [Installation](./install/install.md)
 - [Quickstart](./quickstart/quickstart.md)
+- [Entities](./objects/entities.md)
 - [Runtimes](./runtimes/runtimes.md)
 - [API](./api/api.md)

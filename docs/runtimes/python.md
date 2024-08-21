@@ -158,7 +158,7 @@ The python runtime introduces a function of kind `python`.
 | [code_src](#source) | str | URI pointer to source code | None |
 | code | str | Source code (plain text)| None |
 | base64 | str | Source code (base64 encoded)| None |
-| handler | str | Function entrypoint | None |
+| [handler](#handler) | str | Function entrypoint | None |
 | lang | str | Source code language (hint)| None |
 | init_function | str | Init function for remote nuclio execution | None |
 | python_version | str | Python version to use, must be one of: <li>`PYTHON3_9`</li><li>`PYTHON3_10`</li><li>`PYTHON3_11`</li> | None |
@@ -175,6 +175,38 @@ Source code can be specified with `code_src` as an URI. It can have three differ
 | None | "path/to/file.ext" | Local file path |
 | git+https | "git+https://github.com/some-user/some-repo" | Remote git repository |
 | zip+s3 | "zip+s3://some-bucket/some-key.zip" | Remote zip s3 archive |
+
+##### Handler
+
+The handler is the entrypoint of the function. If you provide as `code_src` a git or s3 URI, the handler must be formatted as `path.to.module:handler(function-name)`. If you provide a local file path, the handler must be formatted as `handler(function-name)`.
+
+Examples:
+
+```python
+# main.py
+#
+# def function(...):
+#   ...
+
+func = dh.new_function(project="my-project",
+                       name="python-function",
+                       kind="python",
+                       code_src="main.py",
+                       handler="function")
+
+# or
+# git repo tree
+#
+# root
+# |- main.py -> contains function
+# |- other-module.py
+
+func = dh.new_function(project="my-project",
+                       name="python-function",
+                       kind="python",
+                       code_src="git+https://github.com/some-user/some-repo",
+                       handler="main:function")
+```
 
 #### Function example
 
@@ -209,13 +241,14 @@ A `Task` is created with the `run()` method, so it's not managed directly by the
 | Name | Type | Description | Default | Kind specific |
 | --- | --- | --- | --- | --- |
 | action | str | Task action. Must be one of: <li>`job`</li><li>`serve`</li><li>`build`</li> | required | |
-| [node_selector](../tasks/kubernetes-resources.md#node_selector) | list[dict] | Node selector | None | |
-| [volumes](../tasks/kubernetes-resources.md#volumes) | list[dict] | List of volumes | None | |
-| [resources](../tasks/kubernetes-resources.md#resources) | dict | Resources restrictions | None | |
-| [affinity](../tasks/kubernetes-resources.md#affinity) | dict | Affinity | None | |
-| [tolerations](../tasks/kubernetes-resources.md#tolerations) | list[dict] | Tolerations | None | |
-| [envs](../tasks/kubernetes-resources.md#envs) | list[dict] | Env variables | None | |
-| [secrets](../tasks/kubernetes-resources.md#secrets) | list[str] | List of secret names | None | |
+| [node_selector](kubernetes-resources.md#node_selector) | list[dict] | Node selector | None | |
+| [volumes](kubernetes-resources.md#volumes) | list[dict] | List of volumes | None | |
+| [resources](kubernetes-resources.md#resources) | dict | Resources restrictions | None | |
+| [affinity](kubernetes-resources.md#affinity) | dict | Affinity | None | |
+| [tolerations](kubernetes-resources.md#tolerations) | list[dict] | Tolerations | None | |
+| [envs](kubernetes-resources.md#envs) | list[dict] | Env variables | None | |
+| [secrets](kubernetes-resources.md#secrets) | list[str] | List of secret names | None | |
+| [profile](kubernetes-resources.md#profile) | str | Profile template | None | |
 | backoff_limit | int | Backoff limit | None | `job` |
 | instructions | list[str] | Build instructions to be executed as RUN instructions in Dockerfile.<br>Example: `apt install git -y` | None | `build` |
 | replicas | int | Number of replicas | None | `serve` |

@@ -10,12 +10,10 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.9'
+          python-version: "3.9"
       - run: pip install mkdocs-material \
-                         "mkdocstrings[python]>=0.18" \
-                         "digitalhub_runtime_python>=0.6.0b" \
-                         "digitalhub_runtime_container>=0.6.0b" \
-                         "digitalhub_runtime_dbt[local]>=0.6.0b"                 
+          "mkdocstrings[python]>=0.18" \
+          "digitalhub[all]>=0.7.0b"
       - run: |
           git fetch --prune --unshallow --tags
           git checkout main
@@ -44,12 +42,10 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.9'
+          python-version: "3.9"
       - run: pip install mkdocs-material \
-                         "mkdocstrings[python]>=0.18" \
-                         "digitalhub_runtime_python>=0.6.0b" \
-                         "digitalhub_runtime_container>=0.6.0b" \
-                         "digitalhub_runtime_dbt[local]>=0.6.0b"
+          "mkdocstrings[python]>=0.18" \
+          "digitalhub[all]>=0.7.0b"
       - run: |
           git fetch --prune --unshallow --tags
           git checkout ${{ github.ref_name }}
