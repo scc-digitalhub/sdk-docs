@@ -41,6 +41,12 @@ nav:
   - Installation: install/install.md
   - Entities:
       - Entities: objects/entities.md
+      - Projects:
+          - Entity: objects/project/entity.md
+          - CRUD: objects/project/crud.md
+          - Methods: objects/project/methods.md
+          - Config: objects/project/config.md
+          - Setup: objects/project/setup.md
       - Artifacts:
           - Entity: objects/artifact/entity.md
           - CRUD: objects/artifact/crud.md

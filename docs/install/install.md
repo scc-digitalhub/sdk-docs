@@ -31,8 +31,7 @@ The Digitalhub runtimes are installed in the same way as the SDK. We have distri
 - digitalhub-runtime-python
 - digitalhub-runtime-container
 - digitalhub-runtime-dbt
-- digitalhub-runtime-nefertem
-- digitalhub-runtime-mlrun
+- digitalhub-runtime-kfp
 
 You can install the runtime directly with pip. It will come with all the required SDK dependencies:
 
@@ -49,15 +48,9 @@ python -m pip install digitalhub-runtime-dbt
 # Install the runtime + data + all the dependencies for local execution
 python -m pip install digitalhub-runtime-dbt[local]
 
-# Install the runtime + data
-python -m pip install digitalhub-runtime-nefertem
+# Install the runtime + core + data + ml
+python -m pip install digitalhub-runtime-kfp
 
-# Install the runtime + data + all the dependencies for local execution
-python -m pip install digitalhub-runtime-nefertem[local]
-
-# Install the runtime + data + ml
-python -m pip install digitalhub-runtime-mlrun
-
-# Install the runtime + data + ml + all the dependencies for local execution
-python -m pip install digitalhub-runtime-mlrun[local]
+# Install the runtime + core + data + ml + all the dependencies for local execution
+python -m pip install digitalhub-runtime-kfp[local]
 ```
