@@ -47,6 +47,16 @@ nav:
           - Methods: objects/project/methods.md
           - Config: objects/project/config.md
           - Setup: objects/project/setup.md
+      - Functions:
+          - Entity: objects/function/entity.md
+          - CRUD: objects/function/crud.md
+          - Methods: objects/function/methods.md
+          - Kinds: objects/function/kinds.md
+      - Workflows:
+          - Entity: objects/workflow/entity.md
+          - CRUD: objects/workflow/crud.md
+          - Methods: objects/workflow/methods.md
+          - Kinds: objects/workflow/kinds.md
       - Artifacts:
           - Entity: objects/artifact/entity.md
           - CRUD: objects/artifact/crud.md
