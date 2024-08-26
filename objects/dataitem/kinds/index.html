@@ -2735,7 +2735,8 @@
 <span class="normal">110</span>
 <span class="normal">111</span>
 <span class="normal">112</span>
-<span class="normal">113</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">DataitemTable</span><span class="p">(</span><span class="n">Dataitem</span><span class="p">):</span>
+<span class="normal">113</span>
+<span class="normal">114</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">DataitemTable</span><span class="p">(</span><span class="n">Dataitem</span><span class="p">):</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Table dataitem.</span>
@@ -2771,6 +2772,7 @@
                 <span class="n">tmp_dir</span> <span class="o">=</span> <span class="kc">None</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">tmp_dir</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_context</span><span class="p">()</span><span class="o">.</span><span class="n">tmp_dir</span> <span class="o">/</span> <span class="s2">&quot;data&quot;</span>
+                <span class="n">tmp_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
             <span class="c1"># Check file format and get dataitem as DataFrame</span>
             <span class="n">store</span> <span class="o">=</span> <span class="n">get_store</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
@@ -2994,7 +2996,8 @@
 <span class="normal">65</span>
 <span class="normal">66</span>
 <span class="normal">67</span>
-<span class="normal">68</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">as_df</span><span class="p">(</span>
+<span class="normal">68</span>
+<span class="normal">69</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">as_df</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="n">file_format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">clean_tmp_path</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
@@ -3024,6 +3027,7 @@
             <span class="n">tmp_dir</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">tmp_dir</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_context</span><span class="p">()</span><span class="o">.</span><span class="n">tmp_dir</span> <span class="o">/</span> <span class="s2">&quot;data&quot;</span>
+            <span class="n">tmp_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
         <span class="c1"># Check file format and get dataitem as DataFrame</span>
         <span class="n">store</span> <span class="o">=</span> <span class="n">get_store</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
@@ -3144,8 +3148,7 @@
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_data/entities/dataitem/entity/table.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">70</span>
-<span class="normal">71</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">71</span>
 <span class="normal">72</span>
 <span class="normal">73</span>
 <span class="normal">74</span>
@@ -3168,7 +3171,8 @@
 <span class="normal">91</span>
 <span class="normal">92</span>
 <span class="normal">93</span>
-<span class="normal">94</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">write_df</span><span class="p">(</span>
+<span class="normal">94</span>
+<span class="normal">95</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">write_df</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="n">df</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
     <span class="n">extension</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
