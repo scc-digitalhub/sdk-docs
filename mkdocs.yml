@@ -72,6 +72,10 @@ nav:
           - CRUD: objects/model/crud.md
           - Methods: objects/model/methods.md
           - Kinds: objects/model/kinds.md
+      - Secrets:
+          - Entity: objects/secret/entity.md
+          - CRUD: objects/secret/crud.md
+          - Methods: objects/secret/methods.md
       - Stores: objects/stores.md
   - Runtimes:
       - Runtimes: runtimes/runtimes.md
