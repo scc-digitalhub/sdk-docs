@@ -50,6 +50,7 @@ This function create a new entity and saves it into the backend.
         show_signature: false
         show_docstring_description: false
         show_symbol_type_heading: true
+        show_source: false
         members:
             - new_project
 
@@ -73,6 +74,7 @@ This function searches for a single project into the backend.
         show_signature: false
         show_docstring_description: false
         show_symbol_type_heading: true
+        show_source: false
         members:
             - get_project
 
@@ -92,6 +94,7 @@ This function load the project from a local yaml file descriptor.
         show_signature: false
         show_docstring_description: false
         show_symbol_type_heading: true
+        show_source: false
         members:
             - import_project
 
@@ -111,6 +114,7 @@ This function returns a projects from the backend or from a local file according
         show_signature: false
         show_docstring_description: false
         show_symbol_type_heading: true
+        show_source: false
         members:
             - load_project
 
@@ -132,6 +136,7 @@ You can read or create a project with the `get_or_create_project()` method.
         show_signature: false
         show_docstring_description: false
         show_symbol_type_heading: true
+        show_source: false
         members:
             - get_or_create_project
 
@@ -151,6 +156,7 @@ To update a project you can use the `update_project()` method.
         show_signature: false
         show_docstring_description: false
         show_symbol_type_heading: true
+        show_source: false
         members:
             - update_project
 
@@ -174,6 +180,7 @@ To delete a project you can use the `delete_project()` method.
         show_signature: false
         show_docstring_description: false
         show_symbol_type_heading: true
+        show_source: false
         members:
             - delete_project
 

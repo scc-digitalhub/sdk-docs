@@ -2,26 +2,6 @@
 
 The CRUD methods are used to create, read, update and delete dataitems. There are two ways to use them.
 The first is through the SDK and the second is through the `Project` object.
-
-Example:
-
-```python
-import digitalhub as dh
-
-project = dh.get_or_create_project("my-project")
-
-# From library
-dataitem = dh.new_dataitem(project="my-project",
-                           name="my-dataitem",
-                           kind="dataitem",
-                           path="s3://my-bucket/my-dataitem.ext")
-
-# From project
-dataitem = project.new_dataitem(name="my-dataitem",
-                                kind="dataitem",
-                                path="s3://my-bucket/my-dataitem.ext")
-```
-
 The syntax is the same for all CRUD methods. If you want to manage dataitems from the project, you can use the `Project` object and avoid to specify the `project` parameter. In this last case, you need to specify every parameter as keyword argument.
 
 A `dataitem` entity can be managed with the following methods.
@@ -60,17 +40,9 @@ This function create a new entity and saves it into the backend.
         show_signature: false
         show_docstring_description: false
         show_symbol_type_heading: true
+        show_source: false
         members:
             - new_dataitem
-
-Example:
-
-```python
-dataitem = dh.new_dataitem(project="my-project",
-                           name="my-dataitem",
-                           kind="dataitem",
-                           path="s3://my-bucket/my-dataitem.ext")
-```
 
 ### Log
 
@@ -82,17 +54,9 @@ This function create a new entity into the backend and also upload a local file 
         show_signature: false
         show_docstring_description: false
         show_symbol_type_heading: true
+        show_source: false
         members:
             - log_dataitem
-
-Example:
-
-```python
-dataitem = dh.log_dataitem(project="my-project",
-                           name="my-dataitem",
-                           kind="dataitem",
-                           source="./my-dataitem.ext")
-```
 
 ## Read
 
@@ -112,20 +76,9 @@ If you want to collect a dataitem from the backend using `get_dataitem()`, you h
         show_signature: false
         show_docstring_description: false
         show_symbol_type_heading: true
+        show_source: false
         members:
             - get_dataitem
-
-Example:
-
-```python
-# Use key
-dataitem = dh.get_dataitem("store://my-dataitem-key")
-
-# Use name, project and id
-dataitem = dh.get_dataitem("dataitem-name",
-                           project="my-project",
-                           entity_id="some-uuid4")
-```
 
 ### Get versions
 
@@ -137,19 +90,9 @@ This function returns all the versions of a dataitem from the backend.
         show_signature: false
         show_docstring_description: false
         show_symbol_type_heading: true
+        show_source: false
         members:
             - get_dataitem_versions
-
-Example:
-
-```python
-# Use key
-dataitems = dh.get_dataitem_versions("store://my-dataitem-key")
-
-# Use name, project and id
-dataitems = dh.get_dataitem_versions("dataitem-name",
-                                     project="my-project")
-```
 
 ### List
 
@@ -161,14 +104,9 @@ This function returns all the latest dataitems from the backend related to a pro
         show_signature: false
         show_docstring_description: false
         show_symbol_type_heading: true
+        show_source: false
         members:
             - list_dataitems
-
-Example:
-
-```python
-dataitems = dh.list_dataitems(project="my-project")
-```
 
 ### Import
 
@@ -180,14 +118,9 @@ This function load the dataitem from a local yaml file descriptor.
         show_signature: false
         show_docstring_description: false
         show_symbol_type_heading: true
+        show_source: false
         members:
             - import_dataitem
-
-Example:
-
-```python
-dataitem = dh.import_dataitem(file="./some-path/my-dataitem.yaml")
-```
 
 ## Update
 
@@ -199,21 +132,9 @@ To update a dataitem you can use the `update_dataitem()` method.
         show_signature: false
         show_docstring_description: false
         show_symbol_type_heading: true
+        show_source: false
         members:
             - update_dataitem
-
-Example:
-
-```python
-dataitem = dh.new_dataitem(project="my-project",
-                           name="my-dataitem",
-                           kind="dataitem",
-                           path="s3://my-bucket/my-dataitem.ext")
-
-dataitem.metadata.description = "My new description"
-
-dataitem = dh.update_dataitem(dataitem=dataitem)
-```
 
 ## Delete
 
@@ -225,11 +146,6 @@ To delete a dataitem you can use the `delete_dataitem()` method.
         show_signature: false
         show_docstring_description: false
         show_symbol_type_heading: true
+        show_source: false
         members:
             - delete_dataitem
-
-Example:
-
-```python
-dh.delete_dataitem("store://my-dataitem-key")
-```

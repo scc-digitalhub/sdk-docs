@@ -2,26 +2,6 @@
 
 The CRUD methods are used to create, read, update and delete artifacts. There are two ways to use them.
 The first is through the SDK and the second is through the `Project` object.
-
-Example:
-
-```python
-import digitalhub as dh
-
-project = dh.get_or_create_project("my-project")
-
-# From library
-artifact = dh.new_artifact(project="my-project",
-                           name="my-artifact",
-                           kind="artifact",
-                           path="s3://my-bucket/my-artifact.ext")
-
-# From project
-artifact = project.new_artifact(name="my-artifact",
-                                kind="artifact",
-                                path="s3://my-bucket/my-artifact.ext")
-```
-
 The syntax is the same for all CRUD methods. If you want to manage artifacts from the project, you can use the `Project` object and avoid to specify the `project` parameter. In this last case, you need to specify every parameter as keyword argument.
 
 An `artifact` entity can be managed with the following methods.
@@ -60,17 +40,9 @@ This function create a new entity and saves it into the backend.
         show_signature: false
         show_docstring_description: false
         show_symbol_type_heading: true
+        show_source: false
         members:
             - new_artifact
-
-Example:
-
-```python
-artifact = dh.new_artifact(project="my-project",
-                           name="my-artifact",
-                           kind="artifact",
-                           path="s3://my-bucket/my-artifact.ext")
-```
 
 ### Log
 
@@ -82,17 +54,9 @@ This function create a new entity into the backend and also upload a local file 
         show_signature: false
         show_docstring_description: false
         show_symbol_type_heading: true
+        show_source: false
         members:
             - log_artifact
-
-Example:
-
-```python
-artifact = dh.log_artifact(project="my-project",
-                           name="my-artifact",
-                           kind="artifact",
-                           source="./my-artifact.ext")
-```
 
 ## Read
 
@@ -112,20 +76,9 @@ If you want to collect an artifact from the backend using `get_artifact()`, you 
         show_signature: false
         show_docstring_description: false
         show_symbol_type_heading: true
+        show_source: false
         members:
             - get_artifact
-
-Example:
-
-```python
-# Use key
-artifact = dh.get_artifact("store://my-artifact-key")
-
-# Use name, project and id
-artifact = dh.get_artifact("artifact-name",
-                           project="my-project",
-                           entity_id="some-uuid4")
-```
 
 ### Get versions
 
@@ -137,19 +90,9 @@ This function returns all the versions of an artifact from the backend.
         show_signature: false
         show_docstring_description: false
         show_symbol_type_heading: true
+        show_source: false
         members:
             - get_artifact_versions
-
-Example:
-
-```python
-# Use key
-artifacts = dh.get_artifact_versions("store://my-artifact-key")
-
-# Use name, project and id
-artifacts = dh.get_artifact_versions("artifact-name",
-                                     project="my-project")
-```
 
 ### List
 
@@ -161,14 +104,9 @@ This function returns all the latest artifacts from the backend related to a pro
         show_signature: false
         show_docstring_description: false
         show_symbol_type_heading: true
+        show_source: false
         members:
             - list_artifacts
-
-Example:
-
-```python
-artifacts = dh.list_artifacts(project="my-project")
-```
 
 ### Import
 
@@ -180,14 +118,9 @@ This function load the artifact from a local yaml file descriptor.
         show_signature: false
         show_docstring_description: false
         show_symbol_type_heading: true
+        show_source: false
         members:
             - import_artifact
-
-Example:
-
-```python
-artifact = dh.import_artifact(file="./some-path/my-artifact.yaml")
-```
 
 ## Update
 
@@ -199,21 +132,9 @@ To update an artifact you can use the `update_artifact()` method.
         show_signature: false
         show_docstring_description: false
         show_symbol_type_heading: true
+        show_source: false
         members:
             - update_artifact
-
-Example:
-
-```python
-artifact = dh.new_artifact(project="my-project",
-                           name="my-artifact",
-                           kind="artifact",
-                           path="s3://my-bucket/my-artifact.ext")
-
-artifact.metadata.description = "My new description"
-
-artifact = dh.update_artifact(artifact=artifact)
-```
 
 ## Delete
 
@@ -225,11 +146,6 @@ To delete an artifact you can use the `delete_artifact()` method.
         show_signature: false
         show_docstring_description: false
         show_symbol_type_heading: true
+        show_source: false
         members:
             - delete_artifact
-
-Example:
-
-```python
-dh.delete_artifact("store://my-artifact-key")
-```

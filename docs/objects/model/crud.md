@@ -2,26 +2,6 @@
 
 The CRUD methods are used to create, read, update and delete models. There are two ways to use them.
 The first is through the SDK and the second is through the `Project` object.
-
-Example:
-
-```python
-import digitalhub as dh
-
-project = dh.get_or_create_project("my-project")
-
-# From library
-model = dh.new_model(project="my-project",
-                     name="my-model",
-                     kind="model",
-                     path="s3://my-bucket/my-model.ext")
-
-# From project
-model = project.new_model(name="my-model",
-                          kind="model",
-                          path="s3://my-bucket/my-model.ext")
-```
-
 The syntax is the same for all CRUD methods. If you want to manage models from the project, you can use the `Project` object and avoid to specify the `project` parameter. In this last case, you need to specify every parameter as keyword argument.
 
 A `model` entity can be managed with the following methods.
@@ -60,17 +40,9 @@ This function create a new entity and saves it into the backend.
         show_signature: false
         show_docstring_description: false
         show_symbol_type_heading: true
+        show_source: false
         members:
             - new_model
-
-Example:
-
-```python
-model = dh.new_model(project="my-project",
-                     name="my-model",
-                     kind="model",
-                     path="s3://my-bucket/my-model.ext")
-```
 
 ### Log
 
@@ -82,17 +54,9 @@ This function create a new entity into the backend and also upload a local file 
         show_signature: false
         show_docstring_description: false
         show_symbol_type_heading: true
+        show_source: false
         members:
             - log_model
-
-Example:
-
-```python
-model = dh.log_model(project="my-project",
-                     name="my-model",
-                     kind="model",
-                     source="./my-model.ext")
-```
 
 ## Read
 
@@ -112,20 +76,9 @@ If you want to collect a model from the backend using `get_model()`, you have tw
         show_signature: false
         show_docstring_description: false
         show_symbol_type_heading: true
+        show_source: false
         members:
             - get_model
-
-Example:
-
-```python
-# Use key
-model = dh.get_model("store://my-model-key")
-
-# Use name, project and id
-model = dh.get_model("model-name",
-                     project="my-project",
-                     entity_id="some-uuid4")
-```
 
 ### Get versions
 
@@ -137,19 +90,9 @@ This function returns all the versions of a model from the backend.
         show_signature: false
         show_docstring_description: false
         show_symbol_type_heading: true
+        show_source: false
         members:
             - get_model_versions
-
-Example:
-
-```python
-# Use key
-models = dh.get_model_versions("store://my-model-key")
-
-# Use name, project and id
-models = dh.get_model_versions("model-name",
-                               project="my-project")
-```
 
 ### List
 
@@ -161,14 +104,9 @@ This function returns all the latest models from the backend related to a projec
         show_signature: false
         show_docstring_description: false
         show_symbol_type_heading: true
+        show_source: false
         members:
             - list_models
-
-Example:
-
-```python
-models = dh.list_models(project="my-project")
-```
 
 ### Import
 
@@ -180,14 +118,9 @@ This function load the model from a local yaml file descriptor.
         show_signature: false
         show_docstring_description: false
         show_symbol_type_heading: true
+        show_source: false
         members:
             - import_model
-
-Example:
-
-```python
-model = dh.import_model(file="./some-path/my-model.yaml")
-```
 
 ## Update
 
@@ -199,21 +132,9 @@ To update a model you can use the `update_model()` method.
         show_signature: false
         show_docstring_description: false
         show_symbol_type_heading: true
+        show_source: false
         members:
             - update_model
-
-Example:
-
-```python
-model = dh.new_model(project="my-project",
-                     name="my-model",
-                     kind="model",
-                     path="s3://my-bucket/my-model.ext")
-
-model.metadata.description = "My new description"
-
-model = dh.update_model(model=model)
-```
 
 ## Delete
 
@@ -225,11 +146,6 @@ To delete a model you can use the `delete_model()` method.
         show_signature: false
         show_docstring_description: false
         show_symbol_type_heading: true
+        show_source: false
         members:
             - delete_model
-
-Example:
-
-```python
-dh.delete_model("store://my-model-key")
-```
