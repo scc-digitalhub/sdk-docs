@@ -4126,7 +4126,7 @@ the temporary folder will be deleted after the method is executed.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Create dataitem from dictionary.</p>
+      <p>Create a new object from dictionary.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -4173,7 +4173,7 @@ the temporary folder will be deleted after the method is executed.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Dataitem object.</p>
+                <p>Object instance.</p>
               </div>
             </td>
           </tr>
@@ -4200,7 +4200,7 @@ the temporary folder will be deleted after the method is executed.</p>
 <span class="normal">143</span>
 <span class="normal">144</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">dataitem_from_dict</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dataitem</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Create dataitem from dictionary.</span>
+<span class="sd">    Create a new object from dictionary.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -4210,7 +4210,7 @@ the temporary folder will be deleted after the method is executed.</p>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    Dataitem</span>
-<span class="sd">        Dataitem object.</span>
+<span class="sd">        Object instance.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">kind</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;kind&quot;</span><span class="p">)</span>
     <span class="bp">cls</span> <span class="o">=</span> <span class="n">_choose_dataitem_type</span><span class="p">(</span><span class="n">kind</span><span class="p">)</span>
@@ -4232,7 +4232,7 @@ the temporary folder will be deleted after the method is executed.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Create a new object instance.</p>
+      <p>Create a new object.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -4295,7 +4295,7 @@ the temporary folder will be deleted after the method is executed.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>ID of the object (UUID4).</p>
+                <p>ID of the object (UUID4, e.g. 40f25c4b-d26b-4221-b048-9527aff291e2).</p>
               </div>
             </td>
             <td>
@@ -4337,7 +4337,7 @@ the temporary folder will be deleted after the method is executed.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Flag to determine if object must be embedded in project.</p>
+                <p>Flag to determine if object spec must be embedded in project spec.</p>
               </div>
             </td>
             <td>
@@ -4351,7 +4351,7 @@ the temporary folder will be deleted after the method is executed.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Object path on local file system or remote storage.</p>
+                <p>Object path on local file system or remote storage. It is also the destination path of upload() method.</p>
               </div>
             </td>
             <td>
@@ -4480,7 +4480,7 @@ the temporary folder will be deleted after the method is executed.</p>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dataitem</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Create a new object instance.</span>
+<span class="sd">    Create a new object.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -4491,15 +4491,15 @@ the temporary folder will be deleted after the method is executed.</p>
 <span class="sd">    kind : str</span>
 <span class="sd">        Kind the object.</span>
 <span class="sd">    uuid : str</span>
-<span class="sd">        ID of the object (UUID4).</span>
+<span class="sd">        ID of the object (UUID4, e.g. 40f25c4b-d26b-4221-b048-9527aff291e2).</span>
 <span class="sd">    description : str</span>
 <span class="sd">        Description of the object (human readable).</span>
 <span class="sd">    labels : list[str]</span>
 <span class="sd">        List of labels.</span>
 <span class="sd">    embedded : bool</span>
-<span class="sd">        Flag to determine if object must be embedded in project.</span>
+<span class="sd">        Flag to determine if object spec must be embedded in project spec.</span>
 <span class="sd">    path : str</span>
-<span class="sd">        Object path on local file system or remote storage.</span>
+<span class="sd">        Object path on local file system or remote storage. It is also the destination path of upload() method.</span>
 <span class="sd">    **kwargs : dict</span>
 <span class="sd">        Spec keyword arguments.</span>
 

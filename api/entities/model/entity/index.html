@@ -3547,7 +3547,7 @@
 
     <div class="doc doc-contents ">
 
-      <p>Create Model instance from a dictionary.</p>
+      <p>Create a new object from dictionary.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -3594,7 +3594,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Model instance.</p>
+                <p>Object instance.</p>
               </div>
             </td>
           </tr>
@@ -3621,7 +3621,7 @@
 <span class="normal">151</span>
 <span class="normal">152</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">model_from_dict</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Model</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Create Model instance from a dictionary.</span>
+<span class="sd">    Create a new object from dictionary.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -3631,7 +3631,7 @@
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    Model</span>
-<span class="sd">        Model instance.</span>
+<span class="sd">        Object instance.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">kind</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;kind&quot;</span><span class="p">)</span>
     <span class="bp">cls</span> <span class="o">=</span> <span class="n">_choose_model_type</span><span class="p">(</span><span class="n">kind</span><span class="p">)</span>
@@ -3653,7 +3653,7 @@
 
     <div class="doc doc-contents ">
 
-      <p>Create a new Model instance with the specified parameters.</p>
+      <p>Create a new object.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -3716,7 +3716,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>ID of the object (UUID4).</p>
+                <p>ID of the object (UUID4, e.g. 40f25c4b-d26b-4221-b048-9527aff291e2).</p>
               </div>
             </td>
             <td>
@@ -3758,7 +3758,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Flag to determine if object must be embedded in project.</p>
+                <p>Flag to determine if object spec must be embedded in project spec.</p>
               </div>
             </td>
             <td>
@@ -3772,7 +3772,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Object path on local file system or remote storage.</p>
+                <p>Object path on local file system or remote storage. It is also the destination path of upload() method.</p>
               </div>
             </td>
             <td>
@@ -3812,7 +3812,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>An instance of the created model.</p>
+                <p>Object instance.</p>
               </div>
             </td>
           </tr>
@@ -3901,7 +3901,7 @@
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Model</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Create a new Model instance with the specified parameters.</span>
+<span class="sd">    Create a new object.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -3912,22 +3912,22 @@
 <span class="sd">    kind : str</span>
 <span class="sd">        Kind the object.</span>
 <span class="sd">    uuid : str</span>
-<span class="sd">        ID of the object (UUID4).</span>
+<span class="sd">        ID of the object (UUID4, e.g. 40f25c4b-d26b-4221-b048-9527aff291e2).</span>
 <span class="sd">    labels : list[str]</span>
 <span class="sd">        List of labels.</span>
 <span class="sd">    description : str</span>
 <span class="sd">        Description of the object (human readable).</span>
 <span class="sd">    embedded : bool</span>
-<span class="sd">        Flag to determine if object must be embedded in project.</span>
+<span class="sd">        Flag to determine if object spec must be embedded in project spec.</span>
 <span class="sd">    path : str</span>
-<span class="sd">        Object path on local file system or remote storage.</span>
+<span class="sd">        Object path on local file system or remote storage. It is also the destination path of upload() method.</span>
 <span class="sd">    **kwargs : dict</span>
 <span class="sd">        Spec keyword arguments.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    Model</span>
-<span class="sd">        An instance of the created model.</span>
+<span class="sd">        Object instance.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">raise</span> <span class="n">EntityError</span><span class="p">(</span><span class="s2">&quot;Path must be provided.&quot;</span><span class="p">)</span>
