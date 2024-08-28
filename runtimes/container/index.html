@@ -1520,6 +1520,48 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#task-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Run">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run example
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3160,6 +3202,48 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#task-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Run">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run example
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3474,6 +3558,20 @@ function = dh.new_function(
 </tr>
 </tbody>
 </table>
+<h4 id="task-example">Task example</h4>
+<pre><code class="language-python">run = function.run(
+    action=&quot;job&quot;,
+    backoff_limit=1,
+)
+</code></pre>
+<h3 id="run">Run</h3>
+<p>The <code>Run</code> object is, similar to the <code>Task</code>, created with the <code>run()</code> method.
+The run's parameters are passed alongside the task's ones.</p>
+<h4 id="run-parameters">Run parameters</h4>
+<p>There are no parameters for the <code>run</code> spec.</p>
+<h4 id="run-example">Run example</h4>
+<pre><code class="language-python">run = function.run(action=&quot;job&quot;)
+</code></pre>
 
 
 
