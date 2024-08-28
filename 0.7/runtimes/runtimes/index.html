@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#functions-and-runtimes" class="md-skip">
+        <a href="#runtimes" class="md-skip">
           Skip to content
         </a>
       
@@ -1464,6 +1464,27 @@
   
   <span class="md-ellipsis">
     KFP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modelserve/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modelserve
   </span>
   
 
@@ -2990,7 +3011,7 @@
                   
 
 
-<h1 id="functions-and-runtimes">Functions and Runtimes</h1>
+<h1 id="runtimes">Runtimes</h1>
 <p>Functions are the logical description of something that the platform may execute and track for you. A function may represent code to run as a job, an ML model inference to be used as batch procedure or as a service, a data validation, etc.</p>
 <p>In the platform we perform actions over functions (also referred to as "tasks"), such as job execution, deploy, container image build. A single action execution is called run, and the platform keeps track of these runs, with metadata about function version, operation parameters, and runtime parameters for a single execution.</p>
 <p>They are associated with a given runtime, which implements the actual execution and determines which actions are available. Examples are DBT, Container, Python, etc. Runtimes are highly specialized components which can translate the representation of a given execution, as expressed in the run, into an actual execution operation performed via libraries, code, external tools etc.</p>
@@ -3001,6 +3022,7 @@
 <li><a href="../container/">Container</a></li>
 <li><a href="../dbt/">DBT</a></li>
 <li><a href="../kfp/">KFP</a></li>
+<li><a href="../modelserve/">ModelServe</a></li>
 </ul>
 
 

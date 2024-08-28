@@ -1433,15 +1433,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#source-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Source code
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#function" class="md-nav__link">
     <span class="md-ellipsis">
       Function
@@ -1560,15 +1551,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#snippet-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Snippet example
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1611,6 +1593,27 @@
   
   <span class="md-ellipsis">
     KFP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modelserve/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modelserve
   </span>
   
 
@@ -3133,15 +3136,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#source-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Source code
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#function" class="md-nav__link">
     <span class="md-ellipsis">
       Function
@@ -3260,15 +3254,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#snippet-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Snippet example
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -3312,45 +3297,6 @@ The DBT runtime execution workflow follows roughly these steps:</p>
 <li>The runtime collect the source code of the DBT query and creates all the necessary DBT artifacts (profiles.yml, dbt_project.yml, etc.) and runs the DBT transformation.</li>
 <li>The runtime stores the output table into the default postgres database as result of the DBT execution. The table name is built from the <code>outputs</code> parameter. Then, the runtime creates a dataitem with the <code>outputs</code> name parameter and saves it into the Core backend. You can retrieve the dataitem with the <code>run.outputs()</code> method. In general, the output table versioned is named <code>&lt;dataitem-output-name&gt;_v&lt;dataitem-output-id&gt;</code> and is stored in the default postgres database passed to the runtime via env variable.</li>
 </ol>
-<h3 id="source-code">Source code</h3>
-<p>You can define a DBT query as usual, and store it in several ways.
-You will then refernce the source code according to a specific <code>Function</code> parameter as shown in the following table:</p>
-<table>
-<thead>
-<tr>
-<th>Format</th>
-<th>Parameter</th>
-<th>Type</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>remote git repository</td>
-<td>source</td>
-<td><code>str</code></td>
-<td>"git+https://github.com/some-user/some-repo"</td>
-</tr>
-<tr>
-<td>zip s3 archive</td>
-<td>source</td>
-<td><code>str</code></td>
-<td>"zip+s3://some-bucket/some-key.zip"</td>
-</tr>
-<tr>
-<td>base64 encoded string</td>
-<td>base64</td>
-<td><code>str</code></td>
-<td>"encodedstring"</td>
-</tr>
-<tr>
-<td>string</td>
-<td>code</td>
-<td><code>str</code></td>
-<td>"select * from some_table"</td>
-</tr>
-</tbody>
-</table>
 <h3 id="function">Function</h3>
 <p>The DBT runtime introduces a function of kind <code>dbt</code> that allows you to execute sql dbt queries on your data.</p>
 <h4 id="function-parameters">Function parameters</h4>
@@ -3392,12 +3338,6 @@ You will then refernce the source code according to a specific <code>Function</c
 <td>description</td>
 <td>str</td>
 <td>Description of the object</td>
-<td>None</td>
-</tr>
-<tr>
-<td>git_source</td>
-<td>str</td>
-<td>Remote git source for object</td>
 <td>None</td>
 </tr>
 <tr>
@@ -3486,7 +3426,7 @@ dataitem = project.new_dataitem(&quot;my_dataitem&quot;, kind=&quot;table&quot;,
 function = dh.new_function(
     kind=&quot;dbt&quot;,
     name=&quot;my_function&quot;,
-    source={&quot;code&quot;: sql}
+    code=sql
 )
 </code></pre>
 <h3 id="task">Task</h3>
@@ -3627,40 +3567,6 @@ The run's parameters are passed alongside the task's ones.</p>
         &quot;label&quot;: &quot;some-label&quot;
     }
 )
-</code></pre>
-<h2 id="snippet-example">Snippet example</h2>
-<pre><code class="language-python">import digitalhub as dh
-
-# Get or create project
-project = dh.get_or_create_project(&quot;project-dbt&quot;)
-
-# Create new input dataitem
-url = &quot;https://gist.githubusercontent.com/kevin336/acbb2271e66c10a5b73aacf82ca82784/raw/e38afe62e088394d61ed30884dd50a6826eee0a8/employees.csv&quot;
-di = project.new_dataitem(name=&quot;employees&quot;,
-                          kind=&quot;table&quot;,
-                          path=url)
-
-# Create new function
-sql = &quot;&quot;&quot;
-WITH tab AS (
-    SELECT  *
-    FROM    {{ ref(&quot;employees&quot;) }}
-)
-SELECT  *
-FROM    tab
-WHERE   tab.&quot;DEPARTMENT_ID&quot; = &quot;60&quot;
-&quot;&quot;&quot;
-function = project.new_function(name=&quot;function-dbt&quot;,
-                                kind=&quot;dbt&quot;,
-                                source={&quot;code&quot;: sql})
-
-# Run function
-run = function.run(&quot;transform&quot;,
-                   inputs={&quot;employees&quot;: di.key},
-                   outputs={&quot;output_table&quot;: &quot;department-60&quot;})
-
-# Refresh run
-run.refresh()
 </code></pre>
 
 

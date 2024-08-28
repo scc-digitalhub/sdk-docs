@@ -1520,8 +1520,12 @@
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#task-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task example
+    </span>
+  </a>
   
 </li>
         
@@ -1529,13 +1533,42 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#snippet-example" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#run" class="md-nav__link">
     <span class="md-ellipsis">
-      Snippet example
+      Run
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Run">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1560,6 +1593,27 @@
   
   <span class="md-ellipsis">
     KFP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modelserve/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modelserve
   </span>
   
 
@@ -3148,8 +3202,12 @@
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#task-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task example
+    </span>
+  </a>
   
 </li>
         
@@ -3157,13 +3215,42 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#snippet-example" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#run" class="md-nav__link">
     <span class="md-ellipsis">
-      Snippet example
+      Run
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Run">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3236,12 +3323,6 @@
 <td>description</td>
 <td>str</td>
 <td>Description of the object</td>
-<td>None</td>
-</tr>
-<tr>
-<td>git_source</td>
-<td>str</td>
-<td>Remote git source for object</td>
 <td>None</td>
 </tr>
 <tr>
@@ -3477,25 +3558,19 @@ function = dh.new_function(
 </tr>
 </tbody>
 </table>
-<h2 id="snippet-example">Snippet example</h2>
-<pre><code class="language-python">import digitalhub as dh
-
-proj = dh.get_or_create_project(&quot;project-container&quot;)
-
-# Run container
-func_cont = proj.new_function(name=&quot;function-container&quot;,
-                              kind=&quot;container&quot;,
-                              image=&quot;hello-world:latest&quot;)
-run_cont = func_cont.run(&quot;job&quot;)
-
-
-# Serve stremlit service
-func_serve = proj.new_function(name=&quot;function-serve&quot;,
-                               kind=&quot;container&quot;,
-                               image=&quot;ghcr.io/scc-digitalhub/digitalhub-core-streamlit:latest&quot;)
-run_serve = func_serve.run(&quot;serve&quot;,
-                           service_ports= [{&quot;port&quot;: 8085, &quot;target_port&quot;: 8501}],
-                           service_type=&quot;NodePort&quot;)
+<h4 id="task-example">Task example</h4>
+<pre><code class="language-python">run = function.run(
+    action=&quot;job&quot;,
+    backoff_limit=1,
+)
+</code></pre>
+<h3 id="run">Run</h3>
+<p>The <code>Run</code> object is, similar to the <code>Task</code>, created with the <code>run()</code> method.
+The run's parameters are passed alongside the task's ones.</p>
+<h4 id="run-parameters">Run parameters</h4>
+<p>There are no parameters for the <code>run</code> spec.</p>
+<h4 id="run-example">Run example</h4>
+<pre><code class="language-python">run = function.run(action=&quot;job&quot;)
 </code></pre>
 
 
