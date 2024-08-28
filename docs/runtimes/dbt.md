@@ -31,18 +31,6 @@ The DBT runtime execution workflow follows roughly these steps:
 3. The runtime collect the source code of the DBT query and creates all the necessary DBT artifacts (profiles.yml, dbt_project.yml, etc.) and runs the DBT transformation.
 4. The runtime stores the output table into the default postgres database as result of the DBT execution. The table name is built from the `outputs` parameter. Then, the runtime creates a dataitem with the `outputs` name parameter and saves it into the Core backend. You can retrieve the dataitem with the `run.outputs()` method. In general, the output table versioned is named `<dataitem-output-name>_v<dataitem-output-id>` and is stored in the default postgres database passed to the runtime via env variable.
 
-### Source code
-
-You can define a DBT query as usual, and store it in several ways.
-You will then refernce the source code according to a specific `Function` parameter as shown in the following table:
-
-| Format | Parameter | Type | Example |
-| --- | --- | --- | --- |
-| remote git repository | source | `str` | "git+https://github.com/some-user/some-repo" |
-| zip s3 archive | source | `str` | "zip+s3://some-bucket/some-key.zip" |
-| base64 encoded string | base64 | `str` | "encodedstring" |
-| string | code | `str` | "select * from some_table" |
-
 ### Function
 
 The DBT runtime introduces a function of kind `dbt` that allows you to execute sql dbt queries on your data.
@@ -91,7 +79,7 @@ dataitem = project.new_dataitem("my_dataitem", kind="table", path="path-to-some-
 function = dh.new_function(
     kind="dbt",
     name="my_function",
-    source={"code": sql}
+    code=sql
 )
 ```
 

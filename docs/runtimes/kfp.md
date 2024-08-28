@@ -54,16 +54,16 @@ def myhandler(url):
 
       # Defaine first step
       step1 = pc.step(name="download",                         # Name of the step 1
-                     function="downloader-funct",              # Name of the dh function to execute
-                     action="job",                             # Action to execute
-                     inputs={"url": url},                      # Input parameters
-                     outputs={"dataset": "dataset"})           # Mapped outputs
+                      function="downloader-funct",              # Name of the dh function to execute
+                      action="job",                             # Action to execute
+                      inputs={"url": url},                      # Input parameters
+                      outputs={"dataset": "dataset"})           # Mapped outputs
 
       step2 = pc.step(name="extract_parking",                  # Name of the step 2
-                     function="extract-parkings",              # Name of the dh function to execute
-                     action="job",                             # Action to execute
-                     inputs={"di": step1.outputs['dataset']},  # Input parameters from previous step
-                     outputs={"parkings": "parkings"})         # Mapped outputs
+                      function="extract-parkings",              # Name of the dh function to execute
+                      action="job",                             # Action to execute
+                      inputs={"di": step1.outputs['dataset']},  # Input parameters from previous step
+                      outputs={"parkings": "parkings"})         # Mapped outputs
 
 ```
 
@@ -196,8 +196,6 @@ The run's parameters are passed alongside the task's ones.
 ```python
 run = function.run(
     action="job",
-    inputs={
-        "dataitem": dataitem.key
-    }
+    inputs={"dataitem": dataitem.key}
 )
 ```
