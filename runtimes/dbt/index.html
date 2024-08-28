@@ -1551,15 +1551,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#snippet-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Snippet example
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -3242,15 +3233,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#snippet-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Snippet example
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -3570,40 +3552,6 @@ The run's parameters are passed alongside the task's ones.</p>
         &quot;label&quot;: &quot;some-label&quot;
     }
 )
-</code></pre>
-<h2 id="snippet-example">Snippet example</h2>
-<pre><code class="language-python">import digitalhub as dh
-
-# Get or create project
-project = dh.get_or_create_project(&quot;project-dbt&quot;)
-
-# Create new input dataitem
-url = &quot;https://gist.githubusercontent.com/kevin336/acbb2271e66c10a5b73aacf82ca82784/raw/e38afe62e088394d61ed30884dd50a6826eee0a8/employees.csv&quot;
-di = project.new_dataitem(name=&quot;employees&quot;,
-                          kind=&quot;table&quot;,
-                          path=url)
-
-# Create new function
-sql = &quot;&quot;&quot;
-WITH tab AS (
-    SELECT  *
-    FROM    {{ ref(&quot;employees&quot;) }}
-)
-SELECT  *
-FROM    tab
-WHERE   tab.&quot;DEPARTMENT_ID&quot; = &quot;60&quot;
-&quot;&quot;&quot;
-function = project.new_function(name=&quot;function-dbt&quot;,
-                                kind=&quot;dbt&quot;,
-                                source={&quot;code&quot;: sql})
-
-# Run function
-run = function.run(&quot;transform&quot;,
-                   inputs={&quot;employees&quot;: di.key},
-                   outputs={&quot;output_table&quot;: &quot;department-60&quot;})
-
-# Refresh run
-run.refresh()
 </code></pre>
 
 

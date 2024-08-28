@@ -1530,15 +1530,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#snippet-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Snippet example
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -3158,15 +3149,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#snippet-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Snippet example
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -3477,26 +3459,6 @@ function = dh.new_function(
 </tr>
 </tbody>
 </table>
-<h2 id="snippet-example">Snippet example</h2>
-<pre><code class="language-python">import digitalhub as dh
-
-proj = dh.get_or_create_project(&quot;project-container&quot;)
-
-# Run container
-func_cont = proj.new_function(name=&quot;function-container&quot;,
-                              kind=&quot;container&quot;,
-                              image=&quot;hello-world:latest&quot;)
-run_cont = func_cont.run(&quot;job&quot;)
-
-
-# Serve stremlit service
-func_serve = proj.new_function(name=&quot;function-serve&quot;,
-                               kind=&quot;container&quot;,
-                               image=&quot;ghcr.io/scc-digitalhub/digitalhub-core-streamlit:latest&quot;)
-run_serve = func_serve.run(&quot;serve&quot;,
-                           service_ports= [{&quot;port&quot;: 8085, &quot;target_port&quot;: 8501}],
-                           service_type=&quot;NodePort&quot;)
-</code></pre>
 
 
 
