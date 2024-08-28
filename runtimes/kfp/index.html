@@ -12,7 +12,7 @@
         <link rel="prev" href="../container/">
       
       
-        <link rel="next" href="../kubernetes-resources/">
+        <link rel="next" href="../modelserve/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -1639,6 +1639,27 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modelserve/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modelserve
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -3476,12 +3497,6 @@ def myhandler(url):
 <td>None</td>
 </tr>
 <tr>
-<td>git_source</td>
-<td>str</td>
-<td>Remote git source for object</td>
-<td>None</td>
-</tr>
-<tr>
 <td>labels</td>
 <td>list[str]</td>
 <td>List of labels</td>
@@ -3593,9 +3608,7 @@ func = dh.new_function(project=&quot;my-project&quot;,
                        handler=&quot;main:function&quot;)
 </code></pre>
 <h4 id="workflow-example">Workflow example</h4>
-<pre><code class="language-python">import digitalhub_core as dh
-
-# From project ...
+<pre><code class="language-python"># From project ...
 
 workflow = project.new_workflow(name=&quot;workflow&quot;,
                                 kind=&quot;kfp&quot;,

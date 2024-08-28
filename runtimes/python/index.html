@@ -1675,6 +1675,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../modelserve/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modelserve
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../kubernetes-resources/" class="md-nav__link">
         
   
@@ -3545,12 +3566,6 @@ sdk_function.run(inputs={&quot;di&quot;: sdk_dataitem.key},
 <td>None</td>
 </tr>
 <tr>
-<td>git_source</td>
-<td>str</td>
-<td>Remote git source for object</td>
-<td>None</td>
-</tr>
-<tr>
 <td>labels</td>
 <td>list[str]</td>
 <td>List of labels</td>
@@ -3680,9 +3695,7 @@ func = dh.new_function(project=&quot;my-project&quot;,
                        handler=&quot;main:function&quot;)
 </code></pre>
 <h4 id="function-example">Function example</h4>
-<pre><code class="language-python">import digitalhub_core as dh
-
-# From project ...
+<pre><code class="language-python"># From project ...
 
 function = project.new_function(name=&quot;python-function&quot;,
                                 kind=&quot;python&quot;,
