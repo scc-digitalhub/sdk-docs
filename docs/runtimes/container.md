@@ -96,27 +96,3 @@ The Container runtime introduces three task's kinds:
 | replicas | int | Number of replicas | None | `deploy`, `serve` |
 | service_port| list[dict] | Service port where to expose the service. Must be: [{port: port, target_port: target_port}, ...] | `NodePort` | `serve` |
 | service_type| str | Service type. Must be one of: <li>`ClusterIP`</li><li>`LoadBalancer`</li><li>`NodePort`</li> | `NodePort` | `serve` |
-
-
-## Snippet example
-
-```python
-import digitalhub as dh
-
-proj = dh.get_or_create_project("project-container")
-
-# Run container
-func_cont = proj.new_function(name="function-container",
-                              kind="container",
-                              image="hello-world:latest")
-run_cont = func_cont.run("job")
-
-
-# Serve stremlit service
-func_serve = proj.new_function(name="function-serve",
-                               kind="container",
-                               image="ghcr.io/scc-digitalhub/digitalhub-core-streamlit:latest")
-run_serve = func_serve.run("serve",
-                           service_ports= [{"port": 8085, "target_port": 8501}],
-                           service_type="NodePort")
-```
