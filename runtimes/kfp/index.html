@@ -3420,16 +3420,16 @@ def myhandler(url):
 
       # Defaine first step
       step1 = pc.step(name=&quot;download&quot;,                         # Name of the step 1
-                     function=&quot;downloader-funct&quot;,              # Name of the dh function to execute
-                     action=&quot;job&quot;,                             # Action to execute
-                     inputs={&quot;url&quot;: url},                      # Input parameters
-                     outputs={&quot;dataset&quot;: &quot;dataset&quot;})           # Mapped outputs
+                      function=&quot;downloader-funct&quot;,              # Name of the dh function to execute
+                      action=&quot;job&quot;,                             # Action to execute
+                      inputs={&quot;url&quot;: url},                      # Input parameters
+                      outputs={&quot;dataset&quot;: &quot;dataset&quot;})           # Mapped outputs
 
       step2 = pc.step(name=&quot;extract_parking&quot;,                  # Name of the step 2
-                     function=&quot;extract-parkings&quot;,              # Name of the dh function to execute
-                     action=&quot;job&quot;,                             # Action to execute
-                     inputs={&quot;di&quot;: step1.outputs['dataset']},  # Input parameters from previous step
-                     outputs={&quot;parkings&quot;: &quot;parkings&quot;})         # Mapped outputs
+                      function=&quot;extract-parkings&quot;,              # Name of the dh function to execute
+                      action=&quot;job&quot;,                             # Action to execute
+                      inputs={&quot;di&quot;: step1.outputs['dataset']},  # Input parameters from previous step
+                      outputs={&quot;parkings&quot;: &quot;parkings&quot;})         # Mapped outputs
 
 </code></pre>
 <h3 id="workflow">Workflow</h3>
@@ -3725,9 +3725,7 @@ The run's parameters are passed alongside the task's ones.</p>
 <h4 id="run-example">Run example</h4>
 <pre><code class="language-python">run = function.run(
     action=&quot;job&quot;,
-    inputs={
-        &quot;dataitem&quot;: dataitem.key
-    }
+    inputs={&quot;dataitem&quot;: dataitem.key}
 )
 </code></pre>
 
