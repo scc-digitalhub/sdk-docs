@@ -83,6 +83,7 @@ nav:
       - DBT: runtimes/dbt.md
       - Container: runtimes/container.md
       - KFP: runtimes/kfp.md
+      - Modelserve: runtimes/modelserve.md
       - Kubernetes resources: runtimes/kubernetes-resources.md
   - API:
       - API: api/api.md

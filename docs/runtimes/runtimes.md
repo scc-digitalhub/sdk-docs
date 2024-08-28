@@ -1,4 +1,4 @@
-# Functions and Runtimes
+# Runtimes
 
 Functions are the logical description of something that the platform may execute and track for you. A function may represent code to run as a job, an ML model inference to be used as batch procedure or as a service, a data validation, etc.
 
@@ -14,3 +14,4 @@ Runtimes define the key point of extension of the platform: new runtimes may be 
 - [Container](container.md)
 - [DBT](dbt.md)
 - [KFP](kfp.md)
+- [ModelServe](modelserve.md)

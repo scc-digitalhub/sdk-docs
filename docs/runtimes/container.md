@@ -32,7 +32,6 @@ The Container runtime introduces a function of kind `container` that allows you 
 | kind | str | Kind of the object | required (must be `container`) |
 | uuid | str | ID of the object in form of UUID | None |
 | description | str | Description of the object | None |
-| git_source | str | Remote git source for object | None |
 | labels | list[str] | List of labels | None |
 | embedded | bool | Flag to determine if object must be embedded in project | True |
 | [code_src](#source) | str | URI pointer to source code | None |
