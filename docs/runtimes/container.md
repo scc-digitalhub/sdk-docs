@@ -95,3 +95,27 @@ The Container runtime introduces three task's kinds:
 | replicas | int | Number of replicas | None | `deploy`, `serve` |
 | service_port| list[dict] | Service port where to expose the service. Must be: [{port: port, target_port: target_port}, ...] | `NodePort` | `serve` |
 | service_type| str | Service type. Must be one of: <li>`ClusterIP`</li><li>`LoadBalancer`</li><li>`NodePort`</li> | `NodePort` | `serve` |
+
+#### Task example
+
+```python
+run = function.run(
+    action="job",
+    backoff_limit=1,
+)
+```
+
+### Run
+
+The `Run` object is, similar to the `Task`, created with the `run()` method.
+The run's parameters are passed alongside the task's ones.
+
+#### Run parameters
+
+There are no parameters for the `run` spec.
+
+#### Run example
+
+```python
+run = function.run(action="job")
+```
