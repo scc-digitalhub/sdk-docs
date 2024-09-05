@@ -14,6 +14,7 @@ Crud methods are used to interact with the entity object in the backend or local
     options:
         heading_level: 3
         show_signature: false
+        show_source: false
         show_root_heading: true
         show_symbol_type_heading: true
         show_root_full_path: false
@@ -23,6 +24,7 @@ Crud methods are used to interact with the entity object in the backend or local
     options:
         heading_level: 3
         show_signature: false
+        show_source: false
         show_root_heading: true
         show_symbol_type_heading: true
         show_root_full_path: false
@@ -32,6 +34,7 @@ Crud methods are used to interact with the entity object in the backend or local
     options:
         heading_level: 3
         show_signature: false
+        show_source: false
         show_root_heading: true
         show_symbol_type_heading: true
         show_root_full_path: false
@@ -49,6 +52,7 @@ I/O methods are used to handle objects as files.
     options:
         heading_level: 3
         show_signature: false
+        show_source: false
         show_root_heading: true
         show_symbol_type_heading: true
         show_root_full_path: false
@@ -58,6 +62,7 @@ I/O methods are used to handle objects as files.
     options:
         heading_level: 3
         show_signature: false
+        show_source: false
         show_root_heading: true
         show_symbol_type_heading: true
         show_root_full_path: false
@@ -67,6 +72,7 @@ I/O methods are used to handle objects as files.
     options:
         heading_level: 3
         show_signature: false
+        show_source: false
         show_root_heading: true
         show_symbol_type_heading: true
         show_root_full_path: false
