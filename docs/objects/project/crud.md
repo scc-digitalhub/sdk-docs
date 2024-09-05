@@ -54,12 +54,6 @@ This function create a new entity and saves it into the backend.
         members:
             - new_project
 
-Example:
-
-```python
-project = dh.new_project(name="my-project",)
-```
-
 ## Read
 
 To read projects you can use the `get_project()`, `import_project()` or `load_project()`.
@@ -78,12 +72,6 @@ This function searches for a single project into the backend.
         members:
             - get_project
 
-Example:
-
-```python
-project = dh.get_project("project-name")
-```
-
 ### Import
 
 This function load the project from a local yaml file descriptor.
@@ -97,12 +85,6 @@ This function load the project from a local yaml file descriptor.
         show_source: false
         members:
             - import_project
-
-Example:
-
-```python
-project = dh.import_project(file="./some-path/my-project.yaml")
-```
 
 ### Load
 
@@ -118,14 +100,6 @@ This function returns a projects from the backend or from a local file according
         members:
             - load_project
 
-Example:
-
-```python
-project = dh.load_project(name="my-project")
-
-project = dh.load_project(file="./some-path/my-project.yaml")
-```
-
 ## Read or create
 
 You can read or create a project with the `get_or_create_project()` method.
@@ -139,12 +113,6 @@ You can read or create a project with the `get_or_create_project()` method.
         show_source: false
         members:
             - get_or_create_project
-
-Example:
-
-```python
-project = dh.get_or_create_project("my-project")
-```
 
 ## Update
 
@@ -160,16 +128,6 @@ To update a project you can use the `update_project()` method.
         members:
             - update_project
 
-Example:
-
-```python
-project = dh.new_project(name="my-project")
-
-project.metadata.description = "My new description"
-
-project = dh.update_project(name=project)
-```
-
 ## Delete
 
 To delete a project you can use the `delete_project()` method.
@@ -183,9 +141,3 @@ To delete a project you can use the `delete_project()` method.
         show_source: false
         members:
             - delete_project
-
-Example:
-
-```python
-dh.delete_project("store://my-project-key")
-```
