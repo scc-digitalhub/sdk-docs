@@ -10,18 +10,32 @@ Crud methods are used to interact with the entity object in the backend or local
 - `export()`: Export the entity locally as yaml file.
 - `refresh()`: Refresh (read) the entity from the backend.
 
-::: digitalhub_core.entities.secret.entity.Secret
+::: digitalhub_core.entities.secret.entity.Secret.save
     options:
         heading_level: 3
-        show_bases: false
         show_signature: false
-        show_docstring_description: false
+        show_root_heading: true
         show_symbol_type_heading: true
-        inherited_members: true
-        members:
-            - save
-            - export
-            - refresh
+        show_root_full_path: false
+        show_root_toc_entry: true
+
+::: digitalhub_core.entities.secret.entity.Secret.export
+    options:
+        heading_level: 3
+        show_signature: false
+        show_root_heading: true
+        show_symbol_type_heading: true
+        show_root_full_path: false
+        show_root_toc_entry: true
+
+::: digitalhub_core.entities.secret.entity.Secret.refresh
+    options:
+        heading_level: 3
+        show_signature: false
+        show_root_heading: true
+        show_symbol_type_heading: true
+        show_root_full_path: false
+        show_root_toc_entry: true
 
 ## I/O methods
 
@@ -30,14 +44,20 @@ I/O methods are used to handle objects as files.
 - `set_secret_value()`: Set (update) the secret value
 - `read_secret_value()`: Read the secret value
 
-::: digitalhub_core.entities.secret.entity.Secret
+::: digitalhub_core.entities.secret.entity.Secret.set_secret_value
     options:
         heading_level: 3
-        show_bases: false
         show_signature: false
-        show_docstring_description: false
+        show_root_heading: true
         show_symbol_type_heading: true
-        inherited_members: true
-        members:
-            - set_secret_value
-            - read_secret_value
+        show_root_full_path: false
+        show_root_toc_entry: true
+
+::: digitalhub_core.entities.secret.entity.Secret.read_secret_value
+    options:
+        heading_level: 3
+        show_signature: false
+        show_root_heading: true
+        show_symbol_type_heading: true
+        show_root_full_path: false
+        show_root_toc_entry: true

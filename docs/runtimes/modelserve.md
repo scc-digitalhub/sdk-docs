@@ -26,8 +26,7 @@ For installation of thw optional dependencies, you can use the following command
 ```bash
 python -m pip install digitalhub-runtime-modelserve[sklearn]
 python -m pip install digitalhub-runtime-modelserve[mlflow]
-python -m pip install digitalhub-runtime-modelserve[huggingface]
-python -m pip install digitalhub-runtime-modelserve[sklearn,mlflow,huggingface]
+python -m pip install digitalhub-runtime-modelserve[sklearn,mlflow]
 ```
 
 ## HOW TO
@@ -35,9 +34,10 @@ python -m pip install digitalhub-runtime-modelserve[sklearn,mlflow,huggingface]
 The modelserve runtime introduces several functions of kind `sklearnserve`, `mlflowserve`, `huggingfaceserve` that allows you to serve different ML models flavours and a task of kind `serve`.
 The usage of the runtime is similar to the others:
 
-1. Create a `Function` object of the desired model and execute the it's `run()` method.
-2. The runtime collects, loads and exposes the model.
-3. With the run's `invoke()` method you can call the model with the parameters you want (passed as keyword arguments).
+1. Create a `Function` object of the desired model and execute it's `run()` method.
+2. The runtime collects (if in remote execution), loads and exposes the model as a service.
+3. With the run's `invoke()` method you can call the v2 inference API specifying the json payload you want (passed as keyword arguments).
+4. You can stop the service with the run's `stop()` method.
 
 ### Function
 
@@ -56,9 +56,16 @@ A modelserve function has the following `spec` parameters to pass to the `new_fu
 | description | str | Description of the object | None |
 | labels | list[str] | List of labels | None |
 | embedded | bool | Flag to determine if object must be embedded in project | True |
-| path | str | Path to the model files | None |
+| [path](#model-path) | str | Path to the model files | None |
 | model_name | str | Name of the model | None |
 | image | str | Docker image where to serve the model | None |
+
+##### Model path
+
+The model path is the path to the model files. In **remote execution**, the path is a remote s3 path (for example: `s3://my-bucket/path-to-model`). In **local execution**, the path is a local path (for example: `./my-path` or `my-path`). According to the kind of modelserve function, the path must follow a specific pattern:
+
+- `sklearnserve`: `s3://my-bucket/path-to-model/model.pkl` or `./path-to-model/model.pkl`. The remote path is the partition with the model file, the local path is the model file.
+- `mlflowserve`: `s3://my-bucket/path-to-model-files` or `./path-to-model-files`. The remote path is the partition with all the model files, the local path is the folder containing the MLmodel file according to MLFlow specification.
 
 #### Function example
 
@@ -67,19 +74,19 @@ A modelserve function has the following `spec` parameters to pass to the `new_fu
 
 function = project.new_function(name="mlflow-serve-function",
                                 kind="mlflowserve",
-                                )
+                                path="s3://my-bucket/path-to-model")
 
 # .. or from sdk
 
 function = dh.new_function(project="my-project",
                            name="mlflow-serve-function",
                            kind="mlflowserve",
-                           )
+                           path="s3://my-bucket/path-to-model")
 ```
 
 ### Task
 
-The python runtime introduces three tasks of kind `job`, `serve` and `build` that allows you to run a python function execution, serving a function as a service or build a docker image where the function is executed.
+The modelserve runtime introduces one tasks of kind `serve` that allows you to deploy ML models on Kubernetes or locally.
 A `Task` is created with the `run()` method, so it's not managed directly by the user. The parameters for the task creation are passed directly to the `run()` method, and may vary depending on the kind of task.
 
 #### Task parameters
@@ -114,12 +121,15 @@ The run's parameters are passed alongside the task's ones.
 
 #### Run parameters
 
-There are no parameters for the `run` spec.
+| Name | Type | Description | Default |
+| --- | --- | --- | --- |
+| local_execution | bool | Flag to determine if the run must be executed locally | False |
 
 #### Run example
 
 ```python
 run = function.run(
-    action="serve"
+    action="serve",
+    local_execution=True,
 )
 ```

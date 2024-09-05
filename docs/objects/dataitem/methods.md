@@ -10,18 +10,32 @@ Crud methods are used to interact with the entity object in the backend or local
 - `export()`: Export the entity locally as yaml file.
 - `refresh()`: Refresh (read) the entity from the backend.
 
-::: digitalhub_data.entities.dataitem.entity._base.Dataitem
+::: digitalhub_data.entities.dataitem.entity._base.Dataitem.save
     options:
         heading_level: 3
-        show_bases: false
         show_signature: false
-        show_docstring_description: false
+        show_root_heading: true
         show_symbol_type_heading: true
-        inherited_members: true
-        members:
-            - save
-            - export
-            - refresh
+        show_root_full_path: false
+        show_root_toc_entry: true
+
+::: digitalhub_data.entities.dataitem.entity._base.Dataitem.export
+    options:
+        heading_level: 3
+        show_signature: false
+        show_root_heading: true
+        show_symbol_type_heading: true
+        show_root_full_path: false
+        show_root_toc_entry: true
+
+::: digitalhub_data.entities.dataitem.entity._base.Dataitem.refresh
+    options:
+        heading_level: 3
+        show_signature: false
+        show_root_heading: true
+        show_symbol_type_heading: true
+        show_root_full_path: false
+        show_root_toc_entry: true
 
 ## I/O methods
 
@@ -31,18 +45,32 @@ I/O methods are used to handle objects as files.
 - `download()`: Downloads the dataitem into a specified path
 - `upload()`: Uploads the dataitem to dataitem spec path
 
-::: digitalhub_data.entities.dataitem.entity._base.Dataitem
+::: digitalhub_data.entities.dataitem.entity._base.Dataitem.as_file
     options:
         heading_level: 3
-        show_bases: false
         show_signature: false
-        show_docstring_description: false
+        show_root_heading: true
         show_symbol_type_heading: true
-        inherited_members: true
-        members:
-            - as_file
-            - download
-            - upload
+        show_root_full_path: false
+        show_root_toc_entry: true
+
+::: digitalhub_data.entities.dataitem.entity._base.Dataitem.download
+    options:
+        heading_level: 3
+        show_signature: false
+        show_root_heading: true
+        show_symbol_type_heading: true
+        show_root_full_path: false
+        show_root_toc_entry: true
+
+::: digitalhub_data.entities.dataitem.entity._base.Dataitem.upload
+    options:
+        heading_level: 3
+        show_signature: false
+        show_root_heading: true
+        show_symbol_type_heading: true
+        show_root_full_path: false
+        show_root_toc_entry: true
 
 ## Kind specific methods
 

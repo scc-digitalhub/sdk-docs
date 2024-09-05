@@ -10,33 +10,45 @@ Crud methods are used to interact with the entity object in the backend or local
 - `export()`: Export the entity locally as yaml file.
 - `refresh()`: Refresh (read) the entity from the backend.
 
-::: digitalhub_core.entities.function.entity.Function
+::: digitalhub_core.entities.function.entity.Function.save
     options:
         heading_level: 3
-        show_bases: false
         show_signature: false
-        show_docstring_description: false
+        show_root_heading: true
         show_symbol_type_heading: true
-        inherited_members: true
-        members:
-            - save
-            - export
-            - refresh
+        show_root_full_path: false
+        show_root_toc_entry: true
+
+::: digitalhub_core.entities.function.entity.Function.export
+    options:
+        heading_level: 3
+        show_signature: false
+        show_root_heading: true
+        show_symbol_type_heading: true
+        show_root_full_path: false
+        show_root_toc_entry: true
+
+::: digitalhub_core.entities.function.entity.Function.refresh
+    options:
+        heading_level: 3
+        show_signature: false
+        show_root_heading: true
+        show_symbol_type_heading: true
+        show_root_full_path: false
+        show_root_toc_entry: true
 
 ## Run method
 
 The `run()` method is used to execute the function.
 
-::: digitalhub_core.entities.function.entity.Function
+::: digitalhub_core.entities.function.entity.Function.run
     options:
         heading_level: 3
-        show_bases: false
         show_signature: false
-        show_docstring_description: false
+        show_root_heading: true
         show_symbol_type_heading: true
-        inherited_members: true
-        members:
-            - run
+        show_root_full_path: false
+        show_root_toc_entry: true
 
 ## Kind specific methods
 
