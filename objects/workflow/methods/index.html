@@ -3167,7 +3167,7 @@
 
     <div class="doc doc-contents first">
 
-        <p>Save entity into backend.</p>
+        <p>Save or update the entity into the backend.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -3221,45 +3221,6 @@
       </tbody>
     </table>
 
-            <details class="quote">
-              <summary>Source code in <code>digitalhub_core/entities/_base/entity/context.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">update</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ContextEntity</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Save entity into backend.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    update : bool</span>
-<span class="sd">        Flag to indicate update.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    ContextEntity</span>
-<span class="sd">        Entity saved.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">update</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_save</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
-    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-            </details>
     </div>
 
 </div>
@@ -3329,45 +3290,6 @@
       </tbody>
     </table>
 
-            <details class="quote">
-              <summary>Source code in <code>digitalhub_core/entities/_base/entity/versioned.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">export</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Export object as a YAML file.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    filename : str</span>
-<span class="sd">        Name of the export YAML file. If not specified, the default value is used.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    None</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">filename</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">ENTITY_TYPE</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">.yml&quot;</span>
-    <span class="n">pth</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_context</span><span class="p">()</span><span class="o">.</span><span class="n">root</span> <span class="o">/</span> <span class="n">filename</span>
-    <span class="n">write_yaml</span><span class="p">(</span><span class="n">pth</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-            </details>
     </div>
 
 </div>
@@ -3408,33 +3330,6 @@
       </tbody>
     </table>
 
-            <details class="quote">
-              <summary>Source code in <code>digitalhub_core/entities/_base/entity/context.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 92</span>
-<span class="normal"> 93</span>
-<span class="normal"> 94</span>
-<span class="normal"> 95</span>
-<span class="normal"> 96</span>
-<span class="normal"> 97</span>
-<span class="normal"> 98</span>
-<span class="normal"> 99</span>
-<span class="normal">100</span>
-<span class="normal">101</span>
-<span class="normal">102</span>
-<span class="normal">103</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ContextEntity</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Refresh object from backend.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    ContextEntity</span>
-<span class="sd">        Entity refreshed.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">new_obj</span> <span class="o">=</span> <span class="n">read_entity_api_ctx</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">_update_attributes</span><span class="p">(</span><span class="n">new_obj</span><span class="p">)</span>
-    <span class="k">return</span> <span class="bp">self</span>
-</code></pre></div></td></tr></table></div>
-            </details>
     </div>
 
 </div><h2 id="run-method">Run method</h2>
@@ -3506,69 +3401,6 @@
       </tbody>
     </table>
 
-            <details class="quote">
-              <summary>Source code in <code>digitalhub_core/entities/workflow/entity.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span>
-<span class="normal">62</span>
-<span class="normal">63</span>
-<span class="normal">64</span>
-<span class="normal">65</span>
-<span class="normal">66</span>
-<span class="normal">67</span>
-<span class="normal">68</span>
-<span class="normal">69</span>
-<span class="normal">70</span>
-<span class="normal">71</span>
-<span class="normal">72</span>
-<span class="normal">73</span>
-<span class="normal">74</span>
-<span class="normal">75</span>
-<span class="normal">76</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Run</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Run workflow.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    **kwargs : dict</span>
-<span class="sd">        Keyword arguments passed to Task and Run builders.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    Run</span>
-<span class="sd">        Run instance.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="c1"># Get kind registry</span>
-    <span class="n">kind_reg</span> <span class="o">=</span> <span class="n">get_kind_registry</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kind</span><span class="p">)</span>
-
-    <span class="c1"># Get task and run kind</span>
-    <span class="n">task_kind</span> <span class="o">=</span> <span class="n">kind_reg</span><span class="o">.</span><span class="n">get_task_kind_from_action</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;pipeline&quot;</span><span class="p">)</span>
-    <span class="n">run_kind</span> <span class="o">=</span> <span class="n">kind_reg</span><span class="o">.</span><span class="n">get_run_kind</span><span class="p">()</span>
-
-    <span class="c1"># Create or update new task</span>
-    <span class="n">task</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">new_task</span><span class="p">(</span><span class="n">task_kind</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-    <span class="c1"># Raise error if execution is not done by DHCore backend</span>
-    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_context</span><span class="p">()</span><span class="o">.</span><span class="n">local</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="n">BackendError</span><span class="p">(</span><span class="s2">&quot;Cannot run workflow with local backend.&quot;</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">task</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">run_kind</span><span class="p">,</span> <span class="n">local_execution</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-            </details>
     </div>
 
 </div><h2 id="kind-specific-methods">Kind specific methods</h2>
