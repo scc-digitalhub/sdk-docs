@@ -3624,10 +3624,7 @@ project = dh.get_or_create_project(&quot;my-project&quot;)
 
     </div>
 
-</div><p>Example:</p>
-<pre><code class="language-python">project = dh.new_project(name=&quot;my-project&quot;,)
-</code></pre>
-<h2 id="read">Read</h2>
+</div><h2 id="read">Read</h2>
 <p>To read projects you can use the <code>get_project()</code>, <code>import_project()</code> or <code>load_project()</code>.</p>
 <h3 id="get">Get</h3>
 <p>This function searches for a single project into the backend.</p>
@@ -3787,10 +3784,7 @@ project = dh.get_or_create_project(&quot;my-project&quot;)
 
     </div>
 
-</div><p>Example:</p>
-<pre><code class="language-python">project = dh.get_project(&quot;project-name&quot;)
-</code></pre>
-<h3 id="import">Import</h3>
+</div><h3 id="import">Import</h3>
 <p>This function load the project from a local yaml file descriptor.</p>
 
 
@@ -3934,10 +3928,7 @@ project = dh.get_or_create_project(&quot;my-project&quot;)
 
     </div>
 
-</div><p>Example:</p>
-<pre><code class="language-python">project = dh.import_project(file=&quot;./some-path/my-project.yaml&quot;)
-</code></pre>
-<h3 id="load">Load</h3>
+</div><h3 id="load">Load</h3>
 <p>This function returns a projects from the backend or from a local file according to the parameter passed to the function. If the parameter is <code>name</code>, the function will try to load the project from the backend. If the parameter is <code>file</code>, the function will try to load the project from the local file.</p>
 
 
@@ -4113,12 +4104,7 @@ project = dh.get_or_create_project(&quot;my-project&quot;)
 
     </div>
 
-</div><p>Example:</p>
-<pre><code class="language-python">project = dh.load_project(name=&quot;my-project&quot;)
-
-project = dh.load_project(file=&quot;./some-path/my-project.yaml&quot;)
-</code></pre>
-<h2 id="read-or-create">Read or create</h2>
+</div><h2 id="read-or-create">Read or create</h2>
 <p>You can read or create a project with the <code>get_or_create_project()</code> method.</p>
 
 
@@ -4285,10 +4271,7 @@ project = dh.load_project(file=&quot;./some-path/my-project.yaml&quot;)
 
     </div>
 
-</div><p>Example:</p>
-<pre><code class="language-python">project = dh.get_or_create_project(&quot;my-project&quot;)
-</code></pre>
-<h2 id="update">Update</h2>
+</div><h2 id="update">Update</h2>
 <p>To update a project you can use the <code>update_project()</code> method.</p>
 
 
@@ -4418,14 +4401,7 @@ project = dh.load_project(file=&quot;./some-path/my-project.yaml&quot;)
 
     </div>
 
-</div><p>Example:</p>
-<pre><code class="language-python">project = dh.new_project(name=&quot;my-project&quot;)
-
-project.metadata.description = &quot;My new description&quot;
-
-project = dh.update_project(name=project)
-</code></pre>
-<h2 id="delete">Delete</h2>
+</div><h2 id="delete">Delete</h2>
 <p>To delete a project you can use the <code>delete_project()</code> method.</p>
 
 
@@ -4584,9 +4560,7 @@ all its objects are unreacheable.</p>
 
     </div>
 
-</div><p>Example:</p>
-<pre><code class="language-python">dh.delete_project(&quot;store://my-project-key&quot;)
-</code></pre>
+</div>
 
 
 
