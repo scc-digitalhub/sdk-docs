@@ -1176,6 +1176,39 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model-spec-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model spec parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model methods
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#mlflow" class="md-nav__link">
     <span class="md-ellipsis">
       Mlflow
@@ -3104,6 +3137,39 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model-spec-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model spec parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model methods
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#mlflow" class="md-nav__link">
     <span class="md-ellipsis">
       Mlflow
@@ -3244,15 +3310,68 @@
 <h1 id="model-kinds">Model kinds</h1>
 <p>At the moment, we support the following kinds:</p>
 <ul>
+<li><strong><code>model</code></strong>: represents a generic ML model</li>
 <li><strong><code>mlflow</code></strong>: represents a MLflow model</li>
 <li><strong><code>sklearn</code></strong>: represents a scikit-learn model</li>
 <li><strong><code>huggingface</code></strong>: represents a HuggingFace model</li>
 </ul>
 <p>For each different kind, the <code>Model</code> object has its own subclass with different <code>spec</code> and <code>status</code> attributes.</p>
+<h2 id="model">Model</h2>
+<p>The <code>model</code> kind indicates that the model is a generic ML model. It's usefull to represent a generic ML model as a <code>Model</code> object.</p>
+<h3 id="model-spec-parameters">Model spec parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../../stores/#entity-paths"><code>path</code></a></td>
+<td><em>str</em></td>
+<td>Path of the model, can be a local path or a remote path, a single filepath or a directory/partition.</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>framework</code></td>
+<td><em>str</em></td>
+<td>Model framework (e.g. 'pytorch').</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>algorithm</code></td>
+<td><em>str</em></td>
+<td>Model algorithm (e.g. 'resnet').</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>base_model</code></td>
+<td><em>str</em></td>
+<td>Base model.</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>parameters</code></td>
+<td><em>dict</em></td>
+<td>Model parameters.</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>metrics</code></td>
+<td><em>dict</em></td>
+<td>Model metrics.</td>
+<td><code>None</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="model-methods">Model methods</h3>
+<p>The <code>model</code> kind has no additional methods.</p>
 <h2 id="mlflow">Mlflow</h2>
 <p>The <code>mlflow</code> kind indicates that the model is an MLflow model. It's usefull to represent an MLflow model as a <code>Model</code> object.</p>
 <h3 id="mlflow-spec-parameters">Mlflow spec parameters</h3>
-<p>The <code>mlflow</code> kind has the following <code>spec</code> parameters to pass to the <code>new_model()</code> method:</p>
 <table>
 <thead>
 <tr>
@@ -3410,7 +3529,6 @@
 <h2 id="sklearn">Sklearn</h2>
 <p>The <code>sklearn</code> kind indicates that the model is an Sklearn model. It's usefull to represent an Sklearn model as a <code>Model</code> object.</p>
 <h3 id="sklearn-spec-parameters">Sklearn spec parameters</h3>
-<p>The <code>sklearn</code> kind has the following <code>spec</code> parameters to pass to the <code>new_model()</code> method:</p>
 <table>
 <thead>
 <tr>
@@ -3464,7 +3582,6 @@
 <h2 id="huggingface">Huggingface</h2>
 <p>The <code>huggingface</code> kind indicates that the model is an Huggingface model. It's usefull to represent an Huggingface model as a <code>Model</code> object.</p>
 <h3 id="huggingface-spec-parameters">Huggingface spec parameters</h3>
-<p>The <code>huggingface</code> kind has the following <code>spec</code> parameters to pass to the <code>new_model()</code> method:</p>
 <table>
 <thead>
 <tr>

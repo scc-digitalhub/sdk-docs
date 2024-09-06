@@ -3465,7 +3465,9 @@ The syntax is the same for all CRUD methods. If you want to manage dataitems fro
 <li><a href="#delete"><strong><code>delete_dataitem</code></strong></a></li>
 </ul>
 <h2 id="create">Create</h2>
-<p>You can create a dataitem with the <code>new_dataitem()</code> or with <code>log_dataitem()</code> method.</p>
+<p>You can create a dataitem with the <code>new_dataitem()</code> or with <code>log_dataitem()</code> method.
+The <code>kwargs</code> parameters are determined by the <strong>kind</strong> of the object, and are described in the <a href="../kinds/">kinds section</a>.
+The <code>kwargs</code> parameters are the same for both <em>new</em> and <em>log</em> methods.</p>
 <h3 id="new">New</h3>
 <p>This function create a new entity and saves it into the backend.</p>
 
