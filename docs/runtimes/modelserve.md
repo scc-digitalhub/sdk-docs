@@ -70,18 +70,29 @@ The model path is the path to the model files. In **remote execution**, the path
 #### Function example
 
 ```python
-# From project ...
+# Example remote model mlflow
 
 function = project.new_function(name="mlflow-serve-function",
                                 kind="mlflowserve",
-                                path="s3://my-bucket/path-to-model")
+                                path=model.spec.path + "model")
 
-# .. or from sdk
+# Example local model mlflow
 
-function = dh.new_function(project="my-project",
-                           name="mlflow-serve-function",
-                           kind="mlflowserve",
-                           path="s3://my-bucket/path-to-model")
+function = project.new_function(name="mlflow-serve-function",
+                                kind="mlflowserve",
+                                path="./my-path/model")
+
+# Example remote model sklearn
+
+function = project.new_function(name="sklearn-serve-function",
+                                kind="sklearnserve",
+                                path=model.spec.path)
+
+# Example local model sklearn
+
+function = project.new_function(name="sklearn-serve-function",
+                                kind="sklearnserve",
+                                path="./my-path/model.pkl")
 ```
 
 ### Task
