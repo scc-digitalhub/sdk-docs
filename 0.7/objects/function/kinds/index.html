@@ -77,6 +77,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#function-kinds" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -622,6 +627,8 @@
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
+      
+        
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
@@ -2934,6 +2941,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -2948,9 +2957,16 @@
                   
 
 
-  <h1>Kinds</h1>
-
-
+<h1 id="function-kinds">Function kinds</h1>
+<p>At the moment, we support the following kinds and the related runtime:</p>
+<ul>
+<li><a href="../../../runtimes/python/"><strong><code>python</code></strong></a></li>
+<li><a href="../../../runtimes/dbt/"><strong><code>dbt</code></strong></a></li>
+<li><a href="../../../runtimes/container/"><strong><code>container</code></strong></a></li>
+<li><a href="../../../runtimes/modelserve/"><strong><code>modelserve</code></strong></a></li>
+</ul>
+<p>For each different kind, the <code>Function</code> object has its own subclass with different <code>spec</code> and <code>status</code> attributes.</p>
+<p>Please see the runtime documentation for more information on the related to the various <code>spec</code> arguments.</p>
 
 
 
