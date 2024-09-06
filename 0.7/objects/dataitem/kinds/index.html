@@ -3145,9 +3145,14 @@
 
     <div class="doc doc-contents first">
 
-        <p>Read dataitem as a DataFrame from spec.path. If the dataitem is not local,
-it will be downloaded to a temporary folder. If clean_tmp_path is True,
-the temporary folder will be deleted after the method is executed.</p>
+        <p>Read dataitem file (csv or parquet) as a DataFrame from spec.path.
+If the dataitem is not local, it will be downloaded to a temporary
+folder named tmp_dir in the project context folder.
+If clean_tmp_path is True, the temporary folder will be deleted after the
+method is executed.
+It's possible to pass additional arguments to the this function. These
+keyword arguments will be passed to the DataFrame reader function such as
+pandas's read_csv or read_parquet.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -3169,6 +3174,20 @@ the temporary folder will be deleted after the method is executed.</p>
             <td>
               <div class="doc-md-description">
                 <p>Format of the file. (Supported csv and parquet).</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code>engine</code></td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Dataframe framework, by default pandas.</p>
               </div>
             </td>
             <td>
@@ -3244,7 +3263,9 @@ the temporary folder will be deleted after the method is executed.</p>
 
     <div class="doc doc-contents first">
 
-        <p>Write DataFrame as parquet/csv/table into dataitem path.</p>
+        <p>Write DataFrame as parquet/csv/table into dataitem spec.path.
+keyword arguments will be passed to the DataFrame reader function such as
+pandas's to_csv or to_parquet.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
