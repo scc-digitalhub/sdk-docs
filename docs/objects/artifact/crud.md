@@ -29,6 +29,8 @@ Delete:
 ## Create
 
 You can create an artifact with the `new_artifact()` or with `log_artifact()` method.
+The `kwargs` parameters are determined by the **kind** of the object, and are described in the [kinds section](kinds.md).
+The `kwargs` parameters are the same for both *new* and *log* methods.
 
 ### New
 

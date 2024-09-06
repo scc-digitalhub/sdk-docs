@@ -2,19 +2,37 @@
 
 At the moment, we support the following kinds:
 
+- **`model`**: represents a generic ML model
 - **`mlflow`**: represents a MLflow model
 - **`sklearn`**: represents a scikit-learn model
 - **`huggingface`**: represents a HuggingFace model
 
 For each different kind, the `Model` object has its own subclass with different `spec` and `status` attributes.
 
+## Model
+
+The `model` kind indicates that the model is a generic ML model. It's usefull to represent a generic ML model as a `Model` object.
+
+### Model spec parameters
+
+| Parameter | Type | Description | Default |
+| --- | --- | --- | --- |
+| [`path`](../stores.md#entity-paths) | *str* | Path of the model, can be a local path or a remote path, a single filepath or a directory/partition. | *required* |
+| `framework` | *str* | Model framework (e.g. 'pytorch'). | `None` |
+| `algorithm` | *str* | Model algorithm (e.g. 'resnet'). | `None` |
+| `base_model` | *str* | Base model. | `None` |
+| `parameters` | *dict* | Model parameters. | `None` |
+| `metrics` | *dict* | Model metrics. | `None` |
+
+### Model methods
+
+The `model` kind has no additional methods.
+
 ## Mlflow
 
 The `mlflow` kind indicates that the model is an MLflow model. It's usefull to represent an MLflow model as a `Model` object.
 
 ### Mlflow spec parameters
-
-The `mlflow` kind has the following `spec` parameters to pass to the `new_model()` method:
 
 | Parameter | Type | Description | Default |
 | --- | --- | --- | --- |
@@ -58,8 +76,6 @@ The `sklearn` kind indicates that the model is an Sklearn model. It's usefull to
 
 ### Sklearn spec parameters
 
-The `sklearn` kind has the following `spec` parameters to pass to the `new_model()` method:
-
 | Parameter | Type | Description | Default |
 | --- | --- | --- | --- |
 | [`path`](../stores.md#entity-paths) | *str* | Path of the model, can be a local path or a remote path, a single filepath or a directory/partition. | *required* |
@@ -78,8 +94,6 @@ The `sklearn` kind has no additional methods.
 The `huggingface` kind indicates that the model is an Huggingface model. It's usefull to represent an Huggingface model as a `Model` object.
 
 ### Huggingface spec parameters
-
-The `huggingface` kind has the following `spec` parameters to pass to the `new_model()` method:
 
 | Parameter | Type | Description | Default |
 | --- | --- | --- | --- |

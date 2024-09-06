@@ -12,8 +12,6 @@ The `table` kind indicates that the dataitem is a generic table. It's usefull if
 
 ### Table spec parameters
 
-The `table` kind has the following `spec` parameters to pass to the `new_dataitem()` method:
-
 | Parameter | Type | Description | Default |
 | --- | --- | --- | --- |
 | [`path`](../stores.md#entity-paths) | *str* | Path of the dataitem, can be a local path or a remote path, a single filepath or a directory/partition. | *required* |
@@ -23,12 +21,22 @@ The `table` kind has the following `spec` parameters to pass to the `new_dataite
 
 The `table` kind has the following additional methods:
 
-::: digitalhub_data.entities.dataitem.entity.table
+::: digitalhub_data.entities.dataitem.entity.table.DataitemTable.as_df
     options:
-        heading_level: 6
-        show_bases: false
+        heading_level: 3
         show_signature: false
-        show_docstring_description: false
+        show_source: false
+        show_root_heading: true
         show_symbol_type_heading: true
-        members:
-            - DataitemTable
+        show_root_full_path: false
+        show_root_toc_entry: true
+
+::: digitalhub_data.entities.dataitem.entity.table.DataitemTable.write_df
+    options:
+        heading_level: 3
+        show_signature: false
+        show_source: false
+        show_root_heading: true
+        show_symbol_type_heading: true
+        show_root_full_path: false
+        show_root_toc_entry: true

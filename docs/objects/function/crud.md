@@ -28,6 +28,7 @@ Delete:
 ## Create
 
 You can create a function with the `new_function()`.
+The `kwargs` parameters are determined by the **kind** of the object, and are described in the [kinds section](kinds.md).
 
 ### New
 
