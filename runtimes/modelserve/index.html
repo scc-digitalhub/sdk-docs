@@ -3383,18 +3383,29 @@ The usage of the runtime is similar to the others:</p>
 <li><code>mlflowserve</code>: <code>s3://my-bucket/path-to-model-files</code> or <code>./path-to-model-files</code>. The remote path is the partition with all the model files, the local path is the folder containing the MLmodel file according to MLFlow specification.</li>
 </ul>
 <h4 id="function-example">Function example</h4>
-<pre><code class="language-python"># From project ...
+<pre><code class="language-python"># Example remote model mlflow
 
 function = project.new_function(name=&quot;mlflow-serve-function&quot;,
                                 kind=&quot;mlflowserve&quot;,
-                                path=&quot;s3://my-bucket/path-to-model&quot;)
+                                path=model.spec.path + &quot;model&quot;)
 
-# .. or from sdk
+# Example local model mlflow
 
-function = dh.new_function(project=&quot;my-project&quot;,
-                           name=&quot;mlflow-serve-function&quot;,
-                           kind=&quot;mlflowserve&quot;,
-                           path=&quot;s3://my-bucket/path-to-model&quot;)
+function = project.new_function(name=&quot;mlflow-serve-function&quot;,
+                                kind=&quot;mlflowserve&quot;,
+                                path=&quot;./my-path/model&quot;)
+
+# Example remote model sklearn
+
+function = project.new_function(name=&quot;sklearn-serve-function&quot;,
+                                kind=&quot;sklearnserve&quot;,
+                                path=model.spec.path)
+
+# Example local model sklearn
+
+function = project.new_function(name=&quot;sklearn-serve-function&quot;,
+                                kind=&quot;sklearnserve&quot;,
+                                path=&quot;./my-path/model.pkl&quot;)
 </code></pre>
 <h3 id="task">Task</h3>
 <p>The modelserve runtime introduces one tasks of kind <code>serve</code> that allows you to deploy ML models on Kubernetes or locally.
