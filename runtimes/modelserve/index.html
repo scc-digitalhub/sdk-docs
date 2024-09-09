@@ -1516,6 +1516,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#function-kinds" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function kinds
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#model-path" class="md-nav__link">
     <span class="md-ellipsis">
       Model path
@@ -1559,6 +1568,21 @@
       Task parameters
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Task parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#task-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task actions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -3156,6 +3180,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#function-kinds" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function kinds
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#model-path" class="md-nav__link">
     <span class="md-ellipsis">
       Model path
@@ -3199,6 +3232,21 @@
       Task parameters
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Task parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#task-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task actions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -3301,7 +3349,7 @@ The usage of the runtime is similar to the others:</p>
 <li>You can stop the service with the run's <code>stop()</code> method.</li>
 </ol>
 <h3 id="function">Function</h3>
-<p>There are three modelserve functions: <code>sklearnserve</code>, <code>mlflowserve</code> and <code>huggingfaceserve</code>.</p>
+<p>There are three modelserve functions: <code>sklearnserve</code>, <code>mlflowserve</code> and <code>huggingfaceserve</code>, each one representing a different ML model flavour.</p>
 <h4 id="function-parameters">Function parameters</h4>
 <p>A modelserve function has the following <code>spec</code> parameters to pass to the <code>new_function()</code> method:</p>
 <table>
@@ -3317,8 +3365,8 @@ The usage of the runtime is similar to the others:</p>
 <tr>
 <td>project</td>
 <td>str</td>
-<td>Project name</td>
-<td>required (if creating from library)</td>
+<td>Project name. Required only if creating from library, otherwise <strong>MUST NOT</strong> be set</td>
+<td></td>
 </tr>
 <tr>
 <td>name</td>
@@ -3327,15 +3375,15 @@ The usage of the runtime is similar to the others:</p>
 <td>required</td>
 </tr>
 <tr>
-<td>kind</td>
+<td><a href="#function-kinds">kind</a></td>
 <td>str</td>
-<td>Kind of the object. Must be one of: <li><code>sklearnserve</code></li><li><code>mlflowserve</code></li><li><code>huggingfaceserve</code></li></td>
+<td>Function kind</td>
 <td>required</td>
 </tr>
 <tr>
 <td>uuid</td>
 <td>str</td>
-<td>ID of the object in form of UUID</td>
+<td>ID of the object in form of UUID4</td>
 <td>None</td>
 </tr>
 <tr>
@@ -3376,6 +3424,13 @@ The usage of the runtime is similar to the others:</p>
 </tr>
 </tbody>
 </table>
+<h5 id="function-kinds">Function kinds</h5>
+<p>The <code>kind</code> parameter must be one of the following:</p>
+<ul>
+<li><code>sklearnserve</code></li>
+<li><code>mlflowserve</code></li>
+<li><code>huggingfaceserve</code></li>
+</ul>
 <h5 id="model-path">Model path</h5>
 <p>The model path is the path to the model files. In <strong>remote execution</strong>, the path is a remote s3 path (for example: <code>s3://my-bucket/path-to-model</code>). In <strong>local execution</strong>, the path is a local path (for example: <code>./my-path</code> or <code>my-path</code>). According to the kind of modelserve function, the path must follow a specific pattern:</p>
 <ul>
@@ -3422,13 +3477,13 @@ A <code>Task</code> is created with the <code>run()</code> method, so it's not m
 </thead>
 <tbody>
 <tr>
-<td>action</td>
+<td><a href="#task-actions">action</a></td>
 <td>str</td>
-<td>Task action. Must be: <code>serve</code></td>
+<td>Task action</td>
 <td>required</td>
 </tr>
 <tr>
-<td><a href="../kubernetes-resources/#node_selector">node_selector</a></td>
+<td><a href="../kubernetes-resources/#node-selector">node_selector</a></td>
 <td>list[dict]</td>
 <td>Node selector</td>
 <td>None</td>
@@ -3476,19 +3531,24 @@ A <code>Task</code> is created with the <code>run()</code> method, so it's not m
 <td>None</td>
 </tr>
 <tr>
-<td>replicas</td>
+<td><a href="../kubernetes-resources/#replicas">replicas</a></td>
 <td>int</td>
 <td>Number of replicas</td>
 <td>None</td>
 </tr>
 <tr>
-<td>service_type</td>
+<td><a href="../kubernetes-resources/#service-type">service_type</a></td>
 <td>str</td>
-<td>Service type. Must be one of: <li><code>ClusterIP</code></li><li><code>LoadBalancer</code></li><li><code>NodePort</code></li></td>
+<td>Service type</td>
 <td><code>NodePort</code></td>
 </tr>
 </tbody>
 </table>
+<h5 id="task-actions">Task actions</h5>
+<p>Actions must be one of the following:</p>
+<ul>
+<li><code>serve</code>: to deploy a service</li>
+</ul>
 <h4 id="task-example">Task example</h4>
 <pre><code class="language-python">run = function.run(
     action=&quot;serve&quot;,

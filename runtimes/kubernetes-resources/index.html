@@ -1498,9 +1498,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#node_selector" class="md-nav__link">
+  <a href="#node-selector" class="md-nav__link">
     <span class="md-ellipsis">
-      Node_selector
+      Node selector
     </span>
   </a>
   
@@ -1621,6 +1621,51 @@
   <a href="#profile" class="md-nav__link">
     <span class="md-ellipsis">
       Profile
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schedule" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schedule
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#replicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Replicas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backoff-limit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backoff limit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-port" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service port
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service type
     </span>
   </a>
   
@@ -3108,9 +3153,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#node_selector" class="md-nav__link">
+  <a href="#node-selector" class="md-nav__link">
     <span class="md-ellipsis">
-      Node_selector
+      Node selector
     </span>
   </a>
   
@@ -3236,6 +3281,51 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#schedule" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schedule
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#replicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Replicas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backoff-limit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backoff limit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-port" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service port
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service type
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3252,68 +3342,9 @@
 
 
 <h1 id="using-kubernetes-resources-for-runs">Using Kubernetes Resources for Runs</h1>
-<p>With SDK you can manage Kubernetes resources for your tasks. When you run a function you can require some Kubernetes resources for the task. Resources and data are specified in the <code>function.run()</code> method.</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="#node_selector">node_selector</a></td>
-<td>list[dict]</td>
-<td>Node selector</td>
-<td>None</td>
-</tr>
-<tr>
-<td><a href="#volumes">volumes</a></td>
-<td>list[dict]</td>
-<td>List of volumes</td>
-<td>None</td>
-</tr>
-<tr>
-<td><a href="#resources">resources</a></td>
-<td>dict</td>
-<td>Resources restrictions</td>
-<td>None</td>
-</tr>
-<tr>
-<td><a href="#affinity">affinity</a></td>
-<td>dict</td>
-<td>Affinity</td>
-<td>None</td>
-</tr>
-<tr>
-<td><a href="#tolerations">tolerations</a></td>
-<td>list[dict]</td>
-<td>Tolerations</td>
-<td>None</td>
-</tr>
-<tr>
-<td><a href="#envs">envs</a></td>
-<td>list[dict]</td>
-<td>Env variables</td>
-<td>None</td>
-</tr>
-<tr>
-<td><a href="#secrets">secrets</a></td>
-<td>list[str]</td>
-<td>List of secret names</td>
-<td>None</td>
-</tr>
-<tr>
-<td><a href="#profile">profile</a></td>
-<td>str</td>
-<td>Profile template</td>
-<td>None</td>
-</tr>
-</tbody>
-</table>
-<h2 id="node_selector">Node_selector</h2>
+<p>With SDK you can manage Kubernetes resources for your tasks. When you run a function you can require some Kubernetes resources for the task. Resources and data are specified in the <code>function.run()</code> method.
+Here follows a description of the resources you can request with the <code>function.run()</code> method.</p>
+<h2 id="node-selector">Node selector</h2>
 <p>You can request a node selector for the container being launched by the task by passing the selector as a dictionary with the <code>node_selector</code> task parameters.</p>
 <pre><code class="language-python">node_selector = {
     &quot;key&quot;: &quot;Node selector key.&quot;,
@@ -3379,23 +3410,7 @@ You need to declare the resource type as <code>mem</code>, request and/or limit 
 }
 </code></pre>
 <h3 id="gpu">GPU</h3>
-<p>You can request a specific amount of GPU for the task.
-You need to declare the resource type as <code>gpu</code>, request and/or limit specifications. There could be administation-specific requirements for requesting a GPU. You may need to use <code>tolerations</code> or <code>affinity</code> parameters to request the GPU. Both of these parameters are described in the <a href="https://kubernetes.io/docs/home/">Kubernetes documentation</a>.
-Other times you may need to specify a list of labels with the <code>labels</code> parameter.</p>
-<p>Here is an example for the digitahub in FBK that uses the <code>tolerations</code> parameter:</p>
-<pre><code class="language-python">
-resources = {
-    &quot;gpu&quot;: {
-        &quot;limits&quot;: &quot;1&quot;
-    }
-}
-toleration = [{
-    &quot;key&quot;: &quot;nvidia.com/gpu&quot;,
-    &quot;operator&quot;: &quot;Equal&quot;,
-    &quot;value&quot;: &quot;v100&quot;,
-    &quot;effect&quot;: &quot;NoSchedule&quot;
-}]
-</code></pre>
+<p>Please see <a href="#profile">Profile documentation</a>.</p>
 <h2 id="secrets">Secrets</h2>
 <p>You can request a secret injection into the container being launched by the task by passing the reference to the backend with the <code>secrets</code> task parameters.</p>
 <pre><code class="language-python">secrets = [&quot;my-secret&quot;]
@@ -3408,19 +3423,39 @@ toleration = [{
 }]
 </code></pre>
 <h2 id="tolerations">Tolerations</h2>
-<p>Kubernetes requires you to specify tolerations if you want to use GPU.</p>
-<pre><code class="language-python">toleration = [{
-    &quot;key&quot;: &quot;nvidia.com/gpu&quot;,
-    &quot;operator&quot;: &quot;Equal&quot;,
-    &quot;value&quot;: &quot;v100&quot;,
-    &quot;effect&quot;: &quot;NoSchedule&quot;,
-    &quot;toleration_seconds&quot;: 300
-}]
-</code></pre>
+<p>Please see <a href="https://kubernetes.io/docs/home/">Kubernetes documentation</a>.</p>
 <h2 id="affinity">Affinity</h2>
 <p>Please see <a href="https://kubernetes.io/docs/home/">Kubernetes documentation</a>.</p>
 <h2 id="profile">Profile</h2>
 <p>Profile template.</p>
+<h2 id="schedule">Schedule</h2>
+<p>Schedule for the job. It accepts a cron expression.</p>
+<pre><code class="language-python">schedule = &quot;0 0 * * *&quot;
+</code></pre>
+<h2 id="replicas">Replicas</h2>
+<p>Number of replicas for the pod/deployment. It accepts an integer value.</p>
+<pre><code class="language-python">replicas = 3
+</code></pre>
+<h2 id="backoff-limit">Backoff limit</h2>
+<p>Backoff limit for the job. It accepts an integer value.</p>
+<pre><code class="language-python">backoff_limit = 3
+</code></pre>
+<h2 id="service-port">Service port</h2>
+<p>Service port(s) where to expose the service. Must be: [{port: port, target_port: target_port}, ...].</p>
+<pre><code class="language-python">service_port = [{
+    &quot;port&quot;: 80,
+    &quot;target_port&quot;: 80
+}]
+</code></pre>
+<h2 id="service-type">Service type</h2>
+<p>Service type to expose. Must be a <code>str</code> of one of the following:</p>
+<ul>
+<li><code>ClusterIP</code></li>
+<li><code>LoadBalancer</code></li>
+<li><code>NodePort</code></li>
+</ul>
+<pre><code class="language-python">service_type = &quot;NodePort&quot;
+</code></pre>
 
 
 
