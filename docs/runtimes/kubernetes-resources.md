@@ -1,19 +1,9 @@
 # Using Kubernetes Resources for Runs
 
 With SDK you can manage Kubernetes resources for your tasks. When you run a function you can require some Kubernetes resources for the task. Resources and data are specified in the `function.run()` method.
+Here follows a description of the resources you can request with the `function.run()` method.
 
-| Name | Type | Description | Default |
-| --- | --- | --- | --- |
-| [node_selector](#node_selector) | list[dict] | Node selector | None |
-| [volumes](#volumes) | list[dict] | List of volumes | None |
-| [resources](#resources) | dict | Resources restrictions | None |
-| [affinity](#affinity) | dict | Affinity | None |
-| [tolerations](#tolerations) | list[dict] | Tolerations | None |
-| [envs](#envs) | list[dict] | Env variables | None |
-| [secrets](#secrets) | list[str] | List of secret names | None |
-| [profile](#profile) | str | Profile template | None |
-
-## Node_selector
+## Node selector
 
 You can request a node selector for the container being launched by the task by passing the selector as a dictionary with the `node_selector` task parameters.
 
@@ -102,26 +92,7 @@ resources = {
 
 ### GPU
 
-You can request a specific amount of GPU for the task.
-You need to declare the resource type as `gpu`, request and/or limit specifications. There could be administation-specific requirements for requesting a GPU. You may need to use `tolerations` or `affinity` parameters to request the GPU. Both of these parameters are described in the [Kubernetes documentation](https://kubernetes.io/docs/home/).
-Other times you may need to specify a list of labels with the `labels` parameter.
-
-Here is an example for the digitahub in FBK that uses the `tolerations` parameter:
-
-```python
-
-resources = {
-    "gpu": {
-        "limits": "1"
-    }
-}
-toleration = [{
-    "key": "nvidia.com/gpu",
-    "operator": "Equal",
-    "value": "v100",
-    "effect": "NoSchedule"
-}]
-```
+Please see [Profile documentation](#profile).
 
 ## Secrets
 
@@ -144,17 +115,7 @@ envs = [{
 
 ## Tolerations
 
-Kubernetes requires you to specify tolerations if you want to use GPU.
-
-```python
-toleration = [{
-    "key": "nvidia.com/gpu",
-    "operator": "Equal",
-    "value": "v100",
-    "effect": "NoSchedule",
-    "toleration_seconds": 300
-}]
-```
+Please see [Kubernetes documentation](https://kubernetes.io/docs/home/).
 
 ## Affinity
 
@@ -163,3 +124,50 @@ Please see [Kubernetes documentation](https://kubernetes.io/docs/home/).
 ## Profile
 
 Profile template.
+
+## Schedule
+
+Schedule for the job. It accepts a cron expression.
+
+```python
+schedule = "0 0 * * *"
+```
+
+## Replicas
+
+Number of replicas for the pod/deployment. It accepts an integer value.
+
+```python
+replicas = 3
+```
+
+## Backoff limit
+
+Backoff limit for the job. It accepts an integer value.
+
+```python
+backoff_limit = 3
+```
+
+## Service port
+
+Service port(s) where to expose the service. Must be: [{port: port, target_port: target_port}, ...].
+
+```python
+service_port = [{
+    "port": 80,
+    "target_port": 80
+}]
+```
+
+## Service type
+
+Service type to expose. Must be a `str` of one of the following:
+
+- `ClusterIP`
+- `LoadBalancer`
+- `NodePort`
+
+```python
+service_type = "NodePort"
+```

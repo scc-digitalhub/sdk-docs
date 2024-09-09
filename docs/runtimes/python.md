@@ -147,10 +147,10 @@ The python runtime introduces a function of kind `python`.
 
 | Name | Type | Description | Default |
 | --- | --- | --- | --- |
-| project | str | Project name | required (if creating from library) |
+| project | str | Project name. Required only if creating from library, otherwise **MUST NOT** be set | |
 | name | str | Name that identifies the object | required |
-| kind | str | Kind of the object | required (must be `python`) |
-| uuid | str | ID of the object in form of UUID | None |
+| [kind](#function-kinds) | str | Function kind | required |
+| uuid | str | ID of the object in form of UUID4 | None |
 | description | str | Description of the object | None |
 | labels | list[str] | List of labels | None |
 | embedded | bool | Flag to determine if object must be embedded in project | True |
@@ -160,10 +160,16 @@ The python runtime introduces a function of kind `python`.
 | [handler](#handler) | str | Function entrypoint | None |
 | lang | str | Source code language (hint)| None |
 | init_function | str | Init function for remote nuclio execution | None |
-| python_version | str | Python version to use, must be one of: <li>`PYTHON3_9`</li><li>`PYTHON3_10`</li><li>`PYTHON3_11`</li> | None |
+| [python_version](#python-versions) | str | Python version to use | required |
 | image | str | Image where the function will be executed | None |
 | base_image | str | Base image used to build the image where the function will be executed | None (required when using `build` task) |
 | requirements | list | Requirements list to be installed in the image where the function will be executed | None |
+
+##### Function kinds
+
+The `kind` parameter must be:
+
+- `python`
 
 ##### Source
 
@@ -171,9 +177,9 @@ Source code can be specified with `code_src` as an URI. It can have three differ
 
 | schema | value | description |
 | --- | --- | --- |
-| None | "path/to/file.ext" | Local file path |
-| git+https | "git+https://github.com/some-user/some-repo" | Remote git repository |
-| zip+s3 | "zip+s3://some-bucket/some-key.zip" | Remote zip s3 archive |
+| None | `path/to/file.ext` | Local file path |
+| git+https | `git+https://github.com/some-user/some-repo` | Remote git repository |
+| zip+s3 | `zip+s3://some-bucket/some-key.zip` | Remote zip s3 archive |
 
 ##### Handler
 
@@ -207,6 +213,14 @@ func = dh.new_function(project="my-project",
                        handler="main:function")
 ```
 
+##### Python versions
+
+The python runtime supports Python versions 3.9, 3.10 and 3.11, expressed respectively as:
+
+- `PYTHON3_9`
+- `PYTHON3_10`
+- `PYTHON3_11`
+
 #### Function example
 
 ```python
@@ -237,8 +251,8 @@ A `Task` is created with the `run()` method, so it's not managed directly by the
 
 | Name | Type | Description | Default | Kind specific |
 | --- | --- | --- | --- | --- |
-| action | str | Task action. Must be one of: <li>`job`</li><li>`serve`</li><li>`build`</li> | required | |
-| [node_selector](kubernetes-resources.md#node_selector) | list[dict] | Node selector | None | |
+| action | str | Task action | required | |
+| [node_selector](kubernetes-resources.md#node-selector) | list[dict] | Node selector | None | |
 | [volumes](kubernetes-resources.md#volumes) | list[dict] | List of volumes | None | |
 | [resources](kubernetes-resources.md#resources) | dict | Resources restrictions | None | |
 | [affinity](kubernetes-resources.md#affinity) | dict | Affinity | None | |
@@ -246,17 +260,25 @@ A `Task` is created with the `run()` method, so it's not managed directly by the
 | [envs](kubernetes-resources.md#envs) | list[dict] | Env variables | None | |
 | [secrets](kubernetes-resources.md#secrets) | list[str] | List of secret names | None | |
 | [profile](kubernetes-resources.md#profile) | str | Profile template | None | |
-| backoff_limit | int | Backoff limit | None | `job` |
-| instructions | list[str] | Build instructions to be executed as RUN instructions in Dockerfile.<br>Example: `apt install git -y` | None | `build` |
-| replicas | int | Number of replicas | None | `serve` |
-| service_type| str | Service type. Must be one of: <li>`ClusterIP`</li><li>`LoadBalancer`</li><li>`NodePort`</li> | `NodePort` | `serve` |
+| [backoff_limit](kubernetes-resources.md#backoff-limit) | int | Backoff limit | None | `job` |
+| [replicas](kubernetes-resources.md#replicas) | int | Number of replicas | None | `serve` |
+| [service_type](kubernetes-resources.md#service-type) | str | Service type | `NodePort` | `serve` |
+| instructions | list[str] | Build instructions to be executed as RUN instructions in Dockerfile | None | `build` |
+
+##### Task actions
+
+Actions must be one of the following:
+
+- `job`
+- `build`
+- `serve`
 
 #### Task example
 
 ```python
 run = function.run(
-    action="job",
-    backoff_limit=1,
+    action="build",
+    instructions=["apt-get install -y git"]
 )
 ```
 

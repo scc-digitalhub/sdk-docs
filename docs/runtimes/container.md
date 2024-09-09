@@ -27,10 +27,10 @@ The Container runtime introduces a function of kind `container` that allows you 
 
 | Name | Type | Description | Default |
 | --- | --- | --- | --- |
-| project | str | Project name | required (if creating from library) |
+| project | str | Project name. Required only if creating from library, otherwise **MUST NOT** be set | |
 | name | str | Name that identifies the object | required |
-| kind | str | Kind of the object | required (must be `container`) |
-| uuid | str | ID of the object in form of UUID | None |
+| [kind](#function-kinds) | str | Function kind | required |
+| uuid | str | ID of the object in form of UUID4 | None |
 | description | str | Description of the object | None |
 | labels | list[str] | List of labels | None |
 | embedded | bool | Flag to determine if object must be embedded in project | True |
@@ -44,15 +44,21 @@ The Container runtime introduces a function of kind `container` that allows you 
 | command | str | The command to run inside the container | None |
 | args | list[str] | The arguments to pass to the command | None |
 
+##### Function kinds
+
+The `kind` parameter must be:
+
+- `container`
+
 ##### Source
 
 Source code can be specified with `code_src` as an URI. It can have three different type of schema:
 
 | schema | value | description |
 | --- | --- | --- |
-| None | "path/to/file.ext" | Local file path |
-| git+https | "git+https://github.com/some-user/some-repo" | Remote git repository |
-| zip+s3 | "zip+s3://some-bucket/some-key.zip" | Remote zip s3 archive |
+| None | `path/to/file.ext` | Local file path |
+| git+https | `git+https://github.com/some-user/some-repo` | Remote git repository |
+| zip+s3 | `zip+s3://some-bucket/some-key.zip` | Remote zip s3 archive |
 
 #### Function example
 
@@ -69,19 +75,15 @@ function = dh.new_function(
 
 ### Task
 
-The Container runtime introduces three task's kinds:
-
-- `job`: to deploy a job
-- `deploy`: to deploy a deployment
-- `serve`: to deploy a service
-- `build`: to build a docker image
+The container runtime introduces four tasks of kind `job`, `serve`, `build` and `deploy` that allows you to run a Kubernetes job, create a service or a deployment and build an image.
+A `Task` is created with the `run()` method, so it's not managed directly by the user. The parameters for the task creation are passed directly to the `run()` method, and may vary depending on the kind of task.
 
 #### Task parameters
 
 | Name | Type | Description | Default | Kind specific |
 | --- | --- | --- | --- | --- |
-| action | str | Task action. Must be one of: <li>`job`</li><li>`deploy`</li><li>`build`</li><li>`build`</li> | required | |
-| [node_selector](kubernetes-resources.md#node_selector) | list[dict] | Node selector | None | |
+| [action](#task-actions) | str | Task action | required | |
+| [node_selector](kubernetes-resources.md#node-selector) | list[dict] | Node selector | None | |
 | [volumes](kubernetes-resources.md#volumes) | list[dict] | List of volumes | None | |
 | [resources](kubernetes-resources.md#resources) | dict | Resources restrictions | None | |
 | [affinity](kubernetes-resources.md#affinity) | dict | Affinity | None | |
@@ -89,19 +91,28 @@ The Container runtime introduces three task's kinds:
 | [envs](kubernetes-resources.md#envs) | list[dict] | Env variables | None | |
 | [secrets](kubernetes-resources.md#secrets) | list[str] | List of secret names | None | |
 | [profile](kubernetes-resources.md#profile) | str | Profile template | None | |
-| backoff_limit | int | Backoff limit | None | `job` |
-| schedule | str | Schedule for the job | None | `job` |
-| instructions | list[str] | Build instructions to be executed as RUN instructions in Dockerfile.<br>Example: `apt install git -y` | None | `build` |
-| replicas | int | Number of replicas | None | `deploy`, `serve` |
-| service_port| list[dict] | Service port where to expose the service. Must be: [{port: port, target_port: target_port}, ...] | `NodePort` | `serve` |
-| service_type| str | Service type. Must be one of: <li>`ClusterIP`</li><li>`LoadBalancer`</li><li>`NodePort`</li> | `NodePort` | `serve` |
+| [backoff_limit](kubernetes-resources.md#backoff-limit) | int | Backoff limit | None | `job` |
+| [schedule](kubernetes-resources.md#schedule) | str | Schedule for the job | None | `job` |
+| [replicas](kubernetes-resources.md#replicas) | int | Number of replicas | None | `deploy`, `serve` |
+| [service_port](kubernetes-resources.md#service-port) | list[dict] | Service port where to expose the service | `NodePort` | `serve` |
+| [service_type](kubernetes-resources.md#service-type) | str | Service type | `NodePort` | `serve` |
+| instructions | list[str] | Build instructions to be executed as RUN instructions in Dockerfile | None | `build` |
+
+##### Task actions
+
+Actions must be one of the following:
+
+- `job`
+- `build`
+- `serve`
+- `deploy`
 
 #### Task example
 
 ```python
 run = function.run(
     action="job",
-    backoff_limit=1,
+    instructions=["apt install git -y"],
 )
 ```
 

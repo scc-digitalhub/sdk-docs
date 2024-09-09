@@ -75,10 +75,10 @@ The kfp runtime introduces a function of kind `kfp`.
 
 | Name | Type | Description | Default |
 | --- | --- | --- | --- |
-| project | str | Project name | required (if creating from library) |
+| project | str | Project name. Required only if creating from library, otherwise **MUST NOT** be set | |
 | name | str | Name that identifies the object | required |
-| kind | str | Kind of the object | required (must be `kfp`) |
-| uuid | str | ID of the object in form of UUID | None |
+| [kind](#workflow-kinds) | str | Workflow kind | required |
+| uuid | str | ID of the object in form of UUID4 | None |
 | description | str | Description of the object | None |
 | labels | list[str] | List of labels | None |
 | embedded | bool | Flag to determine if object must be embedded in project | True |
@@ -90,15 +90,21 @@ The kfp runtime introduces a function of kind `kfp`.
 | image | str | Image where the workflow will be executed | None |
 | tag | str | Tag of the image where the workflow will be executed | None |
 
+##### Workflow kinds
+
+The `kind` parameter must be one of the following:
+
+- `kfp`
+
 ##### Source
 
 Source code can be specified with `code_src` as an URI. It can have three different type of schema:
 
 | schema | value | description |
 | --- | --- | --- |
-| None | "path/to/file.ext" | Local file path |
-| git+https | "git+https://github.com/some-user/some-repo" | Remote git repository |
-| zip+s3 | "zip+s3://some-bucket/some-key.zip" | Remote zip s3 archive |
+| None | `path/to/file.ext` | Local file path |
+| git+https | `git+https://github.com/some-user/some-repo` | Remote git repository |
+| zip+s3 | `zip+s3://some-bucket/some-key.zip` | Remote zip s3 archive |
 
 ##### Handler
 
@@ -153,15 +159,15 @@ workflow = dh.new_workflow(project="my-project",
 
 ### Task
 
-The python runtime introduces a task of kind `pipeline` that allows you to run a workflow.
+The KFP runtime introduces a task of kind `pipeline` that allows you to run a workflow.
 A `Task` is created with the `run()` method, so it's not managed directly by the user. The parameters for the task creation are passed directly to the `run()` method, and may vary depending on the kind of task.
 
 #### Task parameters
 
 | Name | Type | Description | Default | Kind specific |
 | --- | --- | --- | --- | --- |
-| action | str | Task action. Must be: `pipeline` | required | |
-| [node_selector](./kubernetes-resources.md#node_selector) | list[dict] | Node selector | None | |
+| [action](#task-actions) | str | Task action | required | |
+| [node_selector](./kubernetes-resources.md#node-selector) | list[dict] | Node selector | None | |
 | [volumes](./kubernetes-resources.md#volumes) | list[dict] | List of volumes | None | |
 | [resources](./kubernetes-resources.md#resources) | dict | Resources restrictions | None | |
 | [affinity](./kubernetes-resources.md#affinity) | dict | Affinity | None | |
@@ -169,7 +175,13 @@ A `Task` is created with the `run()` method, so it's not managed directly by the
 | [envs](./kubernetes-resources.md#envs) | list[dict] | Env variables | None | |
 | [secrets](./kubernetes-resources.md#secrets) | list[str] | List of secret names | None | |
 | [profile](./kubernetes-resources.md#profile) | str | Profile template | None | |
-| schedule | str | Task schedule as cron expression | None | |
+| [schedule](./kubernetes-resources.md#schedule) | str | Schedule for the job | None | |
+
+##### Task actions
+
+Actions must be one of the following:
+
+- `pipeline`
 
 #### Task example
 

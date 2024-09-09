@@ -41,7 +41,7 @@ The usage of the runtime is similar to the others:
 
 ### Function
 
-There are three modelserve functions: `sklearnserve`, `mlflowserve` and `huggingfaceserve`.
+There are three modelserve functions: `sklearnserve`, `mlflowserve` and `huggingfaceserve`, each one representing a different ML model flavour.
 
 #### Function parameters
 
@@ -49,16 +49,24 @@ A modelserve function has the following `spec` parameters to pass to the `new_fu
 
 | Name | Type | Description | Default |
 | --- | --- | --- | --- |
-| project | str | Project name | required (if creating from library) |
+| project | str | Project name. Required only if creating from library, otherwise **MUST NOT** be set | |
 | name | str | Name that identifies the object | required |
-| kind | str | Kind of the object. Must be one of: <li>`sklearnserve`</li><li>`mlflowserve`</li><li>`huggingfaceserve`</li>  | required |
-| uuid | str | ID of the object in form of UUID | None |
+| [kind](#function-kinds) | str | Function kind | required |
+| uuid | str | ID of the object in form of UUID4 | None |
 | description | str | Description of the object | None |
 | labels | list[str] | List of labels | None |
 | embedded | bool | Flag to determine if object must be embedded in project | True |
 | [path](#model-path) | str | Path to the model files | None |
 | model_name | str | Name of the model | None |
 | image | str | Docker image where to serve the model | None |
+
+##### Function kinds
+
+The `kind` parameter must be one of the following:
+
+- `sklearnserve`
+- `mlflowserve`
+- `huggingfaceserve`
 
 ##### Model path
 
@@ -104,8 +112,8 @@ A `Task` is created with the `run()` method, so it's not managed directly by the
 
 | Name | Type | Description | Default |
 | --- | --- | --- | --- |
-| action | str | Task action. Must be: `serve` | required |
-| [node_selector](kubernetes-resources.md#node_selector) | list[dict] | Node selector | None |
+| [action](#task-actions) | str | Task action | required |
+| [node_selector](kubernetes-resources.md#node-selector) | list[dict] | Node selector | None |
 | [volumes](kubernetes-resources.md#volumes) | list[dict] | List of volumes | None |
 | [resources](kubernetes-resources.md#resources) | dict | Resources restrictions | None |
 | [affinity](kubernetes-resources.md#affinity) | dict | Affinity | None |
@@ -113,8 +121,14 @@ A `Task` is created with the `run()` method, so it's not managed directly by the
 | [envs](kubernetes-resources.md#envs) | list[dict] | Env variables | None |
 | [secrets](kubernetes-resources.md#secrets) | list[str] | List of secret names | None |
 | [profile](kubernetes-resources.md#profile) | str | Profile template | None |
-| replicas | int | Number of replicas | None |
-| service_type| str | Service type. Must be one of: <li>`ClusterIP`</li><li>`LoadBalancer`</li><li>`NodePort`</li> | `NodePort` |
+| [replicas](kubernetes-resources.md#replicas) | int | Number of replicas | None |
+| [service_type](kubernetes-resources.md#service-type) | str | Service type | `NodePort` |
+
+##### Task actions
+
+Actions must be one of the following:
+
+- `serve`: to deploy a service
 
 #### Task example
 

@@ -39,10 +39,10 @@ The DBT runtime introduces a function of kind `dbt` that allows you to execute s
 
 | Name | Type | Description | Default |
 | --- | --- | --- | --- |
-| project | str | Project name | required (if creating from library) |
+| project | str | Project name. Required only if creating from library, otherwise **MUST NOT** be set | |
 | name | str | Name that identifies the object | required |
-| kind | str | Kind of the object | required (must be `dbt`) |
-| uuid | str | ID of the object in form of UUID | None |
+| [kind](#function-kinds) | str | Function kind | required |
+| uuid | str | ID of the object in form of UUID4 | None |
 | description | str | Description of the object | None |
 | labels | list[str] | List of labels | None |
 | embedded | bool | Flag to determine if object must be embedded in project | True |
@@ -52,15 +52,21 @@ The DBT runtime introduces a function of kind `dbt` that allows you to execute s
 | handler | str | Function entrypoint | None |
 | lang | str | Source code language (hint)| None |
 
+##### Function kinds
+
+The `kind` parameter must be:
+
+- `dbt`
+
 ##### Source
 
 Source code can be specified with `code_src` as an URI. It can have three different type of schema:
 
 | schema | value | description |
 | --- | --- | --- |
-| None | "path/to/file.ext" | Local file path |
-| git+https | "git+https://github.com/some-user/some-repo" | Remote git repository |
-| zip+s3 | "zip+s3://some-bucket/some-key.zip" | Remote zip s3 archive |
+| None | `path/to/file.ext` | Local file path |
+| git+https | `git+https://github.com/some-user/some-repo` | Remote git repository |
+| zip+s3 | `zip+s3://some-bucket/some-key.zip` | Remote zip s3 archive |
 
 #### Function example
 
@@ -91,8 +97,8 @@ A `Task` is created with the `run()` method, so it's not managed directly by the
 
 | Name | Type | Description | Default | Kind specific |
 | --- | --- | --- | --- | --- |
-| action | str | Task action. Must be one of: <li>`transform`</li> | required | |
-| [node_selector](kubernetes-resources.md#node_selector) | list[dict] | Node selector | None | |
+| [action](#task-actions) | str | Task action | required | |
+| [node_selector](kubernetes-resources.md#node-selector) | list[dict] | Node selector | None | |
 | [volumes](kubernetes-resources.md#volumes) | list[dict] | List of volumes | None | |
 | [resources](kubernetes-resources.md#resources) | dict | Resources restrictions | None | |
 | [affinity](kubernetes-resources.md#affinity) | dict | Affinity | None | |
@@ -100,6 +106,12 @@ A `Task` is created with the `run()` method, so it's not managed directly by the
 | [envs](kubernetes-resources.md#envs) | list[dict] | Env variables | None | |
 | [secrets](kubernetes-resources.md#secrets) | list[str] | List of secret names | None | |
 | [profile](kubernetes-resources.md#profile) | str | Profile template | None | |
+
+##### Task actions
+
+Actions must be one of the following:
+
+- `serve`: to deploy a service
 
 #### Task example
 
