@@ -1489,6 +1489,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#function-kinds" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function kinds
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#source" class="md-nav__link">
     <span class="md-ellipsis">
       Source
@@ -1501,6 +1510,15 @@
   <a href="#handler" class="md-nav__link">
     <span class="md-ellipsis">
       Handler
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python versions
     </span>
   </a>
   
@@ -1541,6 +1559,21 @@
       Task parameters
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Task parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#task-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task actions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -3279,6 +3312,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#function-kinds" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function kinds
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#source" class="md-nav__link">
     <span class="md-ellipsis">
       Source
@@ -3291,6 +3333,15 @@
   <a href="#handler" class="md-nav__link">
     <span class="md-ellipsis">
       Handler
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python versions
     </span>
   </a>
   
@@ -3331,6 +3382,21 @@
       Task parameters
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Task parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#task-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task actions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -3538,8 +3604,8 @@ sdk_function.run(inputs={&quot;di&quot;: sdk_dataitem.key},
 <tr>
 <td>project</td>
 <td>str</td>
-<td>Project name</td>
-<td>required (if creating from library)</td>
+<td>Project name. Required only if creating from library, otherwise <strong>MUST NOT</strong> be set</td>
+<td></td>
 </tr>
 <tr>
 <td>name</td>
@@ -3548,15 +3614,15 @@ sdk_function.run(inputs={&quot;di&quot;: sdk_dataitem.key},
 <td>required</td>
 </tr>
 <tr>
-<td>kind</td>
+<td><a href="#function-kinds">kind</a></td>
 <td>str</td>
-<td>Kind of the object</td>
-<td>required (must be <code>python</code>)</td>
+<td>Function kind</td>
+<td>required</td>
 </tr>
 <tr>
 <td>uuid</td>
 <td>str</td>
-<td>ID of the object in form of UUID</td>
+<td>ID of the object in form of UUID4</td>
 <td>None</td>
 </tr>
 <tr>
@@ -3614,10 +3680,10 @@ sdk_function.run(inputs={&quot;di&quot;: sdk_dataitem.key},
 <td>None</td>
 </tr>
 <tr>
-<td>python_version</td>
+<td><a href="#python-versions">python_version</a></td>
 <td>str</td>
-<td>Python version to use, must be one of: <li><code>PYTHON3_9</code></li><li><code>PYTHON3_10</code></li><li><code>PYTHON3_11</code></li></td>
-<td>None</td>
+<td>Python version to use</td>
+<td>required</td>
 </tr>
 <tr>
 <td>image</td>
@@ -3639,6 +3705,11 @@ sdk_function.run(inputs={&quot;di&quot;: sdk_dataitem.key},
 </tr>
 </tbody>
 </table>
+<h5 id="function-kinds">Function kinds</h5>
+<p>The <code>kind</code> parameter must be:</p>
+<ul>
+<li><code>python</code></li>
+</ul>
 <h5 id="source">Source</h5>
 <p>Source code can be specified with <code>code_src</code> as an URI. It can have three different type of schema:</p>
 <table>
@@ -3652,17 +3723,17 @@ sdk_function.run(inputs={&quot;di&quot;: sdk_dataitem.key},
 <tbody>
 <tr>
 <td>None</td>
-<td>"path/to/file.ext"</td>
+<td><code>path/to/file.ext</code></td>
 <td>Local file path</td>
 </tr>
 <tr>
 <td>git+https</td>
-<td>"git+https://github.com/some-user/some-repo"</td>
+<td><code>git+https://github.com/some-user/some-repo</code></td>
 <td>Remote git repository</td>
 </tr>
 <tr>
 <td>zip+s3</td>
-<td>"zip+s3://some-bucket/some-key.zip"</td>
+<td><code>zip+s3://some-bucket/some-key.zip</code></td>
 <td>Remote zip s3 archive</td>
 </tr>
 </tbody>
@@ -3694,6 +3765,13 @@ func = dh.new_function(project=&quot;my-project&quot;,
                        code_src=&quot;git+https://github.com/some-user/some-repo&quot;,
                        handler=&quot;main:function&quot;)
 </code></pre>
+<h5 id="python-versions">Python versions</h5>
+<p>The python runtime supports Python versions 3.9, 3.10 and 3.11, expressed respectively as:</p>
+<ul>
+<li><code>PYTHON3_9</code></li>
+<li><code>PYTHON3_10</code></li>
+<li><code>PYTHON3_11</code></li>
+</ul>
 <h4 id="function-example">Function example</h4>
 <pre><code class="language-python"># From project ...
 
@@ -3730,12 +3808,12 @@ A <code>Task</code> is created with the <code>run()</code> method, so it's not m
 <tr>
 <td>action</td>
 <td>str</td>
-<td>Task action. Must be one of: <li><code>job</code></li><li><code>serve</code></li><li><code>build</code></li></td>
+<td>Task action</td>
 <td>required</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../kubernetes-resources/#node_selector">node_selector</a></td>
+<td><a href="../kubernetes-resources/#node-selector">node_selector</a></td>
 <td>list[dict]</td>
 <td>Node selector</td>
 <td>None</td>
@@ -3791,39 +3869,46 @@ A <code>Task</code> is created with the <code>run()</code> method, so it's not m
 <td></td>
 </tr>
 <tr>
-<td>backoff_limit</td>
+<td><a href="../kubernetes-resources/#backoff-limit">backoff_limit</a></td>
 <td>int</td>
 <td>Backoff limit</td>
 <td>None</td>
 <td><code>job</code></td>
 </tr>
 <tr>
-<td>instructions</td>
-<td>list[str]</td>
-<td>Build instructions to be executed as RUN instructions in Dockerfile.<br>Example: <code>apt install git -y</code></td>
-<td>None</td>
-<td><code>build</code></td>
-</tr>
-<tr>
-<td>replicas</td>
+<td><a href="../kubernetes-resources/#replicas">replicas</a></td>
 <td>int</td>
 <td>Number of replicas</td>
 <td>None</td>
 <td><code>serve</code></td>
 </tr>
 <tr>
-<td>service_type</td>
+<td><a href="../kubernetes-resources/#service-type">service_type</a></td>
 <td>str</td>
-<td>Service type. Must be one of: <li><code>ClusterIP</code></li><li><code>LoadBalancer</code></li><li><code>NodePort</code></li></td>
+<td>Service type</td>
 <td><code>NodePort</code></td>
 <td><code>serve</code></td>
 </tr>
+<tr>
+<td>instructions</td>
+<td>list[str]</td>
+<td>Build instructions to be executed as RUN instructions in Dockerfile</td>
+<td>None</td>
+<td><code>build</code></td>
+</tr>
 </tbody>
 </table>
+<h5 id="task-actions">Task actions</h5>
+<p>Actions must be one of the following:</p>
+<ul>
+<li><code>job</code></li>
+<li><code>build</code></li>
+<li><code>serve</code></li>
+</ul>
 <h4 id="task-example">Task example</h4>
 <pre><code class="language-python">run = function.run(
-    action=&quot;job&quot;,
-    backoff_limit=1,
+    action=&quot;build&quot;,
+    instructions=[&quot;apt-get install -y git&quot;]
 )
 </code></pre>
 <h3 id="run">Run</h3>

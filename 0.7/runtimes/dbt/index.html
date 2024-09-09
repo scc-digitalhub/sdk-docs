@@ -1453,6 +1453,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#function-kinds" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function kinds
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#source" class="md-nav__link">
     <span class="md-ellipsis">
       Source
@@ -1496,6 +1505,21 @@
       Task parameters
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Task parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#task-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task actions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -3156,6 +3180,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#function-kinds" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function kinds
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#source" class="md-nav__link">
     <span class="md-ellipsis">
       Source
@@ -3199,6 +3232,21 @@
       Task parameters
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Task parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#task-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task actions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -3313,8 +3361,8 @@ The DBT runtime execution workflow follows roughly these steps:</p>
 <tr>
 <td>project</td>
 <td>str</td>
-<td>Project name</td>
-<td>required (if creating from library)</td>
+<td>Project name. Required only if creating from library, otherwise <strong>MUST NOT</strong> be set</td>
+<td></td>
 </tr>
 <tr>
 <td>name</td>
@@ -3323,15 +3371,15 @@ The DBT runtime execution workflow follows roughly these steps:</p>
 <td>required</td>
 </tr>
 <tr>
-<td>kind</td>
+<td><a href="#function-kinds">kind</a></td>
 <td>str</td>
-<td>Kind of the object</td>
-<td>required (must be <code>dbt</code>)</td>
+<td>Function kind</td>
+<td>required</td>
 </tr>
 <tr>
 <td>uuid</td>
 <td>str</td>
-<td>ID of the object in form of UUID</td>
+<td>ID of the object in form of UUID4</td>
 <td>None</td>
 </tr>
 <tr>
@@ -3384,6 +3432,11 @@ The DBT runtime execution workflow follows roughly these steps:</p>
 </tr>
 </tbody>
 </table>
+<h5 id="function-kinds">Function kinds</h5>
+<p>The <code>kind</code> parameter must be:</p>
+<ul>
+<li><code>dbt</code></li>
+</ul>
 <h5 id="source">Source</h5>
 <p>Source code can be specified with <code>code_src</code> as an URI. It can have three different type of schema:</p>
 <table>
@@ -3397,17 +3450,17 @@ The DBT runtime execution workflow follows roughly these steps:</p>
 <tbody>
 <tr>
 <td>None</td>
-<td>"path/to/file.ext"</td>
+<td><code>path/to/file.ext</code></td>
 <td>Local file path</td>
 </tr>
 <tr>
 <td>git+https</td>
-<td>"git+https://github.com/some-user/some-repo"</td>
+<td><code>git+https://github.com/some-user/some-repo</code></td>
 <td>Remote git repository</td>
 </tr>
 <tr>
 <td>zip+s3</td>
-<td>"zip+s3://some-bucket/some-key.zip"</td>
+<td><code>zip+s3://some-bucket/some-key.zip</code></td>
 <td>Remote zip s3 archive</td>
 </tr>
 </tbody>
@@ -3445,14 +3498,14 @@ A <code>Task</code> is created with the <code>run()</code> method, so it's not m
 </thead>
 <tbody>
 <tr>
-<td>action</td>
+<td><a href="#task-actions">action</a></td>
 <td>str</td>
-<td>Task action. Must be one of: <li><code>transform</code></li></td>
+<td>Task action</td>
 <td>required</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../kubernetes-resources/#node_selector">node_selector</a></td>
+<td><a href="../kubernetes-resources/#node-selector">node_selector</a></td>
 <td>list[dict]</td>
 <td>Node selector</td>
 <td>None</td>
@@ -3509,6 +3562,11 @@ A <code>Task</code> is created with the <code>run()</code> method, so it's not m
 </tr>
 </tbody>
 </table>
+<h5 id="task-actions">Task actions</h5>
+<p>Actions must be one of the following:</p>
+<ul>
+<li><code>serve</code>: to deploy a service</li>
+</ul>
 <h4 id="task-example">Task example</h4>
 <pre><code class="language-python">run = function.run(
     action=&quot;transform&quot;,
