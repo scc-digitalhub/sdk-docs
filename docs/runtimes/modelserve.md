@@ -19,7 +19,6 @@ The package comes with optional dependencies:
 
 - `sklearn`
 - `mlflow`
-- `huggingface`
 
 For installation of thw optional dependencies, you can use the following command:
 
@@ -41,7 +40,7 @@ The usage of the runtime is similar to the others:
 
 ### Function
 
-There are three modelserve functions: `sklearnserve`, `mlflowserve` and `huggingfaceserve`, each one representing a different ML model flavour.
+There are different modelserve functions (`sklearnserve`, `mlflowserve` and `huggingfaceserve`), each one representing a different ML model flavour.
 
 #### Function parameters
 
@@ -157,4 +156,50 @@ run = function.run(
     action="serve",
     local_execution=True,
 )
+```
+
+#### Run methods
+
+Once the run is created, you can access some of its attributes and methods through the `run` object.
+
+The *modelserve* runtime launches, in **local execution**, a local [mlserver](https://mlserver.readthedocs.io/en/latest/) inference server. In **remote execution**, an inference (mlserve or [kserve](https://kserve.github.io/website/latest/)) server is deployed on Kubernetes as deployment and exposed as a service.
+
+!!! warning "Remote execution"
+    In case of remote execution, it takes a while for the service to be ready and notified to the client. You can use the `refresh()` method and access the `status` attribute of the run object. When the service is ready, you can see a `service` attribute in the `status`.
+
+```python
+run.refresh()
+run.status
+```
+
+##### Invoke
+
+Once the service is ready, you can use the `run.invoke()` method to call the inference server.
+To explain this operation, let's see the `invoke` method in detail.
+The modelserve runtime uses the mlserver or kserve inference server to load the model and perform inference. These two inference servers adopt the [V2 inference protocol](https://docs.seldon.io/projects/seldon-core/en/latest/reference/apis/v2-protocol.html).
+The run status keep on itself the inference endpoint (unversioned) of the model, e.g. `"http://{url}/v2/models/{model_name}/infer"`.
+When you invoke the endpoint (and the method), you need to pass the payload with the `json` parameter.
+
+```python
+data = [[...]] #some array
+json = {
+    "inputs": [
+        {
+        "name": "input-0",
+        "shape": [x, y],
+        "datatype": "FP32",
+        "data": data #data-array goes here
+        }
+    ]
+}
+
+run.invoke(json=json)
+```
+
+##### Stop
+
+Once the inference server is ready, you can use the `run.stop()` method to stop the inference server.
+
+```python
+run.stop()
 ```

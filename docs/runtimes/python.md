@@ -1,6 +1,6 @@
 # Python
 
-The **python runtime** allows you to run generic python function within the platform.
+The **python runtime** allows you to run generic python function.
 The runtime introduces a function of kind `python` and three task of kind `job`, `serve` and `build`.
 
 ## Prerequisites

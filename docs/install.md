@@ -28,10 +28,11 @@ Everyone of them will install the digitalhub up to a certain layer. Please note 
 
 The Digitalhub runtimes are installed in the same way as the SDK. We have distributed the following runtimes at the moment:
 
-- digitalhub-runtime-python
-- digitalhub-runtime-container
-- digitalhub-runtime-dbt
-- digitalhub-runtime-kfp
+- [digitalhub-runtime-python](./runtimes/python.md)
+- [digitalhub-runtime-container](./runtimes/container.md)
+- [digitalhub-runtime-dbt](./runtimes/dbt.md)
+- [digitalhub-runtime-kfp](./runtimes/kfp.md)
+- [digitalhub-runtime-modelserve](./runtimes/modelserve.md)
 
 You can install the runtime directly with pip. It will come with all the required SDK dependencies:
 

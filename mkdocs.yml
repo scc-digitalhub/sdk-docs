@@ -24,6 +24,11 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
+  features:
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
 
 plugins:
   - mkdocstrings:
