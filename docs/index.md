@@ -4,8 +4,8 @@ This documentation is generated from the [Digitalhub SDK](https://github.com/scc
 
 ## Table of contents
 
-- [Installation](./install/install.md)
-- [Quickstart](./quickstart/quickstart.md)
+- [Installation](./install.md)
+- [Quickstart](./quickstart.md)
 - [Entities](./objects/entities.md)
 - [Runtimes](./runtimes/runtimes.md)
 - [API](./api/api.md)
