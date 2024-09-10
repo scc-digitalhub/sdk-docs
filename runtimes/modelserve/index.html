@@ -1628,6 +1628,39 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#run-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Run methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#invoke" class="md-nav__link">
+    <span class="md-ellipsis">
+      Invoke
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stop
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3292,6 +3325,39 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#run-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Run methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#invoke" class="md-nav__link">
+    <span class="md-ellipsis">
+      Invoke
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stop
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3332,7 +3398,6 @@
 <ul>
 <li><code>sklearn</code></li>
 <li><code>mlflow</code></li>
-<li><code>huggingface</code></li>
 </ul>
 <p>For installation of thw optional dependencies, you can use the following command:</p>
 <pre><code class="language-bash">python -m pip install digitalhub-runtime-modelserve[sklearn]
@@ -3349,7 +3414,7 @@ The usage of the runtime is similar to the others:</p>
 <li>You can stop the service with the run's <code>stop()</code> method.</li>
 </ol>
 <h3 id="function">Function</h3>
-<p>There are three modelserve functions: <code>sklearnserve</code>, <code>mlflowserve</code> and <code>huggingfaceserve</code>, each one representing a different ML model flavour.</p>
+<p>There are different modelserve functions (<code>sklearnserve</code>, <code>mlflowserve</code> and <code>huggingfaceserve</code>), each one representing a different ML model flavour.</p>
 <h4 id="function-parameters">Function parameters</h4>
 <p>A modelserve function has the following <code>spec</code> parameters to pass to the <code>new_function()</code> method:</p>
 <table>
@@ -3583,6 +3648,40 @@ The run's parameters are passed alongside the task's ones.</p>
     local_execution=True,
 )
 </code></pre>
+<h4 id="run-methods">Run methods</h4>
+<p>Once the run is created, you can access some of its attributes and methods through the <code>run</code> object.</p>
+<p>The <em>modelserve</em> runtime launches, in <strong>local execution</strong>, a local <a href="https://mlserver.readthedocs.io/en/latest/">mlserver</a> inference server. In <strong>remote execution</strong>, an inference (mlserve or <a href="https://kserve.github.io/website/latest/">kserve</a>) server is deployed on Kubernetes as deployment and exposed as a service.</p>
+<div class="admonition warning">
+<p class="admonition-title">Remote execution</p>
+<p>In case of remote execution, it takes a while for the service to be ready and notified to the client. You can use the <code>refresh()</code> method and access the <code>status</code> attribute of the run object. When the service is ready, you can see a <code>service</code> attribute in the <code>status</code>.</p>
+</div>
+<pre><code class="language-python">run.refresh()
+run.status
+</code></pre>
+<h5 id="invoke">Invoke</h5>
+<p>Once the service is ready, you can use the <code>run.invoke()</code> method to call the inference server.
+To explain this operation, let's see the <code>invoke</code> method in detail.
+The modelserve runtime uses the mlserver or kserve inference server to load the model and perform inference. These two inference servers adopt the <a href="https://docs.seldon.io/projects/seldon-core/en/latest/reference/apis/v2-protocol.html">V2 inference protocol</a>.
+The run status keep on itself the inference endpoint (unversioned) of the model, e.g. <code>"http://{url}/v2/models/{model_name}/infer"</code>.
+When you invoke the endpoint (and the method), you need to pass the payload with the <code>json</code> parameter.</p>
+<pre><code class="language-python">data = [[...]] #some array
+json = {
+    &quot;inputs&quot;: [
+        {
+        &quot;name&quot;: &quot;input-0&quot;,
+        &quot;shape&quot;: [x, y],
+        &quot;datatype&quot;: &quot;FP32&quot;,
+        &quot;data&quot;: data #data-array goes here
+        }
+    ]
+}
+
+run.invoke(json=json)
+</code></pre>
+<h5 id="stop">Stop</h5>
+<p>Once the inference server is ready, you can use the <code>run.stop()</code> method to stop the inference server.</p>
+<pre><code class="language-python">run.stop()
+</code></pre>
 
 
 
@@ -3622,7 +3721,7 @@ The run's parameters are passed alongside the task's ones.</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
