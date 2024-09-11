@@ -310,3 +310,38 @@ run = function.run(
     }
 )
 ```
+
+#### Run methods
+
+Once the run is created, you can access some of its attributes and methods through the `run` object.
+
+The *modelserve* runtime launches, in **local execution**, a local [mlserver](https://mlserver.readthedocs.io/en/latest/) inference server. In **remote execution**, an inference (mlserve or [kserve](https://kserve.github.io/website/latest/)) server is deployed on Kubernetes as deployment and exposed as a service.
+
+!!! warning "Remote execution"
+    In case of remote execution, it takes a while for the service to be ready and notified to the client. You can use the `refresh()` method and access the `status` attribute of the run object. When the service is ready, you can see a `service` attribute in the `status`.
+
+```python
+run.refresh()
+run.status
+```
+
+##### Invoke
+
+Once the service is ready, you can use the `run.invoke()` method to call the inference server.
+The `invoke` method accept [`requests.request`](https://requests.readthedocs.io/en/latest/user/quickstart/#) parameters as kwargs. The `url` parameter is by default collected from the `run` object. In case you need to override it, you can use the `url` parameter.
+
+```python
+json = {
+    "some-func-param": data
+}
+
+run.invoke(method="POST", json=json)
+```
+
+##### Stop
+
+Once the deployment service is ready, you can use the `run.stop()` method to stop the server.
+
+```python
+run.stop()
+```
