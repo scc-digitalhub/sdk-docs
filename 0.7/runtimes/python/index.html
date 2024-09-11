@@ -1619,6 +1619,39 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#run-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Run methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#invoke" class="md-nav__link">
+    <span class="md-ellipsis">
+      Invoke
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stop
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3442,6 +3475,39 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#run-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Run methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#invoke" class="md-nav__link">
+    <span class="md-ellipsis">
+      Invoke
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stop
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3962,6 +4028,29 @@ The run's parameters are passed alongside the task's ones.</p>
         &quot;label&quot;: &quot;some-label&quot;
     }
 )
+</code></pre>
+<h4 id="run-methods">Run methods</h4>
+<p>Once the run is created, you can access some of its attributes and methods through the <code>run</code> object.</p>
+<p>The <em>modelserve</em> runtime launches, in <strong>local execution</strong>, a local <a href="https://mlserver.readthedocs.io/en/latest/">mlserver</a> inference server. In <strong>remote execution</strong>, an inference (mlserve or <a href="https://kserve.github.io/website/latest/">kserve</a>) server is deployed on Kubernetes as deployment and exposed as a service.</p>
+<div class="admonition warning">
+<p class="admonition-title">Remote execution</p>
+<p>In case of remote execution, it takes a while for the service to be ready and notified to the client. You can use the <code>refresh()</code> method and access the <code>status</code> attribute of the run object. When the service is ready, you can see a <code>service</code> attribute in the <code>status</code>.</p>
+</div>
+<pre><code class="language-python">run.refresh()
+run.status
+</code></pre>
+<h5 id="invoke">Invoke</h5>
+<p>Once the service is ready, you can use the <code>run.invoke()</code> method to call the inference server.
+The <code>invoke</code> method accept <a href="https://requests.readthedocs.io/en/latest/user/quickstart/#"><code>requests.request</code></a> parameters as kwargs. The <code>url</code> parameter is by default collected from the <code>run</code> object. In case you need to override it, you can use the <code>url</code> parameter.</p>
+<pre><code class="language-python">json = {
+    &quot;some-func-param&quot;: data
+}
+
+run.invoke(method=&quot;POST&quot;, json=json)
+</code></pre>
+<h5 id="stop">Stop</h5>
+<p>Once the deployment service is ready, you can use the <code>run.stop()</code> method to stop the server.</p>
+<pre><code class="language-python">run.stop()
 </code></pre>
 
 
