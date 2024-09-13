@@ -82,10 +82,10 @@ The kfp runtime introduces a function of kind `kfp`.
 | description | str | Description of the object | None |
 | labels | list[str] | List of labels | None |
 | embedded | bool | Flag to determine if object must be embedded in project | True |
-| [code_src](#source) | str | URI pointer to source code | None |
-| code | str | Source code (plain text)| None |
-| base64 | str | Source code (base64 encoded)| None |
-| [handler](#handler) | str | Function entrypoint | None |
+| [code_src](../objects/code_source.md#code-source-uri) | str | URI pointer to source code | None |
+| [code](../objects/code_source.md#plain-text-source) | str | Source code (plain text)| None |
+| [base64](../objects/code_source.md#base64-encoded-source) | str | Source code (base64 encoded)| None |
+| [handler](../objects/code_source.md#handler) | str | Function entrypoint | None |
 | lang | str | Source code language (hint)| None |
 | image | str | Image where the workflow will be executed | None |
 | tag | str | Tag of the image where the workflow will be executed | None |
@@ -95,48 +95,6 @@ The kfp runtime introduces a function of kind `kfp`.
 The `kind` parameter must be one of the following:
 
 - `kfp`
-
-##### Source
-
-Source code can be specified with `code_src` as an URI. It can have three different type of schema:
-
-| schema | value | description |
-| --- | --- | --- |
-| None | `path/to/file.ext` | Local file path |
-| git+https | `git+https://github.com/some-user/some-repo` | Remote git repository |
-| zip+s3 | `zip+s3://some-bucket/some-key.zip` | Remote zip s3 archive |
-
-##### Handler
-
-The handler is the entrypoint of the function. If you provide as `code_src` a git or s3 URI, the handler must be formatted as `path.to.module:handler(function-name)`. If you provide a local file path, the handler must be formatted as `handler(function-name)`.
-
-Examples:
-
-```python
-# main.py
-#
-# def function(...):
-#   ...
-
-func = dh.new_function(project="my-project",
-                       name="my-workflow",
-                       kind="pipeline",
-                       code_src="main.py",
-                       handler="function")
-
-# or
-# git repo tree
-#
-# root
-# |- main.py -> contains function
-# |- other-module.py
-
-func = dh.new_function(project="my-project",
-                       name="my-workflow",
-                       kind="pipeline",
-                       code_src="git+https://github.com/some-user/some-repo",
-                       handler="main:function")
-```
 
 #### Workflow example
 

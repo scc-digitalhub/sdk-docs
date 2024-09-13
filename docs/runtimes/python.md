@@ -154,15 +154,15 @@ The python runtime introduces a function of kind `python`.
 | description | str | Description of the object | None |
 | labels | list[str] | List of labels | None |
 | embedded | bool | Flag to determine if object must be embedded in project | True |
-| [code_src](#source) | str | URI pointer to source code | None |
-| code | str | Source code (plain text)| None |
-| base64 | str | Source code (base64 encoded)| None |
-| [handler](#handler) | str | Function entrypoint | None |
-| lang | str | Source code language (hint)| None |
-| init_function | str | Init function for remote nuclio execution | None |
+| [code_src](../objects/code_source.md#code-source-uri) | str | URI pointer to source code | None |
+| [code](../objects/code_source.md#plain-text-source) | str | Source code (plain text)| None |
+| [base64](../objects/code_source.md#base64-encoded-source) | str | Source code (base64 encoded)| None |
+| [handler](../objects/code_source.md#handler) | str | Function entrypoint | None |
+| [init_function](#init-function) | str | Init function for remote nuclio execution | None |
 | [python_version](#python-versions) | str | Python version to use | required |
+| lang | str | Source code language (hint)| None |
 | image | str | Image where the function will be executed | None |
-| base_image | str | Base image used to build the image where the function will be executed | None (required when using `build` task) |
+| base_image | str | Base image used to build the image where the function will be executed | None |
 | requirements | list | Requirements list to be installed in the image where the function will be executed | None |
 
 ##### Function kinds
@@ -171,48 +171,6 @@ The `kind` parameter must be:
 
 - `python`
 
-##### Source
-
-Source code can be specified with `code_src` as an URI. It can have three different type of schema:
-
-| schema | value | description |
-| --- | --- | --- |
-| None | `path/to/file.ext` | Local file path |
-| git+https | `git+https://github.com/some-user/some-repo` | Remote git repository |
-| zip+s3 | `zip+s3://some-bucket/some-key.zip` | Remote zip s3 archive |
-
-##### Handler
-
-The handler is the entrypoint of the function. If you provide as `code_src` a git or s3 URI, the handler must be formatted as `path.to.module:handler(function-name)`. If you provide a local file path, the handler must be formatted as `handler(function-name)`.
-
-Examples:
-
-```python
-# main.py
-#
-# def function(...):
-#   ...
-
-func = dh.new_function(project="my-project",
-                       name="python-function",
-                       kind="python",
-                       code_src="main.py",
-                       handler="function")
-
-# or
-# git repo tree
-#
-# root
-# |- main.py -> contains function
-# |- other-module.py
-
-func = dh.new_function(project="my-project",
-                       name="python-function",
-                       kind="python",
-                       code_src="git+https://github.com/some-user/some-repo",
-                       handler="main:function")
-```
-
 ##### Python versions
 
 The python runtime supports Python versions 3.9, 3.10 and 3.11, expressed respectively as:
@@ -220,6 +178,11 @@ The python runtime supports Python versions 3.9, 3.10 and 3.11, expressed respec
 - `PYTHON3_9`
 - `PYTHON3_10`
 - `PYTHON3_11`
+
+##### Init function
+
+The init function is the entrypoint of the nuclio init function. It follows the same rules as the `handler` parameter.
+The init function must be defined in the source code and should follow the [example 4](#function-definition-example) (event and context in signature).
 
 #### Function example
 
@@ -251,7 +214,7 @@ A `Task` is created with the `run()` method, so it's not managed directly by the
 
 | Name | Type | Description | Default | Kind specific |
 | --- | --- | --- | --- | --- |
-| action | str | Task action | required | |
+| [action](#task-actions) | str | Task action | required | |
 | [node_selector](kubernetes-resources.md#node-selector) | list[dict] | Node selector | None | |
 | [volumes](kubernetes-resources.md#volumes) | list[dict] | List of volumes | None | |
 | [resources](kubernetes-resources.md#resources) | dict | Resources restrictions | None | |

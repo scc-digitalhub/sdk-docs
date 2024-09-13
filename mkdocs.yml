@@ -82,6 +82,7 @@ nav:
           - CRUD: objects/secret/crud.md
           - Methods: objects/secret/methods.md
       - Stores: objects/stores.md
+      - Code source: objects/code_source.md
   - Runtimes:
       - Runtimes: runtimes/runtimes.md
       - Python: runtimes/python.md

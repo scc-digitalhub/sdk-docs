@@ -34,10 +34,10 @@ The Container runtime introduces a function of kind `container` that allows you 
 | description | str | Description of the object | None |
 | labels | list[str] | List of labels | None |
 | embedded | bool | Flag to determine if object must be embedded in project | True |
-| [code_src](#source) | str | URI pointer to source code | None |
-| code | str | Source code (plain text)| None |
-| base64 | str | Source code (base64 encoded)| None |
-| handler | str | Function entrypoint | None |
+| [code_src](../objects/code_source.md#code-source-uri) | str | URI pointer to source code | None |
+| [code](../objects/code_source.md#plain-text-source) | str | Source code (plain text)| None |
+| [base64](../objects/code_source.md#base64-encoded-source) | str | Source code (base64 encoded)| None |
+| [handler](../objects/code_source.md#handler) | str | Function entrypoint | None |
 | lang | str | Source code language (hint)| None |
 | image | str | The image to use | None |
 | base_image | str | The base container image | None (required if task is `build`) |
@@ -49,16 +49,6 @@ The Container runtime introduces a function of kind `container` that allows you 
 The `kind` parameter must be:
 
 - `container`
-
-##### Source
-
-Source code can be specified with `code_src` as an URI. It can have three different type of schema:
-
-| schema | value | description |
-| --- | --- | --- |
-| None | `path/to/file.ext` | Local file path |
-| git+https | `git+https://github.com/some-user/some-repo` | Remote git repository |
-| zip+s3 | `zip+s3://some-bucket/some-key.zip` | Remote zip s3 archive |
 
 #### Function example
 
