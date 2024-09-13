@@ -1275,6 +1275,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../objects/code_source/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Code source
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1531,24 +1552,6 @@
   <a href="#workflow-kinds" class="md-nav__link">
     <span class="md-ellipsis">
       Workflow kinds
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#source" class="md-nav__link">
-    <span class="md-ellipsis">
-      Source
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#handler" class="md-nav__link">
-    <span class="md-ellipsis">
-      Handler
     </span>
   </a>
   
@@ -3263,24 +3266,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#source" class="md-nav__link">
-    <span class="md-ellipsis">
-      Source
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#handler" class="md-nav__link">
-    <span class="md-ellipsis">
-      Handler
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -3557,25 +3542,25 @@ def myhandler(url):
 <td>True</td>
 </tr>
 <tr>
-<td><a href="#source">code_src</a></td>
+<td><a href="../../objects/code_source/#code-source-uri">code_src</a></td>
 <td>str</td>
 <td>URI pointer to source code</td>
 <td>None</td>
 </tr>
 <tr>
-<td>code</td>
+<td><a href="../../objects/code_source/#plain-text-source">code</a></td>
 <td>str</td>
 <td>Source code (plain text)</td>
 <td>None</td>
 </tr>
 <tr>
-<td>base64</td>
+<td><a href="../../objects/code_source/#base64-encoded-source">base64</a></td>
 <td>str</td>
 <td>Source code (base64 encoded)</td>
 <td>None</td>
 </tr>
 <tr>
-<td><a href="#handler">handler</a></td>
+<td><a href="../../objects/code_source/#handler">handler</a></td>
 <td>str</td>
 <td>Function entrypoint</td>
 <td>None</td>
@@ -3605,61 +3590,6 @@ def myhandler(url):
 <ul>
 <li><code>kfp</code></li>
 </ul>
-<h5 id="source">Source</h5>
-<p>Source code can be specified with <code>code_src</code> as an URI. It can have three different type of schema:</p>
-<table>
-<thead>
-<tr>
-<th>schema</th>
-<th>value</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>None</td>
-<td><code>path/to/file.ext</code></td>
-<td>Local file path</td>
-</tr>
-<tr>
-<td>git+https</td>
-<td><code>git+https://github.com/some-user/some-repo</code></td>
-<td>Remote git repository</td>
-</tr>
-<tr>
-<td>zip+s3</td>
-<td><code>zip+s3://some-bucket/some-key.zip</code></td>
-<td>Remote zip s3 archive</td>
-</tr>
-</tbody>
-</table>
-<h5 id="handler">Handler</h5>
-<p>The handler is the entrypoint of the function. If you provide as <code>code_src</code> a git or s3 URI, the handler must be formatted as <code>path.to.module:handler(function-name)</code>. If you provide a local file path, the handler must be formatted as <code>handler(function-name)</code>.</p>
-<p>Examples:</p>
-<pre><code class="language-python"># main.py
-#
-# def function(...):
-#   ...
-
-func = dh.new_function(project=&quot;my-project&quot;,
-                       name=&quot;my-workflow&quot;,
-                       kind=&quot;pipeline&quot;,
-                       code_src=&quot;main.py&quot;,
-                       handler=&quot;function&quot;)
-
-# or
-# git repo tree
-#
-# root
-# |- main.py -&gt; contains function
-# |- other-module.py
-
-func = dh.new_function(project=&quot;my-project&quot;,
-                       name=&quot;my-workflow&quot;,
-                       kind=&quot;pipeline&quot;,
-                       code_src=&quot;git+https://github.com/some-user/some-repo&quot;,
-                       handler=&quot;main:function&quot;)
-</code></pre>
 <h4 id="workflow-example">Workflow example</h4>
 <pre><code class="language-python"># From project ...
 

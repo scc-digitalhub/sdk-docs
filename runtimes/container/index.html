@@ -1275,6 +1275,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../objects/code_source/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Code source
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1477,15 +1498,6 @@
   <a href="#function-kinds" class="md-nav__link">
     <span class="md-ellipsis">
       Function kinds
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#source" class="md-nav__link">
-    <span class="md-ellipsis">
-      Source
     </span>
   </a>
   
@@ -3188,15 +3200,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#source" class="md-nav__link">
-    <span class="md-ellipsis">
-      Source
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -3386,25 +3389,25 @@
 <td>True</td>
 </tr>
 <tr>
-<td><a href="#source">code_src</a></td>
+<td><a href="../../objects/code_source/#code-source-uri">code_src</a></td>
 <td>str</td>
 <td>URI pointer to source code</td>
 <td>None</td>
 </tr>
 <tr>
-<td>code</td>
+<td><a href="../../objects/code_source/#plain-text-source">code</a></td>
 <td>str</td>
 <td>Source code (plain text)</td>
 <td>None</td>
 </tr>
 <tr>
-<td>base64</td>
+<td><a href="../../objects/code_source/#base64-encoded-source">base64</a></td>
 <td>str</td>
 <td>Source code (base64 encoded)</td>
 <td>None</td>
 </tr>
 <tr>
-<td>handler</td>
+<td><a href="../../objects/code_source/#handler">handler</a></td>
 <td>str</td>
 <td>Function entrypoint</td>
 <td>None</td>
@@ -3446,34 +3449,6 @@
 <ul>
 <li><code>container</code></li>
 </ul>
-<h5 id="source">Source</h5>
-<p>Source code can be specified with <code>code_src</code> as an URI. It can have three different type of schema:</p>
-<table>
-<thead>
-<tr>
-<th>schema</th>
-<th>value</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>None</td>
-<td><code>path/to/file.ext</code></td>
-<td>Local file path</td>
-</tr>
-<tr>
-<td>git+https</td>
-<td><code>git+https://github.com/some-user/some-repo</code></td>
-<td>Remote git repository</td>
-</tr>
-<tr>
-<td>zip+s3</td>
-<td><code>zip+s3://some-bucket/some-key.zip</code></td>
-<td>Remote zip s3 archive</td>
-</tr>
-</tbody>
-</table>
 <h4 id="function-example">Function example</h4>
 <pre><code class="language-python">import digitalhub as dh
 

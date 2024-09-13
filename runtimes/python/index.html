@@ -1275,6 +1275,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../objects/code_source/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Code source
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1498,27 +1519,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#source" class="md-nav__link">
-    <span class="md-ellipsis">
-      Source
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#handler" class="md-nav__link">
-    <span class="md-ellipsis">
-      Handler
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#python-versions" class="md-nav__link">
     <span class="md-ellipsis">
       Python versions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#init-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Init function
     </span>
   </a>
   
@@ -3354,27 +3366,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#source" class="md-nav__link">
-    <span class="md-ellipsis">
-      Source
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#handler" class="md-nav__link">
-    <span class="md-ellipsis">
-      Handler
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#python-versions" class="md-nav__link">
     <span class="md-ellipsis">
       Python versions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#init-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Init function
     </span>
   </a>
   
@@ -3710,37 +3713,31 @@ sdk_function.run(inputs={&quot;di&quot;: sdk_dataitem.key},
 <td>True</td>
 </tr>
 <tr>
-<td><a href="#source">code_src</a></td>
+<td><a href="../../objects/code_source/#code-source-uri">code_src</a></td>
 <td>str</td>
 <td>URI pointer to source code</td>
 <td>None</td>
 </tr>
 <tr>
-<td>code</td>
+<td><a href="../../objects/code_source/#plain-text-source">code</a></td>
 <td>str</td>
 <td>Source code (plain text)</td>
 <td>None</td>
 </tr>
 <tr>
-<td>base64</td>
+<td><a href="../../objects/code_source/#base64-encoded-source">base64</a></td>
 <td>str</td>
 <td>Source code (base64 encoded)</td>
 <td>None</td>
 </tr>
 <tr>
-<td><a href="#handler">handler</a></td>
+<td><a href="../../objects/code_source/#handler">handler</a></td>
 <td>str</td>
 <td>Function entrypoint</td>
 <td>None</td>
 </tr>
 <tr>
-<td>lang</td>
-<td>str</td>
-<td>Source code language (hint)</td>
-<td>None</td>
-</tr>
-<tr>
-<td>init_function</td>
+<td><a href="#init-function">init_function</a></td>
 <td>str</td>
 <td>Init function for remote nuclio execution</td>
 <td>None</td>
@@ -3752,6 +3749,12 @@ sdk_function.run(inputs={&quot;di&quot;: sdk_dataitem.key},
 <td>required</td>
 </tr>
 <tr>
+<td>lang</td>
+<td>str</td>
+<td>Source code language (hint)</td>
+<td>None</td>
+</tr>
+<tr>
 <td>image</td>
 <td>str</td>
 <td>Image where the function will be executed</td>
@@ -3761,7 +3764,7 @@ sdk_function.run(inputs={&quot;di&quot;: sdk_dataitem.key},
 <td>base_image</td>
 <td>str</td>
 <td>Base image used to build the image where the function will be executed</td>
-<td>None (required when using <code>build</code> task)</td>
+<td>None</td>
 </tr>
 <tr>
 <td>requirements</td>
@@ -3776,61 +3779,6 @@ sdk_function.run(inputs={&quot;di&quot;: sdk_dataitem.key},
 <ul>
 <li><code>python</code></li>
 </ul>
-<h5 id="source">Source</h5>
-<p>Source code can be specified with <code>code_src</code> as an URI. It can have three different type of schema:</p>
-<table>
-<thead>
-<tr>
-<th>schema</th>
-<th>value</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>None</td>
-<td><code>path/to/file.ext</code></td>
-<td>Local file path</td>
-</tr>
-<tr>
-<td>git+https</td>
-<td><code>git+https://github.com/some-user/some-repo</code></td>
-<td>Remote git repository</td>
-</tr>
-<tr>
-<td>zip+s3</td>
-<td><code>zip+s3://some-bucket/some-key.zip</code></td>
-<td>Remote zip s3 archive</td>
-</tr>
-</tbody>
-</table>
-<h5 id="handler">Handler</h5>
-<p>The handler is the entrypoint of the function. If you provide as <code>code_src</code> a git or s3 URI, the handler must be formatted as <code>path.to.module:handler(function-name)</code>. If you provide a local file path, the handler must be formatted as <code>handler(function-name)</code>.</p>
-<p>Examples:</p>
-<pre><code class="language-python"># main.py
-#
-# def function(...):
-#   ...
-
-func = dh.new_function(project=&quot;my-project&quot;,
-                       name=&quot;python-function&quot;,
-                       kind=&quot;python&quot;,
-                       code_src=&quot;main.py&quot;,
-                       handler=&quot;function&quot;)
-
-# or
-# git repo tree
-#
-# root
-# |- main.py -&gt; contains function
-# |- other-module.py
-
-func = dh.new_function(project=&quot;my-project&quot;,
-                       name=&quot;python-function&quot;,
-                       kind=&quot;python&quot;,
-                       code_src=&quot;git+https://github.com/some-user/some-repo&quot;,
-                       handler=&quot;main:function&quot;)
-</code></pre>
 <h5 id="python-versions">Python versions</h5>
 <p>The python runtime supports Python versions 3.9, 3.10 and 3.11, expressed respectively as:</p>
 <ul>
@@ -3838,6 +3786,9 @@ func = dh.new_function(project=&quot;my-project&quot;,
 <li><code>PYTHON3_10</code></li>
 <li><code>PYTHON3_11</code></li>
 </ul>
+<h5 id="init-function">Init function</h5>
+<p>The init function is the entrypoint of the nuclio init function. It follows the same rules as the <code>handler</code> parameter.
+The init function must be defined in the source code and should follow the <a href="#function-definition-example">example 4</a> (event and context in signature).</p>
 <h4 id="function-example">Function example</h4>
 <pre><code class="language-python"># From project ...
 
@@ -3872,7 +3823,7 @@ A <code>Task</code> is created with the <code>run()</code> method, so it's not m
 </thead>
 <tbody>
 <tr>
-<td>action</td>
+<td><a href="#task-actions">action</a></td>
 <td>str</td>
 <td>Task action</td>
 <td>required</td>
