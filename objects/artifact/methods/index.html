@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.35">
     
     
       
@@ -3450,14 +3450,16 @@ a temporary folder and returns the list of downloaded files paths.</p>
 
     <div class="doc doc-contents first">
 
-        <p>Download file(s) from specified storage.
-This function looks into object's status files attribute. If it finds
-a list of files descriptors, it will download them according to the
-specified path. In case the object does not have files info in status,
-it will fallback on spec path.
-If destination is provided, it will download to that path, otherwise,
-it will download into the root project path, inside a directory named
-after the entity type.</p>
+        <p>This function downloads one or more file from storage on local
+machine.
+It looks inside the object's status for the file(s) path under
+files attribute. If it does not find it, it will try to download
+what it can from spec.path.
+The files are downloaded into a destination folder. If the destination
+is not specified, it will set by default under the context path
+as '<ctx-root>/<entity_type>', e.g. './dataitem'.
+The overwrite flag allows to overwrite existing file(s) in the
+destination folder.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -3515,11 +3517,11 @@ exist and overwrite is False, it will raise an error.</p>
       <tbody>
           <tr class="doc-section-item">
             <td>
-                  <code>list[str]</code>
+                  <code>str</code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>List of downloaded file paths.</p>
+                <p>Downloaded path.</p>
               </div>
             </td>
           </tr>
@@ -3531,12 +3533,12 @@ exist and overwrite is False, it will raise an error.</p>
     <p>Download a single file:</p>
     <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">entity</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="go">{</span>
-<span class="go">    &quot;path &quot;: &quot;s3://bucket/data.csv&quot;,</span>
+<span class="go">    &quot;path &quot;: &quot;data.csv&quot;,</span>
 <span class="go">    &quot;name &quot;: &quot;data.csv&quot;,</span>
 <span class="go">    &quot;content_type &quot;: &quot;text/csv;charset=utf-8 &quot;</span>
 <span class="go">}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">paths</span> <span class="o">=</span> <span class="n">entity</span><span class="o">.</span><span class="n">download</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">path</span> <span class="o">=</span> <span class="n">entity</span><span class="o">.</span><span class="n">download</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 <span class="go">dataitem/data.csv</span>
 </code></pre></div>
 
@@ -3555,7 +3557,10 @@ exist and overwrite is False, it will raise an error.</p>
 
     <div class="doc doc-contents first">
 
-        <p>Upload artifact from given local path to spec path destination.</p>
+        <p>Upload object from given local path to spec path destination.
+Source must be a local path. If the path is a folder, destination
+path (object's spec path) must be a folder or a partition ending
+with '/' (s3).</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -3572,15 +3577,15 @@ exist and overwrite is False, it will raise an error.</p>
           <tr class="doc-section-item">
             <td><code>source</code></td>
             <td>
-                  <code>str</code>
+                  <code>str | list[str]</code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Source path is the local path of the artifact.</p>
+                <p>Local filepath, directory or list of filepaths.</p>
               </div>
             </td>
             <td>
-                  <code>None</code>
+                <em>required</em>
             </td>
           </tr>
       </tbody>
@@ -3608,6 +3613,17 @@ exist and overwrite is False, it will raise an error.</p>
           </tr>
       </tbody>
     </table>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Upload a single file:</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">entity</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;s3://bucket/data.csv&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">entity</span><span class="o">.</span><span class="n">upload</span><span class="p">(</span><span class="s1">&#39;./data.csv&#39;</span><span class="p">)</span>
+</code></pre></div>
+    <p>Upload a folder:</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">entity</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;s3://bucket/data/&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">entity</span><span class="o">.</span><span class="n">upload</span><span class="p">(</span><span class="s1">&#39;./data&#39;</span><span class="p">)</span>
+</code></pre></div>
 
     </div>
 
@@ -3653,7 +3669,7 @@ See the <a href="../kinds/">kinds section</a> for more information.</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy"], "search": "../../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.56dfad97.min.js"></script>

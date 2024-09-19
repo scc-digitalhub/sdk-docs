@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.35">
     
     
       
@@ -6612,8 +6612,7 @@ as file(s).</p>
 
               <details class="quote">
                 <summary>Source code in <code>digitalhub_core/entities/_base/entity/material.py</code></summary>
-                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 15</span>
-<span class="normal"> 16</span>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 16</span>
 <span class="normal"> 17</span>
 <span class="normal"> 18</span>
 <span class="normal"> 19</span>
@@ -6811,19 +6810,7 @@ as file(s).</p>
 <span class="normal">211</span>
 <span class="normal">212</span>
 <span class="normal">213</span>
-<span class="normal">214</span>
-<span class="normal">215</span>
-<span class="normal">216</span>
-<span class="normal">217</span>
-<span class="normal">218</span>
-<span class="normal">219</span>
-<span class="normal">220</span>
-<span class="normal">221</span>
-<span class="normal">222</span>
-<span class="normal">223</span>
-<span class="normal">224</span>
-<span class="normal">225</span>
-<span class="normal">226</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">MaterialEntity</span><span class="p">(</span><span class="n">VersionedEntity</span><span class="p">):</span>
+<span class="normal">214</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">MaterialEntity</span><span class="p">(</span><span class="n">VersionedEntity</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A class representing an entity that can be materialized</span>
 <span class="sd">    as file(s).</span>
@@ -6891,23 +6878,26 @@ as file(s).</p>
 <span class="sd">            List of file paths.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">store</span> <span class="o">=</span> <span class="n">get_store</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
-        <span class="n">paths</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_paths</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">store</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">paths</span><span class="p">)</span>
+        <span class="n">paths</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">get_file_paths</span><span class="p">()</span>
+        <span class="n">dst</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="n">_build_temp</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">store</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">dst</span><span class="o">=</span><span class="n">dst</span><span class="p">,</span> <span class="n">src</span><span class="o">=</span><span class="n">paths</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">download</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">destination</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Download file(s) from specified storage.</span>
-<span class="sd">        This function looks into object&#39;s status files attribute. If it finds</span>
-<span class="sd">        a list of files descriptors, it will download them according to the</span>
-<span class="sd">        specified path. In case the object does not have files info in status,</span>
-<span class="sd">        it will fallback on spec path.</span>
-<span class="sd">        If destination is provided, it will download to that path, otherwise,</span>
-<span class="sd">        it will download into the root project path, inside a directory named</span>
-<span class="sd">        after the entity type.</span>
+<span class="sd">        This function downloads one or more file from storage on local</span>
+<span class="sd">        machine.</span>
+<span class="sd">        It looks inside the object&#39;s status for the file(s) path under</span>
+<span class="sd">        files attribute. If it does not find it, it will try to download</span>
+<span class="sd">        what it can from spec.path.</span>
+<span class="sd">        The files are downloaded into a destination folder. If the destination</span>
+<span class="sd">        is not specified, it will set by default under the context path</span>
+<span class="sd">        as &#39;&lt;ctx-root&gt;/&lt;entity_type&gt;&#39;, e.g. &#39;./dataitem&#39;.</span>
+<span class="sd">        The overwrite flag allows to overwrite existing file(s) in the</span>
+<span class="sd">        destination folder.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -6919,8 +6909,8 @@ as file(s).</p>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        list[str]</span>
-<span class="sd">            List of downloaded file paths.</span>
+<span class="sd">        str</span>
+<span class="sd">            Downloaded path.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
@@ -6928,23 +6918,25 @@ as file(s).</p>
 
 <span class="sd">        &gt;&gt;&gt; entity.status.files[0]</span>
 <span class="sd">        {</span>
-<span class="sd">            &quot;path &quot;: &quot;s3://bucket/data.csv&quot;,</span>
+<span class="sd">            &quot;path &quot;: &quot;data.csv&quot;,</span>
 <span class="sd">            &quot;name &quot;: &quot;data.csv&quot;,</span>
 <span class="sd">            &quot;content_type &quot;: &quot;text/csv;charset=utf-8 &quot;</span>
 <span class="sd">        }</span>
-<span class="sd">        &gt;&gt;&gt; paths = entity.download()</span>
-<span class="sd">        &gt;&gt;&gt; print(paths[0])</span>
+<span class="sd">        &gt;&gt;&gt; path = entity.download()</span>
+<span class="sd">        &gt;&gt;&gt; print(path)</span>
 <span class="sd">        dataitem/data.csv</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">store</span> <span class="o">=</span> <span class="n">get_store</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
-        <span class="n">paths</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_paths</span><span class="p">()</span>
+        <span class="n">paths</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">get_file_paths</span><span class="p">()</span>
 
         <span class="k">if</span> <span class="n">destination</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">destination</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_context</span><span class="p">()</span><span class="o">.</span><span class="n">root</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">ENTITY_TYPE</span><span class="p">)</span>
+            <span class="n">dst</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_context</span><span class="p">()</span><span class="o">.</span><span class="n">root</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">ENTITY_TYPE</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dst</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">destination</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">store</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">paths</span><span class="p">,</span> <span class="n">dst</span><span class="o">=</span><span class="n">destination</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="n">overwrite</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">store</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">dst</span><span class="o">=</span><span class="n">dst</span><span class="p">,</span> <span class="n">src</span><span class="o">=</span><span class="n">paths</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="n">overwrite</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">upload</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">upload</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Upload object from given local path to spec path destination.</span>
 <span class="sd">        Source must be a local path. If the path is a folder, destination</span>
@@ -6953,8 +6945,8 @@ as file(s).</p>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        source : str</span>
-<span class="sd">            Source path is the local path of the object.</span>
+<span class="sd">        source : str | list[str]</span>
+<span class="sd">            Local filepath, directory or list of filepaths.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -6983,24 +6975,6 @@ as file(s).</p>
     <span class="c1">#  Private Helpers</span>
     <span class="c1">##############################</span>
 
-    <span class="k">def</span> <span class="nf">_get_paths</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get paths from spec.</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        list[tuple[str, str | None]]</span>
-<span class="sd">            List of paths.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># Try to download from files info in status</span>
-        <span class="n">paths</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">get_file_paths</span><span class="p">()</span>
-
-        <span class="c1"># Fallback to spec path</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">paths</span><span class="p">:</span>
-            <span class="n">paths</span> <span class="o">=</span> <span class="p">[(</span><span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="kc">None</span><span class="p">)]</span>
-
-        <span class="k">return</span> <span class="n">paths</span>
-
     <span class="k">def</span> <span class="nf">_update_files_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">files_info</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Update files info.</span>
@@ -7028,7 +7002,7 @@ as file(s).</p>
 <span class="sd">        -------</span>
 <span class="sd">        None</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_context</span><span class="p">()</span><span class="o">.</span><span class="n">local</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">files</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">files</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_context</span><span class="p">()</span><span class="o">.</span><span class="n">local</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">files</span><span class="p">:</span>
             <span class="n">files</span> <span class="o">=</span> <span class="n">files_info_get_api</span><span class="p">(</span>
                 <span class="n">project</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="p">,</span>
                 <span class="n">entity_type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ENTITY_TYPE</span><span class="p">,</span>
@@ -7089,8 +7063,7 @@ a temporary folder and returns the list of downloaded files paths.</p>
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_core/entities/_base/entity/material.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">72</span>
-<span class="normal">73</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">73</span>
 <span class="normal">74</span>
 <span class="normal">75</span>
 <span class="normal">76</span>
@@ -7101,7 +7074,9 @@ a temporary folder and returns the list of downloaded files paths.</p>
 <span class="normal">81</span>
 <span class="normal">82</span>
 <span class="normal">83</span>
-<span class="normal">84</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">as_file</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">as_file</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get object as file(s). It downloads the object from storage in</span>
 <span class="sd">    a temporary folder and returns the list of downloaded files paths.</span>
@@ -7112,8 +7087,9 @@ a temporary folder and returns the list of downloaded files paths.</p>
 <span class="sd">        List of file paths.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">store</span> <span class="o">=</span> <span class="n">get_store</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
-    <span class="n">paths</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_paths</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">store</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">paths</span><span class="p">)</span>
+    <span class="n">paths</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">get_file_paths</span><span class="p">()</span>
+    <span class="n">dst</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="n">_build_temp</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">store</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">dst</span><span class="o">=</span><span class="n">dst</span><span class="p">,</span> <span class="n">src</span><span class="o">=</span><span class="n">paths</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -7131,14 +7107,16 @@ a temporary folder and returns the list of downloaded files paths.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Download file(s) from specified storage.
-This function looks into object's status files attribute. If it finds
-a list of files descriptors, it will download them according to the
-specified path. In case the object does not have files info in status,
-it will fallback on spec path.
-If destination is provided, it will download to that path, otherwise,
-it will download into the root project path, inside a directory named
-after the entity type.</p>
+        <p>This function downloads one or more file from storage on local
+machine.
+It looks inside the object's status for the file(s) path under
+files attribute. If it does not find it, it will try to download
+what it can from spec.path.
+The files are downloaded into a destination folder. If the destination
+is not specified, it will set by default under the context path
+as '<ctx-root>/<entity_type>', e.g. './dataitem'.
+The overwrite flag allows to overwrite existing file(s) in the
+destination folder.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -7196,11 +7174,11 @@ exist and overwrite is False, it will raise an error.</p>
       <tbody>
           <tr class="doc-section-item">
             <td>
-                  <code>list[str]</code>
+                  <code>str</code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>List of downloaded file paths.</p>
+                <p>Downloaded path.</p>
               </div>
             </td>
           </tr>
@@ -7212,20 +7190,18 @@ exist and overwrite is False, it will raise an error.</p>
     <p>Download a single file:</p>
     <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">entity</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="go">{</span>
-<span class="go">    &quot;path &quot;: &quot;s3://bucket/data.csv&quot;,</span>
+<span class="go">    &quot;path &quot;: &quot;data.csv&quot;,</span>
 <span class="go">    &quot;name &quot;: &quot;data.csv&quot;,</span>
 <span class="go">    &quot;content_type &quot;: &quot;text/csv;charset=utf-8 &quot;</span>
 <span class="go">}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">paths</span> <span class="o">=</span> <span class="n">entity</span><span class="o">.</span><span class="n">download</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">path</span> <span class="o">=</span> <span class="n">entity</span><span class="o">.</span><span class="n">download</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 <span class="go">dataitem/data.csv</span>
 </code></pre></div>
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_core/entities/_base/entity/material.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 86</span>
-<span class="normal"> 87</span>
-<span class="normal"> 88</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 88</span>
 <span class="normal"> 89</span>
 <span class="normal"> 90</span>
 <span class="normal"> 91</span>
@@ -7271,20 +7247,28 @@ exist and overwrite is False, it will raise an error.</p>
 <span class="normal">131</span>
 <span class="normal">132</span>
 <span class="normal">133</span>
-<span class="normal">134</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">download</span><span class="p">(</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">download</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="n">destination</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Download file(s) from specified storage.</span>
-<span class="sd">    This function looks into object&#39;s status files attribute. If it finds</span>
-<span class="sd">    a list of files descriptors, it will download them according to the</span>
-<span class="sd">    specified path. In case the object does not have files info in status,</span>
-<span class="sd">    it will fallback on spec path.</span>
-<span class="sd">    If destination is provided, it will download to that path, otherwise,</span>
-<span class="sd">    it will download into the root project path, inside a directory named</span>
-<span class="sd">    after the entity type.</span>
+<span class="sd">    This function downloads one or more file from storage on local</span>
+<span class="sd">    machine.</span>
+<span class="sd">    It looks inside the object&#39;s status for the file(s) path under</span>
+<span class="sd">    files attribute. If it does not find it, it will try to download</span>
+<span class="sd">    what it can from spec.path.</span>
+<span class="sd">    The files are downloaded into a destination folder. If the destination</span>
+<span class="sd">    is not specified, it will set by default under the context path</span>
+<span class="sd">    as &#39;&lt;ctx-root&gt;/&lt;entity_type&gt;&#39;, e.g. &#39;./dataitem&#39;.</span>
+<span class="sd">    The overwrite flag allows to overwrite existing file(s) in the</span>
+<span class="sd">    destination folder.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -7296,8 +7280,8 @@ exist and overwrite is False, it will raise an error.</p>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    list[str]</span>
-<span class="sd">        List of downloaded file paths.</span>
+<span class="sd">    str</span>
+<span class="sd">        Downloaded path.</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
@@ -7305,21 +7289,23 @@ exist and overwrite is False, it will raise an error.</p>
 
 <span class="sd">    &gt;&gt;&gt; entity.status.files[0]</span>
 <span class="sd">    {</span>
-<span class="sd">        &quot;path &quot;: &quot;s3://bucket/data.csv&quot;,</span>
+<span class="sd">        &quot;path &quot;: &quot;data.csv&quot;,</span>
 <span class="sd">        &quot;name &quot;: &quot;data.csv&quot;,</span>
 <span class="sd">        &quot;content_type &quot;: &quot;text/csv;charset=utf-8 &quot;</span>
 <span class="sd">    }</span>
-<span class="sd">    &gt;&gt;&gt; paths = entity.download()</span>
-<span class="sd">    &gt;&gt;&gt; print(paths[0])</span>
+<span class="sd">    &gt;&gt;&gt; path = entity.download()</span>
+<span class="sd">    &gt;&gt;&gt; print(path)</span>
 <span class="sd">    dataitem/data.csv</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">store</span> <span class="o">=</span> <span class="n">get_store</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
-    <span class="n">paths</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_paths</span><span class="p">()</span>
+    <span class="n">paths</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">get_file_paths</span><span class="p">()</span>
 
     <span class="k">if</span> <span class="n">destination</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">destination</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_context</span><span class="p">()</span><span class="o">.</span><span class="n">root</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">ENTITY_TYPE</span><span class="p">)</span>
+        <span class="n">dst</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_context</span><span class="p">()</span><span class="o">.</span><span class="n">root</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">ENTITY_TYPE</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dst</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">destination</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">store</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">paths</span><span class="p">,</span> <span class="n">dst</span><span class="o">=</span><span class="n">destination</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="n">overwrite</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">store</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">dst</span><span class="o">=</span><span class="n">dst</span><span class="p">,</span> <span class="n">src</span><span class="o">=</span><span class="n">paths</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="n">overwrite</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -7393,8 +7379,7 @@ exist and overwrite is False, it will raise an error.</p>
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_core/entities/_base/entity/material.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">36</span>
-<span class="normal">37</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">37</span>
 <span class="normal">38</span>
 <span class="normal">39</span>
 <span class="normal">40</span>
@@ -7423,7 +7408,8 @@ exist and overwrite is False, it will raise an error.</p>
 <span class="normal">63</span>
 <span class="normal">64</span>
 <span class="normal">65</span>
-<span class="normal">66</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">update</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MaterialEntity</span><span class="p">:</span>
+<span class="normal">66</span>
+<span class="normal">67</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">update</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MaterialEntity</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Save entity into backend.</span>
 
@@ -7491,11 +7477,11 @@ with '/' (s3).</p>
           <tr class="doc-section-item">
             <td><code>source</code></td>
             <td>
-                  <code>str</code>
+                  <code>str | list[str]</code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Source path is the local path of the object.</p>
+                <p>Local filepath, directory or list of filepaths.</p>
               </div>
             </td>
             <td>
@@ -7541,13 +7527,7 @@ with '/' (s3).</p>
 
             <details class="quote">
               <summary>Source code in <code>digitalhub_core/entities/_base/entity/material.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">136</span>
-<span class="normal">137</span>
-<span class="normal">138</span>
-<span class="normal">139</span>
-<span class="normal">140</span>
-<span class="normal">141</span>
-<span class="normal">142</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">142</span>
 <span class="normal">143</span>
 <span class="normal">144</span>
 <span class="normal">145</span>
@@ -7574,7 +7554,13 @@ with '/' (s3).</p>
 <span class="normal">166</span>
 <span class="normal">167</span>
 <span class="normal">168</span>
-<span class="normal">169</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">upload</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">upload</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Upload object from given local path to spec path destination.</span>
 <span class="sd">    Source must be a local path. If the path is a folder, destination</span>
@@ -7583,8 +7569,8 @@ with '/' (s3).</p>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    source : str</span>
-<span class="sd">        Source path is the local path of the object.</span>
+<span class="sd">    source : str | list[str]</span>
+<span class="sd">        Local filepath, directory or list of filepaths.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -7669,7 +7655,7 @@ with '/' (s3).</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.copy"], "search": "../../../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.copy"], "search": "../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.56dfad97.min.js"></script>
