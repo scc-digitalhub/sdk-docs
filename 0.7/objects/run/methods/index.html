@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../crud/">
+        <link rel="prev" href="../entity/">
       
       
         <link rel="next" href="../kinds/">
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#model-object" class="md-skip">
+        <a href="#run-object" class="md-skip">
           Skip to content
         </a>
       
@@ -773,17 +773,19 @@
                 
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" checked>
         
           
           <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
@@ -797,7 +799,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_5">
             <span class="md-nav__icon md-icon"></span>
             Runs
@@ -811,7 +813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../run/entity/" class="md-nav__link">
+      <a href="../entity/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -829,10 +831,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../run/methods/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Methods
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -841,6 +863,110 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#crud-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      CRUD methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CRUD methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#digitalhub_core.entities.run.entity.Run.save" class="md-nav__link">
+    <span class="md-ellipsis">
+      save
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digitalhub_core.entities.run.entity.Run.export" class="md-nav__link">
+    <span class="md-ellipsis">
+      export
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digitalhub_core.entities.run.entity.Run.refresh" class="md-nav__link">
+    <span class="md-ellipsis">
+      refresh
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Run methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#digitalhub_core.entities.run.entity.Run.wait" class="md-nav__link">
+    <span class="md-ellipsis">
+      wait
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digitalhub_core.entities.run.entity.Run.stop" class="md-nav__link">
+    <span class="md-ellipsis">
+      stop
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kind-specific-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kind specific methods
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -853,7 +979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../run/kinds/" class="md-nav__link">
+      <a href="../kinds/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1133,19 +1259,17 @@
                 
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
         
           
           <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
@@ -1159,7 +1283,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_8">
             <span class="md-nav__icon md-icon"></span>
             Models
@@ -1173,7 +1297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../entity/" class="md-nav__link">
+      <a href="../../model/entity/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1194,7 +1318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../crud/" class="md-nav__link">
+      <a href="../../model/crud/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1212,30 +1336,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Methods
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../model/methods/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1244,119 +1348,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#crud-methods" class="md-nav__link">
-    <span class="md-ellipsis">
-      CRUD methods
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="CRUD methods">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#digitalhub_ml.entities.model.entity._base.Model.save" class="md-nav__link">
-    <span class="md-ellipsis">
-      save
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#digitalhub_ml.entities.model.entity._base.Model.export" class="md-nav__link">
-    <span class="md-ellipsis">
-      export
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#digitalhub_ml.entities.model.entity._base.Model.refresh" class="md-nav__link">
-    <span class="md-ellipsis">
-      refresh
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#io-methods" class="md-nav__link">
-    <span class="md-ellipsis">
-      I/O methods
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="I/O methods">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#digitalhub_ml.entities.model.entity._base.Model.as_file" class="md-nav__link">
-    <span class="md-ellipsis">
-      as_file
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#digitalhub_ml.entities.model.entity._base.Model.download" class="md-nav__link">
-    <span class="md-ellipsis">
-      download
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#digitalhub_ml.entities.model.entity._base.Model.upload" class="md-nav__link">
-    <span class="md-ellipsis">
-      upload
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kind-specific-methods" class="md-nav__link">
-    <span class="md-ellipsis">
-      Kind specific methods
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1369,7 +1360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../kinds/" class="md-nav__link">
+      <a href="../../model/kinds/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3211,7 +3202,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#digitalhub_ml.entities.model.entity._base.Model.save" class="md-nav__link">
+  <a href="#digitalhub_core.entities.run.entity.Run.save" class="md-nav__link">
     <span class="md-ellipsis">
       save
     </span>
@@ -3220,7 +3211,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#digitalhub_ml.entities.model.entity._base.Model.export" class="md-nav__link">
+  <a href="#digitalhub_core.entities.run.entity.Run.export" class="md-nav__link">
     <span class="md-ellipsis">
       export
     </span>
@@ -3229,7 +3220,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#digitalhub_ml.entities.model.entity._base.Model.refresh" class="md-nav__link">
+  <a href="#digitalhub_core.entities.run.entity.Run.refresh" class="md-nav__link">
     <span class="md-ellipsis">
       refresh
     </span>
@@ -3243,37 +3234,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#io-methods" class="md-nav__link">
+  <a href="#run-methods" class="md-nav__link">
     <span class="md-ellipsis">
-      I/O methods
+      Run methods
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="I/O methods">
+    <nav class="md-nav" aria-label="Run methods">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#digitalhub_ml.entities.model.entity._base.Model.as_file" class="md-nav__link">
+  <a href="#digitalhub_core.entities.run.entity.Run.wait" class="md-nav__link">
     <span class="md-ellipsis">
-      as_file
+      wait
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#digitalhub_ml.entities.model.entity._base.Model.download" class="md-nav__link">
+  <a href="#digitalhub_core.entities.run.entity.Run.stop" class="md-nav__link">
     <span class="md-ellipsis">
-      download
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#digitalhub_ml.entities.model.entity._base.Model.upload" class="md-nav__link">
-    <span class="md-ellipsis">
-      upload
+      stop
     </span>
   </a>
   
@@ -3308,8 +3290,8 @@
                   
 
 
-<h1 id="model-object">Model object</h1>
-<p>The <code>Model</code> object comes with three sets of methods: CRUD methods, I/O methods and kind specific methods.</p>
+<h1 id="run-object">Run object</h1>
+<p>The <code>Run</code> object comes with three sets of methods: CRUD methods, generic run methods and (eventual) kind specific methods.</p>
 <h2 id="crud-methods">CRUD methods</h2>
 <p>Crud methods are used to interact with the entity object in the backend or locally.</p>
 <ul>
@@ -3322,7 +3304,7 @@
 <div class="doc doc-object doc-function">
 
 
-<h3 id="digitalhub_ml.entities.model.entity._base.Model.save" class="doc doc-heading">
+<h3 id="digitalhub_core.entities.run.entity.Run.save" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">save</span></code>
 
 </h3>
@@ -3330,7 +3312,7 @@
 
     <div class="doc doc-contents first">
 
-        <p>Save entity into backend.</p>
+        <p>Save or update the entity into the backend.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -3373,7 +3355,7 @@
       <tbody>
           <tr class="doc-section-item">
             <td>
-                  <code><a class="autorefs autorefs-internal" title="digitalhub_core.entities._base.entity.material.MaterialEntity" href="../../../api/entities/_base/entity/#digitalhub_core.entities._base.entity.material.MaterialEntity">MaterialEntity</a></code>
+                  <code><a class="autorefs autorefs-internal" title="digitalhub_core.entities._base.entity.context.ContextEntity" href="../../../api/entities/_base/entity/#digitalhub_core.entities._base.entity.context.ContextEntity">ContextEntity</a></code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -3391,7 +3373,7 @@
 <div class="doc doc-object doc-function">
 
 
-<h3 id="digitalhub_ml.entities.model.entity._base.Model.export" class="doc doc-heading">
+<h3 id="digitalhub_core.entities.run.entity.Run.export" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">export</span></code>
 
 </h3>
@@ -3460,7 +3442,7 @@
 <div class="doc doc-object doc-function">
 
 
-<h3 id="digitalhub_ml.entities.model.entity._base.Model.refresh" class="doc doc-heading">
+<h3 id="digitalhub_core.entities.run.entity.Run.refresh" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">refresh</span></code>
 
 </h3>
@@ -3495,77 +3477,26 @@
 
     </div>
 
-</div><h2 id="io-methods">I/O methods</h2>
-<p>I/O methods are used to handle objects as files.</p>
+</div><h2 id="run-methods">Run methods</h2>
+<p>There are several generic run methods on the <code>Run</code> object.</p>
 <ul>
-<li><code>as_file()</code>: Dowloads the model into a local temporary destination</li>
-<li><code>download()</code>: Downloads the model into a specified path</li>
-<li><code>upload()</code>: Uploads the model to model spec path</li>
+<li><code>wait</code>: Wait for the run to finish.</li>
+<li><code>stop</code>: Stop the run.</li>
 </ul>
 
 
 <div class="doc doc-object doc-function">
 
 
-<h3 id="digitalhub_ml.entities.model.entity._base.Model.as_file" class="doc doc-heading">
-<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">as_file</span></code>
+<h3 id="digitalhub_core.entities.run.entity.Run.wait" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">wait</span></code>
 
 </h3>
 
 
     <div class="doc doc-contents first">
 
-        <p>Get object as file(s). It downloads the object from storage in
-a temporary folder and returns the list of downloaded files paths.</p>
-
-
-    <p><span class="doc-section-title">Returns:</span></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Type</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-            <td>
-                  <code>list[str]</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>List of file paths.</p>
-              </div>
-            </td>
-          </tr>
-      </tbody>
-    </table>
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h3 id="digitalhub_ml.entities.model.entity._base.Model.download" class="doc doc-heading">
-<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">download</span></code>
-
-</h3>
-
-
-    <div class="doc doc-contents first">
-
-        <p>This function downloads one or more file from storage on local
-machine.
-It looks inside the object's status for the file(s) path under
-files attribute. If it does not find it, it will try to download
-what it can from spec.path.
-The files are downloaded into a destination folder. If the destination
-is not specified, it will set by default under the context path
-as '<ctx-root>/<entity_type>', e.g. './dataitem'.
-The overwrite flag allows to overwrite existing file(s) in the
-destination folder.</p>
+        <p>Wait for run to finish.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -3580,32 +3511,17 @@ destination folder.</p>
       </thead>
       <tbody>
           <tr class="doc-section-item">
-            <td><code>destination</code></td>
-            <td>
-                  <code>str</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Destination path as filename or directory.</p>
-              </div>
-            </td>
-            <td>
-                  <code>None</code>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td><code>overwrite</code></td>
+            <td><code>log_info</code></td>
             <td>
                   <code>bool</code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Specify if overwrite existing file(s). If file(s) already
-exist and overwrite is False, it will raise an error.</p>
+                <p>If True, log information.</p>
               </div>
             </td>
             <td>
-                  <code>False</code>
+                  <code>True</code>
             </td>
           </tr>
       </tbody>
@@ -3623,30 +3539,16 @@ exist and overwrite is False, it will raise an error.</p>
       <tbody>
           <tr class="doc-section-item">
             <td>
-                  <code>str</code>
+                  <code><a class="autorefs autorefs-internal" title="digitalhub_core.entities.run.entity.Run" href="../../../api/entities/run/entity/#digitalhub_core.entities.run.entity.Run">Run</a></code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Downloaded path.</p>
+                <p>Run object.</p>
               </div>
             </td>
           </tr>
       </tbody>
     </table>
-
-
-<p><span class="doc-section-title">Examples:</span></p>
-    <p>Download a single file:</p>
-    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">entity</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="go">{</span>
-<span class="go">    &quot;path &quot;: &quot;data.csv&quot;,</span>
-<span class="go">    &quot;name &quot;: &quot;data.csv&quot;,</span>
-<span class="go">    &quot;content_type &quot;: &quot;text/csv;charset=utf-8 &quot;</span>
-<span class="go">}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">path</span> <span class="o">=</span> <span class="n">entity</span><span class="o">.</span><span class="n">download</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-<span class="go">dataitem/data.csv</span>
-</code></pre></div>
 
     </div>
 
@@ -3655,47 +3557,15 @@ exist and overwrite is False, it will raise an error.</p>
 <div class="doc doc-object doc-function">
 
 
-<h3 id="digitalhub_ml.entities.model.entity._base.Model.upload" class="doc doc-heading">
-<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">upload</span></code>
+<h3 id="digitalhub_core.entities.run.entity.Run.stop" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">stop</span></code>
 
 </h3>
 
 
     <div class="doc doc-contents first">
 
-        <p>Upload object from given local path to spec path destination.
-Source must be a local path. If the path is a folder, destination
-path (object's spec path) must be a folder or a partition ending
-with '/' (s3).</p>
-
-
-<p><span class="doc-section-title">Parameters:</span></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Default</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-            <td><code>source</code></td>
-            <td>
-                  <code>str | list[str]</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Local filepath, directory or list of filepaths.</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-      </tbody>
-    </table>
+        <p>Stop run.</p>
 
 
     <p><span class="doc-section-title">Returns:</span></p>
@@ -3719,17 +3589,6 @@ with '/' (s3).</p>
           </tr>
       </tbody>
     </table>
-
-
-<p><span class="doc-section-title">Examples:</span></p>
-    <p>Upload a single file:</p>
-    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">entity</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;s3://bucket/data.csv&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">entity</span><span class="o">.</span><span class="n">upload</span><span class="p">(</span><span class="s1">&#39;./data.csv&#39;</span><span class="p">)</span>
-</code></pre></div>
-    <p>Upload a folder:</p>
-    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">entity</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;s3://bucket/data/&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">entity</span><span class="o">.</span><span class="n">upload</span><span class="p">(</span><span class="s1">&#39;./data&#39;</span><span class="p">)</span>
-</code></pre></div>
 
     </div>
 
