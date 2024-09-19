@@ -13,4 +13,4 @@ Secrets can be created and managed as *entities* with the SDK CRUD methods. This
 To manage secrets, you need to have at least `digitalhub_core` layer installed.
 
 1. In the [CRUD section](./crud.md), we will see how to create, read, update and delete secrets.
-2. In the [entity section](./entity.md), we will see what can be done with the `Secret` object.
+2. In the [methods section](./methods.md), we will see what can be done with the `Secret` object.

@@ -24,7 +24,7 @@ The python runtime execution workflow follows roughly these steps:
 1. Define somewhere a [python function](./python.md#python-function-definition).
 2. Create a `Function` object in the platform and execute the function's `run()` method.
 3. The runtime collects the [inputs](./python.md#run) specified in the function as SDK objects (`Dataitem`, `Artifact`, `Model`).
-4. It fetches the function [source code](./python.md#source) and import the function handler.
+4. It fetches the function [source code](../objects/code_source.md) and import the function handler.
 5. It [composes](./python.md#parameters-composition) the parameters for the handler function.
 6. It executes the function and map the outputs as SDK objects or as simple results.
 
@@ -162,8 +162,8 @@ The python runtime introduces a function of kind `python`.
 | [python_version](#python-versions) | str | Python version to use | required |
 | lang | str | Source code language (hint)| None |
 | image | str | Image where the function will be executed | None |
-| base_image | str | Base image used to build the image where the function will be executed | None |
-| requirements | list | Requirements list to be installed in the image where the function will be executed | None |
+| [base_image](#base-image) | str | Base image used to build the image where the function will be executed | None |
+| [requirements](#requirements) | list | Requirements list to be installed in the image where the function will be executed | None |
 
 ##### Function kinds
 
@@ -183,6 +183,21 @@ The python runtime supports Python versions 3.9, 3.10 and 3.11, expressed respec
 
 The init function is the entrypoint of the nuclio init function. It follows the same rules as the `handler` parameter.
 The init function must be defined in the source code and should follow the [example 4](#function-definition-example) (event and context in signature).
+
+##### Base image
+
+The base image is a string that represents the image (name:tag) used to build the image where the function will be executed.
+
+!!! warning
+      It is possible that the platform where you deploy a job after a `build` action with a root image will not work because of security policy. Please check with the cluster administrator what policy are in place.
+
+##### Requirements
+
+Requirements are a list of `str` representing packages to be installed by `pip` in the image where the function will be executed.
+
+```python
+requirements = ["numpy", 'pandas>1, <3', "scikit-learn==1.2.0"]
+```
 
 #### Function example
 
@@ -226,7 +241,7 @@ A `Task` is created with the `run()` method, so it's not managed directly by the
 | [backoff_limit](kubernetes-resources.md#backoff-limit) | int | Backoff limit | None | `job` |
 | [replicas](kubernetes-resources.md#replicas) | int | Number of replicas | None | `serve` |
 | [service_type](kubernetes-resources.md#service-type) | str | Service type | `NodePort` | `serve` |
-| instructions | list[str] | Build instructions to be executed as RUN instructions in Dockerfile | None | `build` |
+| [instructions](#instructions) | list[str] | Build instructions to be executed as RUN instructions in Dockerfile | None | `build` |
 
 ##### Task actions
 
@@ -235,6 +250,14 @@ Actions must be one of the following:
 - `job`
 - `build`
 - `serve`
+
+##### Instructions
+
+List of `str` representing the instructions to be executed as RUN instructions in Dockerfile.
+
+```python
+instructions = ["apt-get install -y git"]
+```
 
 #### Task example
 

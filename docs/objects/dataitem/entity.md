@@ -8,4 +8,5 @@ Dataitems can be created and managed as *entities* with the SDK CRUD methods. Th
 To manage dataitems, you need to have at least `digitalhub_data` layer installed.
 
 1. In the [CRUD section](./crud.md), we will see how to create, read, update and delete dataitems.
-2. In the [entity section](./entity.md), we will see what can be done with the `Dataitem` object.
+2. In the [methods section](./methods.md), we will see what can be done with the `Dataitem` object.
+3. In the [kinds section](./kinds.md), we will see what kinds are supported.

@@ -62,6 +62,10 @@ nav:
           - CRUD: objects/workflow/crud.md
           - Methods: objects/workflow/methods.md
           - Kinds: objects/workflow/kinds.md
+      - Runs:
+          - Entity: objects/run/entity.md
+          - Methods: objects/run/methods.md
+          - Kinds: objects/run/kinds.md
       - Artifacts:
           - Entity: objects/artifact/entity.md
           - CRUD: objects/artifact/crud.md

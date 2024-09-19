@@ -8,4 +8,5 @@ Models can be created and managed as *entities* with the SDK CRUD methods. This 
 To manage models, you need to have at least `digitalhub_ml` layer installed.
 
 1. In the [CRUD section](./crud.md), we will see how to create, read, update and delete models.
-2. In the [entity section](./entity.md), we will see what can be done with the `Model` object.
+2. In the [methods section](./methods.md), we will see what can be done with the `Model` object.
+3. In the [kinds section](./kinds.md), we will see what kinds are supported.

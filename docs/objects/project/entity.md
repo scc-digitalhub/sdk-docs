@@ -8,4 +8,4 @@ Projects can be created and managed as *entities* with the SDK CRUD methods.
 To manage projects, you need to have at least `digitalhub_core` layer installed.
 
 1. In the [CRUD section](./crud.md), we will see how to create, read, update and delete projects.
-2. In the [entity section](./entity.md), we will see what can be done with the `Project` object.
+2. In the [methods section](./methods.md), we will see what can be done with the `Project` object.
