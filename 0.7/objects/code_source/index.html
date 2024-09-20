@@ -3379,37 +3379,37 @@ Beside the source, you need also to define a <a href="#handler"><code>handler</c
 <h3 id="plain-text-source">Plain text source</h3>
 <p>You can define a plain text source using the <code>code</code> parameter.</p>
 <p>Here follow an example of a plain text source with the <a href="../../runtimes/python/">Python runtime</a>:</p>
-<pre><code class="language-python">my_code = &quot;&quot;&quot;
-from digitalhub_runtime_python import handler
-
-@handler(outputs=[&quot;filtered&quot;])
-def myfunction(di: Dataitem, col1: str):
-    df = di.as_df()
-    df = df[[&quot;col1&quot;]]
-    return df
-&quot;&quot;&quot;
-
-func = dh.new_function(project=&quot;my-project&quot;,
-                       name=&quot;python-function&quot;,
-                       kind=&quot;python&quot;,
-                       python_version=&quot;PYTHON3_9&quot;,
-                       code=my_code,
-                       handler=&quot;myfunction&quot;)
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">my_code</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="s2">from digitalhub_runtime_python import handler</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="s2">@handler(outputs=[&quot;filtered&quot;])</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="s2">def myfunction(di: Dataitem, col1: str):</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="s2">    df = di.as_df()</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="s2">    df = df[[&quot;col1&quot;]]</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="s2">    return df</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="s2">&quot;&quot;&quot;</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">func</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s2">&quot;my-project&quot;</span><span class="p">,</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>                       <span class="n">name</span><span class="o">=</span><span class="s2">&quot;python-function&quot;</span><span class="p">,</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>                       <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;python&quot;</span><span class="p">,</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>                       <span class="n">python_version</span><span class="o">=</span><span class="s2">&quot;PYTHON3_9&quot;</span><span class="p">,</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>                       <span class="n">code</span><span class="o">=</span><span class="n">my_code</span><span class="p">,</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>                       <span class="n">handler</span><span class="o">=</span><span class="s2">&quot;myfunction&quot;</span><span class="p">)</span>
+</span></code></pre></div>
 <p>In this case the function will execute the code in the <code>my_code</code> variable.</p>
 <h3 id="base64-encoded-source">Base64 encoded source</h3>
 <p>You can define a base64 encoded source using the <code>base64</code> parameter.</p>
 <p>Here follow an example of a base64 encoded source with the <a href="../../runtimes/python/">Python runtime</a>:</p>
-<pre><code class="language-python"># Same function as above encoded in base64
-base64_code = &quot;ZnJvbSBkaWdpdGFsaHViX3J1bnRpbWVfcHl0aG9uIGltcG9ydCBoYW5kbGVyCgpAaGFuZGxlcihvdXRwdXRzPVsiZmlsdGVyZWQiXSkKZGVmIG15ZnVuY3Rpb24oZGk6IERhdGFpdGVtLCBjb2wxOiBzdHIpOgogICAgZGYgPSBkaS5hc19kZigpCiAgICBkZiA9IGRmW1siY29sMSJdXQogICAgcmV0dXJuIGRm&quot;
-
-func = dh.new_function(project=&quot;my-project&quot;,
-                       name=&quot;python-function&quot;,
-                       kind=&quot;python&quot;,
-                       python_version=&quot;PYTHON3_9&quot;,
-                       base64=base64_code,
-                       handler=&quot;myfunction&quot;)
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Same function as above encoded in base64</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">base64_code</span> <span class="o">=</span> <span class="s2">&quot;ZnJvbSBkaWdpdGFsaHViX3J1bnRpbWVfcHl0aG9uIGltcG9ydCBoYW5kbGVyCgpAaGFuZGxlcihvdXRwdXRzPVsiZmlsdGVyZWQiXSkKZGVmIG15ZnVuY3Rpb24oZGk6IERhdGFpdGVtLCBjb2wxOiBzdHIpOgogICAgZGYgPSBkaS5hc19kZigpCiAgICBkZiA9IGRmW1siY29sMSJdXQogICAgcmV0dXJuIGRm&quot;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">func</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s2">&quot;my-project&quot;</span><span class="p">,</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>                       <span class="n">name</span><span class="o">=</span><span class="s2">&quot;python-function&quot;</span><span class="p">,</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>                       <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;python&quot;</span><span class="p">,</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>                       <span class="n">python_version</span><span class="o">=</span><span class="s2">&quot;PYTHON3_9&quot;</span><span class="p">,</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>                       <span class="n">base64</span><span class="o">=</span><span class="n">base64_code</span><span class="p">,</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>                       <span class="n">handler</span><span class="o">=</span><span class="s2">&quot;myfunction&quot;</span><span class="p">)</span>
+</span></code></pre></div>
 <p>In this case the function will execute the code in the <code>base64_code</code> variable.</p>
 <h3 id="code-source-uri">Code source URI</h3>
 <p>You can define a code source URI using the <code>code_src</code> parameter.
@@ -3421,28 +3421,28 @@ We support the following types of URIs:</p>
 </ul>
 <h4 id="local-file-path">Local file path</h4>
 <p>The local file path can be specified with the <code>path/to/file.ext</code> format.</p>
-<pre><code class="language-python">my_code = &quot;src/my-func.py&quot;
-
-func = dh.new_function(project=&quot;my-project&quot;,
-                       name=&quot;python-function&quot;,
-                       kind=&quot;python&quot;,
-                       python_version=&quot;PYTHON3_9&quot;,
-                       code_src=my_code,
-                       handler=&quot;myfunction&quot;)
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">my_code</span> <span class="o">=</span> <span class="s2">&quot;src/my-func.py&quot;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">func</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s2">&quot;my-project&quot;</span><span class="p">,</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>                       <span class="n">name</span><span class="o">=</span><span class="s2">&quot;python-function&quot;</span><span class="p">,</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>                       <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;python&quot;</span><span class="p">,</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>                       <span class="n">python_version</span><span class="o">=</span><span class="s2">&quot;PYTHON3_9&quot;</span><span class="p">,</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>                       <span class="n">code_src</span><span class="o">=</span><span class="n">my_code</span><span class="p">,</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>                       <span class="n">handler</span><span class="o">=</span><span class="s2">&quot;myfunction&quot;</span><span class="p">)</span>
+</span></code></pre></div>
 <p>In this case the function will import the code in the <code>src/my-func.py</code> file, encodes it in base64 and then executes it. If the file is not found, the function will raise an exception.</p>
 <h4 id="remote-git-repository">Remote git repository</h4>
 <p>The remote git repository can be specified with the <code>git+https://repo-host.com/some-user/some-repo</code> format.
 The anteposition <code>git+</code> is required, the rest of the URL is the repository URL.</p>
-<pre><code class="language-python">my_repo = &quot;git+https://repo-host/some-user/some-repo&quot;
-
-func = dh.new_function(project=&quot;my-project&quot;,
-                       name=&quot;python-function&quot;,
-                       kind=&quot;python&quot;,
-                       python_version=&quot;PYTHON3_9&quot;,
-                       code_src=my_repo,
-                       handler=&quot;path:function&quot;)
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">my_repo</span> <span class="o">=</span> <span class="s2">&quot;git+https://repo-host/some-user/some-repo&quot;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">func</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s2">&quot;my-project&quot;</span><span class="p">,</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>                       <span class="n">name</span><span class="o">=</span><span class="s2">&quot;python-function&quot;</span><span class="p">,</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>                       <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;python&quot;</span><span class="p">,</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>                       <span class="n">python_version</span><span class="o">=</span><span class="s2">&quot;PYTHON3_9&quot;</span><span class="p">,</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>                       <span class="n">code_src</span><span class="o">=</span><span class="n">my_repo</span><span class="p">,</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>                       <span class="n">handler</span><span class="o">=</span><span class="s2">&quot;path:function&quot;</span><span class="p">)</span>
+</span></code></pre></div>
 <p>When a git repository is specified, the function try to clone the repository and execute the code specified in the <code>handler</code> entrypoint (<a href="#handler">See below</a>). If the repository does not exist, the function will raise an exception.</p>
 <h5 id="credentials">Credentials</h5>
 <p>You may need credentials to access the repository. The credentials can be specified in three environment variables: <code>GIT_TOKEN</code>, <code>GIT_USER</code>and <code>GIT_PASSWORD</code>.</p>
@@ -3453,33 +3453,33 @@ func = dh.new_function(project=&quot;my-project&quot;,
 <h6 id="token">Token</h6>
 <p>The token is a plain string. It will be passed in the URL according to the git provider.</p>
 <p>Example:</p>
-<pre><code class="language-python"># GitHub token
-os.environ[&quot;GIT_TOKEN&quot;] = &quot;github_pat_...&quot;
-
-# GitLab token
-os.environ[&quot;GIT_TOKEN&quot;] = &quot;glpat...&quot;
-
-# function definition
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># GitHub token</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;GIT_TOKEN&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;github_pat_...&quot;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># GitLab token</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;GIT_TOKEN&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;glpat...&quot;</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># function definition</span>
+</span></code></pre></div>
 <h6 id="user-and-password">User and password</h6>
 <p>User and password are plain strings.</p>
-<pre><code class="language-python">os.environ[&quot;GIT_USER&quot;] = &quot;some-user&quot;
-os.environ[&quot;GIT_PASSWORD&quot;] = &quot;some-password&quot;
-
-# function definition
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;GIT_USER&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;some-user&quot;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;GIT_PASSWORD&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;some-password&quot;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># function definition</span>
+</span></code></pre></div>
 <h4 id="remote-zip-s3-archive">Remote zip s3 archive</h4>
 <p>The remote zip s3 archive can be specified with the <code>zip+s3://some-bucket/some-key.zip</code> format. The anteposition <code>zip+</code> is required, the rest of the URL is an S3 URL in the form <code>s3://some-bucket/some-key.zip</code>.
 The code source is archived in a zip file, which is unpacked at runtime.</p>
-<pre><code class="language-python">my_archive = &quot;zip+s3://some-bucket/some-key.zip&quot;
-
-func = dh.new_function(project=&quot;my-project&quot;,
-                       name=&quot;python-function&quot;,
-                       kind=&quot;python&quot;,
-                       python_version=&quot;PYTHON3_9&quot;,
-                       code_src=my_archive,
-                       handler=&quot;path:function&quot;)
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">my_archive</span> <span class="o">=</span> <span class="s2">&quot;zip+s3://some-bucket/some-key.zip&quot;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">func</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s2">&quot;my-project&quot;</span><span class="p">,</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>                       <span class="n">name</span><span class="o">=</span><span class="s2">&quot;python-function&quot;</span><span class="p">,</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>                       <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;python&quot;</span><span class="p">,</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>                       <span class="n">python_version</span><span class="o">=</span><span class="s2">&quot;PYTHON3_9&quot;</span><span class="p">,</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>                       <span class="n">code_src</span><span class="o">=</span><span class="n">my_archive</span><span class="p">,</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>                       <span class="n">handler</span><span class="o">=</span><span class="s2">&quot;path:function&quot;</span><span class="p">)</span>
+</span></code></pre></div>
 <h2 id="handler">Handler</h2>
 <p>The <code>handler</code> parameter is the entrypoint of the code. There are some rules to follow when defining it.</p>
 <p>If the source code is:</p>
@@ -3489,27 +3489,27 @@ func = dh.new_function(project=&quot;my-project&quot;,
 <li><a href="#local-file-path">Local file path</a></li>
 </ul>
 <p>Then the entrypoint should be the <strong>function name</strong>.</p>
-<pre><code class="language-python">my_code = &quot;&quot;&quot;
-def myfunction():
-    ...
-&quot;&quot;&quot;
-
-func = dh.new_function(...,
-                       code=my_code,
-                       handler=&quot;myfunction&quot;)
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">my_code</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="s2">def myfunction():</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="s2">    ...</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="s2">&quot;&quot;&quot;</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">func</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span><span class="o">...</span><span class="p">,</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>                       <span class="n">code</span><span class="o">=</span><span class="n">my_code</span><span class="p">,</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>                       <span class="n">handler</span><span class="o">=</span><span class="s2">&quot;myfunction&quot;</span><span class="p">)</span>
+</span></code></pre></div>
 <p>If the source code is:</p>
 <ul>
 <li><a href="#remote-zip-s3-archive">S3 zip archive</a></li>
 <li><a href="#remote-git-repository">Git repository</a></li>
 </ul>
 <p>Then the entrypoint should be the path to the file where the code is stored (expressed with <code>.</code> separator) and the name of the function separated by a <code>:</code>.</p>
-<pre><code class="language-python">my_code = &quot;git+https://repo-host/some-user/some-repo&quot;
-
-func = dh.new_function(...,
-                       code_src=my_code,
-                       handler=&quot;src.subdir.etc:myfunction&quot;)
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">my_code</span> <span class="o">=</span> <span class="s2">&quot;git+https://repo-host/some-user/some-repo&quot;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">func</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span><span class="o">...</span><span class="p">,</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>                       <span class="n">code_src</span><span class="o">=</span><span class="n">my_code</span><span class="p">,</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>                       <span class="n">handler</span><span class="o">=</span><span class="s2">&quot;src.subdir.etc:myfunction&quot;</span><span class="p">)</span>
+</span></code></pre></div>
 
 
 
@@ -3549,7 +3549,7 @@ func = dh.new_function(...,
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.select"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>

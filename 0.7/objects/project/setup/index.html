@@ -3096,17 +3096,16 @@ First of all, the configuration script <strong>MUST</strong> comply with the fol
 <p>The project setup will create a <code>.CHECK</code> file at the end of the <code>setup</code> function execution. This sentinel file is used to indicate that the project is set up and new executions will be ready.</p>
 <p>A use case scenario can be the instantiation of entities used by the user like artifacts or functions.</p>
 <p>Example:</p>
-<pre><code class="language-python">setup_kwargs = {
-    &quot;some_arg1&quot;: &quot;arg1&quot;,
-    &quot;some_arg2&quot;: &quot;arg2&quot;
-}
-
-# Setup script
-
-def setup(project, some_arg1=None, some_arg2=None):
-    # Do something with project and args
-
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">setup_kwargs</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="s2">&quot;some_arg1&quot;</span><span class="p">:</span> <span class="s2">&quot;arg1&quot;</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="s2">&quot;some_arg2&quot;</span><span class="p">:</span> <span class="s2">&quot;arg2&quot;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># Setup script</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">some_arg1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">some_arg2</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="c1"># Do something with project and args</span>
+</span></code></pre></div>
 
 
 
@@ -3146,7 +3145,7 @@ def setup(project, some_arg1=None, some_arg2=None):
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.select"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.56dfad97.min.js"></script>
