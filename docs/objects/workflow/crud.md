@@ -3,6 +3,30 @@
 The CRUD methods are used to create, read, update and delete workflows. There are two ways to use them.
 The first is through the SDK and the second is through the `Project` object.
 The syntax is the same for all CRUD methods. If you want to manage workflows from the project, you can use the `Project` object and avoid to specify the `project` parameter. In this last case, you need to specify every parameter as keyword argument.
+In any case, you need to first import the SDK and instantiate a `Project` object that will be the context in which you can manage entities.
+
+Example:
+
+```python
+import digitalhub as dh
+
+project = dh.get_or_create_project("my-project")
+
+# Use CRUD method on project
+
+workflow = project.new_workflow(name="my-workflow",
+                                kind="kfp",
+                                code_src="pipeline.py",
+                                handler="pipeline-handler")
+
+# Use CRUD method from SDK
+
+workflow = dh.new_workflow(project="my-project",
+                           name="my-function",
+                           kind="kfp",
+                           code_src="pipeline.py",
+                           handler="pipeline-handler")
+```
 
 A `workflow` entity can be managed with the following methods.
 

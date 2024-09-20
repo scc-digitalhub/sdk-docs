@@ -3,6 +3,30 @@
 The CRUD methods are used to create, read, update and delete functions. There are two ways to use them.
 The first is through the SDK and the second is through the `Project` object.
 The syntax is the same for all CRUD methods. If you want to manage functions from the project, you can use the `Project` object and avoid to specify the `project` parameter. In this last case, you need to specify every parameter as keyword argument.
+In any case, you need to first import the SDK and instantiate a `Project` object that will be the context in which you can manage entities.
+
+Example:
+
+```python
+import digitalhub as dh
+
+project = dh.get_or_create_project("my-project")
+
+# Use CRUD method on project
+
+function = project.new_function(name="my-function",
+                                kind="python",
+                                code_src="function.py",
+                                handler="function-handler")
+
+# Use CRUD method from SDK
+
+function = dh.new_function(project="my-project",
+                           name="my-function",
+                           kind="python",
+                           code_src="function.py",
+                           handler="function-handler")
+```
 
 A `function` entity can be managed with the following methods.
 

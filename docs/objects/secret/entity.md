@@ -10,7 +10,7 @@ At the level of the project the secrets are represented as key-value pairs. The 
 ## Managing secrets with SDK
 
 Secrets can be created and managed as *entities* with the SDK CRUD methods. This can be done directly from the package or through the `Project` object.
-To manage secrets, you need to have at least `digitalhub_core` layer installed.
+To manage secrets, you need to have at least `digitalhub[core]` layer installed.
 
 1. In the [CRUD section](./crud.md), we will see how to create, read, update and delete secrets.
 2. In the [methods section](./methods.md), we will see what can be done with the `Secret` object.
