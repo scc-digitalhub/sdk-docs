@@ -3569,7 +3569,26 @@
 <h1 id="crud">CRUD</h1>
 <p>The CRUD methods are used to create, read, update and delete dataitems. There are two ways to use them.
 The first is through the SDK and the second is through the <code>Project</code> object.
-The syntax is the same for all CRUD methods. If you want to manage dataitems from the project, you can use the <code>Project</code> object and avoid to specify the <code>project</code> parameter. In this last case, you need to specify every parameter as keyword argument.</p>
+The syntax is the same for all CRUD methods. If you want to manage dataitems from the project, you can use the <code>Project</code> object and avoid to specify the <code>project</code> parameter. In this last case, you need to specify every parameter as keyword argument.
+In any case, you need to first import the SDK and instantiate a <code>Project</code> object that will be the context in which you can manage entities.</p>
+<p>Example:</p>
+<pre><code class="language-python">import digitalhub as dh
+
+project = dh.get_or_create_project(&quot;my-project&quot;)
+
+# Use CRUD method on project
+
+dataitem = project.new_dataitem(name=&quot;my-dataitem&quot;,
+                                kind=&quot;table&quot;,
+                                path=&quot;path-to-some-data&quot;)
+
+# Use CRUD method from SDK
+
+dataitem = dh.new_dataitem(project=&quot;my-project&quot;,
+                           name=&quot;my-dataitem&quot;,
+                           kind=&quot;table&quot;,
+                           path=&quot;path-to-some-data&quot;)
+</code></pre>
 <p>A <code>dataitem</code> entity can be managed with the following methods.</p>
 <p>Create:</p>
 <ul>
