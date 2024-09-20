@@ -6,7 +6,7 @@ The Digitalhub SDK is distributed as a Python package and is hosted on [PyPI](ht
 
 The most basic command to install the `digitalhub` package in your Python environment is:
 
-```shell
+```bash
 python -m pip install digitalhub[full]
 ```
 
@@ -14,7 +14,7 @@ This command will install the SDK with all the various layer packages (core, dat
 
 There are more options available:
 
-```shell
+```bash
 python -m pip install digitalhub[ml]
 python -m pip install digitalhub[data]
 python -m pip install digitalhub
@@ -36,7 +36,7 @@ The Digitalhub runtimes are installed in the same way as the SDK. We have distri
 
 You can install the runtime directly with pip. It will come with all the required SDK dependencies:
 
-```shell
+```bash
 # Install python runtime + core + data + ml
 python -m pip install digitalhub-runtime-python
 
