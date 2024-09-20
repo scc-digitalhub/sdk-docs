@@ -3473,11 +3473,11 @@
 Here follows a description of the resources you can request with the <code>function.run()</code> method.</p>
 <h2 id="node-selector">Node selector</h2>
 <p>You can request a node selector for the container being launched by the task by passing the selector as a dictionary with the <code>node_selector</code> task parameters.</p>
-<pre><code class="language-python">node_selector = {
-    &quot;key&quot;: &quot;Node selector key.&quot;,
-    &quot;value&quot;: &quot;Node selector value.&quot;
-}
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">node_selector</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;Node selector key.&quot;</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Node selector value.&quot;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
+</span></code></pre></div>
 <h2 id="volumes">Volumes</h2>
 <p>With SDK you can request the following types of volumes:</p>
 <ul>
@@ -3487,27 +3487,27 @@ Here follows a description of the resources you can request with the <code>funct
 <h3 id="persistent-volume-claims-pvc">Persistent volume claims (PVC)</h3>
 <p>You can ask for a persistent volume claim (pvc) to be mounted on the container being launched by the task.
 You need to declare the volume type as <code>persistent_volume_claim</code>, a name for the PVC for the user (e.g., <code>my-pvc</code>), the mount path on the container and a spec with the name of the PVC on Kubernetes (e.g., <code>pvc-name-on-k8s</code>).</p>
-<pre><code class="language-python">volumes = [{
-        &quot;volume_type&quot;: &quot;persistent_volume_claim&quot;,
-        &quot;name&quot;: &quot;my-pvc&quot;,
-        &quot;mount_path&quot;: &quot;/data&quot;,
-        &quot;spec&quot;: {
-            &quot;claim_name&quot;: &quot;pvc-name-on-k8s&quot;,
-            }
-}]
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">volumes</span> <span class="o">=</span> <span class="p">[{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>        <span class="s2">&quot;volume_type&quot;</span><span class="p">:</span> <span class="s2">&quot;persistent_volume_claim&quot;</span><span class="p">,</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;my-pvc&quot;</span><span class="p">,</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        <span class="s2">&quot;mount_path&quot;</span><span class="p">:</span> <span class="s2">&quot;/data&quot;</span><span class="p">,</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>        <span class="s2">&quot;spec&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>            <span class="s2">&quot;claim_name&quot;</span><span class="p">:</span> <span class="s2">&quot;pvc-name-on-k8s&quot;</span><span class="p">,</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>            <span class="p">}</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">}]</span>
+</span></code></pre></div>
 <h3 id="configmap">ConfigMap</h3>
 <p>You can ask for a configmap to be mounted on the container being launched by the task.
 You need to declare the volume type as <code>config_map</code>, a name for the ConfigMap for the user (e.g., <code>my-config-map</code>), the mount path on the container and a spec with the name of the ConfigMap on Kubernetes (e.g., <code>config-map-name-on-k8s</code>).</p>
-<pre><code class="language-python">volumes = [{
-        &quot;volume_type&quot;: &quot;config_map&quot;,
-        &quot;name&quot;: &quot;my-config-map&quot;,
-        &quot;mount_path&quot;: &quot;/data&quot;,
-        &quot;spec&quot;: {
-            &quot;name&quot;: &quot;config-map-name-on-k8s&quot;
-        }
-}]
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">volumes</span> <span class="o">=</span> <span class="p">[{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>        <span class="s2">&quot;volume_type&quot;</span><span class="p">:</span> <span class="s2">&quot;config_map&quot;</span><span class="p">,</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;my-config-map&quot;</span><span class="p">,</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>        <span class="s2">&quot;mount_path&quot;</span><span class="p">:</span> <span class="s2">&quot;/data&quot;</span><span class="p">,</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        <span class="s2">&quot;spec&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;config-map-name-on-k8s&quot;</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        <span class="p">}</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">}]</span>
+</span></code></pre></div>
 <h2 id="resources">Resources</h2>
 <p>You can request a specific amount of hardware resources (cpu, memory, gpu) for the task, declared thorugh the <code>resources</code> task parameter; <code>resources</code> must be a map of Resource objects represented as a dictionary.
 At the moment Digitalhub SDK supports:</p>
@@ -3519,36 +3519,35 @@ At the moment Digitalhub SDK supports:</p>
 <h3 id="cpu">CPU</h3>
 <p>You can request a specific amount of CPU for the task.
 You need to declare the resource type as <code>cpu</code>, request and/or limit specifications.</p>
-<pre><code class="language-python">
-resources = {
-    &quot;cpu&quot;: {
-        &quot;requests&quot;: &quot;12&quot;,
-        &quot;limits&quot;: &quot;16&quot;
-    }
-}
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">resources</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="s2">&quot;cpu&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>        <span class="s2">&quot;requests&quot;</span><span class="p">:</span> <span class="s2">&quot;12&quot;</span><span class="p">,</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>        <span class="s2">&quot;limits&quot;</span><span class="p">:</span> <span class="s2">&quot;16&quot;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="p">}</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">}</span>
+</span></code></pre></div>
 <h3 id="ram-memory">RAM memory</h3>
 <p>You can request a specific amount of RAM memory for the task.
 You need to declare the resource type as <code>mem</code>, request and/or limit specifications.</p>
-<pre><code class="language-python">resources = {
-    &quot;mem&quot;{
-        &quot;requests&quot;: &quot;64Gi&quot;,
-    }
-}
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">resources</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="s2">&quot;mem&quot;</span><span class="p">{</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>        <span class="s2">&quot;requests&quot;</span><span class="p">:</span> <span class="s2">&quot;64Gi&quot;</span><span class="p">,</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="p">}</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">}</span>
+</span></code></pre></div>
 <h3 id="gpu">GPU</h3>
 <p>Please see <a href="#profile">Profile documentation</a>.</p>
 <h2 id="secrets">Secrets</h2>
 <p>You can request a secret injection into the container being launched by the task by passing the reference to the backend with the <code>secrets</code> task parameters.</p>
-<pre><code class="language-python">secrets = [&quot;my-secret&quot;]
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">secrets</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;my-secret&quot;</span><span class="p">]</span>
+</span></code></pre></div>
 <h2 id="envs">Envs</h2>
 <p>You can request an environment variable injection into the container being launched by the task by passing the reference to the backend with the <code>envs</code> task parameters.</p>
-<pre><code class="language-python">envs = [{
-    &quot;name&quot;: &quot;env-name&quot;,
-    &quot;value&quot;: &quot;value&quot;
-}]
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">envs</span> <span class="o">=</span> <span class="p">[{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;env-name&quot;</span><span class="p">,</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">}]</span>
+</span></code></pre></div>
 <h2 id="tolerations">Tolerations</h2>
 <p>Please see <a href="https://kubernetes.io/docs/home/">Kubernetes documentation</a>.</p>
 <h2 id="affinity">Affinity</h2>
@@ -3557,23 +3556,23 @@ You need to declare the resource type as <code>mem</code>, request and/or limit 
 <p>Profile template.</p>
 <h2 id="schedule">Schedule</h2>
 <p>Schedule for the job. It accepts a cron expression.</p>
-<pre><code class="language-python">schedule = &quot;0 0 * * *&quot;
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">schedule</span> <span class="o">=</span> <span class="s2">&quot;0 0 * * *&quot;</span>
+</span></code></pre></div>
 <h2 id="replicas">Replicas</h2>
 <p>Number of replicas for the pod/deployment. It accepts an integer value.</p>
-<pre><code class="language-python">replicas = 3
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">replicas</span> <span class="o">=</span> <span class="mi">3</span>
+</span></code></pre></div>
 <h2 id="backoff-limit">Backoff limit</h2>
 <p>Backoff limit for the job. It accepts an integer value.</p>
-<pre><code class="language-python">backoff_limit = 3
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">backoff_limit</span> <span class="o">=</span> <span class="mi">3</span>
+</span></code></pre></div>
 <h2 id="service-port">Service port</h2>
 <p>Service port(s) where to expose the service. Must be: [{port: port, target_port: target_port}, ...].</p>
-<pre><code class="language-python">service_port = [{
-    &quot;port&quot;: 80,
-    &quot;target_port&quot;: 80
-}]
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">service_port</span> <span class="o">=</span> <span class="p">[{</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="s2">&quot;target_port&quot;</span><span class="p">:</span> <span class="mi">80</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="p">}]</span>
+</span></code></pre></div>
 <h2 id="service-type">Service type</h2>
 <p>Service type to expose. Must be a <code>str</code> of one of the following:</p>
 <ul>
@@ -3581,8 +3580,8 @@ You need to declare the resource type as <code>mem</code>, request and/or limit 
 <li><code>LoadBalancer</code></li>
 <li><code>NodePort</code></li>
 </ul>
-<pre><code class="language-python">service_type = &quot;NodePort&quot;
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">service_type</span> <span class="o">=</span> <span class="s2">&quot;NodePort&quot;</span>
+</span></code></pre></div>
 
 
 
@@ -3622,7 +3621,7 @@ You need to declare the resource type as <code>mem</code>, request and/or limit 
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.select"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
