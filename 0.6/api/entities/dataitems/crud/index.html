@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.30">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.3cba04c6.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.8c3ca2c6.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
@@ -52,7 +52,7 @@
     
       <link rel="stylesheet" href="../../../../../stylesheets/colors.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#digitalhub_data.entities.dataitems.crud" class="md-skip">
+        <a href="#digitalhub_data.entities.dataitem.crud" class="md-skip">
           Skip to content
         </a>
       
@@ -110,14 +110,14 @@
     >
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
 
     <!-- Button to open drawer -->
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
 
     <!-- Header title -->
@@ -129,26 +129,28 @@
           </span>
           <div class="dropdown">
             <button class="dd-button">
-              <span>0.6</span>
+              <span class="dd-text">0.6</span>
               <span class="dd-arrow">&#9660;</span>
+              
+                
+                
+              
+              
+                
+                  
+                    <a href="https://scc-digitalhub.github.io/sdk-docs">current</a>
+                  
+                
+              
+                
+                  
+                    <a href="https://scc-digitalhub.github.io/sdk-docs/0.7">0.7</a>
+                  
+                
+              
+                
+              
             </button>
-            <div class="dd-options-container">
-              
-                
-                
-              
-              
-                
-                  <div class="dd-content">
-                    
-                      <a href="https://scc-digitalhub.github.io/sdk-docs">current</a>
-                    
-                  </div>
-                
-              
-                
-              
-            </div>
           </div>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -172,7 +174,7 @@
     <input class="md-option" data-md-color-media="" data-md-color-scheme="orange" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
   
@@ -182,7 +184,7 @@
     <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
   
@@ -192,7 +194,7 @@
 
     <!-- User preference: color palette -->
     
-      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
 
     <!-- Site language selector -->
@@ -233,7 +235,7 @@
     <a href="../../../.." title="Digitalhub SDK documentation" class="md-nav__button md-logo" aria-label="Digitalhub SDK documentation" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
     Digitalhub SDK documentation
@@ -1560,7 +1562,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.crud" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.crud" class="md-nav__link">
     <span class="md-ellipsis">
       crud
     </span>
@@ -1569,25 +1571,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.crud.create_dataitem" class="md-nav__link">
-    <span class="md-ellipsis">
-      create_dataitem
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.crud.create_dataitem_from_dict" class="md-nav__link">
-    <span class="md-ellipsis">
-      create_dataitem_from_dict
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.crud.delete_dataitem" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.crud.delete_dataitem" class="md-nav__link">
     <span class="md-ellipsis">
       delete_dataitem
     </span>
@@ -1596,7 +1580,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.crud.get_dataitem" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.crud.get_dataitem" class="md-nav__link">
     <span class="md-ellipsis">
       get_dataitem
     </span>
@@ -1605,7 +1589,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.crud.get_dataitem_versions" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.crud.get_dataitem_versions" class="md-nav__link">
     <span class="md-ellipsis">
       get_dataitem_versions
     </span>
@@ -1614,7 +1598,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.crud.import_dataitem" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.crud.import_dataitem" class="md-nav__link">
     <span class="md-ellipsis">
       import_dataitem
     </span>
@@ -1623,7 +1607,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.crud.list_dataitems" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.crud.list_dataitems" class="md-nav__link">
     <span class="md-ellipsis">
       list_dataitems
     </span>
@@ -1632,7 +1616,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.crud.log_dataitem" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.crud.log_dataitem" class="md-nav__link">
     <span class="md-ellipsis">
       log_dataitem
     </span>
@@ -1641,7 +1625,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.crud.new_dataitem" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.crud.new_dataitem" class="md-nav__link">
     <span class="md-ellipsis">
       new_dataitem
     </span>
@@ -1650,7 +1634,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.crud.update_dataitem" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.crud.update_dataitem" class="md-nav__link">
     <span class="md-ellipsis">
       update_dataitem
     </span>
@@ -1884,7 +1868,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.crud" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.crud" class="md-nav__link">
     <span class="md-ellipsis">
       crud
     </span>
@@ -1893,25 +1877,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.crud.create_dataitem" class="md-nav__link">
-    <span class="md-ellipsis">
-      create_dataitem
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.crud.create_dataitem_from_dict" class="md-nav__link">
-    <span class="md-ellipsis">
-      create_dataitem_from_dict
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.crud.delete_dataitem" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.crud.delete_dataitem" class="md-nav__link">
     <span class="md-ellipsis">
       delete_dataitem
     </span>
@@ -1920,7 +1886,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.crud.get_dataitem" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.crud.get_dataitem" class="md-nav__link">
     <span class="md-ellipsis">
       get_dataitem
     </span>
@@ -1929,7 +1895,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.crud.get_dataitem_versions" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.crud.get_dataitem_versions" class="md-nav__link">
     <span class="md-ellipsis">
       get_dataitem_versions
     </span>
@@ -1938,7 +1904,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.crud.import_dataitem" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.crud.import_dataitem" class="md-nav__link">
     <span class="md-ellipsis">
       import_dataitem
     </span>
@@ -1947,7 +1913,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.crud.list_dataitems" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.crud.list_dataitems" class="md-nav__link">
     <span class="md-ellipsis">
       list_dataitems
     </span>
@@ -1956,7 +1922,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.crud.log_dataitem" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.crud.log_dataitem" class="md-nav__link">
     <span class="md-ellipsis">
       log_dataitem
     </span>
@@ -1965,7 +1931,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.crud.new_dataitem" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.crud.new_dataitem" class="md-nav__link">
     <span class="md-ellipsis">
       new_dataitem
     </span>
@@ -1974,7 +1940,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.crud.update_dataitem" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.crud.update_dataitem" class="md-nav__link">
     <span class="md-ellipsis">
       update_dataitem
     </span>
@@ -2003,7 +1969,7 @@
 
 
 
-<a id="digitalhub_data.entities.dataitems.crud"></a>
+<a id="digitalhub_data.entities.dataitem.crud"></a>
     <div class="doc doc-contents first">
 
 
@@ -2021,213 +1987,7 @@
 <div class="doc doc-object doc-function">
 
 
-<h2 id="digitalhub_data.entities.dataitems.crud.create_dataitem" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">create_dataitem</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
-
-</h2>
-
-
-    <div class="doc doc-contents ">
-
-      <p>Create a new data item with the provided parameters.</p>
-
-
-<p><span class="doc-section-title">Parameters:</span></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Default</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-            <td><code>**kwargs</code></td>
-            <td>
-                  <code>dict</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Keyword arguments.</p>
-              </div>
-            </td>
-            <td>
-                  <code>{}</code>
-            </td>
-          </tr>
-      </tbody>
-    </table>
-
-
-    <p><span class="doc-section-title">Returns:</span></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Type</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-            <td>
-                  <code><a class="autorefs autorefs-internal" title="digitalhub_data.entities.dataitems.entity._base.Dataitem" href="../entity/#digitalhub_data.entities.dataitems.entity._base.Dataitem">Dataitem</a></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Object instance.</p>
-              </div>
-            </td>
-          </tr>
-      </tbody>
-    </table>
-
-            <details class="quote">
-              <summary>Source code in <code>digitalhub_data/entities/dataitems/crud.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">create_dataitem</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dataitem</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Create a new data item with the provided parameters.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    **kwargs : dict</span>
-<span class="sd">        Keyword arguments.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    Dataitem</span>
-<span class="sd">        Object instance.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">dataitem_from_parameters</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-            </details>
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h2 id="digitalhub_data.entities.dataitems.crud.create_dataitem_from_dict" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">create_dataitem_from_dict</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span></code>
-
-</h2>
-
-
-    <div class="doc doc-contents ">
-
-      <p>Create a new Dataitem instance from a dictionary.</p>
-
-
-<p><span class="doc-section-title">Parameters:</span></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Default</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-            <td><code>obj</code></td>
-            <td>
-                  <code>dict</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Dictionary to create object from.</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-      </tbody>
-    </table>
-
-
-    <p><span class="doc-section-title">Returns:</span></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Type</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-            <td>
-                  <code><a class="autorefs autorefs-internal" title="digitalhub_data.entities.dataitems.entity._base.Dataitem" href="../entity/#digitalhub_data.entities.dataitems.entity._base.Dataitem">Dataitem</a></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Dataitem object.</p>
-              </div>
-            </td>
-          </tr>
-      </tbody>
-    </table>
-
-            <details class="quote">
-              <summary>Source code in <code>digitalhub_data/entities/dataitems/crud.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">create_dataitem_from_dict</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dataitem</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Create a new Dataitem instance from a dictionary.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    obj : dict</span>
-<span class="sd">        Dictionary to create object from.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    Dataitem</span>
-<span class="sd">        Dataitem object.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">check_context</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;project&quot;</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">dataitem_from_dict</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-            </details>
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h2 id="digitalhub_data.entities.dataitems.crud.delete_dataitem" class="doc doc-heading">
+<h2 id="digitalhub_data.entities.dataitem.crud.delete_dataitem" class="doc doc-heading">
             <code class="highlight language-python"><span class="n">delete_dataitem</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="n">project</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">entity_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">delete_all_versions</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
 
 </h2>
@@ -2235,7 +1995,7 @@
 
     <div class="doc doc-contents ">
 
-      <p>Delete object from backend.</p>
+        <p>Delete object from backend.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -2256,7 +2016,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Entity key or name.</p>
+                <p>Entity key (store://...) or entity name.</p>
               </div>
             </td>
             <td>
@@ -2298,8 +2058,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Delete all versions of the named entity.
-Use entity name instead of entity key as identifier.</p>
+                <p>Delete all versions of the named entity. If True, use entity name instead of entity key as identifier.</p>
               </div>
             </td>
             <td>
@@ -2346,45 +2105,65 @@ Use entity name instead of entity key as identifier.</p>
       </tbody>
     </table>
 
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>If delete_all_versions is False:</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">obj</span> <span class="o">=</span> <span class="n">delete_dataitem</span><span class="p">(</span><span class="s2">&quot;store://my-dataitem-key&quot;</span><span class="p">)</span>
+</code></pre></div>
+    <p>Otherwise:</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">obj</span> <span class="o">=</span> <span class="n">delete_dataitem</span><span class="p">(</span><span class="s2">&quot;my-dataitem-name&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>                      <span class="n">project</span><span class="o">=</span><span class="s2">&quot;my-project&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>                      <span class="n">delete_all_versions</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+
             <details class="quote">
-              <summary>Source code in <code>digitalhub_data/entities/dataitems/crud.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">205</span>
-<span class="normal">206</span>
-<span class="normal">207</span>
-<span class="normal">208</span>
-<span class="normal">209</span>
-<span class="normal">210</span>
-<span class="normal">211</span>
-<span class="normal">212</span>
-<span class="normal">213</span>
-<span class="normal">214</span>
-<span class="normal">215</span>
-<span class="normal">216</span>
-<span class="normal">217</span>
-<span class="normal">218</span>
-<span class="normal">219</span>
-<span class="normal">220</span>
-<span class="normal">221</span>
-<span class="normal">222</span>
-<span class="normal">223</span>
-<span class="normal">224</span>
-<span class="normal">225</span>
-<span class="normal">226</span>
-<span class="normal">227</span>
-<span class="normal">228</span>
-<span class="normal">229</span>
-<span class="normal">230</span>
-<span class="normal">231</span>
-<span class="normal">232</span>
-<span class="normal">233</span>
-<span class="normal">234</span>
-<span class="normal">235</span>
-<span class="normal">236</span>
-<span class="normal">237</span>
-<span class="normal">238</span>
-<span class="normal">239</span>
-<span class="normal">240</span>
-<span class="normal">241</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">delete_dataitem</span><span class="p">(</span>
+              <summary>Source code in <code>digitalhub_data/entities/dataitem/crud.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">343</span>
+<span class="normal">344</span>
+<span class="normal">345</span>
+<span class="normal">346</span>
+<span class="normal">347</span>
+<span class="normal">348</span>
+<span class="normal">349</span>
+<span class="normal">350</span>
+<span class="normal">351</span>
+<span class="normal">352</span>
+<span class="normal">353</span>
+<span class="normal">354</span>
+<span class="normal">355</span>
+<span class="normal">356</span>
+<span class="normal">357</span>
+<span class="normal">358</span>
+<span class="normal">359</span>
+<span class="normal">360</span>
+<span class="normal">361</span>
+<span class="normal">362</span>
+<span class="normal">363</span>
+<span class="normal">364</span>
+<span class="normal">365</span>
+<span class="normal">366</span>
+<span class="normal">367</span>
+<span class="normal">368</span>
+<span class="normal">369</span>
+<span class="normal">370</span>
+<span class="normal">371</span>
+<span class="normal">372</span>
+<span class="normal">373</span>
+<span class="normal">374</span>
+<span class="normal">375</span>
+<span class="normal">376</span>
+<span class="normal">377</span>
+<span class="normal">378</span>
+<span class="normal">379</span>
+<span class="normal">380</span>
+<span class="normal">381</span>
+<span class="normal">382</span>
+<span class="normal">383</span>
+<span class="normal">384</span>
+<span class="normal">385</span>
+<span class="normal">386</span>
+<span class="normal">387</span>
+<span class="normal">388</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">delete_dataitem</span><span class="p">(</span>
     <span class="n">identifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">project</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">entity_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -2397,14 +2176,13 @@ Use entity name instead of entity key as identifier.</p>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    identifier : str</span>
-<span class="sd">        Entity key or name.</span>
+<span class="sd">        Entity key (store://...) or entity name.</span>
 <span class="sd">    project : str</span>
 <span class="sd">        Project name.</span>
 <span class="sd">    entity_id : str</span>
 <span class="sd">        Entity ID.</span>
 <span class="sd">    delete_all_versions : bool</span>
-<span class="sd">        Delete all versions of the named entity.</span>
-<span class="sd">        Use entity name instead of entity key as identifier.</span>
+<span class="sd">        Delete all versions of the named entity. If True, use entity name instead of entity key as identifier.</span>
 <span class="sd">    **kwargs : dict</span>
 <span class="sd">        Parameters to pass to the API call.</span>
 
@@ -2412,6 +2190,16 @@ Use entity name instead of entity key as identifier.</p>
 <span class="sd">    -------</span>
 <span class="sd">    dict</span>
 <span class="sd">        Response from backend.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    If delete_all_versions is False:</span>
+<span class="sd">    &gt;&gt;&gt; obj = delete_dataitem(&quot;store://my-dataitem-key&quot;)</span>
+
+<span class="sd">    Otherwise:</span>
+<span class="sd">    &gt;&gt;&gt; obj = delete_dataitem(&quot;my-dataitem-name&quot;,</span>
+<span class="sd">    &gt;&gt;&gt;                       project=&quot;my-project&quot;,</span>
+<span class="sd">    &gt;&gt;&gt;                       delete_all_versions=True)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">delete_entity_api_ctx</span><span class="p">(</span>
         <span class="n">identifier</span><span class="o">=</span><span class="n">identifier</span><span class="p">,</span>
@@ -2430,7 +2218,7 @@ Use entity name instead of entity key as identifier.</p>
 <div class="doc doc-object doc-function">
 
 
-<h2 id="digitalhub_data.entities.dataitems.crud.get_dataitem" class="doc doc-heading">
+<h2 id="digitalhub_data.entities.dataitem.crud.get_dataitem" class="doc doc-heading">
             <code class="highlight language-python"><span class="n">get_dataitem</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="n">project</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">entity_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
 
 </h2>
@@ -2438,7 +2226,7 @@ Use entity name instead of entity key as identifier.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Get object from backend.</p>
+        <p>Get object from backend.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -2459,7 +2247,7 @@ Use entity name instead of entity key as identifier.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Entity key or name.</p>
+                <p>Entity key (store://...) or entity name.</p>
               </div>
             </td>
             <td>
@@ -2523,7 +2311,7 @@ Use entity name instead of entity key as identifier.</p>
       <tbody>
           <tr class="doc-section-item">
             <td>
-                  <code><a class="autorefs autorefs-internal" title="digitalhub_data.entities.dataitems.entity._base.Dataitem" href="../entity/#digitalhub_data.entities.dataitems.entity._base.Dataitem">Dataitem</a></code>
+                  <code><a class="autorefs autorefs-internal" title="digitalhub_data.entities.dataitem.entity._base.Dataitem" href="../entity/#digitalhub_data.entities.dataitem.entity._base.Dataitem">Dataitem</a></code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -2534,41 +2322,64 @@ Use entity name instead of entity key as identifier.</p>
       </tbody>
     </table>
 
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Using entity key:</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">obj</span> <span class="o">=</span> <span class="n">get_dataitem</span><span class="p">(</span><span class="s2">&quot;store://my-dataitem-key&quot;</span><span class="p">)</span>
+</code></pre></div>
+    <p>Using entity name:</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">obj</span> <span class="o">=</span> <span class="n">get_dataitem</span><span class="p">(</span><span class="s2">&quot;my-dataitem-name&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span>                   <span class="n">project</span><span class="o">=</span><span class="s2">&quot;my-project&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>                   <span class="n">entity_id</span><span class="o">=</span><span class="s2">&quot;my-dataitem-id&quot;</span><span class="p">)</span>
+</code></pre></div>
+
             <details class="quote">
-              <summary>Source code in <code>digitalhub_data/entities/dataitems/crud.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">121</span>
-<span class="normal">122</span>
-<span class="normal">123</span>
-<span class="normal">124</span>
-<span class="normal">125</span>
-<span class="normal">126</span>
-<span class="normal">127</span>
-<span class="normal">128</span>
-<span class="normal">129</span>
-<span class="normal">130</span>
-<span class="normal">131</span>
-<span class="normal">132</span>
-<span class="normal">133</span>
-<span class="normal">134</span>
-<span class="normal">135</span>
-<span class="normal">136</span>
-<span class="normal">137</span>
-<span class="normal">138</span>
-<span class="normal">139</span>
-<span class="normal">140</span>
-<span class="normal">141</span>
-<span class="normal">142</span>
-<span class="normal">143</span>
-<span class="normal">144</span>
-<span class="normal">145</span>
-<span class="normal">146</span>
-<span class="normal">147</span>
-<span class="normal">148</span>
-<span class="normal">149</span>
-<span class="normal">150</span>
-<span class="normal">151</span>
-<span class="normal">152</span>
-<span class="normal">153</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_dataitem</span><span class="p">(</span>
+              <summary>Source code in <code>digitalhub_data/entities/dataitem/crud.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_dataitem</span><span class="p">(</span>
     <span class="n">identifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">project</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">entity_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -2580,7 +2391,7 @@ Use entity name instead of entity key as identifier.</p>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    identifier : str</span>
-<span class="sd">        Entity key or name.</span>
+<span class="sd">        Entity key (store://...) or entity name.</span>
 <span class="sd">    project : str</span>
 <span class="sd">        Project name.</span>
 <span class="sd">    entity_id : str</span>
@@ -2592,6 +2403,16 @@ Use entity name instead of entity key as identifier.</p>
 <span class="sd">    -------</span>
 <span class="sd">    Dataitem</span>
 <span class="sd">        Object instance.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Using entity key:</span>
+<span class="sd">    &gt;&gt;&gt; obj = get_dataitem(&quot;store://my-dataitem-key&quot;)</span>
+
+<span class="sd">    Using entity name:</span>
+<span class="sd">    &gt;&gt;&gt; obj = get_dataitem(&quot;my-dataitem-name&quot;</span>
+<span class="sd">    &gt;&gt;&gt;                    project=&quot;my-project&quot;,</span>
+<span class="sd">    &gt;&gt;&gt;                    entity_id=&quot;my-dataitem-id&quot;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">obj</span> <span class="o">=</span> <span class="n">read_entity_api_ctx</span><span class="p">(</span>
         <span class="n">identifier</span><span class="p">,</span>
@@ -2600,7 +2421,9 @@ Use entity name instead of entity key as identifier.</p>
         <span class="n">entity_id</span><span class="o">=</span><span class="n">entity_id</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">)</span>
-    <span class="k">return</span> <span class="n">dataitem_from_dict</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="n">entity</span> <span class="o">=</span> <span class="n">dataitem_from_dict</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="n">entity</span><span class="o">.</span><span class="n">_get_files_info</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">entity</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -2610,7 +2433,7 @@ Use entity name instead of entity key as identifier.</p>
 <div class="doc doc-object doc-function">
 
 
-<h2 id="digitalhub_data.entities.dataitems.crud.get_dataitem_versions" class="doc doc-heading">
+<h2 id="digitalhub_data.entities.dataitem.crud.get_dataitem_versions" class="doc doc-heading">
             <code class="highlight language-python"><span class="n">get_dataitem_versions</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="n">project</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
 
 </h2>
@@ -2618,7 +2441,7 @@ Use entity name instead of entity key as identifier.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Get object versions from backend.</p>
+        <p>Get object versions from backend.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -2639,7 +2462,7 @@ Use entity name instead of entity key as identifier.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Entity key or name.</p>
+                <p>Entity key (store://...) or entity name.</p>
               </div>
             </td>
             <td>
@@ -2689,7 +2512,7 @@ Use entity name instead of entity key as identifier.</p>
       <tbody>
           <tr class="doc-section-item">
             <td>
-                  <code>list[<a class="autorefs autorefs-internal" title="digitalhub_data.entities.dataitems.entity._base.Dataitem" href="../entity/#digitalhub_data.entities.dataitems.entity._base.Dataitem">Dataitem</a>]</code>
+                  <code>list[<a class="autorefs autorefs-internal" title="digitalhub_data.entities.dataitem.entity._base.Dataitem" href="../entity/#digitalhub_data.entities.dataitem.entity._base.Dataitem">Dataitem</a>]</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -2700,37 +2523,61 @@ Use entity name instead of entity key as identifier.</p>
       </tbody>
     </table>
 
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Using entity key:</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">objs</span> <span class="o">=</span> <span class="n">get_dataitem_versions</span><span class="p">(</span><span class="s2">&quot;store://my-dataitem-key&quot;</span><span class="p">)</span>
+</code></pre></div>
+    <p>Using entity name:</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">objs</span> <span class="o">=</span> <span class="n">get_dataitem_versions</span><span class="p">(</span><span class="s2">&quot;my-dataitem-name&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>                             <span class="n">project</span><span class="o">=</span><span class="s2">&quot;my-project&quot;</span><span class="p">)</span>
+</code></pre></div>
+
             <details class="quote">
-              <summary>Source code in <code>digitalhub_data/entities/dataitems/crud.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">156</span>
-<span class="normal">157</span>
-<span class="normal">158</span>
-<span class="normal">159</span>
-<span class="normal">160</span>
-<span class="normal">161</span>
-<span class="normal">162</span>
-<span class="normal">163</span>
-<span class="normal">164</span>
-<span class="normal">165</span>
-<span class="normal">166</span>
-<span class="normal">167</span>
-<span class="normal">168</span>
-<span class="normal">169</span>
-<span class="normal">170</span>
-<span class="normal">171</span>
-<span class="normal">172</span>
-<span class="normal">173</span>
-<span class="normal">174</span>
-<span class="normal">175</span>
-<span class="normal">176</span>
-<span class="normal">177</span>
-<span class="normal">178</span>
-<span class="normal">179</span>
-<span class="normal">180</span>
-<span class="normal">181</span>
-<span class="normal">182</span>
-<span class="normal">183</span>
-<span class="normal">184</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_dataitem_versions</span><span class="p">(</span>
+              <summary>Source code in <code>digitalhub_data/entities/dataitem/crud.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_dataitem_versions</span><span class="p">(</span>
     <span class="n">identifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">project</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
@@ -2741,7 +2588,7 @@ Use entity name instead of entity key as identifier.</p>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    identifier : str</span>
-<span class="sd">        Entity key or name.</span>
+<span class="sd">        Entity key (store://...) or entity name.</span>
 <span class="sd">    project : str</span>
 <span class="sd">        Project name.</span>
 <span class="sd">    **kwargs : dict</span>
@@ -2751,14 +2598,28 @@ Use entity name instead of entity key as identifier.</p>
 <span class="sd">    -------</span>
 <span class="sd">    list[Dataitem]</span>
 <span class="sd">        List of object instances.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Using entity key:</span>
+<span class="sd">    &gt;&gt;&gt; objs = get_dataitem_versions(&quot;store://my-dataitem-key&quot;)</span>
+
+<span class="sd">    Using entity name:</span>
+<span class="sd">    &gt;&gt;&gt; objs = get_dataitem_versions(&quot;my-dataitem-name&quot;,</span>
+<span class="sd">    &gt;&gt;&gt;                              project=&quot;my-project&quot;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">obj</span> <span class="o">=</span> <span class="n">read_entity_api_ctx_versions</span><span class="p">(</span>
+    <span class="n">objs</span> <span class="o">=</span> <span class="n">read_entity_api_ctx_versions</span><span class="p">(</span>
         <span class="n">identifier</span><span class="p">,</span>
         <span class="n">entity_type</span><span class="o">=</span><span class="n">ENTITY_TYPE</span><span class="p">,</span>
         <span class="n">project</span><span class="o">=</span><span class="n">project</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">)</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">dataitem_from_dict</span><span class="p">(</span><span class="n">o</span><span class="p">)</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">obj</span><span class="p">]</span>
+    <span class="n">objects</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">objs</span><span class="p">:</span>
+        <span class="n">entity</span> <span class="o">=</span> <span class="n">dataitem_from_dict</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
+        <span class="n">entity</span><span class="o">.</span><span class="n">_get_files_info</span><span class="p">()</span>
+        <span class="n">objects</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entity</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">objects</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -2768,7 +2629,7 @@ Use entity name instead of entity key as identifier.</p>
 <div class="doc doc-object doc-function">
 
 
-<h2 id="digitalhub_data.entities.dataitems.crud.import_dataitem" class="doc doc-heading">
+<h2 id="digitalhub_data.entities.dataitem.crud.import_dataitem" class="doc doc-heading">
             <code class="highlight language-python"><span class="n">import_dataitem</span><span class="p">(</span><span class="n">file</span><span class="p">)</span></code>
 
 </h2>
@@ -2776,7 +2637,7 @@ Use entity name instead of entity key as identifier.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Get object from file.</p>
+        <p>Import object from a YAML file.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -2797,7 +2658,7 @@ Use entity name instead of entity key as identifier.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Path to the file.</p>
+                <p>Path to YAML file.</p>
               </div>
             </td>
             <td>
@@ -2819,7 +2680,7 @@ Use entity name instead of entity key as identifier.</p>
       <tbody>
           <tr class="doc-section-item">
             <td>
-                  <code><a class="autorefs autorefs-internal" title="digitalhub_data.entities.dataitems.entity._base.Dataitem" href="../entity/#digitalhub_data.entities.dataitems.entity._base.Dataitem">Dataitem</a></code>
+                  <code><a class="autorefs autorefs-internal" title="digitalhub_data.entities.dataitem.entity._base.Dataitem" href="../entity/#digitalhub_data.entities.dataitem.entity._base.Dataitem">Dataitem</a></code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -2830,39 +2691,52 @@ Use entity name instead of entity key as identifier.</p>
       </tbody>
     </table>
 
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">obj</span> <span class="o">=</span> <span class="n">import_dataitem</span><span class="p">(</span><span class="s2">&quot;my-dataitem.yaml&quot;</span><span class="p">)</span>
+</code></pre></div>
+
             <details class="quote">
-              <summary>Source code in <code>digitalhub_data/entities/dataitems/crud.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">187</span>
-<span class="normal">188</span>
-<span class="normal">189</span>
-<span class="normal">190</span>
-<span class="normal">191</span>
-<span class="normal">192</span>
-<span class="normal">193</span>
-<span class="normal">194</span>
-<span class="normal">195</span>
-<span class="normal">196</span>
-<span class="normal">197</span>
-<span class="normal">198</span>
-<span class="normal">199</span>
-<span class="normal">200</span>
-<span class="normal">201</span>
-<span class="normal">202</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">import_dataitem</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dataitem</span><span class="p">:</span>
+              <summary>Source code in <code>digitalhub_data/entities/dataitem/crud.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span>
+<span class="normal">314</span>
+<span class="normal">315</span>
+<span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">import_dataitem</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dataitem</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Get object from file.</span>
+<span class="sd">    Import object from a YAML file.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    file : str</span>
-<span class="sd">        Path to the file.</span>
+<span class="sd">        Path to YAML file.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    Dataitem</span>
 <span class="sd">        Object instance.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; obj = import_dataitem(&quot;my-dataitem.yaml&quot;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">obj</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">read_yaml</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">create_dataitem_from_dict</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dataitem_from_dict</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -2872,7 +2746,7 @@ Use entity name instead of entity key as identifier.</p>
 <div class="doc doc-object doc-function">
 
 
-<h2 id="digitalhub_data.entities.dataitems.crud.list_dataitems" class="doc doc-heading">
+<h2 id="digitalhub_data.entities.dataitem.crud.list_dataitems" class="doc doc-heading">
             <code class="highlight language-python"><span class="n">list_dataitems</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
 
 </h2>
@@ -2880,7 +2754,7 @@ Use entity name instead of entity key as identifier.</p>
 
     <div class="doc doc-contents ">
 
-      <p>List all objects from backend.</p>
+        <p>List all latest version objects from backend.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -2937,20 +2811,28 @@ Use entity name instead of entity key as identifier.</p>
       <tbody>
           <tr class="doc-section-item">
             <td>
-                  <code>list[<a class="autorefs autorefs-internal" title="digitalhub_data.entities.dataitems.entity._base.Dataitem" href="../entity/#digitalhub_data.entities.dataitems.entity._base.Dataitem">Dataitem</a>]</code>
+                  <code>list[<a class="autorefs autorefs-internal" title="digitalhub_data.entities.dataitem.entity._base.Dataitem" href="../entity/#digitalhub_data.entities.dataitem.entity._base.Dataitem">Dataitem</a>]</code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>List of dataitems.</p>
+                <p>List of object instances.</p>
               </div>
             </td>
           </tr>
       </tbody>
     </table>
 
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">objs</span> <span class="o">=</span> <span class="n">list_dataitems</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s2">&quot;my-project&quot;</span><span class="p">)</span>
+</code></pre></div>
+
             <details class="quote">
-              <summary>Source code in <code>digitalhub_data/entities/dataitems/crud.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">270</span>
+              <summary>Source code in <code>digitalhub_data/entities/dataitem/crud.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
 <span class="normal">271</span>
 <span class="normal">272</span>
 <span class="normal">273</span>
@@ -2971,9 +2853,15 @@ Use entity name instead of entity key as identifier.</p>
 <span class="normal">288</span>
 <span class="normal">289</span>
 <span class="normal">290</span>
-<span class="normal">291</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">list_dataitems</span><span class="p">(</span><span class="n">project</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Dataitem</span><span class="p">]:</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span>
+<span class="normal">297</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">list_dataitems</span><span class="p">(</span><span class="n">project</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Dataitem</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    List all objects from backend.</span>
+<span class="sd">    List all latest version objects from backend.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -2985,14 +2873,23 @@ Use entity name instead of entity key as identifier.</p>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    list[Dataitem]</span>
-<span class="sd">        List of dataitems.</span>
+<span class="sd">        List of object instances.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; objs = list_dataitems(project=&quot;my-project&quot;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">objs</span> <span class="o">=</span> <span class="n">list_entity_api_ctx</span><span class="p">(</span>
         <span class="n">project</span><span class="o">=</span><span class="n">project</span><span class="p">,</span>
         <span class="n">entity_type</span><span class="o">=</span><span class="n">ENTITY_TYPE</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">)</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">dataitem_from_dict</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">objs</span><span class="p">]</span>
+    <span class="n">objects</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">objs</span><span class="p">:</span>
+        <span class="n">entity</span> <span class="o">=</span> <span class="n">dataitem_from_dict</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
+        <span class="n">entity</span><span class="o">.</span><span class="n">_get_files_info</span><span class="p">()</span>
+        <span class="n">objects</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entity</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">objects</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -3002,15 +2899,15 @@ Use entity name instead of entity key as identifier.</p>
 <div class="doc doc-object doc-function">
 
 
-<h2 id="digitalhub_data.entities.dataitems.crud.log_dataitem" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">log_dataitem</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+<h2 id="digitalhub_data.entities.dataitem.crud.log_dataitem" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">log_dataitem</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
 
 </h2>
 
 
     <div class="doc doc-contents ">
 
-      <p>Log a dataitem to the project.</p>
+        <p>Log a dataitem to the project.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -3067,27 +2964,27 @@ Use entity name instead of entity key as identifier.</p>
             </td>
           </tr>
           <tr class="doc-section-item">
+            <td><code>source</code></td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Dataitem location on local path.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
             <td><code>data</code></td>
             <td>
                   <code><span title="typing.Any">Any</span></code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Dataframe to log.</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td><code>path</code></td>
-            <td>
-                  <code>str</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Destination path of the dataitem.</p>
+                <p>Dataframe to log. Alternative to source.</p>
               </div>
             </td>
             <td>
@@ -3101,7 +2998,21 @@ Use entity name instead of entity key as identifier.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Extension of the dataitem.</p>
+                <p>Extension of the output dataframe.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code>path</code></td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Destination path of the dataitem. If not provided, it's generated.</p>
               </div>
             </td>
             <td>
@@ -3115,7 +3026,7 @@ Use entity name instead of entity key as identifier.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>New dataitem parameters.</p>
+                <p>New dataitem spec parameters.</p>
               </div>
             </td>
             <td>
@@ -3137,7 +3048,7 @@ Use entity name instead of entity key as identifier.</p>
       <tbody>
           <tr class="doc-section-item">
             <td>
-                  <code><a class="autorefs autorefs-internal" title="digitalhub_data.entities.dataitems.entity._base.Dataitem" href="../entity/#digitalhub_data.entities.dataitems.entity._base.Dataitem">Dataitem</a></code>
+                  <code><a class="autorefs autorefs-internal" title="digitalhub_data.entities.dataitem.entity._base.Dataitem" href="../entity/#digitalhub_data.entities.dataitem.entity._base.Dataitem">Dataitem</a></code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -3148,56 +3059,103 @@ Use entity name instead of entity key as identifier.</p>
       </tbody>
     </table>
 
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">obj</span> <span class="o">=</span> <span class="n">log_dataitem</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s2">&quot;my-project&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>                   <span class="n">name</span><span class="o">=</span><span class="s2">&quot;my-dataitem&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>                   <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;table&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>                   <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+</code></pre></div>
+
             <details class="quote">
-              <summary>Source code in <code>digitalhub_data/entities/dataitems/crud.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">294</span>
-<span class="normal">295</span>
-<span class="normal">296</span>
-<span class="normal">297</span>
-<span class="normal">298</span>
-<span class="normal">299</span>
-<span class="normal">300</span>
-<span class="normal">301</span>
-<span class="normal">302</span>
-<span class="normal">303</span>
-<span class="normal">304</span>
-<span class="normal">305</span>
-<span class="normal">306</span>
-<span class="normal">307</span>
-<span class="normal">308</span>
-<span class="normal">309</span>
-<span class="normal">310</span>
-<span class="normal">311</span>
-<span class="normal">312</span>
-<span class="normal">313</span>
-<span class="normal">314</span>
-<span class="normal">315</span>
-<span class="normal">316</span>
-<span class="normal">317</span>
-<span class="normal">318</span>
-<span class="normal">319</span>
-<span class="normal">320</span>
-<span class="normal">321</span>
-<span class="normal">322</span>
-<span class="normal">323</span>
-<span class="normal">324</span>
-<span class="normal">325</span>
-<span class="normal">326</span>
-<span class="normal">327</span>
-<span class="normal">328</span>
-<span class="normal">329</span>
-<span class="normal">330</span>
-<span class="normal">331</span>
-<span class="normal">332</span>
-<span class="normal">333</span>
-<span class="normal">334</span>
-<span class="normal">335</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">log_dataitem</span><span class="p">(</span>
+              <summary>Source code in <code>digitalhub_data/entities/dataitem/crud.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">log_dataitem</span><span class="p">(</span>
     <span class="n">project</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">kind</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="n">data</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
-    <span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">source</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">Any</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">extension</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dataitem</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -3211,28 +3169,65 @@ Use entity name instead of entity key as identifier.</p>
 <span class="sd">        Object name.</span>
 <span class="sd">    kind : str</span>
 <span class="sd">        Kind the object.</span>
+<span class="sd">    source : str</span>
+<span class="sd">        Dataitem location on local path.</span>
 <span class="sd">    data : Any</span>
-<span class="sd">        Dataframe to log.</span>
-<span class="sd">    path : str</span>
-<span class="sd">        Destination path of the dataitem.</span>
+<span class="sd">        Dataframe to log. Alternative to source.</span>
 <span class="sd">    extension : str</span>
-<span class="sd">        Extension of the dataitem.</span>
+<span class="sd">        Extension of the output dataframe.</span>
+<span class="sd">    path : str</span>
+<span class="sd">        Destination path of the dataitem. If not provided, it&#39;s generated.</span>
 <span class="sd">    **kwargs : dict</span>
-<span class="sd">        New dataitem parameters.</span>
+<span class="sd">        New dataitem spec parameters.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    Dataitem</span>
 <span class="sd">        Object instance.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; obj = log_dataitem(project=&quot;my-project&quot;,</span>
+<span class="sd">    &gt;&gt;&gt;                    name=&quot;my-dataitem&quot;,</span>
+<span class="sd">    &gt;&gt;&gt;                    kind=&quot;table&quot;,</span>
+<span class="sd">    &gt;&gt;&gt;                    data=df)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">dataitem</span> <span class="o">=</span> <span class="n">create_dataitem</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="n">project</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;table&quot;</span><span class="p">:</span>
-        <span class="n">dataitem</span><span class="o">.</span><span class="n">write_df</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="n">extension</span><span class="p">)</span>
-        <span class="n">reader</span> <span class="o">=</span> <span class="n">get_reader_by_object</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-        <span class="n">dataitem</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">schema</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">get_schema</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-        <span class="n">dataitem</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">preview</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">get_preview</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-    <span class="n">dataitem</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">dataitem</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">source</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;You must provide source or data.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Case where source is provided</span>
+    <span class="k">if</span> <span class="n">source</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">eval_local_source</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">uuid</span> <span class="o">=</span> <span class="n">build_uuid</span><span class="p">()</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;uuid&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">uuid</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">build_log_path_from_source</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">ENTITY_TYPE</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">uuid</span><span class="p">,</span> <span class="n">source</span><span class="p">)</span>
+
+        <span class="n">obj</span> <span class="o">=</span> <span class="n">new_dataitem</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="n">project</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">obj</span><span class="o">.</span><span class="n">upload</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+
+    <span class="c1"># Case where data is provided</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">uuid</span> <span class="o">=</span> <span class="n">build_uuid</span><span class="p">()</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;uuid&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">uuid</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">build_log_path_from_filename</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">ENTITY_TYPE</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">uuid</span><span class="p">,</span> <span class="s2">&quot;data.parquet&quot;</span><span class="p">)</span>
+
+        <span class="n">obj</span> <span class="o">=</span> <span class="n">dataitem_from_parameters</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="n">project</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;table&quot;</span><span class="p">:</span>
+            <span class="n">dst</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">write_df</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="n">extension</span><span class="p">)</span>
+            <span class="n">reader</span> <span class="o">=</span> <span class="n">get_reader_by_object</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="n">obj</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">schema</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">get_schema</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="n">obj</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">preview</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">get_preview</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="n">store</span> <span class="o">=</span> <span class="n">get_store</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+            <span class="n">src</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">urlparse</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">name</span>
+            <span class="n">paths</span> <span class="o">=</span> <span class="p">[(</span><span class="n">dst</span><span class="p">,</span> <span class="n">src</span><span class="p">)]</span>
+            <span class="n">infos</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="n">get_file_info</span><span class="p">(</span><span class="n">paths</span><span class="p">)</span>
+            <span class="n">obj</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">add_files_info</span><span class="p">(</span><span class="n">infos</span><span class="p">)</span>
+        <span class="n">obj</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">obj</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -3242,15 +3237,15 @@ Use entity name instead of entity key as identifier.</p>
 <div class="doc doc-object doc-function">
 
 
-<h2 id="digitalhub_data.entities.dataitems.crud.new_dataitem" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">new_dataitem</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">git_source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">embedded</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+<h2 id="digitalhub_data.entities.dataitem.crud.new_dataitem" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">new_dataitem</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">embedded</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
 
 </h2>
 
 
     <div class="doc doc-contents ">
 
-      <p>Create a new object instance.</p>
+        <p>Create a new object.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -3313,7 +3308,7 @@ Use entity name instead of entity key as identifier.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>ID of the object (UUID4).</p>
+                <p>ID of the object (UUID4, e.g. 40f25c4b-d26b-4221-b048-9527aff291e2).</p>
               </div>
             </td>
             <td>
@@ -3328,20 +3323,6 @@ Use entity name instead of entity key as identifier.</p>
             <td>
               <div class="doc-md-description">
                 <p>Description of the object (human readable).</p>
-              </div>
-            </td>
-            <td>
-                  <code>None</code>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td><code>git_source</code></td>
-            <td>
-                  <code>str</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Remote git source for object.</p>
               </div>
             </td>
             <td>
@@ -3369,7 +3350,7 @@ Use entity name instead of entity key as identifier.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Flag to determine if object must be embedded in project.</p>
+                <p>Flag to determine if object spec must be embedded in project spec.</p>
               </div>
             </td>
             <td>
@@ -3383,8 +3364,7 @@ Use entity name instead of entity key as identifier.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Object path on local file system or remote storage.
-If not provided, it's generated.</p>
+                <p>Object path on local file system or remote storage. It is also the destination path of upload() method.</p>
               </div>
             </td>
             <td>
@@ -3420,7 +3400,7 @@ If not provided, it's generated.</p>
       <tbody>
           <tr class="doc-section-item">
             <td>
-                  <code><a class="autorefs autorefs-internal" title="digitalhub_data.entities.dataitems.entity._base.Dataitem" href="../entity/#digitalhub_data.entities.dataitems.entity._base.Dataitem">Dataitem</a></code>
+                  <code><a class="autorefs autorefs-internal" title="digitalhub_data.entities.dataitem.entity._base.Dataitem" href="../entity/#digitalhub_data.entities.dataitem.entity._base.Dataitem">Dataitem</a></code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -3431,79 +3411,89 @@ If not provided, it's generated.</p>
       </tbody>
     </table>
 
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">obj</span> <span class="o">=</span> <span class="n">new_dataitem</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s2">&quot;my-project&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>                   <span class="n">name</span><span class="o">=</span><span class="s2">&quot;my-dataitem&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>                   <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;dataitem&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>                   <span class="n">path</span><span class="o">=</span><span class="s2">&quot;s3://my-bucket/my-key&quot;</span><span class="p">)</span>
+</code></pre></div>
+
             <details class="quote">
-              <summary>Source code in <code>digitalhub_data/entities/dataitems/crud.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 61</span>
-<span class="normal"> 62</span>
-<span class="normal"> 63</span>
-<span class="normal"> 64</span>
-<span class="normal"> 65</span>
-<span class="normal"> 66</span>
-<span class="normal"> 67</span>
-<span class="normal"> 68</span>
-<span class="normal"> 69</span>
-<span class="normal"> 70</span>
-<span class="normal"> 71</span>
-<span class="normal"> 72</span>
-<span class="normal"> 73</span>
-<span class="normal"> 74</span>
-<span class="normal"> 75</span>
-<span class="normal"> 76</span>
-<span class="normal"> 77</span>
-<span class="normal"> 78</span>
-<span class="normal"> 79</span>
-<span class="normal"> 80</span>
-<span class="normal"> 81</span>
-<span class="normal"> 82</span>
-<span class="normal"> 83</span>
-<span class="normal"> 84</span>
-<span class="normal"> 85</span>
-<span class="normal"> 86</span>
-<span class="normal"> 87</span>
-<span class="normal"> 88</span>
-<span class="normal"> 89</span>
-<span class="normal"> 90</span>
-<span class="normal"> 91</span>
-<span class="normal"> 92</span>
-<span class="normal"> 93</span>
-<span class="normal"> 94</span>
-<span class="normal"> 95</span>
-<span class="normal"> 96</span>
-<span class="normal"> 97</span>
-<span class="normal"> 98</span>
-<span class="normal"> 99</span>
-<span class="normal">100</span>
-<span class="normal">101</span>
-<span class="normal">102</span>
-<span class="normal">103</span>
-<span class="normal">104</span>
-<span class="normal">105</span>
-<span class="normal">106</span>
-<span class="normal">107</span>
-<span class="normal">108</span>
-<span class="normal">109</span>
-<span class="normal">110</span>
-<span class="normal">111</span>
-<span class="normal">112</span>
-<span class="normal">113</span>
-<span class="normal">114</span>
-<span class="normal">115</span>
-<span class="normal">116</span>
-<span class="normal">117</span>
-<span class="normal">118</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">new_dataitem</span><span class="p">(</span>
+              <summary>Source code in <code>digitalhub_data/entities/dataitem/crud.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">new_dataitem</span><span class="p">(</span>
     <span class="n">project</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">kind</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">uuid</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">git_source</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">labels</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">embedded</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dataitem</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Create a new object instance.</span>
+<span class="sd">    Create a new object.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -3514,18 +3504,15 @@ If not provided, it's generated.</p>
 <span class="sd">    kind : str</span>
 <span class="sd">        Kind the object.</span>
 <span class="sd">    uuid : str</span>
-<span class="sd">        ID of the object (UUID4).</span>
+<span class="sd">        ID of the object (UUID4, e.g. 40f25c4b-d26b-4221-b048-9527aff291e2).</span>
 <span class="sd">    description : str</span>
 <span class="sd">        Description of the object (human readable).</span>
-<span class="sd">    git_source : str</span>
-<span class="sd">        Remote git source for object.</span>
 <span class="sd">    labels : list[str]</span>
 <span class="sd">        List of labels.</span>
 <span class="sd">    embedded : bool</span>
-<span class="sd">        Flag to determine if object must be embedded in project.</span>
+<span class="sd">        Flag to determine if object spec must be embedded in project spec.</span>
 <span class="sd">    path : str</span>
-<span class="sd">        Object path on local file system or remote storage.</span>
-<span class="sd">        If not provided, it&#39;s generated.</span>
+<span class="sd">        Object path on local file system or remote storage. It is also the destination path of upload() method.</span>
 <span class="sd">    **kwargs : dict</span>
 <span class="sd">        Spec keyword arguments.</span>
 
@@ -3533,17 +3520,24 @@ If not provided, it's generated.</p>
 <span class="sd">    -------</span>
 <span class="sd">    Dataitem</span>
 <span class="sd">        Object instance.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; obj = new_dataitem(project=&quot;my-project&quot;,</span>
+<span class="sd">    &gt;&gt;&gt;                    name=&quot;my-dataitem&quot;,</span>
+<span class="sd">    &gt;&gt;&gt;                    kind=&quot;dataitem&quot;,</span>
+<span class="sd">    &gt;&gt;&gt;                    path=&quot;s3://my-bucket/my-key&quot;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">obj</span> <span class="o">=</span> <span class="n">create_dataitem</span><span class="p">(</span>
+    <span class="n">check_context</span><span class="p">(</span><span class="n">project</span><span class="p">)</span>
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">dataitem_from_parameters</span><span class="p">(</span>
         <span class="n">project</span><span class="o">=</span><span class="n">project</span><span class="p">,</span>
         <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
         <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">,</span>
-        <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span>
         <span class="n">uuid</span><span class="o">=</span><span class="n">uuid</span><span class="p">,</span>
         <span class="n">description</span><span class="o">=</span><span class="n">description</span><span class="p">,</span>
-        <span class="n">git_source</span><span class="o">=</span><span class="n">git_source</span><span class="p">,</span>
         <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span>
         <span class="n">embedded</span><span class="o">=</span><span class="n">embedded</span><span class="p">,</span>
+        <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">obj</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
@@ -3557,15 +3551,15 @@ If not provided, it's generated.</p>
 <div class="doc doc-object doc-function">
 
 
-<h2 id="digitalhub_data.entities.dataitems.crud.update_dataitem" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">update_dataitem</span><span class="p">(</span><span class="n">entity</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+<h2 id="digitalhub_data.entities.dataitem.crud.update_dataitem" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">update_dataitem</span><span class="p">(</span><span class="n">entity</span><span class="p">)</span></code>
 
 </h2>
 
 
     <div class="doc doc-contents ">
 
-      <p>Update object in backend.</p>
+        <p>Update object. Note that object spec are immutable.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -3582,29 +3576,15 @@ If not provided, it's generated.</p>
           <tr class="doc-section-item">
             <td><code>entity</code></td>
             <td>
-                  <code><a class="autorefs autorefs-internal" title="digitalhub_data.entities.dataitems.entity._base.Dataitem" href="../entity/#digitalhub_data.entities.dataitems.entity._base.Dataitem">Dataitem</a></code>
+                  <code><a class="autorefs autorefs-internal" title="digitalhub_data.entities.dataitem.entity._base.Dataitem" href="../entity/#digitalhub_data.entities.dataitem.entity._base.Dataitem">Dataitem</a></code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>The object to update.</p>
+                <p>Object to update.</p>
               </div>
             </td>
             <td>
                 <em>required</em>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td><code>**kwargs</code></td>
-            <td>
-                  <code>dict</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Parameters to pass to the API call.</p>
-              </div>
-            </td>
-            <td>
-                  <code>{}</code>
             </td>
           </tr>
       </tbody>
@@ -3622,7 +3602,7 @@ If not provided, it's generated.</p>
       <tbody>
           <tr class="doc-section-item">
             <td>
-                  <code><a class="autorefs autorefs-internal" title="digitalhub_data.entities.dataitems.entity._base.Dataitem" href="../entity/#digitalhub_data.entities.dataitems.entity._base.Dataitem">Dataitem</a></code>
+                  <code><a class="autorefs autorefs-internal" title="digitalhub_data.entities.dataitem.entity._base.Dataitem" href="../entity/#digitalhub_data.entities.dataitem.entity._base.Dataitem">Dataitem</a></code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -3633,55 +3613,50 @@ If not provided, it's generated.</p>
       </tbody>
     </table>
 
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">obj</span> <span class="o">=</span> <span class="n">update_dataitem</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+</code></pre></div>
+
             <details class="quote">
-              <summary>Source code in <code>digitalhub_data/entities/dataitems/crud.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">244</span>
-<span class="normal">245</span>
-<span class="normal">246</span>
-<span class="normal">247</span>
-<span class="normal">248</span>
-<span class="normal">249</span>
-<span class="normal">250</span>
-<span class="normal">251</span>
-<span class="normal">252</span>
-<span class="normal">253</span>
-<span class="normal">254</span>
-<span class="normal">255</span>
-<span class="normal">256</span>
-<span class="normal">257</span>
-<span class="normal">258</span>
-<span class="normal">259</span>
-<span class="normal">260</span>
-<span class="normal">261</span>
-<span class="normal">262</span>
-<span class="normal">263</span>
-<span class="normal">264</span>
-<span class="normal">265</span>
-<span class="normal">266</span>
-<span class="normal">267</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">update_dataitem</span><span class="p">(</span><span class="n">entity</span><span class="p">:</span> <span class="n">Dataitem</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dataitem</span><span class="p">:</span>
+              <summary>Source code in <code>digitalhub_data/entities/dataitem/crud.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span>
+<span class="normal">328</span>
+<span class="normal">329</span>
+<span class="normal">330</span>
+<span class="normal">331</span>
+<span class="normal">332</span>
+<span class="normal">333</span>
+<span class="normal">334</span>
+<span class="normal">335</span>
+<span class="normal">336</span>
+<span class="normal">337</span>
+<span class="normal">338</span>
+<span class="normal">339</span>
+<span class="normal">340</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">update_dataitem</span><span class="p">(</span><span class="n">entity</span><span class="p">:</span> <span class="n">Dataitem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dataitem</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Update object in backend.</span>
+<span class="sd">    Update object. Note that object spec are immutable.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    entity : Dataitem</span>
-<span class="sd">        The object to update.</span>
-<span class="sd">    **kwargs : dict</span>
-<span class="sd">        Parameters to pass to the API call.</span>
+<span class="sd">        Object to update.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    Dataitem</span>
 <span class="sd">        Entity updated.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; obj = update_dataitem(obj)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">obj</span> <span class="o">=</span> <span class="n">update_entity_api_ctx</span><span class="p">(</span>
-        <span class="n">project</span><span class="o">=</span><span class="n">entity</span><span class="o">.</span><span class="n">project</span><span class="p">,</span>
-        <span class="n">entity_type</span><span class="o">=</span><span class="n">ENTITY_TYPE</span><span class="p">,</span>
-        <span class="n">entity_id</span><span class="o">=</span><span class="n">entity</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
-        <span class="n">entity_dict</span><span class="o">=</span><span class="n">entity</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(),</span>
-        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-    <span class="p">)</span>
-    <span class="k">return</span> <span class="n">dataitem_from_dict</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">entity</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">update</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -3734,10 +3709,10 @@ If not provided, it's generated.</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.525ec568.min.js"></script>
       
     
   </body>

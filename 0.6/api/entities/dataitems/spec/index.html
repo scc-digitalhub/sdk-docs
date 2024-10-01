@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.30">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.3cba04c6.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.8c3ca2c6.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
@@ -52,7 +52,7 @@
     
       <link rel="stylesheet" href="../../../../../stylesheets/colors.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#digitalhub_data.entities.dataitems.spec" class="md-skip">
+        <a href="#digitalhub_data.entities.dataitem.spec" class="md-skip">
           Skip to content
         </a>
       
@@ -110,14 +110,14 @@
     >
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
 
     <!-- Button to open drawer -->
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
 
     <!-- Header title -->
@@ -129,26 +129,28 @@
           </span>
           <div class="dropdown">
             <button class="dd-button">
-              <span>0.6</span>
+              <span class="dd-text">0.6</span>
               <span class="dd-arrow">&#9660;</span>
+              
+                
+                
+              
+              
+                
+                  
+                    <a href="https://scc-digitalhub.github.io/sdk-docs">current</a>
+                  
+                
+              
+                
+                  
+                    <a href="https://scc-digitalhub.github.io/sdk-docs/0.7">0.7</a>
+                  
+                
+              
+                
+              
             </button>
-            <div class="dd-options-container">
-              
-                
-                
-              
-              
-                
-                  <div class="dd-content">
-                    
-                      <a href="https://scc-digitalhub.github.io/sdk-docs">current</a>
-                    
-                  </div>
-                
-              
-                
-              
-            </div>
           </div>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -172,7 +174,7 @@
     <input class="md-option" data-md-color-media="" data-md-color-scheme="orange" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
   
@@ -182,7 +184,7 @@
     <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
   
@@ -192,7 +194,7 @@
 
     <!-- User preference: color palette -->
     
-      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
 
     <!-- Site language selector -->
@@ -233,7 +235,7 @@
     <a href="../../../.." title="Digitalhub SDK documentation" class="md-nav__button md-logo" aria-label="Digitalhub SDK documentation" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
     Digitalhub SDK documentation
@@ -1581,7 +1583,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.spec" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.spec" class="md-nav__link">
     <span class="md-ellipsis">
       spec
     </span>
@@ -1590,31 +1592,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.spec.DataitemParams" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.spec.DataitemParams" class="md-nav__link">
     <span class="md-ellipsis">
       DataitemParams
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="DataitemParams">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.spec.DataitemParams.path" class="md-nav__link">
-    <span class="md-ellipsis">
-      path
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.spec.DataitemParamsDataitem" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.spec.DataitemParamsDataitem" class="md-nav__link">
     <span class="md-ellipsis">
       DataitemParamsDataitem
     </span>
@@ -1623,7 +1610,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.spec.DataitemParamsIceberg" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.spec.DataitemParamsIceberg" class="md-nav__link">
     <span class="md-ellipsis">
       DataitemParamsIceberg
     </span>
@@ -1632,7 +1619,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.spec.DataitemParamsTable" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.spec.DataitemParamsTable" class="md-nav__link">
     <span class="md-ellipsis">
       DataitemParamsTable
     </span>
@@ -1642,7 +1629,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.spec.DataitemParamsTable.schema_" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.spec.DataitemParamsTable.schema_" class="md-nav__link">
     <span class="md-ellipsis">
       schema_
     </span>
@@ -1656,7 +1643,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.spec.DataitemSpec" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.spec.DataitemSpec" class="md-nav__link">
     <span class="md-ellipsis">
       DataitemSpec
     </span>
@@ -1665,7 +1652,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.spec.DataitemSpecDataitem" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.spec.DataitemSpecDataitem" class="md-nav__link">
     <span class="md-ellipsis">
       DataitemSpecDataitem
     </span>
@@ -1674,7 +1661,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.spec.DataitemSpecIceberg" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.spec.DataitemSpecIceberg" class="md-nav__link">
     <span class="md-ellipsis">
       DataitemSpecIceberg
     </span>
@@ -1683,7 +1670,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.spec.DataitemSpecTable" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.spec.DataitemSpecTable" class="md-nav__link">
     <span class="md-ellipsis">
       DataitemSpecTable
     </span>
@@ -1896,7 +1883,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.spec" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.spec" class="md-nav__link">
     <span class="md-ellipsis">
       spec
     </span>
@@ -1905,31 +1892,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.spec.DataitemParams" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.spec.DataitemParams" class="md-nav__link">
     <span class="md-ellipsis">
       DataitemParams
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="DataitemParams">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.spec.DataitemParams.path" class="md-nav__link">
-    <span class="md-ellipsis">
-      path
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.spec.DataitemParamsDataitem" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.spec.DataitemParamsDataitem" class="md-nav__link">
     <span class="md-ellipsis">
       DataitemParamsDataitem
     </span>
@@ -1938,7 +1910,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.spec.DataitemParamsIceberg" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.spec.DataitemParamsIceberg" class="md-nav__link">
     <span class="md-ellipsis">
       DataitemParamsIceberg
     </span>
@@ -1947,7 +1919,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.spec.DataitemParamsTable" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.spec.DataitemParamsTable" class="md-nav__link">
     <span class="md-ellipsis">
       DataitemParamsTable
     </span>
@@ -1957,7 +1929,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.spec.DataitemParamsTable.schema_" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.spec.DataitemParamsTable.schema_" class="md-nav__link">
     <span class="md-ellipsis">
       schema_
     </span>
@@ -1971,7 +1943,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.spec.DataitemSpec" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.spec.DataitemSpec" class="md-nav__link">
     <span class="md-ellipsis">
       DataitemSpec
     </span>
@@ -1980,7 +1952,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.spec.DataitemSpecDataitem" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.spec.DataitemSpecDataitem" class="md-nav__link">
     <span class="md-ellipsis">
       DataitemSpecDataitem
     </span>
@@ -1989,7 +1961,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.spec.DataitemSpecIceberg" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.spec.DataitemSpecIceberg" class="md-nav__link">
     <span class="md-ellipsis">
       DataitemSpecIceberg
     </span>
@@ -1998,7 +1970,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.dataitems.spec.DataitemSpecTable" class="md-nav__link">
+  <a href="#digitalhub_data.entities.dataitem.spec.DataitemSpecTable" class="md-nav__link">
     <span class="md-ellipsis">
       DataitemSpecTable
     </span>
@@ -2027,7 +1999,7 @@
 
 
 
-<a id="digitalhub_data.entities.dataitems.spec"></a>
+<a id="digitalhub_data.entities.dataitem.spec"></a>
     <div class="doc doc-contents first">
 
 
@@ -2045,7 +2017,7 @@
 
 
 
-<h2 id="digitalhub_data.entities.dataitems.spec.DataitemParams" class="doc doc-heading">
+<h2 id="digitalhub_data.entities.dataitem.spec.DataitemParams" class="doc doc-heading">
             <code>DataitemParams</code>
 
 
@@ -2054,26 +2026,20 @@
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="digitalhub_core.entities._base.spec.SpecParams" href="../../_base/spec/#digitalhub_core.entities._base.spec.SpecParams">SpecParams</a></code></p>
+              Bases: <code><span title="digitalhub_core.entities._base.spec.material.MaterialParams">MaterialParams</span></code></p>
 
 
-      <p>Dataitem parameters.</p>
+        <p>Dataitem parameters.</p>
 
               <details class="quote">
-                <summary>Source code in <code>digitalhub_data/entities/dataitems/spec.py</code></summary>
-                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">DataitemParams</span><span class="p">(</span><span class="n">SpecParams</span><span class="p">):</span>
+                <summary>Source code in <code>digitalhub_data/entities/dataitem/spec.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">DataitemParams</span><span class="p">(</span><span class="n">MaterialParams</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Dataitem parameters.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">path</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="s2">&quot;The path of the dataitem.&quot;</span>
 </code></pre></div></td></tr></table></div>
               </details>
 
@@ -2086,27 +2052,6 @@
 
 
 
-
-<div class="doc doc-object doc-attribute">
-
-
-
-<h3 id="digitalhub_data.entities.dataitems.spec.DataitemParams.path" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">path</span><span class="p">:</span> <span class="nb">str</span></code>
-
-  <span class="doc doc-labels">
-      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
-  </span>
-
-</h3>
-
-
-    <div class="doc doc-contents ">
-
-      <p>The path of the dataitem.</p>
-    </div>
-
-</div>
 
 
 
@@ -2122,7 +2067,7 @@
 
 
 
-<h2 id="digitalhub_data.entities.dataitems.spec.DataitemParamsDataitem" class="doc doc-heading">
+<h2 id="digitalhub_data.entities.dataitem.spec.DataitemParamsDataitem" class="doc doc-heading">
             <code>DataitemParamsDataitem</code>
 
 
@@ -2131,22 +2076,38 @@
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="digitalhub_data.entities.dataitems.spec.DataitemParams" href="#digitalhub_data.entities.dataitems.spec.DataitemParams">DataitemParams</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="digitalhub_data.entities.dataitem.spec.DataitemParams" href="#digitalhub_data.entities.dataitem.spec.DataitemParams">DataitemParams</a></code></p>
 
 
-      <p>Dataitem dataitem parameters.</p>
+        <p>Dataitem dataitem parameters.</p>
 
               <details class="quote">
-                <summary>Source code in <code>digitalhub_data/entities/dataitems/spec.py</code></summary>
-                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">DataitemParamsDataitem</span><span class="p">(</span><span class="n">DataitemParams</span><span class="p">):</span>
+                <summary>Source code in <code>digitalhub_data/entities/dataitem/spec.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">DataitemParamsDataitem</span><span class="p">(</span><span class="n">DataitemParams</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Dataitem dataitem parameters.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 </code></pre></div></td></tr></table></div>
               </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
 
     </div>
 
@@ -2156,7 +2117,7 @@
 
 
 
-<h2 id="digitalhub_data.entities.dataitems.spec.DataitemParamsIceberg" class="doc doc-heading">
+<h2 id="digitalhub_data.entities.dataitem.spec.DataitemParamsIceberg" class="doc doc-heading">
             <code>DataitemParamsIceberg</code>
 
 
@@ -2165,22 +2126,38 @@
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="digitalhub_data.entities.dataitems.spec.DataitemParams" href="#digitalhub_data.entities.dataitems.spec.DataitemParams">DataitemParams</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="digitalhub_data.entities.dataitem.spec.DataitemParams" href="#digitalhub_data.entities.dataitem.spec.DataitemParams">DataitemParams</a></code></p>
 
 
-      <p>Dataitem iceberg parameters.</p>
+        <p>Dataitem iceberg parameters.</p>
 
               <details class="quote">
-                <summary>Source code in <code>digitalhub_data/entities/dataitems/spec.py</code></summary>
-                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">63</span>
-<span class="normal">64</span>
-<span class="normal">65</span>
-<span class="normal">66</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">DataitemParamsIceberg</span><span class="p">(</span><span class="n">DataitemParams</span><span class="p">):</span>
+                <summary>Source code in <code>digitalhub_data/entities/dataitem/spec.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">DataitemParamsIceberg</span><span class="p">(</span><span class="n">DataitemParams</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Dataitem iceberg parameters.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 </code></pre></div></td></tr></table></div>
               </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
 
     </div>
 
@@ -2190,7 +2167,7 @@
 
 
 
-<h2 id="digitalhub_data.entities.dataitems.spec.DataitemParamsTable" class="doc doc-heading">
+<h2 id="digitalhub_data.entities.dataitem.spec.DataitemParamsTable" class="doc doc-heading">
             <code>DataitemParamsTable</code>
 
 
@@ -2199,20 +2176,20 @@
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="digitalhub_data.entities.dataitems.spec.DataitemParams" href="#digitalhub_data.entities.dataitems.spec.DataitemParams">DataitemParams</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="digitalhub_data.entities.dataitem.spec.DataitemParams" href="#digitalhub_data.entities.dataitem.spec.DataitemParams">DataitemParams</a></code></p>
 
 
-      <p>Dataitem table parameters.</p>
+        <p>Dataitem table parameters.</p>
 
               <details class="quote">
-                <summary>Source code in <code>digitalhub_data/entities/dataitems/spec.py</code></summary>
-                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">DataitemParamsTable</span><span class="p">(</span><span class="n">DataitemParams</span><span class="p">):</span>
+                <summary>Source code in <code>digitalhub_data/entities/dataitem/spec.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">DataitemParamsTable</span><span class="p">(</span><span class="n">DataitemParams</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Dataitem table parameters.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -2236,7 +2213,7 @@
 
 
 
-<h3 id="digitalhub_data.entities.dataitems.spec.DataitemParamsTable.schema_" class="doc doc-heading">
+<h3 id="digitalhub_data.entities.dataitem.spec.DataitemParamsTable.schema_" class="doc doc-heading">
             <code class="highlight language-python"><span class="n">schema_</span><span class="p">:</span> <span class="n">TableSchema</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s1">&#39;schema&#39;</span><span class="p">)</span></code>
 
   <span class="doc doc-labels">
@@ -2249,7 +2226,7 @@
 
     <div class="doc doc-contents ">
 
-      <p>The schema of the dataitem in table schema format.</p>
+        <p>The schema of the dataitem in table schema format.</p>
     </div>
 
 </div>
@@ -2268,7 +2245,7 @@
 
 
 
-<h2 id="digitalhub_data.entities.dataitems.spec.DataitemSpec" class="doc doc-heading">
+<h2 id="digitalhub_data.entities.dataitem.spec.DataitemSpec" class="doc doc-heading">
             <code>DataitemSpec</code>
 
 
@@ -2277,26 +2254,20 @@
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="digitalhub_core.entities._base.spec.Spec" href="../../_base/spec/#digitalhub_core.entities._base.spec.Spec">Spec</a></code></p>
+              Bases: <code><span title="digitalhub_core.entities._base.spec.material.MaterialSpec">MaterialSpec</span></code></p>
 
 
-      <p>Dataitem specifications.</p>
+        <p>Dataitem specifications.</p>
 
               <details class="quote">
-                <summary>Source code in <code>digitalhub_data/entities/dataitems/spec.py</code></summary>
+                <summary>Source code in <code>digitalhub_data/entities/dataitem/spec.py</code></summary>
                 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">DataitemSpec</span><span class="p">(</span><span class="n">Spec</span><span class="p">):</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">DataitemSpec</span><span class="p">(</span><span class="n">MaterialSpec</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Dataitem specifications.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">path</span>
 </code></pre></div></td></tr></table></div>
               </details>
 
@@ -2324,7 +2295,7 @@
 
 
 
-<h2 id="digitalhub_data.entities.dataitems.spec.DataitemSpecDataitem" class="doc doc-heading">
+<h2 id="digitalhub_data.entities.dataitem.spec.DataitemSpecDataitem" class="doc doc-heading">
             <code>DataitemSpecDataitem</code>
 
 
@@ -2333,22 +2304,38 @@
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="digitalhub_data.entities.dataitems.spec.DataitemSpec" href="#digitalhub_data.entities.dataitems.spec.DataitemSpec">DataitemSpec</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="digitalhub_data.entities.dataitem.spec.DataitemSpec" href="#digitalhub_data.entities.dataitem.spec.DataitemSpec">DataitemSpec</a></code></p>
 
 
-      <p>Dataitem dataitem specifications.</p>
+        <p>Dataitem dataitem specifications.</p>
 
               <details class="quote">
-                <summary>Source code in <code>digitalhub_data/entities/dataitems/spec.py</code></summary>
-                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">DataitemSpecDataitem</span><span class="p">(</span><span class="n">DataitemSpec</span><span class="p">):</span>
+                <summary>Source code in <code>digitalhub_data/entities/dataitem/spec.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">DataitemSpecDataitem</span><span class="p">(</span><span class="n">DataitemSpec</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Dataitem dataitem specifications.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 </code></pre></div></td></tr></table></div>
               </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
 
     </div>
 
@@ -2358,7 +2345,7 @@
 
 
 
-<h2 id="digitalhub_data.entities.dataitems.spec.DataitemSpecIceberg" class="doc doc-heading">
+<h2 id="digitalhub_data.entities.dataitem.spec.DataitemSpecIceberg" class="doc doc-heading">
             <code>DataitemSpecIceberg</code>
 
 
@@ -2367,22 +2354,38 @@
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="digitalhub_data.entities.dataitems.spec.DataitemSpec" href="#digitalhub_data.entities.dataitems.spec.DataitemSpec">DataitemSpec</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="digitalhub_data.entities.dataitem.spec.DataitemSpec" href="#digitalhub_data.entities.dataitem.spec.DataitemSpec">DataitemSpec</a></code></p>
 
 
-      <p>Dataitem iceberg specifications.</p>
+        <p>Dataitem iceberg specifications.</p>
 
               <details class="quote">
-                <summary>Source code in <code>digitalhub_data/entities/dataitems/spec.py</code></summary>
-                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">DataitemSpecIceberg</span><span class="p">(</span><span class="n">DataitemSpec</span><span class="p">):</span>
+                <summary>Source code in <code>digitalhub_data/entities/dataitem/spec.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">DataitemSpecIceberg</span><span class="p">(</span><span class="n">DataitemSpec</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Dataitem iceberg specifications.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 </code></pre></div></td></tr></table></div>
               </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
 
     </div>
 
@@ -2392,7 +2395,7 @@
 
 
 
-<h2 id="digitalhub_data.entities.dataitems.spec.DataitemSpecTable" class="doc doc-heading">
+<h2 id="digitalhub_data.entities.dataitem.spec.DataitemSpecTable" class="doc doc-heading">
             <code>DataitemSpecTable</code>
 
 
@@ -2401,21 +2404,21 @@
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="digitalhub_data.entities.dataitems.spec.DataitemSpec" href="#digitalhub_data.entities.dataitems.spec.DataitemSpec">DataitemSpec</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="digitalhub_data.entities.dataitem.spec.DataitemSpec" href="#digitalhub_data.entities.dataitem.spec.DataitemSpec">DataitemSpec</a></code></p>
 
 
-      <p>Dataitem table specifications.</p>
+        <p>Dataitem table specifications.</p>
 
               <details class="quote">
-                <summary>Source code in <code>digitalhub_data/entities/dataitems/spec.py</code></summary>
-                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">DataitemSpecTable</span><span class="p">(</span><span class="n">DataitemSpec</span><span class="p">):</span>
+                <summary>Source code in <code>digitalhub_data/entities/dataitem/spec.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">DataitemSpecTable</span><span class="p">(</span><span class="n">DataitemSpec</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Dataitem table specifications.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -2493,10 +2496,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.525ec568.min.js"></script>
       
     
   </body>

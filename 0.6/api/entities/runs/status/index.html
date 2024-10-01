@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.30">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.3cba04c6.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.8c3ca2c6.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
@@ -52,7 +52,7 @@
     
       <link rel="stylesheet" href="../../../../../stylesheets/colors.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#digitalhub_core.entities.runs.status" class="md-skip">
+        <a href="#digitalhub_core.entities.run.status" class="md-skip">
           Skip to content
         </a>
       
@@ -110,14 +110,14 @@
     >
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
 
     <!-- Button to open drawer -->
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
 
     <!-- Header title -->
@@ -129,26 +129,28 @@
           </span>
           <div class="dropdown">
             <button class="dd-button">
-              <span>0.6</span>
+              <span class="dd-text">0.6</span>
               <span class="dd-arrow">&#9660;</span>
+              
+                
+                
+              
+              
+                
+                  
+                    <a href="https://scc-digitalhub.github.io/sdk-docs">current</a>
+                  
+                
+              
+                
+                  
+                    <a href="https://scc-digitalhub.github.io/sdk-docs/0.7">0.7</a>
+                  
+                
+              
+                
+              
             </button>
-            <div class="dd-options-container">
-              
-                
-                
-              
-              
-                
-                  <div class="dd-content">
-                    
-                      <a href="https://scc-digitalhub.github.io/sdk-docs">current</a>
-                    
-                  </div>
-                
-              
-                
-              
-            </div>
           </div>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -172,7 +174,7 @@
     <input class="md-option" data-md-color-media="" data-md-color-scheme="orange" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
   
@@ -182,7 +184,7 @@
     <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
   
@@ -192,7 +194,7 @@
 
     <!-- User preference: color palette -->
     
-      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
 
     <!-- Site language selector -->
@@ -233,7 +235,7 @@
     <a href="../../../.." title="Digitalhub SDK documentation" class="md-nav__button md-logo" aria-label="Digitalhub SDK documentation" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
     Digitalhub SDK documentation
@@ -1221,7 +1223,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_core.entities.runs.status" class="md-nav__link">
+  <a href="#digitalhub_core.entities.run.status" class="md-nav__link">
     <span class="md-ellipsis">
       status
     </span>
@@ -1230,7 +1232,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_core.entities.runs.status.RunStatus" class="md-nav__link">
+  <a href="#digitalhub_core.entities.run.status.RunStatus" class="md-nav__link">
     <span class="md-ellipsis">
       RunStatus
     </span>
@@ -1240,7 +1242,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#digitalhub_core.entities.runs.status.RunStatus.get_outputs" class="md-nav__link">
+  <a href="#digitalhub_core.entities.run.status.RunStatus.get_outputs" class="md-nav__link">
     <span class="md-ellipsis">
       get_outputs
     </span>
@@ -1249,7 +1251,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#digitalhub_core.entities.runs.status.RunStatus.get_results" class="md-nav__link">
+  <a href="#digitalhub_core.entities.run.status.RunStatus.get_results" class="md-nav__link">
     <span class="md-ellipsis">
       get_results
     </span>
@@ -1258,7 +1260,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#digitalhub_core.entities.runs.status.RunStatus.get_values" class="md-nav__link">
+  <a href="#digitalhub_core.entities.run.status.RunStatus.get_values" class="md-nav__link">
     <span class="md-ellipsis">
       get_values
     </span>
@@ -1272,7 +1274,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.runs.status" class="md-nav__link">
+  <a href="#digitalhub_data.entities.run.status" class="md-nav__link">
     <span class="md-ellipsis">
       status
     </span>
@@ -1281,7 +1283,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.runs.status.RunStatusData" class="md-nav__link">
+  <a href="#digitalhub_data.entities.run.status.RunStatusData" class="md-nav__link">
     <span class="md-ellipsis">
       RunStatusData
     </span>
@@ -1290,7 +1292,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_ml.entities.runs.status" class="md-nav__link">
+  <a href="#digitalhub_ml.entities.run.status" class="md-nav__link">
     <span class="md-ellipsis">
       status
     </span>
@@ -1299,7 +1301,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_ml.entities.runs.status.RunStatusMl" class="md-nav__link">
+  <a href="#digitalhub_ml.entities.run.status.RunStatusMl" class="md-nav__link">
     <span class="md-ellipsis">
       RunStatusMl
     </span>
@@ -1872,7 +1874,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_core.entities.runs.status" class="md-nav__link">
+  <a href="#digitalhub_core.entities.run.status" class="md-nav__link">
     <span class="md-ellipsis">
       status
     </span>
@@ -1881,7 +1883,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_core.entities.runs.status.RunStatus" class="md-nav__link">
+  <a href="#digitalhub_core.entities.run.status.RunStatus" class="md-nav__link">
     <span class="md-ellipsis">
       RunStatus
     </span>
@@ -1891,7 +1893,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#digitalhub_core.entities.runs.status.RunStatus.get_outputs" class="md-nav__link">
+  <a href="#digitalhub_core.entities.run.status.RunStatus.get_outputs" class="md-nav__link">
     <span class="md-ellipsis">
       get_outputs
     </span>
@@ -1900,7 +1902,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#digitalhub_core.entities.runs.status.RunStatus.get_results" class="md-nav__link">
+  <a href="#digitalhub_core.entities.run.status.RunStatus.get_results" class="md-nav__link">
     <span class="md-ellipsis">
       get_results
     </span>
@@ -1909,7 +1911,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#digitalhub_core.entities.runs.status.RunStatus.get_values" class="md-nav__link">
+  <a href="#digitalhub_core.entities.run.status.RunStatus.get_values" class="md-nav__link">
     <span class="md-ellipsis">
       get_values
     </span>
@@ -1923,7 +1925,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.runs.status" class="md-nav__link">
+  <a href="#digitalhub_data.entities.run.status" class="md-nav__link">
     <span class="md-ellipsis">
       status
     </span>
@@ -1932,7 +1934,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_data.entities.runs.status.RunStatusData" class="md-nav__link">
+  <a href="#digitalhub_data.entities.run.status.RunStatusData" class="md-nav__link">
     <span class="md-ellipsis">
       RunStatusData
     </span>
@@ -1941,7 +1943,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_ml.entities.runs.status" class="md-nav__link">
+  <a href="#digitalhub_ml.entities.run.status" class="md-nav__link">
     <span class="md-ellipsis">
       status
     </span>
@@ -1950,7 +1952,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_ml.entities.runs.status.RunStatusMl" class="md-nav__link">
+  <a href="#digitalhub_ml.entities.run.status.RunStatusMl" class="md-nav__link">
     <span class="md-ellipsis">
       RunStatusMl
     </span>
@@ -1979,7 +1981,7 @@
 
 
 
-<a id="digitalhub_core.entities.runs.status"></a>
+<a id="digitalhub_core.entities.run.status"></a>
     <div class="doc doc-contents first">
 
 
@@ -1997,7 +1999,7 @@
 
 
 
-<h2 id="digitalhub_core.entities.runs.status.RunStatus" class="doc doc-heading">
+<h2 id="digitalhub_core.entities.run.status.RunStatus" class="doc doc-heading">
             <code>RunStatus</code>
 
 
@@ -2006,13 +2008,13 @@
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="digitalhub_core.entities._base.status.Status" href="../../_base/status/#digitalhub_core.entities._base.status.Status">Status</a></code></p>
+              Bases: <code><span title="digitalhub_core.entities._base.status.base.Status">Status</span></code></p>
 
 
-      <p>Status class for run entities.</p>
+        <p>Status class for run entities.</p>
 
               <details class="quote">
-                <summary>Source code in <code>digitalhub_core/entities/runs/status.py</code></summary>
+                <summary>Source code in <code>digitalhub_core/entities/run/status.py</code></summary>
                 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 17</span>
 <span class="normal"> 18</span>
 <span class="normal"> 19</span>
@@ -2226,7 +2228,7 @@
 <div class="doc doc-object doc-function">
 
 
-<h3 id="digitalhub_core.entities.runs.status.RunStatus.get_outputs" class="doc doc-heading">
+<h3 id="digitalhub_core.entities.run.status.RunStatus.get_outputs" class="doc doc-heading">
             <code class="highlight language-python"><span class="n">get_outputs</span><span class="p">(</span><span class="n">as_key</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">as_dict</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
 
 </h3>
@@ -2234,7 +2236,7 @@
 
     <div class="doc doc-contents ">
 
-      <p>Get outputs.</p>
+        <p>Get outputs.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -2303,7 +2305,7 @@
     </table>
 
             <details class="quote">
-              <summary>Source code in <code>digitalhub_core/entities/runs/status.py</code></summary>
+              <summary>Source code in <code>digitalhub_core/entities/run/status.py</code></summary>
               <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">49</span>
 <span class="normal">50</span>
 <span class="normal">51</span>
@@ -2372,7 +2374,7 @@
 <div class="doc doc-object doc-function">
 
 
-<h3 id="digitalhub_core.entities.runs.status.RunStatus.get_results" class="doc doc-heading">
+<h3 id="digitalhub_core.entities.run.status.RunStatus.get_results" class="doc doc-heading">
             <code class="highlight language-python"><span class="n">get_results</span><span class="p">()</span></code>
 
 </h3>
@@ -2380,7 +2382,7 @@
 
     <div class="doc doc-contents ">
 
-      <p>Get results.</p>
+        <p>Get results.</p>
 
 
     <p><span class="doc-section-title">Returns:</span></p>
@@ -2406,7 +2408,7 @@
     </table>
 
             <details class="quote">
-              <summary>Source code in <code>digitalhub_core/entities/runs/status.py</code></summary>
+              <summary>Source code in <code>digitalhub_core/entities/run/status.py</code></summary>
               <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">36</span>
 <span class="normal">37</span>
 <span class="normal">38</span>
@@ -2439,7 +2441,7 @@
 <div class="doc doc-object doc-function">
 
 
-<h3 id="digitalhub_core.entities.runs.status.RunStatus.get_values" class="doc doc-heading">
+<h3 id="digitalhub_core.entities.run.status.RunStatus.get_values" class="doc doc-heading">
             <code class="highlight language-python"><span class="n">get_values</span><span class="p">(</span><span class="n">values_list</span><span class="p">)</span></code>
 
 </h3>
@@ -2447,7 +2449,7 @@
 
     <div class="doc doc-contents ">
 
-      <p>Get values.</p>
+        <p>Get values.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -2502,7 +2504,7 @@
     </table>
 
             <details class="quote">
-              <summary>Source code in <code>digitalhub_core/entities/runs/status.py</code></summary>
+              <summary>Source code in <code>digitalhub_core/entities/run/status.py</code></summary>
               <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 98</span>
 <span class="normal"> 99</span>
 <span class="normal">100</span>
@@ -2563,7 +2565,7 @@
 
 
 
-<a id="digitalhub_data.entities.runs.status"></a>
+<a id="digitalhub_data.entities.run.status"></a>
     <div class="doc doc-contents first">
 
 
@@ -2581,7 +2583,7 @@
 
 
 
-<h2 id="digitalhub_data.entities.runs.status.RunStatusData" class="doc doc-heading">
+<h2 id="digitalhub_data.entities.run.status.RunStatusData" class="doc doc-heading">
             <code>RunStatusData</code>
 
 
@@ -2590,22 +2592,38 @@
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="digitalhub_core.entities.runs.status.RunStatus" href="#digitalhub_core.entities.runs.status.RunStatus">RunStatus</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="digitalhub_core.entities.run.status.RunStatus" href="#digitalhub_core.entities.run.status.RunStatus">RunStatus</a></code></p>
 
 
-      <p>A class representing a run status.</p>
+        <p>A class representing a run status.</p>
 
               <details class="quote">
-                <summary>Source code in <code>digitalhub_data/entities/runs/status.py</code></summary>
-                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 9</span>
-<span class="normal">10</span>
+                <summary>Source code in <code>digitalhub_data/entities/run/status.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">RunStatusData</span><span class="p">(</span><span class="n">RunStatus</span><span class="p">):</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">RunStatusData</span><span class="p">(</span><span class="n">RunStatus</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A class representing a run status.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 </code></pre></div></td></tr></table></div>
               </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
 
     </div>
 
@@ -2624,7 +2642,7 @@
 
 
 
-<a id="digitalhub_ml.entities.runs.status"></a>
+<a id="digitalhub_ml.entities.run.status"></a>
     <div class="doc doc-contents first">
 
 
@@ -2642,7 +2660,7 @@
 
 
 
-<h2 id="digitalhub_ml.entities.runs.status.RunStatusMl" class="doc doc-heading">
+<h2 id="digitalhub_ml.entities.run.status.RunStatusMl" class="doc doc-heading">
             <code>RunStatusMl</code>
 
 
@@ -2651,22 +2669,38 @@
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="digitalhub_data.entities.runs.status.RunStatusData" href="#digitalhub_data.entities.runs.status.RunStatusData">RunStatusData</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="digitalhub_data.entities.run.status.RunStatusData" href="#digitalhub_data.entities.run.status.RunStatusData">RunStatusData</a></code></p>
 
 
-      <p>A class representing a run status.</p>
+        <p>A class representing a run status.</p>
 
               <details class="quote">
-                <summary>Source code in <code>digitalhub_ml/entities/runs/status.py</code></summary>
-                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 9</span>
-<span class="normal">10</span>
+                <summary>Source code in <code>digitalhub_ml/entities/run/status.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">RunStatusMl</span><span class="p">(</span><span class="n">RunStatusData</span><span class="p">):</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">RunStatusMl</span><span class="p">(</span><span class="n">RunStatusData</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A class representing a run status.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 </code></pre></div></td></tr></table></div>
               </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
 
     </div>
 
@@ -2719,10 +2753,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.525ec568.min.js"></script>
       
     
   </body>
