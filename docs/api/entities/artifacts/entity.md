@@ -1,1 +1,1 @@
-:::digitalhub_core.entities.artifacts.entity
+:::digitalhub_core.entities.artifact.entity

@@ -1,1 +1,1 @@
-:::digitalhub_core.entities.functions.entity
+:::digitalhub_core.entities.function.entity

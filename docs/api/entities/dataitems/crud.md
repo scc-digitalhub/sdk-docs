@@ -1,1 +1,1 @@
-:::digitalhub_data.entities.dataitems.crud
+:::digitalhub_data.entities.dataitem.crud

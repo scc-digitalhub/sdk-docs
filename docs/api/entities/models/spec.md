@@ -1,1 +1,1 @@
-:::digitalhub_ml.entities.models.spec
+:::digitalhub_ml.entities.model.spec

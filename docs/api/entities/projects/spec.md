@@ -1,1 +1,1 @@
-:::digitalhub_core.entities.projects.spec
+:::digitalhub_core.entities.project.spec

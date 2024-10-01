@@ -1,1 +1,1 @@
-:::digitalhub_core.entities.projects.status
+:::digitalhub_core.entities.project.status

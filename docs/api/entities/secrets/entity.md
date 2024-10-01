@@ -1,1 +1,1 @@
-:::digitalhub_core.entities.secrets.entity
+:::digitalhub_core.entities.secret.entity

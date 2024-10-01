@@ -1,1 +1,1 @@
-:::digitalhub_core.entities.workflows.status
+:::digitalhub_core.entities.workflow.status

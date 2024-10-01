@@ -1,3 +1,3 @@
-:::digitalhub_core.entities.projects.crud
-:::digitalhub_data.entities.projects.crud
-:::digitalhub_ml.entities.projects.crud
+:::digitalhub_core.entities.project.crud
+:::digitalhub_data.entities.project.crud
+:::digitalhub_ml.entities.project.crud

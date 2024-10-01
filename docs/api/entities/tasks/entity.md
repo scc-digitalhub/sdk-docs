@@ -1,1 +1,1 @@
-:::digitalhub_core.entities.tasks.entity
+:::digitalhub_core.entities.task.entity

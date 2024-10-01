@@ -1,5 +1,5 @@
-:::digitalhub_data.entities.dataitems.entity._base
-:::digitalhub_data.entities.dataitems.entity.dataitem
-:::digitalhub_data.entities.dataitems.entity.iceberg
-:::digitalhub_data.entities.dataitems.entity.table
-:::digitalhub_data.entities.dataitems.builder
+:::digitalhub_data.entities.dataitem.entity._base
+:::digitalhub_data.entities.dataitem.entity.dataitem
+:::digitalhub_data.entities.dataitem.entity.iceberg
+:::digitalhub_data.entities.dataitem.entity.table
+:::digitalhub_data.entities.dataitem.builder
