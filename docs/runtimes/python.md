@@ -35,8 +35,8 @@ There are some restriction that must be applied when defining the function:
 
 1. The argument `project` is reserved. The runtime overrides the function parameters and assign to the `project` argument a `Project` object, used as SDK context. With the `Project` object you can manipulate entities like `Artifact`, `Dataitem`, etc. If you provide a `project` argument into the function and use it as a non `Project` object, you will probably get an error. If you define the `project` argument into your functions signature, you can use the `project` variable as `Project` object.
 2. The arguments `context` and `events` are reserved in remote execution. These arguments are reserved for `nuclio` `context` and `events` function parameters. If you define these arguments into your functions signature, you can use the `context` and `events` variables as `nuclio` `context` and `events` objects.
-3. If some arguments of the function refer to some SDK objects, they must be mapped inside the run's `inputs` parameter. Other arguments of the function can be mapped inside the run's `parameter` parameter. More on that on the [Parameters composition](./python.md#parameters-composition) section.
-4. You may or may not decorate your function with the `@handler` decorator you can import from the `digitalhub_runtime_python` package. If you decorate your function and return something, you need to map the outputs in the decorator and in the run's `outputs` parameter. More on that on the [Parameters composition](./python.md#parameters-composition) section.
+3. If some arguments of the function refer to some SDK objects, they must be mapped inside the run's `inputs` parameter. Other arguments of the function can be mapped inside the run's `parameter` parameter. More on that on the [Parameters composition](./python.md#inputs) section.
+4. You may or may not decorate your function with the `@handler` decorator you can import from the `digitalhub_runtime_python` package. If you decorate your function and return something, you need to map the outputs in the decorator to collect named outputs/results. More on that on the [Parameters composition](./python.md#outputs) section.
 
 #### Function definition example
 
@@ -51,7 +51,7 @@ def func1():
 # 2. Decorated function that returns a string
 
 # If you decorate your function and return something, you need to map the outputs
-# in the decorator and in the run's `outputs` parameter
+# in the decorator
 @handler(outputs=["result"])
 def func2():
    return "hello world"
@@ -62,7 +62,7 @@ def func3(project):
    # allowed use of project variable
    project.log_artifact(name="example",
                         kind="artifact",
-                         source_path="/path/to/file")
+                        source_path="/path/to/file")
 
    # not allowed use of project variable
    project.some_method_not_from_sdk() # Probably there will be an error
@@ -75,8 +75,7 @@ def func4(context, events):
 
 # 5. Function with mixed input arguments
 def func5(di: Dataitem, param1: str):
-   # di refers to a Dataitem object, so it must be mapped
-   # into runs inputs paramaters
+   # di refers to a Dataitem object, so it must be mapped into runs inputs paramaters
    # param1 is a string, it must be mapped into runs input parameters
 ```
 
@@ -103,7 +102,7 @@ sdk_dataitem = sdk.new_dataitem(...)
 sdk_function.run(inputs={"di": sdk_dataitem.key})
 ```
 
-- Other function arguments must be mapped inside the run's `parameter` parameter.
+- Other function arguments must be mapped inside the run's `parameters` parameter.
 
 ```python
 
@@ -117,27 +116,32 @@ sdk_dataitem = sdk.new_dataitem(...)
 
 # Reference the di argument as key and the dataitem key as value
 sdk_function.run(inputs={"di": sdk_dataitem.key},
-                 parameter={"param1": "some value"})
+                 parameters={"param1": "some value"})
 ```
 
 #### Outputs
 
-The outputs of the function must be mapped inside the run's `outputs` parameter if you return something and you decorate your function.
+If the function return something, it is possible to collect two kinds of outputs from the `Run` object:
+
+- SDK **`outputs`**, represented as `Dataitems` (if the rerurn value are Dataframe, eg. `pandas.DataFrame`) or `Artifacts` (if the return value are "non primitive" python object, like user defined class)
+- Function **`results`** consisting of python "primitives" (str, int, float, etc.).
+
+To collect outputs and results with named keys, you need to map them in the `handler` decorator.
 
 ```python
 from digitalhub_runtime_python import handler
 
-@handler(outputs=["result", "other_result"])
+@handler(outputs=["data", "string"])
 def func(di: Dataitem, param1: str):
    # do something with di
-   return "some value", "some other value"
+   return pd.DataFrame, "some value"
 
 
 sdk_function.run(inputs={"di": sdk_dataitem.key},
-                 parameter={"param1": "some value"},
-                 outputs={"result": "named_result",
-                          "other_result": "named_other_result"})
+                 parameters={"param1": "some value"})
 ```
+
+In this example, the `Run` object will collect an output and a result. The output is a `Dataitem` object and the result is a `str`. To access the output from the run you can call `run.output("data")`, to collect the result you can call `run.result("string")`.
 
 ### Function
 
@@ -279,7 +283,6 @@ The run's parameters are passed alongside the task's ones.
 | --- | --- | --- | --- |
 | loacal_execution | bool | Flag to indicate if the run will be executed locally | False |
 | inputs | dict | Input entity key. | None |
-| outputs | dict | Outputs mapped. | None |
 | parameters | dict | Extra parameters for a function. | None |
 
 #### Run example
@@ -289,10 +292,6 @@ run = function.run(
     action="job",
     inputs={
         "dataitem": dataitem.key
-    },
-    outputs={
-        "dataitem": "mapped-name",
-        "label": "some-label"
     }
 )
 ```

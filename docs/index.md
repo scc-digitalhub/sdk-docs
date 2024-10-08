@@ -46,12 +46,4 @@ This is the [Digitalhub SDK](https://github.com/scc-digitalhub/digitalhub-sdk) d
 
     [API](./api/api.md)
 
-- __API__
-
-    ---
-
-    API documentation
-
-    [API](./api/api.md)
-
 </div>
