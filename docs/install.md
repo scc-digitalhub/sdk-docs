@@ -10,19 +10,17 @@ The most basic command to install the `digitalhub` package in your Python enviro
 python -m pip install digitalhub[full]
 ```
 
-This command will install the SDK with all the various layer packages (core, data, ml).
+This command will install the SDK with all the dependencies.
 
 There are more options available:
 
 ```bash
-python -m pip install digitalhub[ml]
-python -m pip install digitalhub[data]
-python -m pip install digitalhub
+# Install SDK plus pandas for dataitems handling
+python -m pip install digitalhub[pandas]
+
+# Install SDK plus mlflow for mlflow model handling
+python -m pip install digitalhub[mlflow]
 ```
-
-Everyone of them will install the digitalhub up to a certain layer. Please note that the layer are pyramidal and proceed as follows:
-
-- `core` -> `data` -> `ml`
 
 ## Installing Digitalhub Runtimes
 
@@ -37,19 +35,19 @@ The Digitalhub runtimes are installed in the same way as the SDK. We have distri
 You can install the runtime directly with pip. It will come with all the required SDK dependencies:
 
 ```bash
-# Install python runtime + core + data + ml
+# Install python runtime
 python -m pip install digitalhub-runtime-python
 
-# Install container runtime + core
+# Install container runtime
 python -m pip install digitalhub-runtime-container
 
-# Install dbt runtime + data (local option for local execution)
+# Install dbt runtime
 python -m pip install digitalhub-runtime-dbt
 python -m pip install digitalhub-runtime-dbt[local]
 
-# Install kfp runtime + core + data + ml
+# Install kfp runtime
 python -m pip install digitalhub-runtime-kfp
 
-# Install modelserve runtime + core + data + ml
+# Install modelserve runtime
 python -m pip install digitalhub-runtime-modelserve
 ```

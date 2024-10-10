@@ -13,7 +13,7 @@ jobs:
           python-version: "3.9"
       - run: pip install mkdocs-material \
           "mkdocstrings[python]" \
-          "digitalhub[all]>=0.7.0b"
+          "digitalhub[full]>=0.8.0b, <0.9"
       - run: |
           git fetch --prune --unshallow --tags
           git checkout main
@@ -43,7 +43,7 @@ jobs:
           python-version: "3.9"
       - run: pip install mkdocs-material \
           "mkdocstrings[python]>=0.18" \
-          "digitalhub[all]>=0.7.0b"
+          "digitalhub[full]>=0.8.0b, <0.9"
       - run: |
           git fetch --prune --unshallow --tags
           git checkout ${{ github.ref_name }}

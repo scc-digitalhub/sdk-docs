@@ -54,22 +54,16 @@ func = project.new_function(
 
 ## Run the function
 
-Finally, run the function with the following command:
+Run the function with the following command:
 
 ```python
 run = func.run(action="job",
                inputs={"url": di.key},
-               outputs={"df": "df"})
+               wait=True)
 ```
 
-Refresh the run until state is `COMPLETED`:
+And finally get the output result:
 
 ```python
-run.refresh()
-```
-
-and finally get the output result:
-
-```python
-run.outputs()["df"].as_df()
+run.output("df").as_df()
 ```
