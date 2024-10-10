@@ -1,1 +1,1 @@
-:::digitalhub_core.entities.workflow.spec
+:::digitalhub.entities.workflow.spec

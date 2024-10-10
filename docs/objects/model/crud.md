@@ -58,7 +58,7 @@ The `kwargs` parameters are the same for both *new* and *log* methods.
 
 This function create a new entity and saves it into the backend.
 
-::: digitalhub_ml.entities.model.crud
+::: digitalhub.entities.model.crud
     options:
         heading_level: 6
         show_signature: false
@@ -72,7 +72,7 @@ This function create a new entity and saves it into the backend.
 
 This function create a new entity into the backend and also upload a local file into a model store (eg. *S3*).
 
-::: digitalhub_ml.entities.model.crud
+::: digitalhub.entities.model.crud
     options:
         heading_level: 6
         show_signature: false
@@ -94,7 +94,7 @@ If you want to collect a model from the backend using `get_model()`, you have tw
 - The first one is to use the `key` parameter which has the pattern `store://<project-name>/<entity-type>/<entity-kind>/<entity-name>:<entity-id>`.
 - The second one is to use the entity name as `identifier`, the project name as `project` and the entity id as `entity_id` parameters. If you do not specify the entity id, you will get the latest version.
 
-::: digitalhub_ml.entities.model.crud
+::: digitalhub.entities.model.crud
     options:
         heading_level: 6
         show_signature: false
@@ -108,7 +108,7 @@ If you want to collect a model from the backend using `get_model()`, you have tw
 
 This function returns all the versions of a model from the backend.
 
-::: digitalhub_ml.entities.model.crud
+::: digitalhub.entities.model.crud
     options:
         heading_level: 6
         show_signature: false
@@ -122,7 +122,7 @@ This function returns all the versions of a model from the backend.
 
 This function returns all the latest models from the backend related to a project.
 
-::: digitalhub_ml.entities.model.crud
+::: digitalhub.entities.model.crud
     options:
         heading_level: 6
         show_signature: false
@@ -136,7 +136,7 @@ This function returns all the latest models from the backend related to a projec
 
 This function load the model from a local yaml file descriptor.
 
-::: digitalhub_ml.entities.model.crud
+::: digitalhub.entities.model.crud
     options:
         heading_level: 6
         show_signature: false
@@ -150,7 +150,7 @@ This function load the model from a local yaml file descriptor.
 
 To update a model you can use the `update_model()` method.
 
-::: digitalhub_ml.entities.model.crud
+::: digitalhub.entities.model.crud
     options:
         heading_level: 6
         show_signature: false
@@ -164,7 +164,7 @@ To update a model you can use the `update_model()` method.
 
 To delete a model you can use the `delete_model()` method.
 
-::: digitalhub_ml.entities.model.crud
+::: digitalhub.entities.model.crud
     options:
         heading_level: 6
         show_signature: false

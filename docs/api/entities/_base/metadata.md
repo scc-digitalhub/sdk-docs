@@ -1,1 +1,1 @@
-:::digitalhub_core.entities._base.metadata
+:::digitalhub.entities._base.metadata

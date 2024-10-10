@@ -1,1 +1,1 @@
-:::digitalhub_core.entities._base.base
+:::digitalhub.entities._base.base

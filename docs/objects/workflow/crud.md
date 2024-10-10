@@ -58,7 +58,7 @@ The `kwargs` parameters are determined by the **kind** of the object, and are de
 
 This function create a new entity and saves it into the backend.
 
-::: digitalhub_core.entities.workflow.crud
+::: digitalhub.entities.workflow.crud
     options:
         heading_level: 6
         show_signature: false
@@ -80,7 +80,7 @@ If you want to collect a workflow from the backend using `get_workflow()`, you h
 - The first one is to use the `key` parameter which has the pattern `store://<project-name>/<entity-type>/<entity-kind>/<entity-name>:<entity-id>`.
 - The second one is to use the entity name as `identifier`, the project name as `project` and the entity id as `entity_id` parameters. If you do not specify the entity id, you will get the latest version.
 
-::: digitalhub_core.entities.workflow.crud
+::: digitalhub.entities.workflow.crud
     options:
         heading_level: 6
         show_signature: false
@@ -94,7 +94,7 @@ If you want to collect a workflow from the backend using `get_workflow()`, you h
 
 This function returns all the versions of a workflow from the backend.
 
-::: digitalhub_core.entities.workflow.crud
+::: digitalhub.entities.workflow.crud
     options:
         heading_level: 6
         show_signature: false
@@ -108,7 +108,7 @@ This function returns all the versions of a workflow from the backend.
 
 This function returns all the latest workflows from the backend related to a project.
 
-::: digitalhub_core.entities.workflow.crud
+::: digitalhub.entities.workflow.crud
     options:
         heading_level: 6
         show_signature: false
@@ -122,7 +122,7 @@ This function returns all the latest workflows from the backend related to a pro
 
 This function load the workflow from a local yaml file descriptor.
 
-::: digitalhub_core.entities.workflow.crud
+::: digitalhub.entities.workflow.crud
     options:
         heading_level: 6
         show_signature: false
@@ -136,7 +136,7 @@ This function load the workflow from a local yaml file descriptor.
 
 To update a workflow you can use the `update_workflow()` method.
 
-::: digitalhub_core.entities.workflow.crud
+::: digitalhub.entities.workflow.crud
     options:
         heading_level: 6
         show_signature: false
@@ -150,7 +150,7 @@ To update a workflow you can use the `update_workflow()` method.
 
 To delete a workflow you can use the `delete_workflow()` method.
 
-::: digitalhub_core.entities.workflow.crud
+::: digitalhub.entities.workflow.crud
     options:
         heading_level: 6
         show_signature: false

@@ -1,1 +1,1 @@
-:::digitalhub_core.entities.secret.status
+:::digitalhub.entities.secret.status

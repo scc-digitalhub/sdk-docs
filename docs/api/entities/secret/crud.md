@@ -1,1 +1,1 @@
-:::digitalhub_core.entities.secret.crud
+:::digitalhub.entities.secret.crud

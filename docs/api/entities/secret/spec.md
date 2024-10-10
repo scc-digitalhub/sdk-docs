@@ -1,1 +1,1 @@
-:::digitalhub_core.entities.secret.spec
+:::digitalhub.entities.secret.spec

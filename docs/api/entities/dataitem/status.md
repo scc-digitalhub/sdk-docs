@@ -1,1 +1,1 @@
-:::digitalhub_data.entities.dataitem.status
+:::digitalhub.entities.dataitem.status

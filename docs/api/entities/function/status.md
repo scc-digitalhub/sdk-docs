@@ -1,1 +1,1 @@
-:::digitalhub_core.entities.function.status
+:::digitalhub.entities.function.status

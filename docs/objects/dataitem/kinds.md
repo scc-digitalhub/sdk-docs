@@ -21,7 +21,7 @@ The `table` kind indicates that the dataitem is a generic table. It's usefull if
 
 The `table` kind has the following additional methods:
 
-::: digitalhub_data.entities.dataitem.entity.table.DataitemTable.as_df
+::: digitalhub.entities.dataitem.entity.table.DataitemTable.as_df
     options:
         heading_level: 3
         show_signature: false
@@ -31,7 +31,7 @@ The `table` kind has the following additional methods:
         show_root_full_path: false
         show_root_toc_entry: true
 
-::: digitalhub_data.entities.dataitem.entity.table.DataitemTable.write_df
+::: digitalhub.entities.dataitem.entity.table.DataitemTable.write_df
     options:
         heading_level: 3
         show_signature: false

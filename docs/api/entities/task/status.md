@@ -1,1 +1,1 @@
-:::digitalhub_core.entities.task.status
+:::digitalhub.entities.task.status

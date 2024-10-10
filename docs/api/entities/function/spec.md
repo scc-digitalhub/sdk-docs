@@ -1,1 +1,1 @@
-:::digitalhub_core.entities.function.spec
+:::digitalhub.entities.function.spec

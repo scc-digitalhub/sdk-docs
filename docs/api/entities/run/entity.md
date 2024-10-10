@@ -1,1 +1,1 @@
-:::digitalhub_core.entities.run.entity
+:::digitalhub.entities.run.entity

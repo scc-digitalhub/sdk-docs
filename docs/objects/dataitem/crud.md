@@ -58,7 +58,7 @@ The `kwargs` parameters are the same for both *new* and *log* methods.
 
 This function create a new entity and saves it into the backend.
 
-::: digitalhub_data.entities.dataitem.crud
+::: digitalhub.entities.dataitem.crud
     options:
         heading_level: 6
         show_signature: false
@@ -72,7 +72,7 @@ This function create a new entity and saves it into the backend.
 
 This function create a new entity into the backend and also upload a local file into a dataitem store (eg. *S3*).
 
-::: digitalhub_data.entities.dataitem.crud
+::: digitalhub.entities.dataitem.crud
     options:
         heading_level: 6
         show_signature: false
@@ -94,7 +94,7 @@ If you want to collect a dataitem from the backend using `get_dataitem()`, you h
 - The first one is to use the `key` parameter which has the pattern `store://<project-name>/<entity-type>/<entity-kind>/<entity-name>:<entity-id>`.
 - The second one is to use the entity name as `identifier`, the project name as `project` and the entity id as `entity_id` parameters. If you do not specify the entity id, you will get the latest version.
 
-::: digitalhub_data.entities.dataitem.crud
+::: digitalhub.entities.dataitem.crud
     options:
         heading_level: 6
         show_signature: false
@@ -108,7 +108,7 @@ If you want to collect a dataitem from the backend using `get_dataitem()`, you h
 
 This function returns all the versions of a dataitem from the backend.
 
-::: digitalhub_data.entities.dataitem.crud
+::: digitalhub.entities.dataitem.crud
     options:
         heading_level: 6
         show_signature: false
@@ -122,7 +122,7 @@ This function returns all the versions of a dataitem from the backend.
 
 This function returns all the latest dataitems from the backend related to a project.
 
-::: digitalhub_data.entities.dataitem.crud
+::: digitalhub.entities.dataitem.crud
     options:
         heading_level: 6
         show_signature: false
@@ -136,7 +136,7 @@ This function returns all the latest dataitems from the backend related to a pro
 
 This function load the dataitem from a local yaml file descriptor.
 
-::: digitalhub_data.entities.dataitem.crud
+::: digitalhub.entities.dataitem.crud
     options:
         heading_level: 6
         show_signature: false
@@ -150,7 +150,7 @@ This function load the dataitem from a local yaml file descriptor.
 
 To update a dataitem you can use the `update_dataitem()` method.
 
-::: digitalhub_data.entities.dataitem.crud
+::: digitalhub.entities.dataitem.crud
     options:
         heading_level: 6
         show_signature: false
@@ -164,7 +164,7 @@ To update a dataitem you can use the `update_dataitem()` method.
 
 To delete a dataitem you can use the `delete_dataitem()` method.
 
-::: digitalhub_data.entities.dataitem.crud
+::: digitalhub.entities.dataitem.crud
     options:
         heading_level: 6
         show_signature: false

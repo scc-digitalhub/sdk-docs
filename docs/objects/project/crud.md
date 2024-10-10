@@ -44,7 +44,7 @@ You can create a project with the `new_project()` or with `log_project()` method
 
 This function create a new entity and saves it into the backend.
 
-::: digitalhub_core.entities.project.crud
+::: digitalhub.entities.project.crud
     options:
         heading_level: 6
         show_signature: false
@@ -62,7 +62,7 @@ To read projects you can use the `get_project()`, `import_project()` or `load_pr
 
 This function searches for a single project into the backend.
 
-::: digitalhub_core.entities.project.crud
+::: digitalhub.entities.project.crud
     options:
         heading_level: 6
         show_signature: false
@@ -76,7 +76,7 @@ This function searches for a single project into the backend.
 
 This function load the project from a local yaml file descriptor.
 
-::: digitalhub_core.entities.project.crud
+::: digitalhub.entities.project.crud
     options:
         heading_level: 6
         show_signature: false
@@ -90,7 +90,7 @@ This function load the project from a local yaml file descriptor.
 
 This function returns a projects from the backend or from a local file according to the parameter passed to the function. If the parameter is `name`, the function will try to load the project from the backend. If the parameter is `file`, the function will try to load the project from the local file.
 
-::: digitalhub_core.entities.project.crud
+::: digitalhub.entities.project.crud
     options:
         heading_level: 6
         show_signature: false
@@ -104,7 +104,7 @@ This function returns a projects from the backend or from a local file according
 
 You can read or create a project with the `get_or_create_project()` method.
 
-::: digitalhub_core.entities.project.crud
+::: digitalhub.entities.project.crud
     options:
         heading_level: 6
         show_signature: false
@@ -118,7 +118,7 @@ You can read or create a project with the `get_or_create_project()` method.
 
 To update a project you can use the `update_project()` method.
 
-::: digitalhub_core.entities.project.crud
+::: digitalhub.entities.project.crud
     options:
         heading_level: 6
         show_signature: false
@@ -132,7 +132,7 @@ To update a project you can use the `update_project()` method.
 
 To delete a project you can use the `delete_project()` method.
 
-::: digitalhub_core.entities.project.crud
+::: digitalhub.entities.project.crud
     options:
         heading_level: 6
         show_signature: false

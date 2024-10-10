@@ -10,7 +10,7 @@ Crud methods are used to interact with the entity object in the backend or local
 - `export()`: Export the entity locally as yaml file.
 - `refresh()`: Refresh (read) the entity from the backend.
 
-::: digitalhub_core.entities.artifact.entity._base.Artifact.save
+::: digitalhub.entities.artifact.entity._base.Artifact.save
     options:
         heading_level: 3
         show_signature: false
@@ -20,7 +20,7 @@ Crud methods are used to interact with the entity object in the backend or local
         show_root_full_path: false
         show_root_toc_entry: true
 
-::: digitalhub_core.entities.artifact.entity._base.Artifact.export
+::: digitalhub.entities.artifact.entity._base.Artifact.export
     options:
         heading_level: 3
         show_signature: false
@@ -30,7 +30,7 @@ Crud methods are used to interact with the entity object in the backend or local
         show_root_full_path: false
         show_root_toc_entry: true
 
-::: digitalhub_core.entities.artifact.entity._base.Artifact.refresh
+::: digitalhub.entities.artifact.entity._base.Artifact.refresh
     options:
         heading_level: 3
         show_signature: false
@@ -48,7 +48,7 @@ I/O methods are used to handle objects as files.
 - `download()`: Downloads the artifact into a specified path
 - `upload()`: Uploads the artifact to artifact spec path
 
-::: digitalhub_core.entities.artifact.entity._base.Artifact.as_file
+::: digitalhub.entities.artifact.entity._base.Artifact.as_file
     options:
         heading_level: 3
         show_signature: false
@@ -58,7 +58,7 @@ I/O methods are used to handle objects as files.
         show_root_full_path: false
         show_root_toc_entry: true
 
-::: digitalhub_core.entities.artifact.entity._base.Artifact.download
+::: digitalhub.entities.artifact.entity._base.Artifact.download
     options:
         heading_level: 3
         show_signature: false
@@ -68,7 +68,7 @@ I/O methods are used to handle objects as files.
         show_root_full_path: false
         show_root_toc_entry: true
 
-::: digitalhub_core.entities.artifact.entity._base.Artifact.upload
+::: digitalhub.entities.artifact.entity._base.Artifact.upload
     options:
         heading_level: 3
         show_signature: false

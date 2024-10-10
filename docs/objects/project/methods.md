@@ -10,7 +10,7 @@ Crud methods are used to interact with the entity object in the backend or local
 - `export()`: Export the entity locally as yaml file.
 - `refresh()`: Refresh (read) the entity from the backend.
 
-::: digitalhub_core.entities.project.entity._base.Project.save
+::: digitalhub.entities.project.entity.Project.save
     options:
         heading_level: 3
         show_signature: false
@@ -20,7 +20,7 @@ Crud methods are used to interact with the entity object in the backend or local
         show_root_full_path: false
         show_root_toc_entry: true
 
-::: digitalhub_core.entities.project.entity._base.Project.export
+::: digitalhub.entities.project.entity.Project.export
     options:
         heading_level: 3
         show_signature: false
@@ -30,7 +30,7 @@ Crud methods are used to interact with the entity object in the backend or local
         show_root_full_path: false
         show_root_toc_entry: true
 
-::: digitalhub_core.entities.project.entity._base.Project.refresh
+::: digitalhub.entities.project.entity.Project.refresh
     options:
         heading_level: 3
         show_signature: false
@@ -59,7 +59,7 @@ Each digitalhub layer exposes CRUD handles different aspects of dataops and mlop
 
 ### Core layer
 
-The entity handled by the `Project` class in the core layer (`digitalhub_core`) are:
+The entity handled by the `Project` class in the core layer (`digitalhub`) are:
 
 - [**`artifacts`**](../artifact/crud.md)
 - [**`functions`**](../function/crud.md)
@@ -68,12 +68,12 @@ The entity handled by the `Project` class in the core layer (`digitalhub_core`) 
 
 ### Data layer
 
-The entity handled by the `Project` class in the data layer (`digitalhub_data`) are:
+The entity handled by the `Project` class in the data layer (`digitalhub`) are:
 
 - [**`dataitems`**](../dataitem/crud.md)
 
 ### Ml layer
 
-The entity handled by the `Project` class in the ml layer (`digitalhub_ml`) are:
+The entity handled by the `Project` class in the ml layer (`digitalhub`) are:
 
 - [**`models`**](../model/crud.md)

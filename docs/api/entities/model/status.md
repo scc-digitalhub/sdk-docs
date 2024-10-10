@@ -1,1 +1,1 @@
-:::digitalhub_ml.entities.model.status
+:::digitalhub.entities.model.status

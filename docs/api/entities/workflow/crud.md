@@ -1,1 +1,1 @@
-:::digitalhub_core.entities.workflow.crud
+:::digitalhub.entities.workflow.crud

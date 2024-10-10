@@ -1,2 +1,2 @@
-:::digitalhub_core.entities._base.spec.base
-:::digitalhub_core.entities._base.spec.material
+:::digitalhub.entities._base.spec.base
+:::digitalhub.entities._base.spec.material
