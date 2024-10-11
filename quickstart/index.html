@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.40">
     
     
       
@@ -136,6 +136,12 @@
                 
               
               
+                
+              
+                
+                  
+                    <a href="https://scc-digitalhub.github.io/sdk-docs/0.8">0.8</a>
+                  
                 
               
                 
@@ -3238,16 +3244,13 @@
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">)</span>
 </span></code></pre></div>
 <h2 id="run-the-function">Run the function</h2>
-<p>Finally, run the function with the following command:</p>
+<p>Run the function with the following command:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">run</span> <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;job&quot;</span><span class="p">,</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>               <span class="n">inputs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="n">di</span><span class="o">.</span><span class="n">key</span><span class="p">},</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>               <span class="n">outputs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;df&quot;</span><span class="p">:</span> <span class="s2">&quot;df&quot;</span><span class="p">})</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>               <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </span></code></pre></div>
-<p>Refresh the run until state is <code>COMPLETED</code>:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
-</span></code></pre></div>
-<p>and finally get the output result:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">run</span><span class="o">.</span><span class="n">outputs</span><span class="p">()[</span><span class="s2">&quot;df&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">as_df</span><span class="p">()</span>
+<p>And finally get the output result:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">run</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="s2">&quot;df&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">as_df</span><span class="p">()</span>
 </span></code></pre></div>
 
 

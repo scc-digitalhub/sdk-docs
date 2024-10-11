@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.40">
     
     
       
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#digitalhub_core.entities.task.spec.TaskParams" class="md-skip">
+        <a href="#digitalhub.entities.task.spec.TaskParams" class="md-skip">
           Skip to content
         </a>
       
@@ -136,6 +136,12 @@
                 
               
               
+                
+              
+                
+                  
+                    <a href="https://scc-digitalhub.github.io/sdk-docs/0.8">0.8</a>
+                  
                 
               
                 
@@ -2386,7 +2392,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_core.entities.task.spec.TaskParams" class="md-nav__link">
+  <a href="#digitalhub.entities.task.spec.TaskParams" class="md-nav__link">
     <span class="md-ellipsis">
       TaskParams
     </span>
@@ -2396,7 +2402,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#digitalhub_core.entities.task.spec.TaskParams.function" class="md-nav__link">
+  <a href="#digitalhub.entities.task.spec.TaskParams.function" class="md-nav__link">
     <span class="md-ellipsis">
       function
     </span>
@@ -2410,7 +2416,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_core.entities.task.spec.TaskParamsK8s" class="md-nav__link">
+  <a href="#digitalhub.entities.task.spec.TaskParamsK8s" class="md-nav__link">
     <span class="md-ellipsis">
       TaskParamsK8s
     </span>
@@ -2419,7 +2425,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_core.entities.task.spec.TaskSpec" class="md-nav__link">
+  <a href="#digitalhub.entities.task.spec.TaskSpec" class="md-nav__link">
     <span class="md-ellipsis">
       TaskSpec
     </span>
@@ -3140,7 +3146,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_core.entities.task.spec.TaskParams" class="md-nav__link">
+  <a href="#digitalhub.entities.task.spec.TaskParams" class="md-nav__link">
     <span class="md-ellipsis">
       TaskParams
     </span>
@@ -3150,7 +3156,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#digitalhub_core.entities.task.spec.TaskParams.function" class="md-nav__link">
+  <a href="#digitalhub.entities.task.spec.TaskParams.function" class="md-nav__link">
     <span class="md-ellipsis">
       function
     </span>
@@ -3164,7 +3170,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_core.entities.task.spec.TaskParamsK8s" class="md-nav__link">
+  <a href="#digitalhub.entities.task.spec.TaskParamsK8s" class="md-nav__link">
     <span class="md-ellipsis">
       TaskParamsK8s
     </span>
@@ -3173,7 +3179,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#digitalhub_core.entities.task.spec.TaskSpec" class="md-nav__link">
+  <a href="#digitalhub.entities.task.spec.TaskSpec" class="md-nav__link">
     <span class="md-ellipsis">
       TaskSpec
     </span>
@@ -3220,7 +3226,7 @@
 
 
 
-<h2 id="digitalhub_core.entities.task.spec.TaskParams" class="doc doc-heading">
+<h2 id="digitalhub.entities.task.spec.TaskParams" class="doc doc-heading">
             <code>TaskParams</code>
 
 
@@ -3229,26 +3235,26 @@
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="digitalhub_core.entities._base.spec.base.SpecParams" href="../../_base/spec/#digitalhub_core.entities._base.spec.base.SpecParams">SpecParams</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="digitalhub.entities._base.spec.base.SpecParams" href="../../_base/spec/#digitalhub.entities._base.spec.base.SpecParams">SpecParams</a></code></p>
 
 
         <p>Base task model.</p>
 
               <details class="quote">
-                <summary>Source code in <code>digitalhub_core/entities/task/spec.py</code></summary>
-                <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-31">31</a></span>
-<span class="normal"><a href="#__codelineno-0-32">32</a></span>
-<span class="normal"><a href="#__codelineno-0-33">33</a></span>
-<span class="normal"><a href="#__codelineno-0-34">34</a></span>
-<span class="normal"><a href="#__codelineno-0-35">35</a></span>
-<span class="normal"><a href="#__codelineno-0-36">36</a></span>
-<span class="normal"><a href="#__codelineno-0-37">37</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="k">class</span> <span class="nc">TaskParams</span><span class="p">(</span><span class="n">SpecParams</span><span class="p">):</span>
-</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">    Base task model.</span>
-</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35"></a>
-</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36"></a>    <span class="n">function</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Function string.&quot;&quot;&quot;</span>
+                <summary>Source code in <code>digitalhub/entities/task/spec.py</code></summary>
+                <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-39">39</a></span>
+<span class="normal"><a href="#__codelineno-0-40">40</a></span>
+<span class="normal"><a href="#__codelineno-0-41">41</a></span>
+<span class="normal"><a href="#__codelineno-0-42">42</a></span>
+<span class="normal"><a href="#__codelineno-0-43">43</a></span>
+<span class="normal"><a href="#__codelineno-0-44">44</a></span>
+<span class="normal"><a href="#__codelineno-0-45">45</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="k">class</span> <span class="nc">TaskParams</span><span class="p">(</span><span class="n">SpecParams</span><span class="p">):</span>
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">    Base task model.</span>
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43"></a>
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44"></a>    <span class="n">function</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Function string.&quot;&quot;&quot;</span>
 </span></code></pre></div></td></tr></table></div>
               </details>
 
@@ -3266,7 +3272,7 @@
 
 
 
-<h3 id="digitalhub_core.entities.task.spec.TaskParams.function" class="doc doc-heading">
+<h3 id="digitalhub.entities.task.spec.TaskParams.function" class="doc doc-heading">
             <code class="highlight language-python"><span class="n">function</span><span class="p">:</span> <span class="nb">str</span></code>
 
 </h3>
@@ -3293,7 +3299,7 @@
 
 
 
-<h2 id="digitalhub_core.entities.task.spec.TaskParamsK8s" class="doc doc-heading">
+<h2 id="digitalhub.entities.task.spec.TaskParamsK8s" class="doc doc-heading">
             <code>TaskParamsK8s</code>
 
 
@@ -3302,20 +3308,20 @@
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="digitalhub_core.entities.task.spec.TaskParams" href="#digitalhub_core.entities.task.spec.TaskParams">TaskParams</a></code>, <code><span title="digitalhub_core.entities.task.models.K8s">K8s</span></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="digitalhub.entities.task.spec.TaskParams" href="#digitalhub.entities.task.spec.TaskParams">TaskParams</a></code>, <code><span title="digitalhub.entities.task.models.K8s">K8s</span></code></p>
 
 
         <p>Kubernetes task model.</p>
 
               <details class="quote">
-                <summary>Source code in <code>digitalhub_core/entities/task/spec.py</code></summary>
-                <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-40">40</a></span>
-<span class="normal"><a href="#__codelineno-0-41">41</a></span>
-<span class="normal"><a href="#__codelineno-0-42">42</a></span>
-<span class="normal"><a href="#__codelineno-0-43">43</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="k">class</span> <span class="nc">TaskParamsK8s</span><span class="p">(</span><span class="n">TaskParams</span><span class="p">,</span> <span class="n">K8s</span><span class="p">):</span>
-</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">    Kubernetes task model.</span>
-</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">    &quot;&quot;&quot;</span>
+                <summary>Source code in <code>digitalhub/entities/task/spec.py</code></summary>
+                <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-48">48</a></span>
+<span class="normal"><a href="#__codelineno-0-49">49</a></span>
+<span class="normal"><a href="#__codelineno-0-50">50</a></span>
+<span class="normal"><a href="#__codelineno-0-51">51</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="k">class</span> <span class="nc">TaskParamsK8s</span><span class="p">(</span><span class="n">TaskParams</span><span class="p">,</span> <span class="n">K8s</span><span class="p">):</span>
+</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">    Kubernetes task model.</span>
+</span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">    &quot;&quot;&quot;</span>
 </span></code></pre></div></td></tr></table></div>
               </details>
 
@@ -3343,7 +3349,7 @@
 
 
 
-<h2 id="digitalhub_core.entities.task.spec.TaskSpec" class="doc doc-heading">
+<h2 id="digitalhub.entities.task.spec.TaskSpec" class="doc doc-heading">
             <code>TaskSpec</code>
 
 
@@ -3352,13 +3358,13 @@
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="digitalhub_core.entities._base.spec.base.Spec" href="../../_base/spec/#digitalhub_core.entities._base.spec.base.Spec">Spec</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="digitalhub.entities._base.spec.base.Spec" href="../../_base/spec/#digitalhub.entities._base.spec.base.Spec">Spec</a></code></p>
 
 
         <p>Task specification.</p>
 
               <details class="quote">
-                <summary>Source code in <code>digitalhub_core/entities/task/spec.py</code></summary>
+                <summary>Source code in <code>digitalhub/entities/task/spec.py</code></summary>
                 <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
 <span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
 <span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
