@@ -154,7 +154,7 @@ backoff_limit = 3
 Service port(s) where to expose the service. Must be: [{port: port, target_port: target_port}, ...].
 
 ```python
-service_port = [{
+service_ports = [{
     "port": 80,
     "target_port": 80
 }]
