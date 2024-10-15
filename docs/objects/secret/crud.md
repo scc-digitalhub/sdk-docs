@@ -15,14 +15,12 @@ project = dh.get_or_create_project("my-project")
 # Use CRUD method on project
 
 secret = project.new_secret(name="my-secret",
-                            kind="table",
                             secret_value="some-value")
 
 # Use CRUD method from SDK
 
 secret = dh.new_secret(project="my-project",
                        name="my-secret",
-                       kind="table",
                        secret_value="some-value")
 ```
 
