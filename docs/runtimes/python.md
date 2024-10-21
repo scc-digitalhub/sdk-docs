@@ -143,6 +143,29 @@ sdk_function.run(inputs={"di": sdk_dataitem.key},
 
 In this example, the `Run` object will collect an output and a result. The output is a `Dataitem` object and the result is a `str`. To access the output from the run you can call `run.output("data")`, to collect the result you can call `run.result("string")`.
 
+#### Serving
+
+You can run a using `serve` action. This action deploys a service on Kubernetes.
+
+!!! warning "Service responsiveness"
+    It takes a while for the service to be ready and notified to the client. You can use the `refresh()` method and access the `status` attribute of the run object. When the service is ready, you can see a `service` attribute in the `status`.
+
+```python
+run.refresh()
+run.status
+```
+
+Once the service is ready, you can use the `run.invoke()` method to call the inference server.
+The `invoke` method accept [`requests.request`](https://requests.readthedocs.io/en/latest/user/quickstart/#) parameters as kwargs. The `url` parameter is by default collected from the `run` object. In case you need to override it, you can use the `url` parameter.
+
+```python
+json = {
+    "some-func-param": data
+}
+
+run.invoke(method="POST", json=json)
+```
+
 ### Function
 
 The python runtime introduces a function of kind `python`.
@@ -349,22 +372,3 @@ Once the run is created, you can access some of its attributes and methods throu
         show_symbol_type_heading: true
         show_root_full_path: false
         show_root_toc_entry: true
-
-!!! warning "Service responsiveness"
-    It takes a while for the service to be ready and notified to the client. You can use the `refresh()` method and access the `status` attribute of the run object. When the service is ready, you can see a `service` attribute in the `status`.
-
-```python
-run.refresh()
-run.status
-```
-
-Once the service is ready, you can use the `run.invoke()` method to call the inference server.
-The `invoke` method accept [`requests.request`](https://requests.readthedocs.io/en/latest/user/quickstart/#) parameters as kwargs. The `url` parameter is by default collected from the `run` object. In case you need to override it, you can use the `url` parameter.
-
-```python
-json = {
-    "some-func-param": data
-}
-
-run.invoke(method="POST", json=json)
-```

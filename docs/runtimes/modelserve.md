@@ -38,6 +38,38 @@ The usage of the runtime is similar to the others:
 3. With the run's `invoke()` method you can call the v2 inference API specifying the json payload you want (passed as keyword arguments).
 4. You can stop the service with the run's `stop()` method.
 
+The *modelserve* runtime launches a [mlserver](https://mlserver.readthedocs.io/en/latest/) inference server is deployed on Kubernetes as deployment and exposed as a service.
+
+!!! warning "Service responsiveness"
+    It takes a while for the service to be ready and notified to the client. You can use the `refresh()` method and access the `status` attribute of the run object. When the service is ready, you can see a `service` attribute in the `status`.
+
+```python
+run.refresh()
+run.status
+```
+
+Once the service is ready, you can use the `run.invoke()` method to call the inference server.
+The `invoke` method accept [`requests.request`](https://requests.readthedocs.io/en/latest/user/quickstart/#) parameters as kwargs. The `url` parameter is by default collected from the `run` object. In case you need to override it, you can use the `url` parameter.
+
+!!! note
+    In case you passed `model_name` in the function spec, and you execute the run in remote execution, you need to pass the `model_name` to the invoke method. This is because the `model_name` is used to identify the model in the inference server. `"http://{url-from-k8s}/v2/models/{model_name}/infer"`.
+
+```python
+data = [[...]] #some array
+json = {
+    "inputs": [
+        {
+        "name": "input-0",
+        "shape": [x, y],
+        "datatype": "FP32",
+        "data": data #data-array goes here
+        }
+    ]
+}
+
+run.invoke(json=json)
+```
+
 ### Function
 
 There are different modelserve functions (`sklearnserve`, `mlflowserve` and `huggingfaceserve`), each one representing a different ML model flavour.
@@ -171,35 +203,3 @@ Once the run is created, you can access some of its attributes and methods throu
         show_symbol_type_heading: true
         show_root_full_path: false
         show_root_toc_entry: true
-
-The *modelserve* runtime launches a [mlserver](https://mlserver.readthedocs.io/en/latest/) inference server is deployed on Kubernetes as deployment and exposed as a service.
-
-!!! warning "Service responsiveness"
-    It takes a while for the service to be ready and notified to the client. You can use the `refresh()` method and access the `status` attribute of the run object. When the service is ready, you can see a `service` attribute in the `status`.
-
-```python
-run.refresh()
-run.status
-```
-
-Once the service is ready, you can use the `run.invoke()` method to call the inference server.
-The `invoke` method accept [`requests.request`](https://requests.readthedocs.io/en/latest/user/quickstart/#) parameters as kwargs. The `url` parameter is by default collected from the `run` object. In case you need to override it, you can use the `url` parameter.
-
-!!! note
-    In case you passed `model_name` in the function spec, and you execute the run in remote execution, you need to pass the `model_name` to the invoke method. This is because the `model_name` is used to identify the model in the inference server. `"http://{url-from-k8s}/v2/models/{model_name}/infer"`.
-
-```python
-data = [[...]] #some array
-json = {
-    "inputs": [
-        {
-        "name": "input-0",
-        "shape": [x, y],
-        "datatype": "FP32",
-        "data": data #data-array goes here
-        }
-    ]
-}
-
-run.invoke(json=json)
-```
