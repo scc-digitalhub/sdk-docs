@@ -1590,6 +1590,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#serving" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serving
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2052,6 +2061,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#serving" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serving
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2433,6 +2451,23 @@ Ther are some rules you need to follow:</p>
 </span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>                 <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;param1&quot;</span><span class="p">:</span> <span class="s2">&quot;some value&quot;</span><span class="p">})</span>
 </span></code></pre></div>
 <p>In this example, the <code>Run</code> object will collect an output and a result. The output is a <code>Dataitem</code> object and the result is a <code>str</code>. To access the output from the run you can call <code>run.output("data")</code>, to collect the result you can call <code>run.result("string")</code>.</p>
+<h4 id="serving">Serving</h4>
+<p>You can run a using <code>serve</code> action. This action deploys a service on Kubernetes.</p>
+<div class="admonition warning">
+<p class="admonition-title">Service responsiveness</p>
+<p>It takes a while for the service to be ready and notified to the client. You can use the <code>refresh()</code> method and access the <code>status</code> attribute of the run object. When the service is ready, you can see a <code>service</code> attribute in the <code>status</code>.</p>
+</div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">run</span><span class="o">.</span><span class="n">status</span>
+</span></code></pre></div>
+<p>Once the service is ready, you can use the <code>run.invoke()</code> method to call the inference server.
+The <code>invoke</code> method accept <a href="https://requests.readthedocs.io/en/latest/user/quickstart/#"><code>requests.request</code></a> parameters as kwargs. The <code>url</code> parameter is by default collected from the <code>run</code> object. In case you need to override it, you can use the <code>url</code> parameter.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">json</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="s2">&quot;some-func-param&quot;</span><span class="p">:</span> <span class="n">data</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">}</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">run</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">json</span><span class="p">)</span>
+</span></code></pre></div>
 <h3 id="function">Function</h3>
 <p>The python runtime introduces a function of kind <code>python</code>.</p>
 <h4 id="function-parameters">Function parameters</h4>
@@ -2573,25 +2608,25 @@ The init function must be defined in the source code and should follow the <a hr
 </div>
 <h5 id="requirements">Requirements</h5>
 <p>Requirements are a list of <code>str</code> representing packages to be installed by <code>pip</code> in the image where the function will be executed.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">requirements</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;numpy&quot;</span><span class="p">,</span> <span class="s1">&#39;pandas&gt;1, &lt;3&#39;</span><span class="p">,</span> <span class="s2">&quot;scikit-learn==1.2.0&quot;</span><span class="p">]</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">requirements</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;numpy&quot;</span><span class="p">,</span> <span class="s1">&#39;pandas&gt;1, &lt;3&#39;</span><span class="p">,</span> <span class="s2">&quot;scikit-learn==1.2.0&quot;</span><span class="p">]</span>
 </span></code></pre></div>
 <h4 id="function-example">Function example</h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># From project ...</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">function</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;python-function&quot;</span><span class="p">,</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>                                <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;python&quot;</span><span class="p">,</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>                                <span class="n">code_src</span><span class="o">=</span><span class="s2">&quot;main.py&quot;</span><span class="p">,</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>                                <span class="n">handler</span><span class="o">=</span><span class="s2">&quot;function&quot;</span><span class="p">,</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>                                <span class="n">python_version</span><span class="o">=</span><span class="s2">&quot;PYTHON3_9&quot;</span><span class="p">)</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="c1"># .. or from sdk</span>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="n">function</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s2">&quot;my-project&quot;</span><span class="p">,</span>
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>                           <span class="n">name</span><span class="o">=</span><span class="s2">&quot;python-function&quot;</span><span class="p">,</span>
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>                           <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;python&quot;</span><span class="p">,</span>
-</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>                           <span class="n">code_src</span><span class="o">=</span><span class="s2">&quot;main.py&quot;</span><span class="p">,</span>
-</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>                           <span class="n">handler</span><span class="o">=</span><span class="s2">&quot;function&quot;</span><span class="p">,</span>
-</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>                           <span class="n">python_version</span><span class="o">=</span><span class="s2">&quot;PYTHON3_9&quot;</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># From project ...</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">function</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;python-function&quot;</span><span class="p">,</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>                                <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;python&quot;</span><span class="p">,</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>                                <span class="n">code_src</span><span class="o">=</span><span class="s2">&quot;main.py&quot;</span><span class="p">,</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>                                <span class="n">handler</span><span class="o">=</span><span class="s2">&quot;function&quot;</span><span class="p">,</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>                                <span class="n">python_version</span><span class="o">=</span><span class="s2">&quot;PYTHON3_9&quot;</span><span class="p">)</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="c1"># .. or from sdk</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="n">function</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s2">&quot;my-project&quot;</span><span class="p">,</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>                           <span class="n">name</span><span class="o">=</span><span class="s2">&quot;python-function&quot;</span><span class="p">,</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>                           <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;python&quot;</span><span class="p">,</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>                           <span class="n">code_src</span><span class="o">=</span><span class="s2">&quot;main.py&quot;</span><span class="p">,</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>                           <span class="n">handler</span><span class="o">=</span><span class="s2">&quot;function&quot;</span><span class="p">,</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>                           <span class="n">python_version</span><span class="o">=</span><span class="s2">&quot;PYTHON3_9&quot;</span><span class="p">)</span>
 </span></code></pre></div>
 <h3 id="task">Task</h3>
 <p>The python runtime introduces three tasks of kind <code>job</code>, <code>serve</code> and <code>build</code> that allows you to run a python function execution, serving a function as a service or build a docker image where the function is executed.
@@ -2710,13 +2745,13 @@ A <code>Task</code> is created with the <code>run()</code> method, so it's not m
 </ul>
 <h5 id="instructions">Instructions</h5>
 <p>List of <code>str</code> representing the instructions to be executed as RUN instructions in Dockerfile.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">instructions</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apt-get install -y git&quot;</span><span class="p">]</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">instructions</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apt-get install -y git&quot;</span><span class="p">]</span>
 </span></code></pre></div>
 <h4 id="task-example">Task example</h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">run</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    <span class="n">action</span><span class="o">=</span><span class="s2">&quot;build&quot;</span><span class="p">,</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="n">instructions</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;apt-get install -y git&quot;</span><span class="p">]</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">run</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="n">action</span><span class="o">=</span><span class="s2">&quot;build&quot;</span><span class="p">,</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="n">instructions</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;apt-get install -y git&quot;</span><span class="p">]</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="p">)</span>
 </span></code></pre></div>
 <h3 id="run">Run</h3>
 <p>The <code>Run</code> object is, similar to the <code>Task</code>, created with the <code>run()</code> method.
@@ -2753,12 +2788,12 @@ The run's parameters are passed alongside the task's ones.</p>
 </tbody>
 </table>
 <h4 id="run-example">Run example</h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">run</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="n">action</span><span class="o">=</span><span class="s2">&quot;job&quot;</span><span class="p">,</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    <span class="n">inputs</span><span class="o">=</span><span class="p">{</span>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>        <span class="s2">&quot;dataitem&quot;</span><span class="p">:</span> <span class="n">dataitem</span><span class="o">.</span><span class="n">key</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="p">}</span>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">run</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    <span class="n">action</span><span class="o">=</span><span class="s2">&quot;job&quot;</span><span class="p">,</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    <span class="n">inputs</span><span class="o">=</span><span class="p">{</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>        <span class="s2">&quot;dataitem&quot;</span><span class="p">:</span> <span class="n">dataitem</span><span class="o">.</span><span class="n">key</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    <span class="p">}</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="p">)</span>
 </span></code></pre></div>
 <h4 id="run-methods-intro">Run methods intro</h4>
 <p>Once the run is created, you can access some of its attributes and methods through the <code>run</code> object.</p>
@@ -3166,21 +3201,7 @@ The run's parameters are passed alongside the task's ones.</p>
 
     </div>
 
-</div><div class="admonition warning">
-<p class="admonition-title">Service responsiveness</p>
-<p>It takes a while for the service to be ready and notified to the client. You can use the <code>refresh()</code> method and access the <code>status</code> attribute of the run object. When the service is ready, you can see a <code>service</code> attribute in the <code>status</code>.</p>
 </div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">run</span><span class="o">.</span><span class="n">status</span>
-</span></code></pre></div>
-<p>Once the service is ready, you can use the <code>run.invoke()</code> method to call the inference server.
-The <code>invoke</code> method accept <a href="https://requests.readthedocs.io/en/latest/user/quickstart/#"><code>requests.request</code></a> parameters as kwargs. The <code>url</code> parameter is by default collected from the <code>run</code> object. In case you need to override it, you can use the <code>url</code> parameter.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">json</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    <span class="s2">&quot;some-func-param&quot;</span><span class="p">:</span> <span class="n">data</span>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="p">}</span>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="n">run</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">json</span><span class="p">)</span>
-</span></code></pre></div>
 
 
 
