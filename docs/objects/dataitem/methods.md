@@ -10,7 +10,7 @@ Crud methods are used to interact with the entity object in the backend or local
 - `export()`: Export the entity locally as yaml file.
 - `refresh()`: Refresh (read) the entity from the backend.
 
-::: digitalhub.entities.dataitem.entity._base.Dataitem.save
+::: digitalhub.entities.dataitem._base.entity.Dataitem.save
     options:
         heading_level: 3
         show_signature: false
@@ -20,7 +20,7 @@ Crud methods are used to interact with the entity object in the backend or local
         show_root_full_path: false
         show_root_toc_entry: true
 
-::: digitalhub.entities.dataitem.entity._base.Dataitem.export
+::: digitalhub.entities.dataitem._base.entity.Dataitem.export
     options:
         heading_level: 3
         show_signature: false
@@ -30,7 +30,7 @@ Crud methods are used to interact with the entity object in the backend or local
         show_root_full_path: false
         show_root_toc_entry: true
 
-::: digitalhub.entities.dataitem.entity._base.Dataitem.refresh
+::: digitalhub.entities.dataitem._base.entity.Dataitem.refresh
     options:
         heading_level: 3
         show_signature: false
@@ -48,7 +48,7 @@ I/O methods are used to handle objects as files.
 - `download()`: Downloads the dataitem into a specified path
 - `upload()`: Uploads the dataitem to dataitem spec path
 
-::: digitalhub.entities.dataitem.entity._base.Dataitem.as_file
+::: digitalhub.entities.dataitem._base.entity.Dataitem.as_file
     options:
         heading_level: 3
         show_signature: false
@@ -58,7 +58,7 @@ I/O methods are used to handle objects as files.
         show_root_full_path: false
         show_root_toc_entry: true
 
-::: digitalhub.entities.dataitem.entity._base.Dataitem.download
+::: digitalhub.entities.dataitem._base.entity.Dataitem.download
     options:
         heading_level: 3
         show_signature: false
@@ -68,7 +68,7 @@ I/O methods are used to handle objects as files.
         show_root_full_path: false
         show_root_toc_entry: true
 
-::: digitalhub.entities.dataitem.entity._base.Dataitem.upload
+::: digitalhub.entities.dataitem._base.entity.Dataitem.upload
     options:
         heading_level: 3
         show_signature: false

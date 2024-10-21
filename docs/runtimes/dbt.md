@@ -141,3 +141,25 @@ run = function.run(
     }
 )
 ```
+
+#### Run methods
+
+::: digitalhub_runtime_dbt.entities.run.dbt_run.entity.RunDbtRun.output
+    options:
+        heading_level: 6
+        show_signature: false
+        show_source: false
+        show_root_heading: true
+        show_symbol_type_heading: true
+        show_root_full_path: false
+        show_root_toc_entry: true
+
+::: digitalhub_runtime_dbt.entities.run.dbt_run.entity.RunDbtRun.outputs
+    options:
+        heading_level: 6
+        show_signature: false
+        show_source: false
+        show_root_heading: true
+        show_symbol_type_heading: true
+        show_root_full_path: false
+        show_root_toc_entry: true

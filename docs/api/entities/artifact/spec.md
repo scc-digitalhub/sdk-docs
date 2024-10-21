@@ -1,1 +1,0 @@
-:::digitalhub.entities.artifact.spec

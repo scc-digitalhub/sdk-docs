@@ -38,12 +38,12 @@ This is the [Digitalhub SDK](https://github.com/scc-digitalhub/digitalhub-sdk) d
 
     [Runtimes](./runtimes/runtimes.md)
 
-- __API__
+<!-- - __API__
 
     ---
 
     API documentation
 
-    [API](./api/api.md)
+    [API](./api/api.md) -->
 
 </div>

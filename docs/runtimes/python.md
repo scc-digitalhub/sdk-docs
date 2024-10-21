@@ -296,21 +296,67 @@ run = function.run(
 )
 ```
 
-#### Run methods
+#### Run methods intro
 
 Once the run is created, you can access some of its attributes and methods through the `run` object.
 
-The *modelserve* runtime launches, in **local execution**, a local [mlserver](https://mlserver.readthedocs.io/en/latest/) inference server. In **remote execution**, an inference (mlserve or [kserve](https://kserve.github.io/website/latest/)) server is deployed on Kubernetes as deployment and exposed as a service.
+::: digitalhub_runtime_python.entities.run.python_run.entity.RunPythonRun.output
+    options:
+        heading_level: 6
+        show_signature: false
+        show_source: false
+        show_root_heading: true
+        show_symbol_type_heading: true
+        show_root_full_path: false
+        show_root_toc_entry: true
 
-!!! warning "Remote execution"
-    In case of remote execution, it takes a while for the service to be ready and notified to the client. You can use the `refresh()` method and access the `status` attribute of the run object. When the service is ready, you can see a `service` attribute in the `status`.
+::: digitalhub_runtime_python.entities.run.python_run.entity.RunPythonRun.outputs
+    options:
+        heading_level: 6
+        show_signature: false
+        show_source: false
+        show_root_heading: true
+        show_symbol_type_heading: true
+        show_root_full_path: false
+        show_root_toc_entry: true
+
+::: digitalhub_runtime_python.entities.run.python_run.entity.RunPythonRun.result
+    options:
+        heading_level: 6
+        show_signature: false
+        show_source: false
+        show_root_heading: true
+        show_symbol_type_heading: true
+        show_root_full_path: false
+        show_root_toc_entry: true
+
+::: digitalhub_runtime_python.entities.run.python_run.entity.RunPythonRun.results
+    options:
+        heading_level: 6
+        show_signature: false
+        show_source: false
+        show_root_heading: true
+        show_symbol_type_heading: true
+        show_root_full_path: false
+        show_root_toc_entry: true
+
+::: digitalhub_runtime_python.entities.run.python_run.entity.RunPythonRun.invoke
+    options:
+        heading_level: 6
+        show_signature: false
+        show_source: false
+        show_root_heading: true
+        show_symbol_type_heading: true
+        show_root_full_path: false
+        show_root_toc_entry: true
+
+!!! warning "Service responsiveness"
+    It takes a while for the service to be ready and notified to the client. You can use the `refresh()` method and access the `status` attribute of the run object. When the service is ready, you can see a `service` attribute in the `status`.
 
 ```python
 run.refresh()
 run.status
 ```
-
-##### Invoke
 
 Once the service is ready, you can use the `run.invoke()` method to call the inference server.
 The `invoke` method accept [`requests.request`](https://requests.readthedocs.io/en/latest/user/quickstart/#) parameters as kwargs. The `url` parameter is by default collected from the `run` object. In case you need to override it, you can use the `url` parameter.
@@ -321,12 +367,4 @@ json = {
 }
 
 run.invoke(method="POST", json=json)
-```
-
-##### Stop
-
-Once the deployment service is ready, you can use the `run.stop()` method to stop the server.
-
-```python
-run.stop()
 ```

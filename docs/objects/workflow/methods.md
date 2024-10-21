@@ -10,7 +10,7 @@ Crud methods are used to interact with the entity object in the backend or local
 - `export()`: Export the entity locally as yaml file.
 - `refresh()`: Refresh (read) the entity from the backend.
 
-::: digitalhub.entities.workflow.entity.Workflow.save
+::: digitalhub.entities.workflow._base.entity.Workflow.save
     options:
         heading_level: 3
         show_signature: false
@@ -20,7 +20,7 @@ Crud methods are used to interact with the entity object in the backend or local
         show_root_full_path: false
         show_root_toc_entry: true
 
-::: digitalhub.entities.workflow.entity.Workflow.export
+::: digitalhub.entities.workflow._base.entity.Workflow.export
     options:
         heading_level: 3
         show_signature: false
@@ -30,7 +30,7 @@ Crud methods are used to interact with the entity object in the backend or local
         show_root_full_path: false
         show_root_toc_entry: true
 
-::: digitalhub.entities.workflow.entity.Workflow.refresh
+::: digitalhub.entities.workflow._base.entity.Workflow.refresh
     options:
         heading_level: 3
         show_signature: false
@@ -44,7 +44,7 @@ Crud methods are used to interact with the entity object in the backend or local
 
 The `run()` method is used to execute the workflow.
 
-::: digitalhub.entities.workflow.entity.Workflow.run
+::: digitalhub.entities.workflow._base.entity.Workflow.run
     options:
         heading_level: 3
         show_signature: false

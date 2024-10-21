@@ -162,23 +162,28 @@ run = function.run(
 
 Once the run is created, you can access some of its attributes and methods through the `run` object.
 
-The *modelserve* runtime launches, in **local execution**, a local [mlserver](https://mlserver.readthedocs.io/en/latest/) inference server. In **remote execution**, an inference (mlserve or [kserve](https://kserve.github.io/website/latest/)) server is deployed on Kubernetes as deployment and exposed as a service. These two inference servers adopt the [V2 inference protocol](https://docs.seldon.io/projects/seldon-core/en/latest/reference/apis/v2-protocol.html).
+::: digitalhub_runtime_modelserve.entities.run.modelserve_run.entity.RunModelserveRun.invoke
+    options:
+        heading_level: 6
+        show_signature: false
+        show_source: false
+        show_root_heading: true
+        show_symbol_type_heading: true
+        show_root_full_path: false
+        show_root_toc_entry: true
 
-!!! warning "Remote execution"
-    In case of remote execution, it takes a while for the service to be ready and notified to the client. You can use the `refresh()` method and access the `status` attribute of the run object. When the service is ready, you can see a `service` attribute in the `status`.
+The *modelserve* runtime launches a [mlserver](https://mlserver.readthedocs.io/en/latest/) inference server is deployed on Kubernetes as deployment and exposed as a service.
+
+!!! warning "Service responsiveness"
+    It takes a while for the service to be ready and notified to the client. You can use the `refresh()` method and access the `status` attribute of the run object. When the service is ready, you can see a `service` attribute in the `status`.
 
 ```python
 run.refresh()
 run.status
 ```
 
-##### Invoke
-
 Once the service is ready, you can use the `run.invoke()` method to call the inference server.
-In general, the `invoke` method accept [`requests.request`](https://requests.readthedocs.io/en/latest/user/quickstart/#) parameters as kwargs. The `url` parameter is by default collected from the `run` object.
-
-If you know the `url` of the inference server, or if you try to reach the inference endpoint from outside the cluster, or again if you want to see some metrics from the inference server, you can pass the `url` parameter directly to the `invoke` method.
-Data for inference must be passed in the `json` parameter. By default, the `method` parameter is set to `POST`.
+The `invoke` method accept [`requests.request`](https://requests.readthedocs.io/en/latest/user/quickstart/#) parameters as kwargs. The `url` parameter is by default collected from the `run` object. In case you need to override it, you can use the `url` parameter.
 
 !!! note
     In case you passed `model_name` in the function spec, and you execute the run in remote execution, you need to pass the `model_name` to the invoke method. This is because the `model_name` is used to identify the model in the inference server. `"http://{url-from-k8s}/v2/models/{model_name}/infer"`.
@@ -197,12 +202,4 @@ json = {
 }
 
 run.invoke(json=json)
-```
-
-##### Stop
-
-Once the inference server is ready, you can use the `run.stop()` method to stop the inference server.
-
-```python
-run.stop()
 ```

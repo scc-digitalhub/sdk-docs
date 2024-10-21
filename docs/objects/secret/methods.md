@@ -10,7 +10,7 @@ Crud methods are used to interact with the entity object in the backend or local
 - `export()`: Export the entity locally as yaml file.
 - `refresh()`: Refresh (read) the entity from the backend.
 
-::: digitalhub.entities.secret.entity.Secret.save
+::: digitalhub.entities.secret._base.entity.Secret.save
     options:
         heading_level: 3
         show_signature: false
@@ -20,7 +20,7 @@ Crud methods are used to interact with the entity object in the backend or local
         show_root_full_path: false
         show_root_toc_entry: true
 
-::: digitalhub.entities.secret.entity.Secret.export
+::: digitalhub.entities.secret._base.entity.Secret.export
     options:
         heading_level: 3
         show_signature: false
@@ -30,7 +30,7 @@ Crud methods are used to interact with the entity object in the backend or local
         show_root_full_path: false
         show_root_toc_entry: true
 
-::: digitalhub.entities.secret.entity.Secret.refresh
+::: digitalhub.entities.secret._base.entity.Secret.refresh
     options:
         heading_level: 3
         show_signature: false
@@ -47,7 +47,7 @@ I/O methods are used to handle objects as files.
 - `set_secret_value()`: Set (update) the secret value
 - `read_secret_value()`: Read the secret value
 
-::: digitalhub.entities.secret.entity.Secret.set_secret_value
+::: digitalhub.entities.secret._base.entity.Secret.set_secret_value
     options:
         heading_level: 3
         show_signature: false
@@ -57,7 +57,7 @@ I/O methods are used to handle objects as files.
         show_root_full_path: false
         show_root_toc_entry: true
 
-::: digitalhub.entities.secret.entity.Secret.read_secret_value
+::: digitalhub.entities.secret._base.entity.Secret.read_secret_value
     options:
         heading_level: 3
         show_signature: false
