@@ -483,6 +483,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Config
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -492,6 +503,67 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-auth" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic auth
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oauth-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      OAuth token
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-manually-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set manually credentials
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Set manually credentials">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#digitalhub.client.dhcore.utils.set_dhcore_env" class="md-nav__link">
+    <span class="md-ellipsis">
+      set_dhcore_env
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -828,6 +900,27 @@
   
   <span class="md-ellipsis">
     Entity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../run/crud/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CRUD
   </span>
   
 
@@ -1632,6 +1725,56 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-auth" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic auth
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oauth-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      OAuth token
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-manually-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set manually credentials
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Set manually credentials">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#digitalhub.client.dhcore.utils.set_dhcore_env" class="md-nav__link">
+    <span class="md-ellipsis">
+      set_dhcore_env
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1646,33 +1789,186 @@
 
 
 <h1 id="config">Config</h1>
-<p>The <strong><code>config</code></strong> parameter can be used to provide a dictionary containing the project configuration like user and password for basic auth or a bearer token. The format of the dictionary for basic auth must be as this:</p>
+<p>The <strong><code>config</code></strong> parameter can be used to provide a dictionary containing the project configuration like user and password for basic auth or a bearer token.</p>
+<h2 id="basic-auth">Basic auth</h2>
+<p>The format of the dictionary for basic auth must be as this:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;password&quot;</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
 </span></code></pre></div>
+<h2 id="oauth-token">OAuth token</h2>
 <p>The format of the dictionary for bearer token must be as this:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="s2">&quot;access_token&quot;</span><span class="p">:</span> <span class="s2">&quot;token&quot;</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">}</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="s2">&quot;client_id&quot;</span><span class="p">:</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="s2">&quot;access_token&quot;</span><span class="p">:</span> <span class="s2">&quot;token&quot;</span><span class="p">,</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="s2">&quot;refresh_token&quot;</span><span class="p">:</span> <span class="s2">&quot;token&quot;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">}</span>
 </span></code></pre></div>
+<h2 id="set-manually-credentials">Set manually credentials</h2>
 <p>In case you try to get a project without from the backend with invalid credentials, an exception will be raised.
-Because the backend client is a Singleton object, it will autoconfigure credentials at startup, so the only way to setup proper credentials once it fails to connect is to use the SDK method <code>set_dhub_env()</code>.
-The method accepts the following optional parameters:</p>
-<ul>
-<li><strong><code>endpoint</code></strong>: the endpoint of the backend</li>
-<li><strong><code>user</code></strong>: the user for basic auth</li>
-<li><strong><code>password</code></strong>: the password for basic auth</li>
-<li><strong><code>token</code></strong>: the auth token</li>
-</ul>
-<p>Example:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">dh</span><span class="o">.</span><span class="n">set_dhub_env</span><span class="p">(</span>
+Because the backend client is a Singleton object, it will autoconfigure credentials at startup, so the only way to setup proper credentials once it fails to connect is to use the SDK method <code>set_dhcore_env()</code>.</p>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="digitalhub.client.dhcore.utils.set_dhcore_env" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <code class="highlight language-python"><span class="n">set_dhcore_env</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents first">
+
+        <p>Function to set environment variables for DHCore config.
+Note that if the environment variable is already set, it
+will be overwritten. It also ovverides the remote client
+configuration.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>endpoint</code>
+            </td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The endpoint of DHCore.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>user</code>
+            </td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The user of DHCore.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>password</code>
+            </td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The password of DHCore.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>access_token</code>
+            </td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The access token of DHCore.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>refresh_token</code>
+            </td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The refresh token of DHCore.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>client_id</code>
+            </td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The client id of DHCore.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code>None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+    </div>
+
+</div><p>Example:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">dh</span><span class="o">.</span><span class="n">set_dhcore_env</span><span class="p">(</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="n">endpoint</span><span class="o">=</span><span class="s2">&quot;https://some-digitalhub:8080&quot;</span><span class="p">,</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">token</span><span class="o">=</span><span class="s2">&quot;token&quot;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">access_token</span><span class="o">=</span><span class="s2">&quot;token&quot;</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">)</span>
 </span></code></pre></div>
-<p>Note that the <code>set_dhub_env()</code> method ovverrides the environment variables and (if already instantiated) the credentials attributes of the backend client.</p>
+<p>Note that the <code>set_dhcore_env()</code> method ovverrides the environment variables and (if already instantiated) the credentials attributes of the backend client.</p>
 
 
 
