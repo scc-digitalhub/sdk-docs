@@ -1,6 +1,6 @@
 # Project methods
 
-The `Project` object comes with two sets of methods: CRUD methods and, according to the SDK digitalhub layer installed, entity specific CRUD methods.
+The `Project` object comes with three sets of methods: CRUD methods, entity specific CRUD methods and project specific methods.
 
 ## CRUD methods
 
@@ -45,7 +45,7 @@ Crud methods are used to interact with the entity object in the backend or local
 The project acts as context for other entities as mentioned in the introduction. With a `Project` object, you can create, read, update and delete these entities. The methods exposed are basically the same as the CRUD entities, the only difference is that on the project object you omit the project name as parameter. The available methods and are:
 
 - **`new`**: create a new entity
-- **`log`**: create and upload an entity (only for `artifacts`, `dataitems` and `models`)
+- **`log`**: create and upload an entity
 - **`get`**: get an entity from backend
 - **`get_versions`**: get all version for a named entity
 - **`list`**: list entities related to the project
@@ -53,27 +53,28 @@ The project acts as context for other entities as mentioned in the introduction.
 - **`update`**: update an entity
 - **`delete`**: delete an entity
 
-## Layers
-
-Each digitalhub layer exposes CRUD handles different aspects of dataops and mlops. Here follows a list of the methods exposed by the `Project` class according to each layer. Please refer to the specific entity documentation for more information.
-
-### Core layer
-
-The entity handled by the `Project` class in the core layer (`digitalhub`) are:
+For more information about the entity methods, see the rekative entity documentation:
 
 - [**`artifacts`**](../artifact/crud.md)
+- [**`dataitems`**](../dataitem/crud.md)
+- [**`models`**](../model/crud.md)
 - [**`functions`**](../function/crud.md)
 - [**`workflows`**](../workflow/crud.md)
+- [**`runs`**](../run/crud.md)
 - [**`secrets`**](../secret/crud.md)
 
-### Data layer
+## Project specific methods
 
-The entity handled by the `Project` class in the data layer (`digitalhub`) are:
+The project object exposes the following methods:
 
-- [**`dataitems`**](../dataitem/crud.md)
+- **`run`**: execute a workflow from the project
 
-### Ml layer
-
-The entity handled by the `Project` class in the ml layer (`digitalhub`) are:
-
-- [**`models`**](../model/crud.md)
+::: digitalhub.entities.project._base.entity.Project.run
+    options:
+        heading_level: 3
+        show_signature: false
+        show_source: false
+        show_root_heading: true
+        show_symbol_type_heading: true
+        show_root_full_path: false
+        show_root_toc_entry: true

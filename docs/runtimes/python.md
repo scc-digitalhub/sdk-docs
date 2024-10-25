@@ -319,7 +319,7 @@ run = function.run(
 )
 ```
 
-#### Run methods intro
+#### Run methods
 
 Once the run is created, you can access some of its attributes and methods through the `run` object.
 

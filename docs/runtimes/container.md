@@ -120,3 +120,7 @@ There are no parameters for the `run` spec.
 ```python
 run = function.run(action="job")
 ```
+
+#### Run methods
+
+There are no specific methods for the `run` container.

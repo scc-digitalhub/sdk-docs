@@ -1,6 +1,10 @@
 # Config
 
-The **`config`** parameter can be used to provide a dictionary containing the project configuration like user and password for basic auth or a bearer token. The format of the dictionary for basic auth must be as this:
+The **`config`** parameter can be used to provide a dictionary containing the project configuration like user and password for basic auth or a bearer token.
+
+## Basic auth
+
+The format of the dictionary for basic auth must be as this:
 
 ```python
 {
@@ -9,30 +13,40 @@ The **`config`** parameter can be used to provide a dictionary containing the pr
 }
 ```
 
+## OAuth token
+
 The format of the dictionary for bearer token must be as this:
 
 ```python
 {
-    "access_token": "token"
+    "client_id": "id",
+    "access_token": "token",
+    "refresh_token": "token"
 }
 ```
 
-In case you try to get a project without from the backend with invalid credentials, an exception will be raised.
-Because the backend client is a Singleton object, it will autoconfigure credentials at startup, so the only way to setup proper credentials once it fails to connect is to use the SDK method `set_dhub_env()`.
-The method accepts the following optional parameters:
+## Set manually credentials
 
-- **`endpoint`**: the endpoint of the backend
-- **`user`**: the user for basic auth
-- **`password`**: the password for basic auth
-- **`token`**: the auth token
+In case you try to get a project without from the backend with invalid credentials, an exception will be raised.
+Because the backend client is a Singleton object, it will autoconfigure credentials at startup, so the only way to setup proper credentials once it fails to connect is to use the SDK method `set_dhcore_env()`.
+
+::: digitalhub.client.dhcore.utils.set_dhcore_env
+    options:
+        heading_level: 3
+        show_signature: false
+        show_source: false
+        show_root_heading: true
+        show_symbol_type_heading: true
+        show_root_full_path: false
+        show_root_toc_entry: true
 
 Example:
 
 ```python
-dh.set_dhub_env(
+dh.set_dhcore_env(
     endpoint="https://some-digitalhub:8080",
-    token="token"
+    access_token="token"
 )
 ```
 
-Note that the `set_dhub_env()` method ovverrides the environment variables and (if already instantiated) the credentials attributes of the backend client.
+Note that the `set_dhcore_env()` method ovverrides the environment variables and (if already instantiated) the credentials attributes of the backend client.
