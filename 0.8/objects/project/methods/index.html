@@ -550,37 +550,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#layers" class="md-nav__link">
+  <a href="#project-specific-methods" class="md-nav__link">
     <span class="md-ellipsis">
-      Layers
+      Project specific methods
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Layers">
+    <nav class="md-nav" aria-label="Project specific methods">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#core-layer" class="md-nav__link">
+  <a href="#digitalhub.entities.project._base.entity.Project.run" class="md-nav__link">
     <span class="md-ellipsis">
-      Core layer
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#data-layer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Data layer
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ml-layer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ml layer
+      run
     </span>
   </a>
   
@@ -951,6 +933,27 @@
   
   <span class="md-ellipsis">
     Entity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../run/crud/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CRUD
   </span>
   
 
@@ -1813,37 +1816,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#layers" class="md-nav__link">
+  <a href="#project-specific-methods" class="md-nav__link">
     <span class="md-ellipsis">
-      Layers
+      Project specific methods
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Layers">
+    <nav class="md-nav" aria-label="Project specific methods">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#core-layer" class="md-nav__link">
+  <a href="#digitalhub.entities.project._base.entity.Project.run" class="md-nav__link">
     <span class="md-ellipsis">
-      Core layer
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#data-layer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Data layer
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ml-layer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ml layer
+      run
     </span>
   </a>
   
@@ -1870,7 +1855,7 @@
 
 
 <h1 id="project-methods">Project methods</h1>
-<p>The <code>Project</code> object comes with two sets of methods: CRUD methods and, according to the SDK digitalhub layer installed, entity specific CRUD methods.</p>
+<p>The <code>Project</code> object comes with three sets of methods: CRUD methods, entity specific CRUD methods and project specific methods.</p>
 <h2 id="crud-methods">CRUD methods</h2>
 <p>Crud methods are used to interact with the entity object in the backend or locally.</p>
 <ul>
@@ -2065,7 +2050,7 @@ exported as a YAML file.</p>
 <p>The project acts as context for other entities as mentioned in the introduction. With a <code>Project</code> object, you can create, read, update and delete these entities. The methods exposed are basically the same as the CRUD entities, the only difference is that on the project object you omit the project name as parameter. The available methods and are:</p>
 <ul>
 <li><strong><code>new</code></strong>: create a new entity</li>
-<li><strong><code>log</code></strong>: create and upload an entity (only for <code>artifacts</code>, <code>dataitems</code> and <code>models</code>)</li>
+<li><strong><code>log</code></strong>: create and upload an entity</li>
 <li><strong><code>get</code></strong>: get an entity from backend</li>
 <li><strong><code>get_versions</code></strong>: get all version for a named entity</li>
 <li><strong><code>list</code></strong>: list entities related to the project</li>
@@ -2073,26 +2058,109 @@ exported as a YAML file.</p>
 <li><strong><code>update</code></strong>: update an entity</li>
 <li><strong><code>delete</code></strong>: delete an entity</li>
 </ul>
-<h2 id="layers">Layers</h2>
-<p>Each digitalhub layer exposes CRUD handles different aspects of dataops and mlops. Here follows a list of the methods exposed by the <code>Project</code> class according to each layer. Please refer to the specific entity documentation for more information.</p>
-<h3 id="core-layer">Core layer</h3>
-<p>The entity handled by the <code>Project</code> class in the core layer (<code>digitalhub</code>) are:</p>
+<p>For more information about the entity methods, see the rekative entity documentation:</p>
 <ul>
 <li><a href="../../artifact/crud/"><strong><code>artifacts</code></strong></a></li>
+<li><a href="../../dataitem/crud/"><strong><code>dataitems</code></strong></a></li>
+<li><a href="../../model/crud/"><strong><code>models</code></strong></a></li>
 <li><a href="../../function/crud/"><strong><code>functions</code></strong></a></li>
 <li><a href="../../workflow/crud/"><strong><code>workflows</code></strong></a></li>
+<li><a href="../../run/crud/"><strong><code>runs</code></strong></a></li>
 <li><a href="../../secret/crud/"><strong><code>secrets</code></strong></a></li>
 </ul>
-<h3 id="data-layer">Data layer</h3>
-<p>The entity handled by the <code>Project</code> class in the data layer (<code>digitalhub</code>) are:</p>
+<h2 id="project-specific-methods">Project specific methods</h2>
+<p>The project object exposes the following methods:</p>
 <ul>
-<li><a href="../../dataitem/crud/"><strong><code>dataitems</code></strong></a></li>
+<li><strong><code>run</code></strong>: execute a workflow from the project</li>
 </ul>
-<h3 id="ml-layer">Ml layer</h3>
-<p>The entity handled by the <code>Project</code> class in the ml layer (<code>digitalhub</code>) are:</p>
-<ul>
-<li><a href="../../model/crud/"><strong><code>models</code></strong></a></li>
-</ul>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="digitalhub.entities.project._base.entity.Project.run" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">run</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents first">
+
+        <p>Run workflow project.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>workflow</code>
+            </td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Workflow name.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>**kwargs</code>
+            </td>
+            <td>
+                  <code>dict</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Keyword arguments passed to workflow.run().</p>
+              </div>
+            </td>
+            <td>
+                  <code>{}</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="digitalhub.entities.run._base.entity.Run">Run</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Run instance.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+    </div>
+
+</div>
 
 
 
