@@ -149,6 +149,14 @@ Backoff limit for the job. It accepts an integer value.
 backoff_limit = 3
 ```
 
+## FS group
+
+File system group ID. It accepts an integer value.
+
+```python
+fsGroup = 1000
+```
+
 ## Service port
 
 Service port(s) where to expose the service. Must be: [{port: port, target_port: target_port}, ...].
