@@ -1800,6 +1800,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#fs-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      FS group
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#service-port" class="md-nav__link">
     <span class="md-ellipsis">
       Service port
@@ -2016,6 +2025,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#fs-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      FS group
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#service-port" class="md-nav__link">
     <span class="md-ellipsis">
       Service port
@@ -2146,12 +2164,16 @@ You need to declare the resource type as <code>mem</code>, request and/or limit 
 <p>Backoff limit for the job. It accepts an integer value.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">backoff_limit</span> <span class="o">=</span> <span class="mi">3</span>
 </span></code></pre></div>
+<h2 id="fs-group">FS group</h2>
+<p>File system group ID. It accepts an integer value.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">fsGroup</span> <span class="o">=</span> <span class="mi">1000</span>
+</span></code></pre></div>
 <h2 id="service-port">Service port</h2>
 <p>Service port(s) where to expose the service. Must be: [{port: port, target_port: target_port}, ...].</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">service_ports</span> <span class="o">=</span> <span class="p">[{</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="s2">&quot;target_port&quot;</span><span class="p">:</span> <span class="mi">80</span>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="p">}]</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">service_ports</span> <span class="o">=</span> <span class="p">[{</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    <span class="s2">&quot;target_port&quot;</span><span class="p">:</span> <span class="mi">80</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="p">}]</span>
 </span></code></pre></div>
 <h2 id="service-type">Service type</h2>
 <p>Service type to expose. Must be a <code>str</code> of one of the following:</p>
@@ -2160,7 +2182,7 @@ You need to declare the resource type as <code>mem</code>, request and/or limit 
 <li><code>LoadBalancer</code></li>
 <li><code>NodePort</code></li>
 </ul>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">service_type</span> <span class="o">=</span> <span class="s2">&quot;NodePort&quot;</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">service_type</span> <span class="o">=</span> <span class="s2">&quot;NodePort&quot;</span>
 </span></code></pre></div>
 
 
