@@ -23,7 +23,8 @@ The kfp runtime execution workflow follows roughly these steps:
 
 1. Define one or more functions to be executed. These functions can be from other runtimes.
 2. Define somewhere a [pipeline](./kfp.md#pipeline-definition).
-3. The workflow's `run()` method calls a stepper that create various KFP ContainerOP and executes them.
+3. Build the pipeline with the `run(action="build")` method. (Mandatory step!)
+4. Execute the pipeline with `run(action="pipeline")` method. This calls a stepper that executes various KFP ContainerOP.
 
 ### Pipeline definition
 
@@ -139,12 +140,15 @@ A `Task` is created with the `run()` method, so it's not managed directly by the
 
 Actions must be one of the following:
 
+- `build`
 - `pipeline`
 
 #### Task example
 
 ```python
-run = function.run(action="pipeline")
+run_build = workflow.run(action="build")
+
+run_pipeline = workflow.run(action="pipeline")
 ```
 
 ### Run
@@ -161,9 +165,11 @@ The run's parameters are passed alongside the task's ones.
 #### Run example
 
 ```python
-run = function.run(
-    action="job",
-    inputs={"dataitem": dataitem.key}
+run_build = workflow.run(action="build")
+
+run = workflow.run(
+    action="pipeline",
+    parameters={"dataitem": dataitem.key}
 )
 ```
 
