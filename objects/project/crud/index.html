@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.48">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -136,6 +136,12 @@
                 
               
               
+                
+              
+                
+                  
+                    <a href="https://scc-digitalhub.github.io/sdk-docs/0.9">0.9</a>
+                  
                 
               
                 
@@ -2779,23 +2785,7 @@
       <tbody>
           <tr class="doc-section-item">
             <td>
-                <code>name</code>
-            </td>
-            <td>
-                  <code>str</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Project name.</p>
-              </div>
-            </td>
-            <td>
-                  <code>None</code>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>filename</code>
+                <code>file</code>
             </td>
             <td>
                   <code>str</code>
@@ -2806,7 +2796,7 @@
               </div>
             </td>
             <td>
-                  <code>None</code>
+                <em>required</em>
             </td>
           </tr>
           <tr class="doc-section-item">
@@ -2857,22 +2847,6 @@
                   <code>None</code>
             </td>
           </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>**kwargs</code>
-            </td>
-            <td>
-                  <code>dict</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Keyword arguments.</p>
-              </div>
-            </td>
-            <td>
-                  <code>{}</code>
-            </td>
-          </tr>
       </tbody>
     </table>
 
@@ -2901,11 +2875,7 @@
 
 
 <p><span class="doc-section-title">Examples:</span></p>
-    <p>If name is provided, load project from backend.</p>
-    <div class="language-pycon highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">obj</span> <span class="o">=</span> <span class="n">load_project</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;my-project&quot;</span><span class="p">)</span>
-</span></code></pre></div>
-    <p>If filename is provided, load project from file.</p>
-    <div class="language-pycon highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">obj</span> <span class="o">=</span> <span class="n">load_project</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;my-project.yaml&quot;</span><span class="p">)</span>
+    <div class="language-pycon highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">obj</span> <span class="o">=</span> <span class="n">load_project</span><span class="p">(</span><span class="s2">&quot;my-project.yaml&quot;</span><span class="p">)</span>
 </span></code></pre></div>
 
     </div>
@@ -3172,22 +3142,6 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>local</code>
-            </td>
-            <td>
-                  <code>bool</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Flag to determine if backend is local.</p>
-              </div>
-            </td>
-            <td>
-                  <code>False</code>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
                 <code>**kwargs</code>
             </td>
             <td>
@@ -3336,8 +3290,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Flag to determine if context will be deleted. If a context is deleted,
-all its objects are unreacheable.</p>
+                <p>Flag to determine if context will be deleted.</p>
               </div>
             </td>
             <td>
