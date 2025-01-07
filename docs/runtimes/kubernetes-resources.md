@@ -154,7 +154,7 @@ backoff_limit = 3
 File system group ID. It accepts an integer value.
 
 ```python
-fsGroup = 1000
+fs_group = 1000
 ```
 
 ## Service port
