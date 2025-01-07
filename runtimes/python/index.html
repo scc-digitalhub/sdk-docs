@@ -2428,11 +2428,11 @@ There are some restriction that must be applied when defining the function:</p>
 <li>You may or may not decorate your function with the <code>@handler</code> decorator you can import from the <code>digitalhub_runtime_python</code> package. If you decorate your function and return something, you need to map the outputs in the decorator to collect named outputs/results. More on that on the <a href="./#outputs">Parameters composition</a> section.</li>
 </ol>
 <h4 id="function-definition-example">Function definition example</h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">digitalhub_runtime_python</span> <span class="kn">import</span> <span class="n">handler</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">digitalhub_runtime_python</span><span class="w"> </span><span class="kn">import</span> <span class="n">handler</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># 1. Simple function that returns a string</span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">def</span> <span class="nf">func1</span><span class="p">():</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">func1</span><span class="p">():</span>
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>   <span class="k">return</span> <span class="s2">&quot;hello world&quot;</span>
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
 </span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1"># 2. Decorated function that returns a string</span>
@@ -2440,12 +2440,12 @@ There are some restriction that must be applied when defining the function:</p>
 </span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># If you decorate your function and return something, you need to map the outputs</span>
 </span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="c1"># in the decorator</span>
 </span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="nd">@handler</span><span class="p">(</span><span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;result&quot;</span><span class="p">])</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="k">def</span> <span class="nf">func2</span><span class="p">():</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="k">def</span><span class="w"> </span><span class="nf">func2</span><span class="p">():</span>
 </span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>   <span class="k">return</span> <span class="s2">&quot;hello world&quot;</span>
 </span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
 </span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
 </span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="c1"># 3. Function with project argument</span>
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="k">def</span> <span class="nf">func3</span><span class="p">(</span><span class="n">project</span><span class="p">):</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="k">def</span><span class="w"> </span><span class="nf">func3</span><span class="p">(</span><span class="n">project</span><span class="p">):</span>
 </span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>   <span class="c1"># allowed use of project variable</span>
 </span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>   <span class="n">project</span><span class="o">.</span><span class="n">log_artifact</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;example&quot;</span><span class="p">,</span>
 </span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>                        <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;artifact&quot;</span><span class="p">,</span>
@@ -2456,12 +2456,12 @@ There are some restriction that must be applied when defining the function:</p>
 </span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>
 </span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>
 </span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="c1"># 4. Function with context and events arguments</span>
-</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="k">def</span> <span class="nf">func4</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">events</span><span class="p">):</span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="k">def</span><span class="w"> </span><span class="nf">func4</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">events</span><span class="p">):</span>
 </span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>   <span class="c1"># allowed use of context and events variables in remote execution</span>
 </span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>   <span class="n">context</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Some log&quot;</span><span class="p">)</span>
 </span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>
 </span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="c1"># 5. Function with mixed input arguments</span>
-</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="k">def</span> <span class="nf">func5</span><span class="p">(</span><span class="n">di</span><span class="p">:</span> <span class="n">Dataitem</span><span class="p">,</span> <span class="n">param1</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="k">def</span><span class="w"> </span><span class="nf">func5</span><span class="p">(</span><span class="n">di</span><span class="p">:</span> <span class="n">Dataitem</span><span class="p">,</span> <span class="n">param1</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 </span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>   <span class="c1"># di refers to a Dataitem object, so it must be mapped into runs inputs paramaters</span>
 </span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>   <span class="c1"># param1 is a string, it must be mapped into runs input parameters</span>
 </span></code></pre></div>
@@ -2473,7 +2473,7 @@ Ther are some rules you need to follow:</p>
 <li>If you expect one of your arguments to be a <code>Dataitem</code>/<code>Artifact</code>/<code>Model</code> object, you need to explicit the reference to the object into the run's <code>inputs</code> parameter using the argument name as key and the object key as value.</li>
 </ul>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Define your function and declare di argument as Dataitem</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">di</span><span class="p">:</span> <span class="n">Dataitem</span><span class="p">):</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="n">di</span><span class="p">:</span> <span class="n">Dataitem</span><span class="p">):</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>   <span class="c1"># do something with di</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
@@ -2487,7 +2487,7 @@ Ther are some rules you need to follow:</p>
 <li>Other function arguments must be mapped inside the run's <code>parameters</code> parameter.</li>
 </ul>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Define your function and declare di argument as Dataitem</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">di</span><span class="p">:</span> <span class="n">Dataitem</span><span class="p">,</span> <span class="n">param1</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="n">di</span><span class="p">:</span> <span class="n">Dataitem</span><span class="p">,</span> <span class="n">param1</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>   <span class="c1"># do something with di</span>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
 </span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
@@ -2505,10 +2505,10 @@ Ther are some rules you need to follow:</p>
 <li>Function <strong><code>results</code></strong> consisting of python "primitives" (str, int, float, etc.).</li>
 </ul>
 <p>To collect outputs and results with named keys, you need to map them in the <code>handler</code> decorator.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">digitalhub_runtime_python</span> <span class="kn">import</span> <span class="n">handler</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">digitalhub_runtime_python</span><span class="w"> </span><span class="kn">import</span> <span class="n">handler</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nd">@handler</span><span class="p">(</span><span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">])</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">di</span><span class="p">:</span> <span class="n">Dataitem</span><span class="p">,</span> <span class="n">param1</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="n">di</span><span class="p">:</span> <span class="n">Dataitem</span><span class="p">,</span> <span class="n">param1</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>   <span class="c1"># do something with di</span>
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>   <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="s2">&quot;some value&quot;</span>
 </span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
