@@ -31,7 +31,7 @@ def myfunction(di: Dataitem, col1: str):
 func = dh.new_function(project="my-project",
                        name="python-function",
                        kind="python",
-                       python_version="PYTHON3_9",
+                       python_version="PYTHON3_10",
                        code=my_code,
                        handler="myfunction")
 ```
@@ -51,7 +51,7 @@ base64_code = "ZnJvbSBkaWdpdGFsaHViX3J1bnRpbWVfcHl0aG9uIGltcG9ydCBoYW5kbGVyCgpAa
 func = dh.new_function(project="my-project",
                        name="python-function",
                        kind="python",
-                       python_version="PYTHON3_9",
+                       python_version="PYTHON3_10",
                        base64=base64_code,
                        handler="myfunction")
 ```
@@ -66,6 +66,8 @@ We support the following types of URIs:
 - [Local file path](#local-file-path)
 - [Git repository](#remote-git-repository)
 - [S3 zip archive](#remote-zip-s3-archive)
+- [HTTP/HTTPS URL](#remote-http-https-url)
+- [ZIP HTTP/HTTPS URL](#remote-zip-http-https-url)
 
 #### Local file path
 
@@ -77,7 +79,7 @@ my_code = "src/my-func.py"
 func = dh.new_function(project="my-project",
                        name="python-function",
                        kind="python",
-                       python_version="PYTHON3_9",
+                       python_version="PYTHON3_10",
                        code_src=my_code,
                        handler="myfunction")
 ```
@@ -95,7 +97,7 @@ my_repo = "git+https://repo-host/some-user/some-repo"
 func = dh.new_function(project="my-project",
                        name="python-function",
                        kind="python",
-                       python_version="PYTHON3_9",
+                       python_version="PYTHON3_10",
                        code_src=my_repo,
                        handler="path:function")
 ```
@@ -147,8 +149,38 @@ my_archive = "zip+s3://some-bucket/some-key.zip"
 func = dh.new_function(project="my-project",
                        name="python-function",
                        kind="python",
-                       python_version="PYTHON3_9",
+                       python_version="PYTHON3_10",
                        code_src=my_archive,
+                       handler="path:function")
+```
+
+#### Remote http https URL
+
+The remote http/https URL can be specified with the `http(s)://some-url` format.
+
+```python
+my_url = "http(s)://some-url"
+
+func = dh.new_function(project="my-project",
+                       name="python-function",
+                       kind="python",
+                       python_version="PYTHON3_10",
+                       code_src=my_url,
+                       handler="path:function")
+```
+
+#### Remote zip http https URL
+
+The remote zip http/https URL can be specified with the `zip+http(s)://some-url` format. The file at the URL must be a zip archive.
+
+```python
+my_url = "zip+http(s)://some-url"
+
+func = dh.new_function(project="my-project",
+                       name="python-function",
+                       kind="python",
+                       python_version="PYTHON3_10",
+                       code_src=my_url,
                        handler="path:function")
 ```
 
@@ -179,6 +211,8 @@ If the source code is:
 
 - [S3 zip archive](#remote-zip-s3-archive)
 - [Git repository](#remote-git-repository)
+- [ZIP HTTP/HTTPS URL](#remote-zip-http-https-url)
+- [HTTP/HTTPS URL](#remote-http-https-url)
 
 Then the entrypoint should be the path to the file where the code is stored (expressed with `.` separator) and the name of the function separated by a `:`.
 

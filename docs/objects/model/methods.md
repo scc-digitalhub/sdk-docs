@@ -78,6 +78,22 @@ I/O methods are used to handle objects as files.
         show_root_full_path: false
         show_root_toc_entry: true
 
+## Model specific methods
+
+There are several generic model methods on the `Model` object.
+
+- `log_metric`: Log a metric in the model.
+
+::: digitalhub.entities.model._base.entity.Model.log_metric
+    options:
+        heading_level: 3
+        show_signature: false
+        show_source: false
+        show_root_heading: true
+        show_symbol_type_heading: true
+        show_root_full_path: false
+        show_root_toc_entry: true
+
 ## Kind specific methods
 
 Kind specific methods are used to express potential behaviors of different object kinds.

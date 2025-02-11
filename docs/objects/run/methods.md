@@ -47,6 +47,7 @@ There are several generic run methods on the `Run` object.
 - `wait`: Wait for the run to finish.
 - `stop`: Stop the run.
 - `resume`: Resume the run.
+- `log_metric`: Log a metric in the run.
 
 ::: digitalhub.entities.run._base.entity.Run.wait
     options:
@@ -69,6 +70,16 @@ There are several generic run methods on the `Run` object.
         show_root_toc_entry: true
 
 ::: digitalhub.entities.run._base.entity.Run.resume
+    options:
+        heading_level: 3
+        show_signature: false
+        show_source: false
+        show_root_heading: true
+        show_symbol_type_heading: true
+        show_root_full_path: false
+        show_root_toc_entry: true
+
+::: digitalhub.entities.run._base.entity.Run.log_metric
     options:
         heading_level: 3
         show_signature: false
