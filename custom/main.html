@@ -67,7 +67,7 @@
                 {% set versions = ['current'] %}
               {% endif %}
               {% for version in versions %}
-                {% if version != config.extra.docs_version|string %}
+                {% if version != docsVersion|string %}
                   {% if version == 'current' %}
                     <a href="{{ config.extra.site }}">{{ version }}</a>
                   {% else %}
