@@ -54,7 +54,11 @@
           </span>
           <div class="dropdown">
             <button class="dd-button">
-              <span class="dd-text">{{ config.extra.docs_version|string() }}</span>
+              {% set docsVersion = config.extra.docs_version|string %}
+              {% if docsVersion.startswith('v:') %}
+                {% set docsVersion = docsVersion[2:] %}
+              {% endif %}
+              <span class="dd-text">{{ docsVersion }}</span>
               <span class="dd-arrow">&#9660;</span>
               {% if config.extra.versions is defined and config.extra.versions != None %}
                 {% set versionsString = config.extra.versions|string %}

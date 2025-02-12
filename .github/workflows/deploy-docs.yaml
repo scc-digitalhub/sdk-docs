@@ -31,7 +31,7 @@ jobs:
     if: github.ref_name != 'main' && github.ref_name != 'gh-pages'
     runs-on: ubuntu-latest
     env:
-      DOCS_VERSION: ${{ github.ref_name }}
+      DOCS_VERSION: v:${{ github.ref_name }}
       USER_STYLESHEETS_PORTAL_SELECTION: ../stylesheets/portal_selection.css
       USER_STYLESHEETS_COLORS: ../stylesheets/colors.css
     steps:
