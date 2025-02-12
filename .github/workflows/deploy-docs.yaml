@@ -15,7 +15,8 @@ jobs:
       - run: |
           git fetch --prune --unshallow --tags
           git checkout main
-          export VERSIONS=$(echo `git branch -r --format='%(refname:short)'`|sed 's/origin\///g'|sed 's/HEAD//g'|sed 's/main/current/g'|sed 's/gh-pages//g'|xargs|sed 's/ /,/g')
+          export VERSIONS=$(echo `git branch -r --format='%(refname:short)'`|python versions_string.py)
+          echo $VERSIONS
           mkdocs build
       - run: |
           git checkout gh-pages
@@ -43,7 +44,7 @@ jobs:
       - run: |
           git fetch --prune --unshallow --tags
           git checkout ${{ github.ref_name }}
-          export VERSIONS=$(echo `git branch -r --format='%(refname:short)'`|sed 's/origin\///g'|sed 's/HEAD//g'|sed 's/main/current/g'|sed 's/gh-pages//g'|xargs|sed 's/ /,/g')
+          export VERSIONS=$(echo `git branch -r --format='%(refname:short)'`|python versions_string.py)
           mkdocs build
       - run: |
           git checkout gh-pages
