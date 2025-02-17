@@ -84,7 +84,7 @@ You need to declare the resource type as `mem`, request and/or limit specificati
 
 ```python
 resources = {
-    "mem"{
+    "mem": {
         "requests": "64Gi",
     }
 }
