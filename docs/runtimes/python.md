@@ -75,8 +75,15 @@ def func4(context, events):
 
 # 5. Function with mixed input arguments
 def func5(di: Dataitem, param1: str):
-   # di refers to a Dataitem object, so it must be mapped into runs inputs paramaters
-   # param1 is a string, it must be mapped into runs input parameters
+   # di refers to a Dataitem object, so it must be mapped into runs inputs
+   # param1 is a string, it must be mapped into runs parameters
+
+# 6. Init function for remote execution
+def init(context, param1, param2):
+    # The init function is a function executed by the nuclio wrapper
+    # before the execution of the user handler.
+    # The context param is overridden by the runtime with the nuclio context,
+    # the param1 and param2 are passed by the user at runtime into runs init_parameters
 ```
 
 ### Parameters composition
@@ -208,8 +215,8 @@ The python runtime supports Python versions 3.9, 3.10 and 3.11, expressed respec
 
 ##### Init function
 
-The init function is the entrypoint of the nuclio init function. It follows the same rules as the `handler` parameter.
-The init function must be defined in the source code and should follow the [example 4](#function-definition-example) (event and context in signature).
+The init function is the entrypoint of the nuclio init function. The user must pass the name of the init function in the `init_function` parameter.
+The init function must be defined in the source code and should follow the [example 6](#function-definition-example).
 
 ##### Base image
 
@@ -307,6 +314,7 @@ The run's parameters are passed alongside the task's ones.
 | loacal_execution | bool | Flag to indicate if the run will be executed locally | False |
 | inputs | dict | Input entity key. | None |
 | parameters | dict | Extra parameters for a function. | None |
+| init_parameters | dict | Parameters for init function. | None |
 
 #### Run example
 
