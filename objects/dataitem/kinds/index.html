@@ -1975,10 +1975,6 @@
     <div class="doc doc-contents first">
 
         <p>Read dataitem file (csv or parquet) as a DataFrame from spec.path.
-If the dataitem is not local, it will be downloaded to a temporary
-folder named tmp_dir in the project context folder.
-If clean_tmp_path is True, the temporary folder will be deleted after the
-method is executed.
 It's possible to pass additional arguments to the this function. These
 keyword arguments will be passed to the DataFrame reader function such as
 pandas's read_csv or read_parquet.</p>
@@ -2004,7 +2000,8 @@ pandas's read_csv or read_parquet.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Format of the file. (Supported csv and parquet).</p>
+                <p>Format of the file to read. By default, it will be inferred from
+the extension of the file.</p>
               </div>
             </td>
             <td>
@@ -2024,23 +2021,7 @@ pandas's read_csv or read_parquet.</p>
               </div>
             </td>
             <td>
-                  <code>None</code>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>clean_tmp_path</code>
-            </td>
-            <td>
-                  <code>bool</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>If True, the temporary folder will be deleted.</p>
-              </div>
-            </td>
-            <td>
-                  <code>True</code>
+                  <code>&#39;pandas&#39;</code>
             </td>
           </tr>
           <tr class="doc-section-item">
