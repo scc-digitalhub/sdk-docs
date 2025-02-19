@@ -2538,8 +2538,15 @@ There are some restriction that must be applied when defining the function:</p>
 </span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>
 </span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="c1"># 5. Function with mixed input arguments</span>
 </span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="k">def</span><span class="w"> </span><span class="nf">func5</span><span class="p">(</span><span class="n">di</span><span class="p">:</span> <span class="n">Dataitem</span><span class="p">,</span> <span class="n">param1</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>   <span class="c1"># di refers to a Dataitem object, so it must be mapped into runs inputs paramaters</span>
-</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>   <span class="c1"># param1 is a string, it must be mapped into runs input parameters</span>
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>   <span class="c1"># di refers to a Dataitem object, so it must be mapped into runs inputs</span>
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>   <span class="c1"># param1 is a string, it must be mapped into runs parameters</span>
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>
+</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="c1"># 6. Init function for remote execution</span>
+</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a><span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">param1</span><span class="p">,</span> <span class="n">param2</span><span class="p">):</span>
+</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>    <span class="c1"># The init function is a function executed by the nuclio wrapper</span>
+</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>    <span class="c1"># before the execution of the user handler.</span>
+</span><span id="__span-1-42"><a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a>    <span class="c1"># The context param is overridden by the runtime with the nuclio context,</span>
+</span><span id="__span-1-43"><a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a>    <span class="c1"># the param1 and param2 are passed by the user at runtime into runs init_parameters</span>
 </span></code></pre></div>
 <h3 id="parameters-composition">Parameters composition</h3>
 <h4 id="inputs">Inputs</h4>
@@ -2740,8 +2747,8 @@ The <code>invoke</code> method accept <a href="https://requests.readthedocs.io/e
 <li><code>PYTHON3_11</code></li>
 </ul>
 <h5 id="init-function">Init function</h5>
-<p>The init function is the entrypoint of the nuclio init function. It follows the same rules as the <code>handler</code> parameter.
-The init function must be defined in the source code and should follow the <a href="#function-definition-example">example 4</a> (event and context in signature).</p>
+<p>The init function is the entrypoint of the nuclio init function. The user must pass the name of the init function in the <code>init_function</code> parameter.
+The init function must be defined in the source code and should follow the <a href="#function-definition-example">example 6</a>.</p>
 <h5 id="base-image">Base image</h5>
 <p>The base image is a string that represents the image (name:tag) used to build the image where the function will be executed.</p>
 <div class="admonition warning">
@@ -2925,6 +2932,12 @@ The run's parameters are passed alongside the task's ones.</p>
 <td>parameters</td>
 <td>dict</td>
 <td>Extra parameters for a function.</td>
+<td>None</td>
+</tr>
+<tr>
+<td>init_parameters</td>
+<td>dict</td>
+<td>Parameters for init function.</td>
 <td>None</td>
 </tr>
 </tbody>
