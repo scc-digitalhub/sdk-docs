@@ -272,7 +272,6 @@ A `Task` is created with the `run()` method, so it's not managed directly by the
 | [envs](kubernetes-resources.md#envs) | list[dict] | Env variables | None | |
 | [secrets](kubernetes-resources.md#secrets) | list[str] | List of secret names | None | |
 | [profile](kubernetes-resources.md#profile) | str | Profile template | None | |
-| [backoff_limit](kubernetes-resources.md#backoff-limit) | int | Backoff limit | None | `job` |
 | [replicas](kubernetes-resources.md#replicas) | int | Number of replicas | None | `serve` |
 | [service_type](kubernetes-resources.md#service-type) | str | Service type | `NodePort` | `serve` |
 | [instructions](#instructions) | list[str] | Build instructions to be executed as RUN instructions in Dockerfile | None | `build` |

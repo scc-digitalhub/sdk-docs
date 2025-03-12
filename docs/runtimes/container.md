@@ -41,6 +41,7 @@ The Container runtime introduces a function of kind `container` that allows you 
 | lang | str | Source code language (hint)| None |
 | image | str | The image to use | None |
 | base_image | str | The base container image | None (required if task is `build`) |
+| image_pull_policy | str | K8s pull policy for image | None |
 | command | str | The command to run inside the container | None |
 | args | list[str] | The arguments to pass to the command | None |
 
@@ -81,13 +82,22 @@ A `Task` is created with the `run()` method, so it's not managed directly by the
 | [envs](kubernetes-resources.md#envs) | list[dict] | Env variables | None | |
 | [secrets](kubernetes-resources.md#secrets) | list[str] | List of secret names | None | |
 | [profile](kubernetes-resources.md#profile) | str | Profile template | None | |
-| [backoff_limit](kubernetes-resources.md#backoff-limit) | int | Backoff limit | None | `job` |
 | [schedule](kubernetes-resources.md#schedule) | str | Schedule for the job | None | `job` |
 | [fs_group](kubernetes-resources.md#fs-group) | int | File system group ID | None | `deploy`, `job` |
+| [run_as_user](kubernetes-resources.md#run-as-user) | int | User ID to run the container | None | `deploy`, `job`, `serve` |
+| [run_as_group](kubernetes-resources.md#run-as-group) | int | Group ID to run the container | None | `deploy`, `job`, `serve` |
 | [replicas](kubernetes-resources.md#replicas) | int | Number of replicas | None | `deploy`, `serve` |
 | [service_ports](kubernetes-resources.md#service-port) | list[dict] | Service port where to expose the service | `NodePort` | `serve` |
 | [service_type](kubernetes-resources.md#service-type) | str | Service type | `NodePort` | `serve` |
-| instructions | list[str] | Build instructions to be executed as RUN instructions in Dockerfile | None | `build` |
+| [instructions](#instructions) | list[str] | Build instructions to be executed as RUN instructions in Dockerfile | None | `build` |
+
+##### Instructions
+
+Instructions are executed as `RUN` instructions in the Dockerfile. Example:
+
+```python
+instructions = ["apt-get install -y git"]
+```
 
 ##### Task actions
 

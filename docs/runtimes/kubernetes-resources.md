@@ -141,14 +141,6 @@ Number of replicas for the pod/deployment. It accepts an integer value.
 replicas = 3
 ```
 
-## Backoff limit
-
-Backoff limit for the job. It accepts an integer value.
-
-```python
-backoff_limit = 3
-```
-
 ## FS group
 
 File system group ID. It accepts an integer value.
@@ -178,4 +170,20 @@ Service type to expose. Must be a `str` of one of the following:
 
 ```python
 service_type = "NodePort"
+```
+
+## Run as user
+
+User ID to run the container. It accepts an integer value.
+
+```python
+run_as_user = 1000
+```
+
+## Run as group
+
+Group ID to run the container. It accepts an integer value.
+
+```python
+run_as_group = 1000
 ```
