@@ -43,7 +43,6 @@ The Container runtime introduces a function of kind `container` that allows you 
 | base_image | str | The base container image | None (required if task is `build`) |
 | image_pull_policy | str | K8s pull policy for image | None |
 | command | str | The command to run inside the container | None |
-| args | list[str] | The arguments to pass to the command | None |
 
 ##### Function kinds
 
@@ -124,7 +123,9 @@ The run's parameters are passed alongside the task's ones.
 
 #### Run parameters
 
-There are no parameters for the `run` spec.
+| Name | Type | Description | Default | Kind specific |
+| --- | --- | --- | --- | --- |
+| args | list[str] | The arguments to pass to the command | None |
 
 #### Run example
 
