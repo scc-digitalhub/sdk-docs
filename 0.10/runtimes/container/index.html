@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -2287,12 +2287,6 @@
 <td>The command to run inside the container</td>
 <td>None</td>
 </tr>
-<tr>
-<td>args</td>
-<td>list[str]</td>
-<td>The arguments to pass to the command</td>
-<td>None</td>
-</tr>
 </tbody>
 </table>
 <h5 id="function-kinds">Function kinds</h5>
@@ -2468,7 +2462,26 @@ A <code>Task</code> is created with the <code>run()</code> method, so it's not m
 <p>The <code>Run</code> object is, similar to the <code>Task</code>, created with the <code>run()</code> method.
 The run's parameters are passed alongside the task's ones.</p>
 <h4 id="run-parameters">Run parameters</h4>
-<p>There are no parameters for the <code>run</code> spec.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+<th>Kind specific</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>args</td>
+<td>list[str]</td>
+<td>The arguments to pass to the command</td>
+<td>None</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h4 id="run-example">Run example</h4>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">run</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;job&quot;</span><span class="p">)</span>
 </span></code></pre></div>
