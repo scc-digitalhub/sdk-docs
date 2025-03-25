@@ -11,6 +11,9 @@ extra_css:
   - !ENV [USER_STYLESHEETS_PORTAL_SELECTION, "stylesheets/portal_selection.css"]
   - !ENV [USER_STYLESHEETS_COLORS, "stylesheets/colors.css"]
 
+repo_name: scc-digitalhub/digitalhub-sdk
+repo_url: https://github.com/scc-digitalhub/digitalhub-sdk
+
 theme:
   name: "material"
   custom_dir: custom/
@@ -28,6 +31,8 @@ theme:
   features:
     - content.code.copy
     - content.code.select
+  icon:
+    repo: fontawesome/brands/github
 
 markdown_extensions:
   - admonition
@@ -102,7 +107,11 @@ nav:
       - Code source: objects/code_source.md
   - Runtimes:
       - Runtimes: runtimes/runtimes.md
-      - Python: runtimes/python.md
+      - Python:
+          - Overview: runtimes/python/1-overview.md
+          - Function definition: runtimes/python/2-function.md
+          - Entities parameters: runtimes/python/3-entities.md
+          - Examples: runtimes/python/4-examples.md
       - DBT: runtimes/dbt.md
       - Container: runtimes/container.md
       - KFP: runtimes/kfp.md

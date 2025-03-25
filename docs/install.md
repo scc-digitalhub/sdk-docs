@@ -26,7 +26,7 @@ python -m pip install digitalhub[mlflow]
 
 The Digitalhub runtimes are installed in the same way as the SDK. We have distributed the following runtimes at the moment:
 
-- [digitalhub-runtime-python](./runtimes/python.md)
+- [digitalhub-runtime-python](./runtimes/python/1-overview.md)
 - [digitalhub-runtime-container](./runtimes/container.md)
 - [digitalhub-runtime-dbt](./runtimes/dbt.md)
 - [digitalhub-runtime-kfp](./runtimes/kfp.md)

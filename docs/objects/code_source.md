@@ -15,7 +15,7 @@ In the SDK, there are three different types of source code:
 
 You can define a plain text source using the `code` parameter.
 
-Here follow an example of a plain text source with the [Python runtime](../runtimes/python.md):
+Here follow an example of a plain text source with the [Python runtime](../runtimes/python/1-overview.md):
 
 ```python
 my_code = """
@@ -42,7 +42,7 @@ In this case the function will execute the code in the `my_code` variable.
 
 You can define a base64 encoded source using the `base64` parameter.
 
-Here follow an example of a base64 encoded source with the [Python runtime](../runtimes/python.md):
+Here follow an example of a base64 encoded source with the [Python runtime](../runtimes/python/1-overview.md):
 
 ```python
 # Same function as above encoded in base64

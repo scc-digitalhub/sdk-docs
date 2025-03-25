@@ -10,7 +10,7 @@ Runtimes define the key point of extension of the platform: new runtimes may be 
 
 ## Supported runtimes
 
-- [Python](python.md)
+- [Python](python/1-overview.md)
 - [Container](container.md)
 - [DBT](dbt.md)
 - [KFP](kfp.md)
