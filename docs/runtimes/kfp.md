@@ -134,7 +134,6 @@ A `Task` is created with the `run()` method, so it's not managed directly by the
 | [envs](./kubernetes-resources.md#envs) | list[dict] | Env variables | None | |
 | [secrets](./kubernetes-resources.md#secrets) | list[str] | List of secret names | None | |
 | [profile](./kubernetes-resources.md#profile) | str | Profile template | None | |
-| [schedule](./kubernetes-resources.md#schedule) | str | Schedule for the job | None | |
 
 ##### Task actions
 

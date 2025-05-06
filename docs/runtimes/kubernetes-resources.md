@@ -24,7 +24,7 @@ With SDK you can request the following types of volumes:
 ### Persistent volume claims (PVC)
 
 You can ask for a persistent volume claim (pvc) to be mounted on the container being launched by the task.
-You need to declare the volume type as `persistent_volume_claim`, a name for the PVC for the user (e.g., `my-pvc`), the mount path on the container and a spec with the name of the PVC on Kubernetes (e.g., `pvc-name-on-k8s`).
+You need to declare the volume type as `persistent_volume_claim`, a name for the PVC for the user (e.g., `my-pvc`), the mount path on the container and a optionally a spec with the size of the PVC on Kubernetes and the storage class.
 
 ```python
 volumes = [{
@@ -32,23 +32,24 @@ volumes = [{
         "name": "my-pvc",
         "mount_path": "/data",
         "spec": {
-            "claim_name": "pvc-name-on-k8s",
-            }
+            "size": "1Gi",
+            "storage_class_name": "my-storage-class"
+        }
 }]
 ```
 
-### ConfigMap
+### EmptyDir
 
-You can ask for a configmap to be mounted on the container being launched by the task.
-You need to declare the volume type as `config_map`, a name for the ConfigMap for the user (e.g., `my-config-map`), the mount path on the container and a spec with the name of the ConfigMap on Kubernetes (e.g., `config-map-name-on-k8s`).
+You can ask for an `emptyDir` volume (ephimeral storage) to be mounted on the container being launched by the task.
+You need to declare the volume type as `empty_dir`, a name for the user (e.g., `my-empty-dir`), the mount path on the container and a spec with the size of the emptyDir on Kubernetes (e.g., `size: 1Gi`).
 
 ```python
 volumes = [{
-        "volume_type": "config_map",
-        "name": "my-config-map",
+        "volume_type": "empty_dir",
+        "name": "my-empty-dir",
         "mount_path": "/data",
         "spec": {
-            "name": "config-map-name-on-k8s"
+            "size_limit": "1Gi"
         }
 }]
 ```
@@ -123,14 +124,12 @@ Please see [Kubernetes documentation](https://kubernetes.io/docs/home/).
 
 ## Profile
 
-Profile template.
-
-## Schedule
-
-Schedule for the job. It accepts a cron expression.
+Profile template. Ask your administrator for the available profiles.
+Profile are used to request specific hardware resources (e.g., GPU) for the task.
 
 ```python
-schedule = "0 0 * * *"
+# Request 1 GPU A100
+profile = "1xa100"
 ```
 
 ## Replicas

@@ -81,7 +81,6 @@ A `Task` is created with the `run()` method, so it's not managed directly by the
 | [envs](kubernetes-resources.md#envs) | list[dict] | Env variables | None | |
 | [secrets](kubernetes-resources.md#secrets) | list[str] | List of secret names | None | |
 | [profile](kubernetes-resources.md#profile) | str | Profile template | None | |
-| [schedule](kubernetes-resources.md#schedule) | str | Schedule for the job | None | `job` |
 | [fs_group](kubernetes-resources.md#fs-group) | int | File system group ID | None | `deploy`, `job` |
 | [run_as_user](kubernetes-resources.md#run-as-user) | int | User ID to run the container | None | `deploy`, `job`, `serve` |
 | [run_as_group](kubernetes-resources.md#run-as-group) | int | Group ID to run the container | None | `deploy`, `job`, `serve` |
@@ -123,9 +122,9 @@ The run's parameters are passed alongside the task's ones.
 
 #### Run parameters
 
-| Name | Type | Description | Default | Kind specific |
+| Name | Type | Description | Default |
 | --- | --- | --- | --- | --- |
-| args | list[str] | The arguments to pass to the command | None |
+| args | list[str] | The arguments to pass to the command | None  |
 
 #### Run example
 
