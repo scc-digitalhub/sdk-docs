@@ -24,7 +24,7 @@ With SDK you can request the following types of volumes:
 ### Persistent volume claims (PVC)
 
 You can ask for a persistent volume claim (pvc) to be mounted on the container being launched by the task.
-You need to declare the volume type as `persistent_volume_claim`, a name for the PVC for the user (e.g., `my-pvc`), the mount path on the container and a optionally a spec with the size of the PVC on Kubernetes and the storage class.
+You need to declare the volume type as `persistent_volume_claim`, a name for the PVC for the user (e.g., `my-pvc`), the mount path on the container and a optionally a spec with the size of the PVC on Kubernetes.
 
 ```python
 volumes = [{
@@ -32,8 +32,7 @@ volumes = [{
         "name": "my-pvc",
         "mount_path": "/data",
         "spec": {
-            "size": "1Gi",
-            "storage_class_name": "my-storage-class"
+            "size": "1Gi"
         }
 }]
 ```
