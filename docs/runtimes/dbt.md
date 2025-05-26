@@ -7,7 +7,7 @@ The runtime introduces a function of kind `dbt` and a task of kind `transform`.
 
 Python version and libraries:
 
-- `python >= 3.9`
+- `python >= 3.9, <3.13`
 - `digitalhub-runtime-dbt`
 
 The package is available on PyPI:

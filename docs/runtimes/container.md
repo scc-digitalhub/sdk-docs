@@ -6,7 +6,7 @@ The **Container runtime** allows you to create deployments, jobs and services on
 
 Python version and libraries:
 
-- `python >= 3.9`
+- `python >= 3.9, <3.13`
 - `digitalhub-runtime-container`
 
 The package is available on PyPI:

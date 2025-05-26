@@ -10,7 +10,7 @@ With `build` action you build a docker image with all the dependencies and reuse
 
 Python version and libraries:
 
-- `python >= 3.9`
+- `python >= 3.9, <3.13`
 - `digitalhub-runtime-python`
 
 The package is available on PyPI:

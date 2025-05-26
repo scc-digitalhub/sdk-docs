@@ -7,7 +7,7 @@ The runtime introduces a function of kind `kfp` and a task of kind `pipeline`.
 
 Python version and libraries:
 
-- `python >= 3.9`
+- `python >= 3.9, <3.13`
 - `digitalhub-runtime-kfp`
 
 The package is available on PyPI:
