@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../methods/">
+        <link rel="prev" href="../../workflow/kinds/">
       
       
-        <link rel="next" href="../../artifact/entity/">
+        <link rel="next" href="../crud/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Kinds - Digitalhub SDK documentation</title>
+        <title>Entity - Digitalhub SDK documentation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#run-kinds" class="md-skip">
+        <a href="#trigger" class="md-skip">
           Skip to content
         </a>
       
@@ -193,7 +193,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Kinds
+              Entity
             
           </span>
         </div>
@@ -913,18 +913,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" checked>
         
           
           <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
@@ -940,7 +942,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_5">
             <span class="md-nav__icon md-icon"></span>
             Triggers
@@ -951,150 +953,32 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../../trigger/entity/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Entity
     
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
   
   
   
-  
-    <li class="md-nav__item">
-      <a href="../../trigger/crud/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    CRUD
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../trigger/methods/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Methods
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../trigger/kinds/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Kinds
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
+    <li class="md-nav__item md-nav__item--active">
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" checked>
-        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
           
-          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
-            
   
   
   <span class="md-ellipsis">
-    Runs
+    Entity
     
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4_6">
-            <span class="md-nav__icon md-icon"></span>
-            Runs
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../entity/" class="md-nav__link">
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1105,6 +989,35 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#managing-triggers-with-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing triggers with SDK
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1160,19 +1073,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../kinds/" class="md-nav__link">
         
   
   
@@ -1183,7 +1087,144 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Runs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            Runs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../run/entity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Entity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../run/crud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CRUD
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../run/methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Methods
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../run/kinds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kinds
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -2120,6 +2161,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#managing-triggers-with-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing triggers with SDK
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2137,17 +2195,16 @@
   
 
 
-<h1 id="run-kinds">Run kinds</h1>
-<p>At the moment, we support the following kinds and the related runtime:</p>
-<ul>
-<li><a href="../../../runtimes/python/3-entities/#run"><strong><code>python</code></strong></a></li>
-<li><a href="../../../runtimes/dbt/#run"><strong><code>dbt</code></strong></a></li>
-<li><a href="../../../runtimes/container/#run"><strong><code>container</code></strong></a></li>
-<li><a href="../../../runtimes/modelserve/#run"><strong><code>modelserve</code></strong></a></li>
-<li><a href="../../../runtimes/kfp/#run"><strong><code>kfp</code></strong></a></li>
-</ul>
-<p>For each different kind, the <code>Run</code> object has its own subclass with different <code>spec</code> and <code>status</code> attributes.</p>
-<p>Please see the runtime documentation for more information on the related to the various <code>spec</code> arguments.</p>
+<h1 id="trigger">Trigger</h1>
+<p>Triggers are the logical description of how and when jobs should be executed on the platform. A trigger controls the scheduling and execution of tasks, defining when and under what conditions they should run. This can include time-based scheduling, event-driven execution, or other triggering mechanisms.</p>
+<h2 id="managing-triggers-with-sdk">Managing triggers with SDK</h2>
+<p>Triggers can be created and managed as <em>entities</em> with the SDK CRUD methods. This can be done directly from the package or through the <code>Project</code> object.
+To manage triggers, you need to have at least <code>digitalhub[core]</code> layer installed.</p>
+<ol>
+<li>In the <a href="../crud/">CRUD section</a>, we will see how to create, read, update and delete triggers.</li>
+<li>In the <a href="../methods/">methods section</a>, we will see what can be done with the <code>Trigger</code> object.</li>
+<li>In the <a href="../kinds/">kinds section</a>, we will see what kinds are supported.</li>
+</ol>
 
 
 
