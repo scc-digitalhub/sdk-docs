@@ -1,22 +1,12 @@
 # CRUD
 
-The CRUD methods are used to create, read, update and delete triggers. There are two ways to use them.
-The first is through the SDK and the second is through the `Project` object.
-The syntax is the same for all CRUD methods. If you want to manage triggers from the project, you can use the `Project` object and avoid to specify the `project` parameter. In this last case, you need to specify every parameter as keyword argument.
-In any case, you need to first import the SDK and instantiate a `Project` object that will be the context in which you can manage entities.
+The CRUD methods are used to create, read, update and delete triggers. The syntax is the same for all CRUD methods.
 
 Example:
 
 ```python
 import digitalhub as dh
 
-project = dh.get_or_create_project("my-project")
-
-# Use CRUD method on project
-trigger = project.new_trigger(name="my-trigger",
-                            kind="scheduler",
-                            task="my-task",
-                            function="my-function")
 
 # Use CRUD method from SDK
 trigger = dh.new_trigger(project="my-project",

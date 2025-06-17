@@ -5,7 +5,6 @@ Functions are the logical description of something that the platform may execute
 ## Managing functions with SDK
 
 Functions can be created and managed as *entities* with the SDK CRUD methods. This can be done directly from the package or through the `Project` object.
-To manage functions, you need to have at least `digitalhub[core]` layer installed.
 
 1. In the [CRUD section](./crud.md), we will see how to create, read, update and delete functions.
 2. In the [methods section](./methods.md), we will see what can be done with the `Function` object.

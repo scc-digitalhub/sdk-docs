@@ -4,8 +4,7 @@ Triggers are the logical description of how and when jobs should be executed on 
 
 ## Managing triggers with SDK
 
-Triggers can be created and managed as *entities* with the SDK CRUD methods. This can be done directly from the package or through the `Project` object.
-To manage triggers, you need to have at least `digitalhub[core]` layer installed.
+Triggers can be created and managed as *entities* with the SDK CRUD methods. This can be done directly from the package.
 
 1. In the [CRUD section](./crud.md), we will see how to create, read, update and delete triggers.
 2. In the [methods section](./methods.md), we will see what can be done with the `Trigger` object.
