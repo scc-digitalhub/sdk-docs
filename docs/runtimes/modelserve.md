@@ -17,7 +17,7 @@ python -m pip install digitalhub-runtime-modelserve
 
 ## HOW TO
 
-The modelserve runtime introduces several functions of kind `sklearnserve`, `mlflowserve`, `huggingfaceserve` and `kubeaiserve` that allows you to serve different ML models flavours and a task of kind `serve`.
+The modelserve runtime introduces several functions of kind `sklearnserve`, `mlflowserve`, `huggingfaceserve` and `kubeai-text`,  `kubeai-speech` that allows you to serve different ML models flavours and a task of kind `serve`.
 The usage of the runtime is similar to the others:
 
 1. Create a `Function` object of the desired model and execute it's `run()` method.
@@ -59,7 +59,7 @@ run.invoke(json=json)
 
 ### Function
 
-There are different modelserve functions (`sklearnserve`, `mlflowserve`, `huggingfaceserve` and `kubeaiserve`), each one representing a different ML model flavour.
+There are different modelserve functions (`sklearnserve`, `mlflowserve`, `huggingfaceserve` and `kubeai-text`,  `kubeai-speech`), each one representing a different ML model flavour.
 
 #### Function parameters
 
@@ -77,11 +77,10 @@ A modelserve function has the following `spec` parameters to pass to the `new_fu
 | [path](#model-path) | str | Path to the model files | None | |
 | model_name | str | Name of the model | None | |
 | image | str | Docker image where to serve the model | None | |
-| [url](#model-url) | str | Model url | None | `kubeaiserve` |
-| [adapters](#adapters) | list[str] | Adapters | None | `kubeaiserve` |
-| [features](#features) | list[str] | Features | None | `kubeaiserve` |
-| [engine](#engine) | KubeaiEngine | Engine | None | `kubeaiserve` |
-| processors | int | Number of processors | None | `kubeaiserve` |
+| [url](#model-url) | str | Model url | None | `kubeai-text`,  `kubeai-speech` |
+| [adapters](#adapters) | list[str] | Adapters | None | `kubeai-text`,  `kubeai-speech` |
+| [features](#features) | list[str] | Features | None | `kubeai-text` |
+| [engine](#engine) | KubeaiEngine | Engine | None | `kubeai-text` |
 
 ##### Function kinds
 
@@ -90,7 +89,8 @@ The `kind` parameter must be one of the following:
 - `sklearnserve`
 - `mlflowserve`
 - `huggingfaceserve`
-- `kubeaiserve`
+- `kubeai-text`
+- `kubeai-speech`
 
 ##### Adapters
 
@@ -127,7 +127,7 @@ The model path is the path to the model files. In **remote execution**, the path
 - `sklearnserve`: `s3://my-bucket/path-to-model/model.pkl` or `./path-to-model/model.pkl`. The remote path is the partition with the model file, the local path is the model file.
 - `mlflowserve`: `s3://my-bucket/path-to-model-files` or `./path-to-model-files`. The remote path is the partition with all the model files, the local path is the folder containing the MLmodel file according to MLFlow specification.
 
-Model path is not required for `kubeaiserve`.
+Model path is not required for `kubeai-text`,  `kubeai-speech`.
 
 ##### Model url
 
@@ -173,6 +173,24 @@ function = project.new_function(name="sklearn-serve-function",
 function = project.new_function(name="sklearn-serve-function",
                                 kind="sklearnserve",
                                 path="./my-path/model.pkl")
+
+# Example KubeAI text model
+function = project.new_function(
+    name="kubeai-text-function",
+    kind="kubeai-text",
+    url="hf://mistralai/Mistral-7B-v0.1",
+    features=["TextGeneration"],
+    engine="VLLM"
+)
+
+# Example KubeAI speech model
+function = project.new_function(
+    name="kubeai-speech-function",
+    kind="kubeai-speech",
+    url="hf://openai/whisper-large-v3",
+    features=["SpeechToText"],
+    engine="FasterWhisper"
+)
 ```
 
 ### Task
@@ -261,11 +279,12 @@ The run's parameters are passed alongside the task's ones.
 | Name | Type | Description | Default | Runtime |
 | --- | --- | --- | --- | --- |
 | local_execution | bool | Flag to determine if the run must be executed locally | False | |
-| env | dict | Environment variables | None | `kubeaiserve` |
-| args | list[str] | Arguments | None | `kubeaiserve` |
-| cache_profile | str | Cache profile | None | `kubeaiserve` |
-| [files](#files) | list[KubeaiFile] | Files | None | `kubeaiserve` |
-| [scaling](#scaling) | Scaling | Scaling parameters | None | `kubeaiserve` |
+| env | dict | Environment variables | None | `kubeai-text`,  `kubeai-speech` |
+| args | list[str] | Arguments | None | `kubeai-text`,  `kubeai-speech` |
+| cache_profile | str | Cache profile | None | `kubeai-text`,  `kubeai-speech` |
+| [files](#files) | list[KubeaiFile] | Files | None | `kubeai-text`,  `kubeai-speech` |
+| [scaling](#scaling) | Scaling | Scaling parameters | None | `kubeai-text`,  `kubeai-speech` |
+| processors | int | Number of processors | None | `kubeai-text`,  `kubeai-speech` |
 
 ##### Files
 

@@ -3,7 +3,7 @@
 This is the [Digitalhub SDK](https://github.com/scc-digitalhub/digitalhub-sdk) documentation.
 `digitalhub` is a Python package for interacting with the [Digitalhub platform](https://scc-digitalhub.github.io/docs/). It exposes a set of API to create, read, update and delete entities, tools to execute functions or workflows, collect or store execution results and data and to manage secrets.
 
-The SDK is open source under [Apache License 2.0](https://github.com/scc-digitalhub/digitalhub-sdk/blob/main/LICENSE.txt) and is available on [Github](https://github.com/scc-digitalhub/digitalhub-sdk) and [PyPI](https://pypi.org/project/digitalhub/).
+The SDK is open source under [Apache License 2.0](https://github.com/scc-digitalhub/digitalhub-sdk/blob/main/LICENSE) and is available on [Github](https://github.com/scc-digitalhub/digitalhub-sdk) and [PyPI](https://pypi.org/project/digitalhub/).
 
 ## Table of contents
 
