@@ -1,8 +1,8 @@
 mkdocs-material
 mkdocstrings[python]
-digitalhub[full]>=0.11.0b, <0.12
-digitalhub_runtime_python>=0.11.0b, <0.12
-digitalhub_runtime_container>=0.11.0b, <0.12
-digitalhub_runtime_kfp>=0.11.0b, <0.12
-digitalhub_runtime_modelserve>=0.11.0b, <0.12
-digitalhub_runtime_dbt>=0.11.0b, <0.12
+digitalhub[full]>=0.12.0b, <0.13
+digitalhub_runtime_python>=0.12.0b, <0.13
+digitalhub_runtime_container>=0.12.0b, <0.13
+digitalhub_runtime_kfp>=0.12.0b, <0.13
+digitalhub_runtime_modelserve>=0.12.0b, <0.13
+digitalhub_runtime_dbt>=0.12.0b, <0.13
