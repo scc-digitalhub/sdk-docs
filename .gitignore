@@ -1,3 +1,7 @@
 .DS_STORE
 .env
 site/
+.python-version
+pyproject.toml
+.venv
+uv.lock
