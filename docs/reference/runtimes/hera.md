@@ -56,9 +56,8 @@ The pipeline function is typically structured as follows:
 | workflow    | str  | "my-workflow"   | Workflow name (optional).        |
 | workflow_id | str  | "def456"        | Workflow ID (optional).          |
 | name        | str  | "step1"         | Step name.                       |
-| inputs      | list | ["input1"]      | Step inputs (parameter names). Inputs will be mapped in the step as Hera Parameters.  |
+| inputs      | dict | {"some-input": ANOTHER_STEP.get_parameter("some-output")} | Step inputs (parameter names). Inputs keys will be mapped in the step as Hera Parameters. The whole inputs as arguments for the task. |
 | outputs     | list | ["output1"]     | Step outputs (parameter names).   Outputs will be mapped in the step as Hera Outputs and Artifacts.|
-| parameters  | dict | {"url": ANOTHER_STEP.get_parameter("some-output")} | Arguments to pass to the step (used for chaining outputs between steps). They are used in Hera `Task` templates. In the Hera syntax you usually use `arguments` instead of `parameters`.    |
 
 Other keyword arguments are passed to the underlying container template. The step must be called inside a DAG or Steps context, otherwise an error is raised.
 
@@ -82,33 +81,39 @@ Returns a Hera `Container` object, which is used as the template for the step. I
 #### Workflow definition example
 
 ```python
-from hera.workflows import Workflow, DAG
+from hera.workflows import Workflow, DAG, Parameter
 from digitalhub_runtime_hera.dsl import step
 
 
-# Define the pipeline function
-def pipeline(url): # This argument will be passed as parameter during the build run
+# Define the pipeline function with no arguments
+def pipeline():
 
     # Create a new Workflow with an entrypoint DAG
-    with Workflow(entrypoint="dag") as w:
+    with Workflow(entrypoint="dag", arguments=Parameter(name="url")) as w:
         with DAG(name="dag"):
 
-            # Define the first step
-            A = step(template={"action":"job", "inputs": {"url": url}},
+            # Define the first step. It takes inputs from the workflow parameters
+            # and outputs a dataset that can be used in subsequent steps.
+            A = step(template={"action":"job", "inputs": {"url": "{{workflow.parameters.url}}"}},
                      function="download-data",
                      outputs=["dataset"])
+
             # Define subsequent steps
             # Note the way inputs are passed from one step to another,
-            # using the get_parameter method to retrieve outputs from previous steps and use the template {{inputs.parameters.parameter_name}}
+            # using the get_parameter method to retrieve outputs from previous steps
+            # and use the template {{inputs.parameters.parameter_name}}
             # This allows chaining data between steps
+            # Because we shortcut the definition of a container template inside a dag,
+            # we can pass directly the inputs as a dictionary. The key will be used
+            # as the input Parameter name, the whole inputs as arguments for the task.
             B = step(template={"action":"job", "inputs": {"di": "{{inputs.parameters.di}}"}},
                      function="process-spire",
-                     inputs=["di"],
-                     parameters={"di": A.get_parameter("dataset")})
+                     inputs={"di": A.get_parameter("dataset")})
             C = step(template={"action":"job", "inputs": {"di": "{{inputs.parameters.di}}"}},
                      function="process-measures",
-                     inputs=["di"],
-                     parameters={"di": A.get_parameter("dataset")})
+                     inputs={"di": A.get_parameter("dataset")})
+
+            # Chain the steps
             A >> [B, C]
 
     # Return the workflow
