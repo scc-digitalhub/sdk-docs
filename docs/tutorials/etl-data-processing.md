@@ -12,12 +12,6 @@ Learn how to build an Extract, Transform, Load (ETL) workflow using Digitalhub. 
 - Dataset exposure and sharing
 - Working with Digitalhub workflows and dataitems
 
-## Prerequisites
-
-- Basic understanding of Python
-- Access to a Digitalhub platform instance
-- Jupyter notebook environment
-
 ## Getting Started
 
 1. Import the Jupyter notebook `notebook-etl-ci.ipynb` into your Coder instance
