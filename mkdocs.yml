@@ -65,6 +65,15 @@ nav:
       - Quickstart: start-here/quickstart.md
   - Tutorials:
       - Getting Started: tutorials/index.md
+      - Data Processing & Transformation:
+          - ETL Data Processing: tutorials/etl-data-processing.md
+          - Database Transformation with DBT: tutorials/dbt-transformation.md
+      - Machine Learning:
+          - Scikit-Learn Model Training: tutorials/scikit-learn-model.md
+          - MLflow Model Management: tutorials/mlflow-model.md
+          - Custom ML Models with Darts: tutorials/custom-ml-model.md
+      - AI & Large Language Models:
+          - Large Language Models: tutorials/llm-model.md
   - How-to Guides:
       - Guides: how-to/index.md
   - Explanations:
