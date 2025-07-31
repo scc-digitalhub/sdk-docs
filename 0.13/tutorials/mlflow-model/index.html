@@ -9,25 +9,25 @@
       
       
       
-        <link rel="prev" href="../1-overview/">
+        <link rel="prev" href="../scikit-learn-model/">
       
       
-        <link rel="next" href="../3-entities/">
+        <link rel="next" href="../custom-ml-model/">
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
     
     
       
-        <title>Function definition - Digitalhub SDK documentation</title>
+        <title>MLflow Model Management - Digitalhub SDK documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,13 +46,13 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
     
-      <link rel="stylesheet" href="../../../../../stylesheets/portal_selection.css">
+      <link rel="stylesheet" href="../../../stylesheets/portal_selection.css">
     
-      <link rel="stylesheet" href="../../../../../stylesheets/colors.css">
+      <link rel="stylesheet" href="../../../stylesheets/colors.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#define-a-python-function" class="md-skip">
+        <a href="#mlflow-model-management-tutorial" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
 
     <!-- Link to home -->
     <a
-      href="../../../.."
+      href="../.."
       title="Digitalhub SDK documentation"
       class="md-header__button md-logo"
       aria-label="Digitalhub SDK documentation"
@@ -205,7 +205,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Function definition
+              MLflow Model Management
             
           </span>
         </div>
@@ -332,7 +332,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Digitalhub SDK documentation" class="md-nav__button md-logo" aria-label="Digitalhub SDK documentation" data-md-component="logo">
+    <a href="../.." title="Digitalhub SDK documentation" class="md-nav__button md-logo" aria-label="Digitalhub SDK documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -362,7 +362,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -422,7 +422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../start-here/" class="md-nav__link">
+      <a href="../../start-here/" class="md-nav__link">
         
   
   
@@ -445,7 +445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../start-here/install/" class="md-nav__link">
+      <a href="../../start-here/install/" class="md-nav__link">
         
   
   
@@ -468,7 +468,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../start-here/quickstart/" class="md-nav__link">
+      <a href="../../start-here/quickstart/" class="md-nav__link">
         
   
   
@@ -495,18 +495,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -522,7 +524,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Tutorials
@@ -536,7 +538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -597,7 +599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/etl-data-processing/" class="md-nav__link">
+      <a href="../etl-data-processing/" class="md-nav__link">
         
   
   
@@ -620,7 +622,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/dbt-transformation/" class="md-nav__link">
+      <a href="../dbt-transformation/" class="md-nav__link">
         
   
   
@@ -648,18 +650,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
@@ -675,7 +679,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_3">
             <span class="md-nav__icon md-icon"></span>
             Machine Learning
@@ -689,7 +693,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/scikit-learn-model/" class="md-nav__link">
+      <a href="../scikit-learn-model/" class="md-nav__link">
         
   
   
@@ -709,10 +713,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../../tutorials/mlflow-model/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    MLflow Model Management
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -723,6 +749,62 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Started
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -735,7 +817,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/custom-ml-model/" class="md-nav__link">
+      <a href="../custom-ml-model/" class="md-nav__link">
         
   
   
@@ -804,7 +886,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/llm-model/" class="md-nav__link">
+      <a href="../llm-model/" class="md-nav__link">
         
   
   
@@ -880,7 +962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/" class="md-nav__link">
+      <a href="../../how-to/" class="md-nav__link">
         
   
   
@@ -948,7 +1030,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../explanations/" class="md-nav__link">
+      <a href="../../explanations/" class="md-nav__link">
         
   
   
@@ -975,20 +1057,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -1004,7 +1084,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Reference
@@ -1018,7 +1098,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../" class="md-nav__link">
+      <a href="../../reference/" class="md-nav__link">
         
   
   
@@ -1079,7 +1159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/entities/" class="md-nav__link">
+      <a href="../../reference/objects/entities/" class="md-nav__link">
         
   
   
@@ -1140,7 +1220,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/project/entity/" class="md-nav__link">
+      <a href="../../reference/objects/project/entity/" class="md-nav__link">
         
   
   
@@ -1163,7 +1243,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/project/crud/" class="md-nav__link">
+      <a href="../../reference/objects/project/crud/" class="md-nav__link">
         
   
   
@@ -1186,7 +1266,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/project/methods/" class="md-nav__link">
+      <a href="../../reference/objects/project/methods/" class="md-nav__link">
         
   
   
@@ -1209,7 +1289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/project/config/" class="md-nav__link">
+      <a href="../../reference/objects/project/config/" class="md-nav__link">
         
   
   
@@ -1232,7 +1312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/project/setup/" class="md-nav__link">
+      <a href="../../reference/objects/project/setup/" class="md-nav__link">
         
   
   
@@ -1301,7 +1381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/function/entity/" class="md-nav__link">
+      <a href="../../reference/objects/function/entity/" class="md-nav__link">
         
   
   
@@ -1324,7 +1404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/function/crud/" class="md-nav__link">
+      <a href="../../reference/objects/function/crud/" class="md-nav__link">
         
   
   
@@ -1347,7 +1427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/function/methods/" class="md-nav__link">
+      <a href="../../reference/objects/function/methods/" class="md-nav__link">
         
   
   
@@ -1370,7 +1450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/function/kinds/" class="md-nav__link">
+      <a href="../../reference/objects/function/kinds/" class="md-nav__link">
         
   
   
@@ -1439,7 +1519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/workflow/entity/" class="md-nav__link">
+      <a href="../../reference/objects/workflow/entity/" class="md-nav__link">
         
   
   
@@ -1462,7 +1542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/workflow/crud/" class="md-nav__link">
+      <a href="../../reference/objects/workflow/crud/" class="md-nav__link">
         
   
   
@@ -1485,7 +1565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/workflow/methods/" class="md-nav__link">
+      <a href="../../reference/objects/workflow/methods/" class="md-nav__link">
         
   
   
@@ -1508,7 +1588,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/workflow/kinds/" class="md-nav__link">
+      <a href="../../reference/objects/workflow/kinds/" class="md-nav__link">
         
   
   
@@ -1577,7 +1657,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/trigger/entity/" class="md-nav__link">
+      <a href="../../reference/objects/trigger/entity/" class="md-nav__link">
         
   
   
@@ -1600,7 +1680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/trigger/crud/" class="md-nav__link">
+      <a href="../../reference/objects/trigger/crud/" class="md-nav__link">
         
   
   
@@ -1623,7 +1703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/trigger/methods/" class="md-nav__link">
+      <a href="../../reference/objects/trigger/methods/" class="md-nav__link">
         
   
   
@@ -1646,7 +1726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/trigger/kinds/" class="md-nav__link">
+      <a href="../../reference/objects/trigger/kinds/" class="md-nav__link">
         
   
   
@@ -1715,7 +1795,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/run/entity/" class="md-nav__link">
+      <a href="../../reference/objects/run/entity/" class="md-nav__link">
         
   
   
@@ -1738,7 +1818,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/run/crud/" class="md-nav__link">
+      <a href="../../reference/objects/run/crud/" class="md-nav__link">
         
   
   
@@ -1761,7 +1841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/run/methods/" class="md-nav__link">
+      <a href="../../reference/objects/run/methods/" class="md-nav__link">
         
   
   
@@ -1784,7 +1864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/run/kinds/" class="md-nav__link">
+      <a href="../../reference/objects/run/kinds/" class="md-nav__link">
         
   
   
@@ -1853,7 +1933,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/artifact/entity/" class="md-nav__link">
+      <a href="../../reference/objects/artifact/entity/" class="md-nav__link">
         
   
   
@@ -1876,7 +1956,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/artifact/crud/" class="md-nav__link">
+      <a href="../../reference/objects/artifact/crud/" class="md-nav__link">
         
   
   
@@ -1899,7 +1979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/artifact/methods/" class="md-nav__link">
+      <a href="../../reference/objects/artifact/methods/" class="md-nav__link">
         
   
   
@@ -1922,7 +2002,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/artifact/kinds/" class="md-nav__link">
+      <a href="../../reference/objects/artifact/kinds/" class="md-nav__link">
         
   
   
@@ -1991,7 +2071,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/dataitem/entity/" class="md-nav__link">
+      <a href="../../reference/objects/dataitem/entity/" class="md-nav__link">
         
   
   
@@ -2014,7 +2094,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/dataitem/crud/" class="md-nav__link">
+      <a href="../../reference/objects/dataitem/crud/" class="md-nav__link">
         
   
   
@@ -2037,7 +2117,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/dataitem/methods/" class="md-nav__link">
+      <a href="../../reference/objects/dataitem/methods/" class="md-nav__link">
         
   
   
@@ -2060,7 +2140,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/dataitem/kinds/" class="md-nav__link">
+      <a href="../../reference/objects/dataitem/kinds/" class="md-nav__link">
         
   
   
@@ -2129,7 +2209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/model/entity/" class="md-nav__link">
+      <a href="../../reference/objects/model/entity/" class="md-nav__link">
         
   
   
@@ -2152,7 +2232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/model/crud/" class="md-nav__link">
+      <a href="../../reference/objects/model/crud/" class="md-nav__link">
         
   
   
@@ -2175,7 +2255,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/model/methods/" class="md-nav__link">
+      <a href="../../reference/objects/model/methods/" class="md-nav__link">
         
   
   
@@ -2198,7 +2278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/model/kinds/" class="md-nav__link">
+      <a href="../../reference/objects/model/kinds/" class="md-nav__link">
         
   
   
@@ -2267,7 +2347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/secret/entity/" class="md-nav__link">
+      <a href="../../reference/objects/secret/entity/" class="md-nav__link">
         
   
   
@@ -2290,7 +2370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/secret/crud/" class="md-nav__link">
+      <a href="../../reference/objects/secret/crud/" class="md-nav__link">
         
   
   
@@ -2313,7 +2393,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/secret/methods/" class="md-nav__link">
+      <a href="../../reference/objects/secret/methods/" class="md-nav__link">
         
   
   
@@ -2344,7 +2424,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/stores/" class="md-nav__link">
+      <a href="../../reference/objects/stores/" class="md-nav__link">
         
   
   
@@ -2367,7 +2447,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../objects/code_source/" class="md-nav__link">
+      <a href="../../reference/objects/code_source/" class="md-nav__link">
         
   
   
@@ -2395,20 +2475,18 @@
                 
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
         
           
           <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
@@ -2424,7 +2502,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6_3">
             <span class="md-nav__icon md-icon"></span>
             Runtimes
@@ -2438,7 +2516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../runtimes/" class="md-nav__link">
+      <a href="../../reference/runtimes/runtimes/" class="md-nav__link">
         
   
   
@@ -2458,20 +2536,18 @@
                 
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3_2" >
         
           
           <label class="md-nav__link" for="__nav_6_3_2" id="__nav_6_3_2_label" tabindex="0">
@@ -2487,7 +2563,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_3_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_3_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6_3_2">
             <span class="md-nav__icon md-icon"></span>
             Python
@@ -2501,7 +2577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1-overview/" class="md-nav__link">
+      <a href="../../reference/runtimes/python/1-overview/" class="md-nav__link">
         
   
   
@@ -2521,32 +2597,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Function definition
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../reference/runtimes/python/2-function/" class="md-nav__link">
         
   
   
@@ -2557,71 +2611,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#anatomy-of-a-function" class="md-nav__link">
-    <span class="md-ellipsis">
-      Anatomy of a function
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reserved-arguments" class="md-nav__link">
-    <span class="md-ellipsis">
-      Reserved arguments
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#inputs-and-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Inputs and parameters
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#handler-and-outputs" class="md-nav__link">
-    <span class="md-ellipsis">
-      Handler and outputs
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#init-function" class="md-nav__link">
-    <span class="md-ellipsis">
-      Init function
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2634,7 +2623,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3-entities/" class="md-nav__link">
+      <a href="../../reference/runtimes/python/3-entities/" class="md-nav__link">
         
   
   
@@ -2657,7 +2646,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../4-examples/" class="md-nav__link">
+      <a href="../../reference/runtimes/python/4-examples/" class="md-nav__link">
         
   
   
@@ -2688,7 +2677,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dbt/" class="md-nav__link">
+      <a href="../../reference/runtimes/dbt/" class="md-nav__link">
         
   
   
@@ -2711,7 +2700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../container/" class="md-nav__link">
+      <a href="../../reference/runtimes/container/" class="md-nav__link">
         
   
   
@@ -2734,7 +2723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../hera/" class="md-nav__link">
+      <a href="../../reference/runtimes/hera/" class="md-nav__link">
         
   
   
@@ -2757,7 +2746,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kfp/" class="md-nav__link">
+      <a href="../../reference/runtimes/kfp/" class="md-nav__link">
         
   
   
@@ -2780,7 +2769,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modelserve/" class="md-nav__link">
+      <a href="../../reference/runtimes/modelserve/" class="md-nav__link">
         
   
   
@@ -2803,7 +2792,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes-resources/" class="md-nav__link">
+      <a href="../../reference/runtimes/kubernetes-resources/" class="md-nav__link">
         
   
   
@@ -2861,45 +2850,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#anatomy-of-a-function" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Anatomy of a function
+      Overview
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#reserved-arguments" class="md-nav__link">
+  <a href="#what-youll-learn" class="md-nav__link">
     <span class="md-ellipsis">
-      Reserved arguments
+      What You'll Learn
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#inputs-and-parameters" class="md-nav__link">
+  <a href="#getting-started" class="md-nav__link">
     <span class="md-ellipsis">
-      Inputs and parameters
+      Getting Started
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#handler-and-outputs" class="md-nav__link">
+  <a href="#resources" class="md-nav__link">
     <span class="md-ellipsis">
-      Handler and outputs
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#init-function" class="md-nav__link">
-    <span class="md-ellipsis">
-      Init function
+      Resources
     </span>
   </a>
   
@@ -2924,125 +2904,27 @@
   
 
 
-<h1 id="define-a-python-function">Define a python function</h1>
-<p>You can declare a generic python function as usual with the <code>def</code> keyword.</p>
-<h2 id="anatomy-of-a-function">Anatomy of a function</h2>
-<p><img alt="function" src="../asset/function.png" /></p>
-<p>A python function can be defined as follows:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">digitalhub_runtime_python</span><span class="w"> </span><span class="kn">import</span> <span class="n">handler</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nd">@handler</span><span class="p">(</span><span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;my-sdk-output&quot;</span><span class="p">,</span> <span class="s2">&quot;my-primitive-output&quot;</span><span class="p">])</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="n">project</span><span class="p">,</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>         <span class="n">run</span><span class="p">,</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>         <span class="n">context</span><span class="p">,</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>         <span class="n">event</span><span class="p">,</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>         <span class="n">input_1</span><span class="p">,</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>         <span class="n">parameter_1</span><span class="p">):</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="n">project</span><span class="o">.</span><span class="n">log_artifact</span><span class="p">(</span><span class="s2">&quot;my-artifact&quot;</span><span class="p">,</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>                            <span class="s2">&quot;artifact&quot;</span><span class="p">,</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>                            <span class="n">source</span><span class="o">=</span><span class="s2">&quot;some-file.ext&quot;</span><span class="p">)</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="n">run</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="s2">&quot;my-metric&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mf">14.6</span><span class="p">)</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    <span class="n">context</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;log-some-string&quot;</span><span class="p">)</span>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    <span class="n">body</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">body</span>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>    <span class="c1"># do something with body</span>
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>    <span class="n">df</span> <span class="o">=</span> <span class="n">input_1</span><span class="o">.</span><span class="n">as_df</span><span class="p">(</span><span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>    <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">70</span><span class="p">)</span>
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>    <span class="n">parameter_1</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;some-key&quot;</span><span class="p">)</span>
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>
-</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>    <span class="k">return</span> <span class="n">df</span><span class="p">,</span>  <span class="mf">19.45</span>
-</span></code></pre></div>
-<p>It is not mandatory to provide any arguments or return values. The following function is also permitted:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">():</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
-</span></code></pre></div>
-<p>The defined function will be the entrypoint of your code when it is specified as <code>handler</code> in the run execution parameters.</p>
-<p>With the python runtime, comes a set of tools and utilities to handle inputs and outputs of a function and also manage platform objects.
-Here follows a list of these utilities:</p>
-<ol>
-<li><a href="#reserved-arguments">Reserved arguments</a> in function signature</li>
-<li><a href="#inputs-and-parameters">Inputs and parameters</a> definition</li>
-<li><a href="#handler-and-outputs">Handler decorator and outputs</a> definition</li>
-<li><a href="#init-function">Init function</a> for remote execution</li>
-</ol>
-<h2 id="reserved-arguments">Reserved arguments</h2>
-<p>When you define a function you can declare some arguments. We reserve a small set of <code>args</code> for the runtime to use. In particular, we inject at runtime the following arguments:</p>
+<h1 id="mlflow-model-management-tutorial">MLflow Model Management Tutorial</h1>
+<h2 id="overview">Overview</h2>
+<p>Learn how to develop and deploy machine learning applications using MLflow for model tracking and management within Digitalhub. This tutorial demonstrates the complete lifecycle of ML models from training to serving.</p>
+<h2 id="what-youll-learn">What You'll Learn</h2>
 <ul>
-<li><code>project</code>: The current context <a href="../../../objects/project/entity/"><code>Project</code> object</a>.</li>
-<li><code>run</code>: The current running <a href="../../../objects/run/entity/"><code>Run</code> object</a>.</li>
-<li><code>context</code>: The <a href="https://docs.nuclio.io/en/stable/reference/runtimes/python/python-reference.html"><code>nuclio context</code> object</a> (<em>remote-execution only</em>).</li>
-<li><code>events</code>: The <a href="https://docs.nuclio.io/en/stable/reference/runtimes/python/python-reference.html"><code>nuclio events</code> object</a> (<em>remote-execution only</em>).</li>
+<li>Setting up MLflow tracking in Digitalhub</li>
+<li>Model versioning and experiment tracking</li>
+<li>Model registry management</li>
+<li>Automated model deployment</li>
+<li>Integration between MLflow and Digitalhub workflows</li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">Local execution nuclio context and events objects</p>
-<p>Note that if you execute your function locally, <code>context</code> and <code>events</code> <strong>must be</strong> passed as inputs/parameters in <code>function.run()</code>.`</p>
-</div>
-<h2 id="inputs-and-parameters">Inputs and parameters</h2>
-<p>Inputs and parameters are used to pass data to the function. They map the name of a function argument.
-The inputs and parameters are mapped to the <code>inputs</code> and <code>parameters</code> arguments of the <code>function.run()</code> method, and are included in the <code>Run</code> object's spec.
-Inputs <strong>must be</strong> the key of a <code>Dataitem</code>/<code>Artifact</code>/<code>Model</code> object, while parameters can be any python "primitive" value.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Example with a dataitem</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># Define your function and declare di argument as Dataitem,</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># while param1 is a string</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="n">di</span><span class="p">:</span> <span class="n">Dataitem</span><span class="p">,</span> <span class="n">param1</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>   <span class="c1"># do something</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>   <span class="o">...</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1"># First you create/get a dataitem</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="n">sdk_dataitem</span> <span class="o">=</span> <span class="n">sdk</span><span class="o">.</span><span class="n">new_dataitem</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="c1"># Reference the di argument as key and the dataitem key as value</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="n">sdk_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;di&quot;</span><span class="p">:</span> <span class="n">sdk_dataitem</span><span class="o">.</span><span class="n">key</span><span class="p">},</span>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>                 <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;param1&quot;</span><span class="p">:</span> <span class="s2">&quot;some value&quot;</span><span class="p">})</span>
-</span></code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">On inputs and parameters distinction</p>
-<p>Sometimes it is possible to confuse inputs and parameters in <code>function.run()</code> method. If you encounter the <code>Excepition</code> that tells you that the SDK was unable to parse an <code>entity_key</code>, it is possible that you have passed a parameter as an input.</p>
-</div>
-<h2 id="handler-and-outputs">Handler and outputs</h2>
-<p>A function can be decorated with the <code>@handler</code> decorator from the <code>digitalhub_runtime_python</code> package.
-The decorator is used to map the outputs of the function in the <code>outputs</code> and <code>results</code> attributes of the <code>Run</code> object.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">digitalhub_runtime_python</span><span class="w"> </span><span class="kn">import</span> <span class="n">handler</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nd">@handler</span><span class="p">(</span><span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">])</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="n">di</span><span class="p">:</span> <span class="n">Dataitem</span><span class="p">,</span> <span class="n">param1</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>   <span class="c1"># do something with di</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>   <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="s2">&quot;some value&quot;</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="n">run</span> <span class="o">=</span> <span class="n">sdk_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;di&quot;</span><span class="p">:</span> <span class="n">sdk_dataitem</span><span class="o">.</span><span class="n">key</span><span class="p">},</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>                       <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;param1&quot;</span><span class="p">:</span> <span class="s2">&quot;some value&quot;</span><span class="p">},</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>                       <span class="o">...</span><span class="p">)</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="c1"># Wait until it finishes ...</span>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="n">run</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">)</span> <span class="c1"># Here you get a Dataitem object</span>
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="n">run</span><span class="o">.</span><span class="n">result</span><span class="p">(</span><span class="s2">&quot;string&quot;</span><span class="p">)</span> <span class="c1"># Here you get a string &quot;some value&quot;</span>
-</span></code></pre></div>
-<div class="admonition info">
-<p class="admonition-title">Decoration</p>
-<p>You may or may not decorate your function with the <code>@handler</code> decorator you can import from the <code>digitalhub_runtime_python</code> package. If you decorate your function and return something, you need to map the outputs in the decorator to collect named outputs/results, otherwise the SDK will set some placeholder names by default to name the outputs.</p>
-</div>
-<h2 id="init-function">Init function</h2>
-<p>The <code>init function</code> is a function executed by the nuclio wrapper (in remote execution) before the effective execution of the user handler.
-A small difference relative to the user defined function handling, is that we override only the <code>context</code> argument at runtime by injecting the <code>nuclio context</code> object as function parameter. The <code>init function</code> can accept some parameters, but it is not mandatory. The parameters are passed by the user at runtime into runs through the <code>init_parameters</code> parameter in <code>function.run()</code>.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">param1</span><span class="p">,</span> <span class="n">param2</span><span class="p">):</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="o">...</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">run</span> <span class="o">=</span> <span class="n">sdk_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="o">...</span><span class="p">,</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>                       <span class="n">init_parameters</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;param1&quot;</span><span class="p">:</span> <span class="s2">&quot;some value&quot;</span><span class="p">,</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>                                        <span class="s2">&quot;param2&quot;</span><span class="p">:</span> <span class="s2">&quot;some value&quot;</span><span class="p">})</span>
-</span></code></pre></div>
-<p>You can now check the arguments required to <a href="../3-entities/">create</a> a <code>Function</code> object and launch a new run.</p>
+<h2 id="getting-started">Getting Started</h2>
+<ol>
+<li>Import the Jupyter notebook <code>notebook-mflows-model.ipynb</code> into your Coder instance</li>
+<li>Execute each cell step by step following the instructions</li>
+</ol>
+<h2 id="resources">Resources</h2>
+<ul>
+<li><strong>📁 Source Files</strong>: <a href="https://github.com/scc-digitalhub/digitalhub-tutorials/tree/main/s4-mlflow">digitalhub-tutorials/s4-mlflow</a></li>
+<li><strong>🔧 MLflow Documentation</strong>: <a href="https://mlflow.org/docs/latest/index.html">Official MLflow documentation</a></li>
+</ul>
 
 
 
@@ -3074,10 +2956,10 @@ A small difference relative to the user defined function handling, is that we ov
     
     
       
-      <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.copy", "content.code.select"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.select"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.50899def.min.js"></script>
+      <script src="../../assets/javascripts/bundle.50899def.min.js"></script>
       
     
   </body>
