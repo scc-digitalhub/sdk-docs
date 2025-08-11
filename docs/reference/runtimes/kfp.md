@@ -1,7 +1,7 @@
-# KFP Pipelines Runtime
+# Kfp Pipelines Runtime
 
 The **kfp runtime** allows you to run workflows within the platform.
-The runtime introduces a function of kind `kfp` and a task of kind `pipeline`.
+The runtime introduces a workflow of kind `kfp` and a task of kind `pipeline`.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ The kfp runtime execution workflow follows roughly these steps:
 1. Define one or more functions to be executed. These functions can be from other runtimes.
 2. Define somewhere a [pipeline](./kfp.md#pipeline-definition).
 3. Build the pipeline with the `run(action="build")` method. (Mandatory step!)
-4. Execute the pipeline with `run(action="pipeline")` method. This calls a stepper that executes various KFP ContainerOP.
+4. Execute the pipeline with `run(action="pipeline")` method. This calls a stepper that executes various Kfp ContainerOP.
 
 ### Pipeline definition
 
@@ -118,7 +118,7 @@ workflow = dh.new_workflow(project="my-project",
 
 ### Task
 
-The KFP runtime introduces a task of kind `pipeline` that allows you to run a workflow.
+The Kfp runtime introduces a task of kind `pipeline` that allows you to run a workflow.
 A `Task` is created with the `run()` method, so it's not managed directly by the user. The parameters for the task creation are passed directly to the `run()` method, and may vary depending on the kind of task.
 
 #### Task parameters
@@ -159,17 +159,14 @@ The run's parameters are passed alongside the task's ones.
 
 | Name | Type | Description | Default |
 | --- | --- | --- | --- |
-| inputs | dict | Inputs for the pipeline function. | None |
+| Parameters | dict | Inputs for the pipeline function. | None |
 
 #### Run example
 
 ```python
 run_build = workflow.run(action="build")
 
-run = workflow.run(
-    action="pipeline",
-    parameters={"dataitem": dataitem.key}
-)
+run = workflow.run(action="pipeline", parameters={"dataitem": dataitem.key})
 ```
 
 #### Run methods

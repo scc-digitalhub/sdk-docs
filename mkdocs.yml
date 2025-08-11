@@ -59,66 +59,86 @@ plugins:
 
 nav:
   - Index: index.md
-  - Quickstart: quickstart.md
-  - Installation: install.md
-  - Entities:
-      - Entities: objects/entities.md
-      - Projects:
-          - Entity: objects/project/entity.md
-          - CRUD: objects/project/crud.md
-          - Methods: objects/project/methods.md
-          - Config: objects/project/config.md
-          - Setup: objects/project/setup.md
-      - Functions:
-          - Entity: objects/function/entity.md
-          - CRUD: objects/function/crud.md
-          - Methods: objects/function/methods.md
-          - Kinds: objects/function/kinds.md
-      - Workflows:
-          - Entity: objects/workflow/entity.md
-          - CRUD: objects/workflow/crud.md
-          - Methods: objects/workflow/methods.md
-          - Kinds: objects/workflow/kinds.md
-      - Triggers:
-          - Entity: objects/trigger/entity.md
-          - CRUD: objects/trigger/crud.md
-          - Methods: objects/trigger/methods.md
-          - Kinds: objects/trigger/kinds.md
-      - Runs:
-          - Entity: objects/run/entity.md
-          - CRUD: objects/run/crud.md
-          - Methods: objects/run/methods.md
-          - Kinds: objects/run/kinds.md
-      - Artifacts:
-          - Entity: objects/artifact/entity.md
-          - CRUD: objects/artifact/crud.md
-          - Methods: objects/artifact/methods.md
-          - Kinds: objects/artifact/kinds.md
-      - Dataitems:
-          - Entity: objects/dataitem/entity.md
-          - CRUD: objects/dataitem/crud.md
-          - Methods: objects/dataitem/methods.md
-          - Kinds: objects/dataitem/kinds.md
-      - Models:
-          - Entity: objects/model/entity.md
-          - CRUD: objects/model/crud.md
-          - Methods: objects/model/methods.md
-          - Kinds: objects/model/kinds.md
-      - Secrets:
-          - Entity: objects/secret/entity.md
-          - CRUD: objects/secret/crud.md
-          - Methods: objects/secret/methods.md
-      - Stores: objects/stores.md
-      - Code source: objects/code_source.md
-  - Runtimes:
-      - Runtimes: runtimes/runtimes.md
-      - Python:
-          - Overview: runtimes/python/1-overview.md
-          - Function definition: runtimes/python/2-function.md
-          - Entities parameters: runtimes/python/3-entities.md
-          - Examples: runtimes/python/4-examples.md
-      - DBT: runtimes/dbt.md
-      - Container: runtimes/container.md
-      - KFP: runtimes/kfp.md
-      - Modelserve: runtimes/modelserve.md
-      - Kubernetes resources: runtimes/kubernetes-resources.md
+  - Start here:
+      - Index: start-here/index.md
+      - Installation: start-here/install.md
+      - Quickstart: start-here/quickstart.md
+  - Tutorials:
+      - Getting Started: tutorials/index.md
+      - Data Processing & Transformation:
+          - ETL Data Processing: tutorials/etl-data-processing.md
+          - Database Transformation with DBT: tutorials/dbt-transformation.md
+      - Machine Learning:
+          - Scikit-Learn Model Training: tutorials/scikit-learn-model.md
+          - MLflow Model Management: tutorials/mlflow-model.md
+          - Custom ML Models with Darts: tutorials/custom-ml-model.md
+      - AI & Large Language Models:
+          - Large Language Models: tutorials/llm-model.md
+  - How-to Guides:
+      - Guides: how-to/index.md
+  - Explanations:
+      - Explanations: explanations/index.md
+  - Reference:
+      - Overview: reference/index.md
+      - Objects:
+          - Entities: reference/objects/entities.md
+          - Projects:
+              - Entity: reference/objects/project/entity.md
+              - CRUD: reference/objects/project/crud.md
+              - Methods: reference/objects/project/methods.md
+              - Config: reference/objects/project/config.md
+              - Setup: reference/objects/project/setup.md
+          - Functions:
+              - Entity: reference/objects/function/entity.md
+              - CRUD: reference/objects/function/crud.md
+              - Methods: reference/objects/function/methods.md
+              - Kinds: reference/objects/function/kinds.md
+          - Workflows:
+              - Entity: reference/objects/workflow/entity.md
+              - CRUD: reference/objects/workflow/crud.md
+              - Methods: reference/objects/workflow/methods.md
+              - Kinds: reference/objects/workflow/kinds.md
+          - Triggers:
+              - Entity: reference/objects/trigger/entity.md
+              - CRUD: reference/objects/trigger/crud.md
+              - Methods: reference/objects/trigger/methods.md
+              - Kinds: reference/objects/trigger/kinds.md
+          - Runs:
+              - Entity: reference/objects/run/entity.md
+              - CRUD: reference/objects/run/crud.md
+              - Methods: reference/objects/run/methods.md
+              - Kinds: reference/objects/run/kinds.md
+          - Artifacts:
+              - Entity: reference/objects/artifact/entity.md
+              - CRUD: reference/objects/artifact/crud.md
+              - Methods: reference/objects/artifact/methods.md
+              - Kinds: reference/objects/artifact/kinds.md
+          - Dataitems:
+              - Entity: reference/objects/dataitem/entity.md
+              - CRUD: reference/objects/dataitem/crud.md
+              - Methods: reference/objects/dataitem/methods.md
+              - Kinds: reference/objects/dataitem/kinds.md
+          - Models:
+              - Entity: reference/objects/model/entity.md
+              - CRUD: reference/objects/model/crud.md
+              - Methods: reference/objects/model/methods.md
+              - Kinds: reference/objects/model/kinds.md
+          - Secrets:
+              - Entity: reference/objects/secret/entity.md
+              - CRUD: reference/objects/secret/crud.md
+              - Methods: reference/objects/secret/methods.md
+          - Stores: reference/objects/stores.md
+          - Code source: reference/objects/code_source.md
+      - Runtimes:
+          - Runtimes: reference/runtimes/runtimes.md
+          - Python:
+              - Overview: reference/runtimes/python/1-overview.md
+              - Function definition: reference/runtimes/python/2-function.md
+              - Entities parameters: reference/runtimes/python/3-entities.md
+              - Examples: reference/runtimes/python/4-examples.md
+          - DBT: reference/runtimes/dbt.md
+          - Container: reference/runtimes/container.md
+          - Hera: reference/runtimes/hera.md
+          - KFP: reference/runtimes/kfp.md
+          - Modelserve: reference/runtimes/modelserve.md
+          - Kubernetes resources: reference/runtimes/kubernetes-resources.md

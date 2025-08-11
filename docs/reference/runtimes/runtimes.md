@@ -15,3 +15,4 @@ Runtimes define the key point of extension of the platform: new runtimes may be 
 - [DBT](dbt.md)
 - [KFP](kfp.md)
 - [ModelServe](modelserve.md)
+- [Hera](hera.md)

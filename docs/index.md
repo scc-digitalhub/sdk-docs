@@ -1,52 +1,51 @@
-# Digitalhub SDK documentation
+# Digitalhub SDK Documentation
 
-This is the [Digitalhub SDK](https://github.com/scc-digitalhub/digitalhub-sdk) documentation.
-`digitalhub` is a Python package for interacting with the [Digitalhub platform](https://scc-digitalhub.github.io/docs/). It exposes a set of API to create, read, update and delete entities, tools to execute functions or workflows, collect or store execution results and data and to manage secrets.
+Welcome to the documentation for the [Digitalhub SDK](https://github.com/scc-digitalhub/digitalhub-sdk), a Python package for interacting with the [Digitalhub platform](https://scc-digitalhub.github.io/docs/).
 
 The SDK is open source under [Apache License 2.0](https://github.com/scc-digitalhub/digitalhub-sdk/blob/main/LICENSE) and is available on [Github](https://github.com/scc-digitalhub/digitalhub-sdk) and [PyPI](https://pypi.org/project/digitalhub/).
 
-## Table of contents
+## Contents
 
 <div class="grid cards" markdown>
 
-- __Installation__
+- __Start Here__
 
     ---
 
-    Install `digitalhub` with `pip`
+    Get started here with the SDK.
 
-    [Installation](./install.md)
+    [Start Here](./start-here/index.md)
 
-- __Quickstart__
-
-    ---
-
-    Get started with `digitalhub` SDK
-
-    [Quickstart](./quickstart.md)
-
-- __Entities__
+- __Tutorials__
 
     ---
 
-    Describe entities with `digitalhub`
+    Step-by-step guides for beginners.
 
-    [Entities](./objects/entities.md)
+    [Tutorials](./tutorials/index.md)
 
-- __Runtimes__
-
-    ---
-
-    Runtimes documentation
-
-    [Runtimes](./runtimes/runtimes.md)
-
-<!-- - __API__
+- __How-to Guides__
 
     ---
 
-    API documentation
+    Task-oriented guides for specific problems
 
-    [API](./api/api.md) -->
+    [How to guides](./how-to/index.md)
+
+- __Reference__
+
+    ---
+
+    Technical documentation for the SDK
+
+    [Reference Overview](./reference/index.md)
+
+- __Explanation__
+
+    ---
+
+    Conceptual background and design rationale
+
+    [Concepts & Background](./explanations/index.md)
 
 </div>
