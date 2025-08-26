@@ -63,6 +63,7 @@ nav:
       - Index: start-here/index.md
       - Installation: start-here/install.md
       - Quickstart: start-here/quickstart.md
+      - Environment configuration: reference/configuration/credentials/overview.md
   - Tutorials:
       - Getting Started: tutorials/index.md
       - Data Processing & Transformation:
