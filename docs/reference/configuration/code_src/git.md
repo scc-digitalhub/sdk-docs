@@ -7,7 +7,7 @@ This points the runtime to a remote repository that will be cloned at execution 
 
 - Prefix the URL with `git+` (required).
 - Provide a `handler` that points to the module and callable (e.g. `pkg.module:func`).
-- Set authentication env vars or create secrets before creating the function (token recommended).
+- Set [authentication](#credentials) env vars or create secrets before creating the function (token recommended) to access private repos.
 
 ## Format
 
