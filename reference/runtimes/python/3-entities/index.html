@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#enitities" class="md-skip">
+        <a href="#entities" class="md-skip">
           Skip to content
         </a>
       
@@ -3813,10 +3813,10 @@
   
 
 
-<h1 id="enitities">Enitities</h1>
-<p>Here follows the list of entities used in the python runtime and the parameters required/allowed to create them.</p>
+<h1 id="entities">Entities</h1>
+<p>This page lists the entities used by the Python runtime and documents the parameters required or allowed when creating them.</p>
 <h2 id="function">Function</h2>
-<p>The python runtime introduces a function of kind <code>python</code>.</p>
+<p>The Python runtime introduces a Function of kind <code>python</code>.</p>
 <h3 id="function-parameters">Function parameters</h3>
 <table>
 <thead>
@@ -3831,103 +3831,103 @@
 <tr>
 <td>project</td>
 <td>str</td>
-<td>Project name. Required only if creating from library, otherwise <strong>MUST NOT</strong> be set</td>
+<td>Project name. Required only when creating from the library; otherwise <strong>MUST NOT</strong> be set.</td>
 <td></td>
 </tr>
 <tr>
 <td>name</td>
 <td>str</td>
-<td>Name that identifies the object</td>
+<td>Name that identifies the object.</td>
 <td>required</td>
 </tr>
 <tr>
 <td><a href="#function-kinds">kind</a></td>
 <td>str</td>
-<td>Function kind</td>
+<td>Function kind.</td>
 <td>required</td>
 </tr>
 <tr>
 <td>uuid</td>
 <td>str</td>
-<td>ID of the object in form of UUID4</td>
+<td>Object ID in UUID4 format.</td>
 <td>None</td>
 </tr>
 <tr>
 <td>description</td>
 <td>str</td>
-<td>Description of the object</td>
+<td>Description of the object.</td>
 <td>None</td>
 </tr>
 <tr>
 <td>labels</td>
 <td>list[str]</td>
-<td>List of labels</td>
+<td>List of labels.</td>
 <td>None</td>
 </tr>
 <tr>
 <td>embedded</td>
 <td>bool</td>
-<td>Flag to determine if object must be embedded in project</td>
+<td>Whether the object should be embedded in the project.</td>
 <td>True</td>
 </tr>
 <tr>
 <td><a href="../../../configuration/code_src/overview/#code-source-uri">code_src</a></td>
 <td>str</td>
-<td>URI pointer to source code</td>
+<td>URI pointing to the source code.</td>
 <td>None</td>
 </tr>
 <tr>
 <td><a href="../../../configuration/code_src/overview/#plain-text-source">code</a></td>
 <td>str</td>
-<td>Source code (plain text)</td>
+<td>Source code provided as plain text.</td>
 <td>None</td>
 </tr>
 <tr>
 <td>base64</td>
 <td>str</td>
-<td>Source code (base64 encoded)</td>
+<td>Source code encoded as base64.</td>
 <td>None</td>
 </tr>
 <tr>
 <td><a href="../../../configuration/code_src/overview/#handler">handler</a></td>
 <td>str</td>
-<td>Function entrypoint</td>
+<td>Function entrypoint.</td>
 <td>None</td>
 </tr>
 <tr>
 <td><a href="#init-function">init_function</a></td>
 <td>str</td>
-<td>Init function for remote nuclio execution</td>
+<td>Init function name for remote (Nuclio) execution.</td>
 <td>None</td>
 </tr>
 <tr>
 <td><a href="#python-versions">python_version</a></td>
 <td>str</td>
-<td>Python version to use</td>
+<td>Python version to use.</td>
 <td>required</td>
 </tr>
 <tr>
 <td>lang</td>
 <td>str</td>
-<td>Source code language (hint)</td>
+<td>Source code language (informational).</td>
 <td>None</td>
 </tr>
 <tr>
 <td>image</td>
 <td>str</td>
-<td>Image where the function will be executed</td>
+<td>Container image used to execute the function.</td>
 <td>None</td>
 </tr>
 <tr>
 <td><a href="#base-image">base_image</a></td>
 <td>str</td>
-<td>Base image used to build the image where the function will be executed</td>
+<td>Base image (name:tag) used to build the execution image.</td>
 <td>None</td>
 </tr>
 <tr>
 <td><a href="#requirements">requirements</a></td>
 <td>list</td>
-<td>Requirements list to be installed in the image where the function will be executed</td>
+<td>List of pip requirements to install into the execution image.</td>
 <td>None</td>
 </tr>
 </tbody>
@@ -3938,19 +3938,19 @@
 <li><code>python</code></li>
 </ul>
 <h4 id="python-versions">Python versions</h4>
-<p>The python runtime supports Python versions 3.9, 3.10 and 3.11, expressed respectively as:</p>
+<p>The Python runtime supports versions 3.9, 3.10 and 3.11, expressed as:</p>
 <ul>
 <li><code>PYTHON3_9</code></li>
 <li><code>PYTHON3_10</code></li>
 <li><code>PYTHON3_11</code></li>
 </ul>
 <h4 id="init-function">Init function</h4>
-<p>The init function is the entrypoint of the nuclio init function. The user must pass the name of the init function in the <code>init_function</code> parameter.</p>
+<p>The init function is the entrypoint used by the Nuclio init wrapper. Specify the init function name via the <code>init_function</code> parameter.</p>
 <h4 id="base-image">Base image</h4>
-<p>The base image is a string that represents the image (name:tag) used to build the image where the function will be executed.</p>
+<p>The base image is the image (name:tag) used as the foundation when building the execution image for the function.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>It is possible that the platform where you deploy a job after a <code>build</code> action with a root image will not work because of security policy. Please check with the cluster administrator what policy are in place.</p>
+<p>Deploying jobs built from certain base images may be restricted by cluster security policies. Confirm allowed base images with your cluster administrator.</p>
 </div>
 <h4 id="requirements">Requirements</h4>
 <p>Requirements are a list of <code>str</code> representing packages to be installed by <code>pip</code> in the image where the function will be executed.</p>
@@ -3975,7 +3975,7 @@
 </span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>                           <span class="n">python_version</span><span class="o">=</span><span class="s2">&quot;PYTHON3_10&quot;</span><span class="p">)</span>
 </span></code></pre></div>
 <h2 id="task">Task</h2>
-<p>The python runtime introduces three tasks of kind <code>job</code>, <code>serve</code> and <code>build</code> that allows you to run a python function execution, serving a function as a service or build a docker image where the function is executed.
+<p>A set of tasks of kinds <code>job</code>, <code>serve</code> and <code>build</code> allow you to run a Python function execution, serve a function as a service, or build the Docker image used to execute the function.
 A <code>Task</code> is created with the <code>run()</code> method, so it's not managed directly by the user. The parameters for the task creation are passed directly to the <code>run()</code> method, and may vary depending on the kind of task.</p>
 <h3 id="task-parameters">Task parameters</h3>
 <table>
@@ -3992,84 +3992,84 @@ A <code>Task</code> is created with the <code>run()</code> method, so it's not m
 <tr>
 <td><a href="#task-actions">action</a></td>
 <td>str</td>
-<td>Task action</td>
+<td>Task action.</td>
 <td>required</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../../configuration/kubernetes/overview/#node-selector">node_selector</a></td>
 <td>list[dict]</td>
-<td>Node selector</td>
+<td>Node selector.</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../../configuration/kubernetes/overview/#volumes">volumes</a></td>
 <td>list[dict]</td>
-<td>List of volumes</td>
+<td>List of volumes.</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../../configuration/kubernetes/overview/#resources">resources</a></td>
 <td>dict</td>
-<td>Resources restrictions</td>
+<td>Resource limits/requests.</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../../configuration/kubernetes/overview/#affinity">affinity</a></td>
 <td>dict</td>
-<td>Affinity</td>
+<td>Affinity configuration.</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../../configuration/kubernetes/overview/#tolerations">tolerations</a></td>
 <td>list[dict]</td>
-<td>Tolerations</td>
+<td>Tolerations.</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../../configuration/kubernetes/overview/#secrets-envs">envs</a></td>
 <td>list[dict]</td>
-<td>Env variables</td>
+<td>Environment variables.</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../../configuration/kubernetes/overview/#secrets-envs">secrets</a></td>
 <td>list[str]</td>
-<td>List of secret names</td>
+<td>List of secret names.</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../../configuration/kubernetes/overview/#profile">profile</a></td>
 <td>str</td>
-<td>Profile template</td>
+<td>Profile template.</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../../configuration/kubernetes/overview/#replicas">replicas</a></td>
 <td>int</td>
-<td>Number of replicas</td>
+<td>Number of replicas.</td>
 <td>None</td>
 <td><code>serve</code></td>
 </tr>
 <tr>
 <td><a href="../../../configuration/kubernetes/overview/#service-port-type">service_type</a></td>
 <td>str</td>
-<td>Service type</td>
+<td>Service type.</td>
 <td><code>NodePort</code></td>
 <td><code>serve</code></td>
 </tr>
 <tr>
 <td><a href="#instructions">instructions</a></td>
 <td>list[str]</td>
-<td>Build instructions to be executed as RUN instructions in Dockerfile</td>
+<td>Build instructions executed as RUN lines in the generated Dockerfile.</td>
 <td>None</td>
 <td><code>build</code></td>
 </tr>
@@ -4083,13 +4083,13 @@ A <code>Task</code> is created with the <code>run()</code> method, so it's not m
 <li><code>serve</code></li>
 </ul>
 <h5 id="serving">Serving</h5>
-<p>You can run a function using <code>serve</code> action. This action deploys a service on Kubernetes.</p>
+<p>Use the <code>serve</code> action to deploy a function as a service on Kubernetes.</p>
 <div class="admonition warning">
 <p class="admonition-title">Service responsiveness</p>
-<p>It takes a while for the service to be ready and notified to the client.</p>
+<p>It may take some time for the service to become ready and for the platform to notify the client.</p>
 </div>
-<p>Once the service is ready, you can use the <code>run.invoke()</code> method to call the inference server.
-The <code>invoke</code> method accept <a href="https://requests.readthedocs.io/en/latest/user/quickstart/#"><code>requests.request</code></a> parameters as kwargs. The <code>url</code> parameter is by default collected from the <code>run</code> object. In case you need to override it, you can use the <code>url</code> parameter.</p>
+<p>After the service is ready, call the inference endpoint with <code>run.invoke()</code>.
+<code>run.invoke()</code> accepts the same keyword arguments as <code>requests.request</code>; by default the <code>url</code> is taken from the <code>run</code> object but you may override it with an explicit <code>url</code> parameter.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">run</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;serve&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">json</span> <span class="o">=</span> <span class="p">{</span>
@@ -4123,27 +4123,27 @@ The run's parameters are passed alongside the task's ones.</p>
 </thead>
 <tbody>
 <tr>
-<td>loacal_execution</td>
+<td>local_execution</td>
 <td>bool</td>
-<td>Flag to indicate if the run will be executed locally</td>
+<td>Execute the run locally instead of remotely.</td>
 <td>False</td>
 </tr>
 <tr>
 <td>inputs</td>
 <td>dict</td>
-<td>Input entity key.</td>
+<td>Mapping of function argument names to entity keys.</td>
 <td>None</td>
 </tr>
 <tr>
 <td>parameters</td>
 <td>dict</td>
-<td>Extra parameters for a function.</td>
+<td>Extra parameters passed to the function.</td>
 <td>None</td>
 </tr>
 <tr>
 <td>init_parameters</td>
 <td>dict</td>
-<td>Parameters for init function.</td>
+<td>Parameters supplied to the init function.</td>
 <td>None</td>
 </tr>
 </tbody>

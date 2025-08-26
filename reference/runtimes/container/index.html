@@ -2656,13 +2656,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      HOW TO
+      Overview
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="HOW TO">
+    <nav class="md-nav" aria-label="Overview">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3475,13 +3475,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      HOW TO
+      Overview
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="HOW TO">
+    <nav class="md-nav" aria-label="Overview">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3656,20 +3656,20 @@
 
 
 <h1 id="container-runtime">Container runtime</h1>
-<p>The <strong>Container runtime</strong> allows you to create deployments, jobs and services on Kubernetes.</p>
+<p>The Container runtime enables launching pods, jobs and services on Kubernetes. It is designed for remote, online execution.</p>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>Python version and libraries:</p>
+<p>Supported Python version and required package:</p>
 <ul>
 <li><code>python &gt;= 3.9, &lt;3.13</code></li>
 <li><code>digitalhub-runtime-container</code></li>
 </ul>
-<p>The package is available on PyPI:</p>
+<p>Install the runtime from PyPI:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>digitalhub-runtime-container
 </span></code></pre></div>
-<h2 id="how-to">HOW TO</h2>
-<p>With the Container runtime you can launch pods and services on Kubernetes. It is built having <strong>remote online execution</strong> capabilities.</p>
+<h2 id="overview">Overview</h2>
+<p>Use the Container runtime to run containers on Kubernetes. It exposes a Function of kind <code>container</code> and several task actions to run jobs, serve services, build images, or deploy workloads.</p>
 <h3 id="function">Function</h3>
-<p>The Container runtime introduces a function of kind <code>container</code> that allows you to deploy deployments, jobs and services on Kubernetes.</p>
+<p>The Container runtime introduces a Function of kind <code>container</code> that describes how to execute a container-based workload.</p>
 <h4 id="function-parameters">Function parameters</h4>
 <table>
 <thead>
@@ -3684,97 +3684,97 @@
 <tr>
 <td>project</td>
 <td>str</td>
-<td>Project name. Required only if creating from library, otherwise <strong>MUST NOT</strong> be set</td>
+<td>Project name. Required only when creating from the library; otherwise <strong>MUST NOT</strong> be set.</td>
 <td></td>
 </tr>
 <tr>
 <td>name</td>
 <td>str</td>
-<td>Name that identifies the object</td>
+<td>Name that identifies the object.</td>
 <td>required</td>
 </tr>
 <tr>
 <td><a href="#function-kinds">kind</a></td>
 <td>str</td>
-<td>Function kind</td>
+<td>Function kind.</td>
 <td>required</td>
 </tr>
 <tr>
 <td>uuid</td>
 <td>str</td>
-<td>ID of the object in form of UUID4</td>
+<td>Object ID in UUID4 format.</td>
 <td>None</td>
 </tr>
 <tr>
 <td>description</td>
 <td>str</td>
-<td>Description of the object</td>
+<td>Description of the object.</td>
 <td>None</td>
 </tr>
 <tr>
 <td>labels</td>
 <td>list[str]</td>
-<td>List of labels</td>
+<td>List of labels.</td>
 <td>None</td>
 </tr>
 <tr>
 <td>embedded</td>
 <td>bool</td>
-<td>Flag to determine if object must be embedded in project</td>
+<td>Whether the object should be embedded in the project.</td>
 <td>True</td>
 </tr>
 <tr>
 <td><a href="../../configuration/code_src/overview/#code-source-uri">code_src</a></td>
 <td>str</td>
-<td>URI pointer to source code</td>
+<td>URI pointing to the source code.</td>
 <td>None</td>
 </tr>
 <tr>
 <td><a href="../../configuration/code_src/overview/#plain-text-source">code</a></td>
 <td>str</td>
-<td>Source code (plain text)</td>
+<td>Source code provided as plain text.</td>
 <td>None</td>
 </tr>
 <tr>
 <td>base64</td>
 <td>str</td>
-<td>Source code (base64 encoded)</td>
+<td>Source code encoded as base64.</td>
 <td>None</td>
 </tr>
 <tr>
 <td><a href="../../configuration/code_src/overview/#handler">handler</a></td>
 <td>str</td>
-<td>Function entrypoint</td>
+<td>Function entrypoint.</td>
 <td>None</td>
 </tr>
 <tr>
 <td>lang</td>
 <td>str</td>
-<td>Source code language (hint)</td>
+<td>Source code language (informational).</td>
 <td>None</td>
 </tr>
 <tr>
 <td>image</td>
 <td>str</td>
-<td>The image to use</td>
+<td>Container image to use for execution (name:tag).</td>
 <td>None</td>
 </tr>
 <tr>
 <td>base_image</td>
 <td>str</td>
-<td>The base container image</td>
+<td>Base image used when building the execution image.</td>
 <td>None (required if task is <code>build</code>)</td>
 </tr>
 <tr>
 <td>image_pull_policy</td>
 <td>str</td>
-<td>K8s pull policy for image</td>
+<td>Kubernetes image pull policy.</td>
 <td>None</td>
 </tr>
 <tr>
 <td>command</td>
 <td>str</td>
-<td>The command to run inside the container</td>
+<td>Command to run inside the container.</td>
 <td>None</td>
 </tr>
 </tbody>
@@ -3791,12 +3791,11 @@
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">function</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;container&#39;</span><span class="p">,</span>
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;my_function&#39;</span><span class="p">,</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">image</span><span class="o">=</span><span class="s2">&quot;hello-world:latest&quot;</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">image</span><span class="o">=</span><span class="s1">&#39;hello-world:latest&#39;</span>
 </span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">)</span>
 </span></code></pre></div>
 <h3 id="task">Task</h3>
-<p>The container runtime introduces four tasks of kind <code>job</code>, <code>serve</code>, <code>build</code> and <code>deploy</code> that allows you to run a Kubernetes job, create a service or a deployment and build an image.
-A <code>Task</code> is created with the <code>run()</code> method, so it's not managed directly by the user. The parameters for the task creation are passed directly to the <code>run()</code> method, and may vary depending on the kind of task.</p>
+<p>The Container runtime supports four task actions: <code>job</code>, <code>serve</code>, <code>build</code>, and <code>deploy</code>. A <code>Task</code> is created via the <code>run()</code> method; task parameters are passed through that call and may vary by action.</p>
 <h4 id="task-parameters">Task parameters</h4>
 <table>
 <thead>
@@ -3812,123 +3811,123 @@ A <code>Task</code> is created with the <code>run()</code> method, so it's not m
 <tr>
 <td><a href="#task-actions">action</a></td>
 <td>str</td>
-<td>Task action</td>
+<td>Task action.</td>
 <td>required</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../configuration/kubernetes/overview/#node-selector">node_selector</a></td>
 <td>list[dict]</td>
-<td>Node selector</td>
+<td>Node selector.</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../configuration/kubernetes/overview/#volumes">volumes</a></td>
 <td>list[dict]</td>
-<td>List of volumes</td>
+<td>List of volumes.</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../configuration/kubernetes/overview/#resources">resources</a></td>
 <td>dict</td>
-<td>Resources restrictions</td>
+<td>Resource limits/requests.</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../configuration/kubernetes/overview/#affinity">affinity</a></td>
 <td>dict</td>
-<td>Affinity</td>
+<td>Affinity configuration.</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../configuration/kubernetes/overview/#tolerations">tolerations</a></td>
 <td>list[dict]</td>
-<td>Tolerations</td>
+<td>Tolerations.</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../configuration/kubernetes/overview/#secrets-envs">envs</a></td>
 <td>list[dict]</td>
-<td>Env variables</td>
+<td>Environment variables.</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../configuration/kubernetes/overview/#secrets-envs">secrets</a></td>
 <td>list[str]</td>
-<td>List of secret names</td>
+<td>List of secret names.</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../configuration/kubernetes/overview/#profile">profile</a></td>
 <td>str</td>
-<td>Profile template</td>
+<td>Profile template.</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../configuration/kubernetes/overview/#security-context">fs_group</a></td>
 <td>int</td>
-<td>File system group ID</td>
+<td>File system group ID.</td>
 <td>None</td>
 <td><code>deploy</code>, <code>job</code></td>
 </tr>
 <tr>
 <td><a href="../../configuration/kubernetes/overview/#security-context">run_as_user</a></td>
 <td>int</td>
-<td>User ID to run the container</td>
+<td>User ID to run the container.</td>
 <td>None</td>
 <td><code>deploy</code>, <code>job</code>, <code>serve</code></td>
 </tr>
 <tr>
 <td><a href="../../configuration/kubernetes/overview/#security-context">run_as_group</a></td>
 <td>int</td>
-<td>Group ID to run the container</td>
+<td>Group ID to run the container.</td>
 <td>None</td>
 <td><code>deploy</code>, <code>job</code>, <code>serve</code></td>
 </tr>
 <tr>
 <td><a href="../../configuration/kubernetes/overview/#replicas">replicas</a></td>
 <td>int</td>
-<td>Number of replicas</td>
+<td>Number of replicas.</td>
 <td>None</td>
 <td><code>deploy</code>, <code>serve</code></td>
 </tr>
 <tr>
 <td><a href="../../configuration/kubernetes/overview/#service-port-type">service_ports</a></td>
 <td>list[dict]</td>
-<td>Service port where to expose the service</td>
+<td>Ports to expose for the service.</td>
 <td><code>NodePort</code></td>
 <td><code>serve</code></td>
 </tr>
 <tr>
 <td><a href="../../configuration/kubernetes/overview/#service-port-type">service_type</a></td>
 <td>str</td>
-<td>Service type</td>
+<td>Service type.</td>
 <td><code>NodePort</code></td>
 <td><code>serve</code></td>
 </tr>
 <tr>
 <td><a href="#instructions">instructions</a></td>
 <td>list[str]</td>
-<td>Build instructions to be executed as RUN instructions in Dockerfile</td>
+<td>Build instructions executed as RUN lines in the generated Dockerfile.</td>
 <td>None</td>
 <td><code>build</code></td>
 </tr>
 </tbody>
 </table>
 <h5 id="instructions">Instructions</h5>
-<p>Instructions are executed as <code>RUN</code> instructions in the Dockerfile. Example:</p>
+<p>Instructions are executed as <code>RUN</code> instructions in the generated Dockerfile. Example:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">instructions</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apt-get install -y git&quot;</span><span class="p">]</span>
 </span></code></pre></div>
 <h5 id="task-actions">Task actions</h5>
-<p>Actions must be one of the following:</p>
+<p>Supported actions:</p>
 <ul>
 <li><code>job</code></li>
 <li><code>build</code></li>
@@ -3937,22 +3936,36 @@ A <code>Task</code> is created with the <code>run()</code> method, so it's not m
 </ul>
 <h4 id="task-example">Task example</h4>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">run</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="n">action</span><span class="o">=</span><span class="s2">&quot;job&quot;</span><span class="p">,</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="n">action</span><span class="o">=</span><span class="s1">&#39;job&#39;</span><span class="p">,</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">instructions</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;apt install git -y&quot;</span><span class="p">],</span>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">)</span>
 </span></code></pre></div>
 <h3 id="run">Run</h3>
-<p>The <code>Run</code> object is, similar to the <code>Task</code>, created with the <code>run()</code> method.
-The run's parameters are passed alongside the task's ones.</p>
+<p>The <code>Run</code> object is created by calling <code>run()</code> on a <code>Function</code>. Run-level parameters are provided alongside task parameters.</p>
 <h4 id="run-parameters">Run parameters</h4>
-<p>| Name | Type | Description | Default |
-| --- | --- | --- | --- | --- |
-| args | list[str] | The arguments to pass to the command | None  |</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>args</td>
+<td>list[str]</td>
+<td>Command-line arguments to pass to the container command.</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
 <h4 id="run-example">Run example</h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">run</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;job&quot;</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">run</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;job&#39;</span><span class="p">)</span>
 </span></code></pre></div>
 <h4 id="run-methods">Run methods</h4>
-<p>There are no specific methods for the <code>run</code> container.</p>
+<p>There are no runtime-specific helper methods for container runs.</p>
 
 
 

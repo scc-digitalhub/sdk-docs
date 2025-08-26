@@ -2679,13 +2679,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      HOW TO
+      Overview
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="HOW TO">
+    <nav class="md-nav" aria-label="Overview">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3532,13 +3532,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      HOW TO
+      Overview
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="HOW TO">
+    <nav class="md-nav" aria-label="Overview">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3770,49 +3770,47 @@
 
 
 <h1 id="hera-pipelines-runtime">Hera Pipelines Runtime</h1>
-<p>The <strong>hera runtime</strong> allows you to run workflows within the platform.
-The runtime introduces a workflow of kind <code>hera</code> and a task of kind <code>pipeline</code>.</p>
+<p>The Hera runtime enables running Hera workflows on the platform. It defines Workflow objects of kind <code>hera</code> and supports a <code>pipeline</code> task action.</p>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>Python version and libraries:</p>
+<p>Supported Python version and required package:</p>
 <ul>
 <li><code>python &gt;= 3.9, &lt;3.13</code></li>
 <li><code>digitalhub-runtime-hera</code></li>
 </ul>
-<p>The package is available on PyPI:</p>
+<p>Install from PyPI:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>digitalhub-runtime-hera
 </span></code></pre></div>
-<h2 id="how-to">HOW TO</h2>
-<p>With the hera runtime you can use the function's <code>run()</code> method to execute a workflow you have defined.
-The hera runtime execution workflow follows roughly these steps:</p>
+<h2 id="overview">Overview</h2>
+<p>Use a Workflow's <code>run()</code> method to build and execute Hera pipelines. Typical workflow:</p>
 <ol>
-<li>Define one or more functions to be executed. These functions can be from other runtimes.</li>
-<li>Define somewhere a <a href="./#pipeline-definition">pipeline</a>.</li>
-<li>Build the pipeline with the <code>run(action="build")</code> method. (Mandatory step!)</li>
-<li>Execute the pipeline with <code>run(action="pipeline")</code> method. This calls a stepper that executes various Hera steps.</li>
+<li>Define the functions (steps) to be executed; these may belong to other runtimes.</li>
+<li>Implement a pipeline function that returns a Hera <code>Workflow</code> object (see Pipeline definition).</li>
+<li>Build the pipeline by calling <code>run(action="build")</code> (required).</li>
+<li>Execute the pipeline with <code>run(action="pipeline")</code>; a stepper will execute the Hera steps.</li>
 </ol>
 <h3 id="pipeline-definition">Pipeline definition</h3>
-<p>To define a pipeline, create a Python function using the <code>def</code> keyword. This function should return a Hera <code>Workflow</code> object, which describes the pipeline structure and steps. You can declare arguments in the function signature; these will be passed as <code>parameters</code> during the <code>run(action="build")</code> method.</p>
-<p>Use the DSL helpers from <code>digitalhub_runtime_hera.dsl</code>. The <code>step</code> and <code>container_op</code> functions from <code>digitalhub_runtime_hera.dsl</code> are used to wrap digitalhub functions and workflows into Hera steps/tasks and containers. These allow you to build complex workflows using the Hera DSL, supporting both DAG and Steps contexts and the digitalhub entities.
-The main components are:</p>
+<p>Define a pipeline by creating a Python function that returns a Hera <code>Workflow</code> object. Any arguments in the function signature are passed as <code>parameters</code> during <code>run(action="build")</code>.</p>
+<p>The runtime provides DSL helpers in <code>digitalhub_runtime_hera.dsl</code>. Use <code>step</code> and <code>container_op</code> to wrap digitalhub functions and workflows into Hera steps and container templates. The DSL supports both <code>DAG</code> and <code>Steps</code> contexts.</p>
+<p>Core components:</p>
 <ul>
-<li><code>step</code>: Defines individual steps within the pipeline, to be used inside a <code>DAG</code> or <code>Steps</code> context. Each step represents a task, and can specify inputs, outputs, and parameters for chaining data between steps. See below for details.</li>
-<li><code>container_op</code>: Defines the container template for a step, specifying the image, command, and arguments for execution. Used internally by <code>step</code>, but available for advanced customization.</li>
+<li><code>step</code>: defines an individual workflow step inside a <code>DAG</code> or <code>Steps</code> context; it represents a task and can declare inputs, outputs and parameters.</li>
+<li><code>container_op</code>: constructs a Hera container template (image, command, args). It is used by <code>step</code> and also available for advanced custom templates.</li>
 </ul>
-<p>The pipeline function is typically structured as follows:</p>
+<p>Typical pipeline function structure:</p>
 <ol>
-<li>Create a <code>Workflow</code> object, specifying the entrypoint (usually a DAG).</li>
+<li>Create a <code>Workflow</code> object and set the entrypoint (usually a DAG).</li>
 <li>Use a <code>DAG</code> or <code>Steps</code> context to define the workflow structure.</li>
-<li>Add steps using the <code>step</code> function, specifying templates, function names, inputs, outputs, and parameters.</li>
-<li>Chain steps using Hera operators for dependencies.</li>
-<li>Return the workflow object.</li>
+<li>Add steps via <code>step(...)</code>, providing templates, function names, inputs/outputs and parameters.</li>
+<li>Chain steps using Hera operators to define dependencies.</li>
+<li>Return the <code>Workflow</code> object.</li>
 </ol>
 <h4 id="step-function"><code>step</code> function</h4>
-<p><code>step(**step_kwargs)</code> creates a workflow step inside a DAG or Steps context. It wraps a container operation and returns a Hera <code>Task</code> object. The main arguments are:</p>
+<p><code>step(**step_kwargs)</code> creates a workflow step (a Hera Task) inside a DAG or Steps context. Main arguments:</p>
 <table>
 <thead>
 <tr>
 <th>Parameter</th>
-<th>Type</th>
+<th style="text-align: right;">Type</th>
 <th>Example</th>
 <th>Description</th>
 </tr>
@@ -3820,150 +3818,89 @@ The main components are:</p>
 <tbody>
 <tr>
 <td>template</td>
-<td>dict</td>
+<td style="text-align: right;">dict</td>
 <td>{"action": "job"}</td>
-<td>Parameters template to pass to function.run() or workflow.run(). Check the proper runtime documentation for details. Remember also that the <code>action</code> key is always required. If you need to pass inputs from other steps for example in a digitalhub/python function, use the <code>{{inputs.parameters.parameter_name}}</code> syntax.</td>
+<td>Parameters template to pass to <code>function.run()</code> or <code>workflow.run()</code>. The <code>action</code> key is always required. To pass inputs from other steps use the <code>{{inputs.parameters.parameter_name}}</code> template syntax.</td>
 </tr>
 <tr>
 <td>function</td>
-<td>str</td>
+<td style="text-align: right;">str</td>
 <td>"download-data"</td>
-<td>Name of the function to execute.</td>
+<td>Name of the digitalhub function to execute.</td>
 </tr>
 <tr>
 <td>function_id</td>
-<td>str</td>
+<td style="text-align: right;">str</td>
 <td>"abc123"</td>
 <td>Function ID (optional).</td>
 </tr>
 <tr>
 <td>workflow</td>
-<td>str</td>
+<td style="text-align: right;">str</td>
 <td>"my-workflow"</td>
 <td>Workflow name (optional).</td>
 </tr>
 <tr>
 <td>workflow_id</td>
-<td>str</td>
+<td style="text-align: right;">str</td>
 <td>"def456"</td>
 <td>Workflow ID (optional).</td>
 </tr>
 <tr>
 <td>name</td>
-<td>str</td>
+<td style="text-align: right;">str</td>
 <td>"step1"</td>
 <td>Step name.</td>
 </tr>
 <tr>
 <td>inputs</td>
-<td>dict</td>
+<td style="text-align: right;">dict</td>
 <td>{"some-input": ANOTHER_STEP.get_parameter("some-output")}</td>
-<td>Step inputs (parameter names). Inputs keys will be mapped in the step as Hera Parameters. The whole inputs as arguments for the task.</td>
+<td>Step inputs. Keys become Hera Parameters; values can reference other steps' outputs.</td>
 </tr>
 <tr>
 <td>outputs</td>
-<td>list</td>
+<td style="text-align: right;">list</td>
 <td>["output1"]</td>
-<td>Step outputs (parameter names).   Outputs will be mapped in the step as Hera Outputs and Artifacts.</td>
+<td>Step outputs. These become Hera Outputs and Artifacts.</td>
 </tr>
 </tbody>
 </table>
-<p>Other keyword arguments are passed to the underlying container template. The step must be called inside a DAG or Steps context, otherwise an error is raised.</p>
+<p>Other keyword arguments are forwarded to the underlying container template. <code>step</code> must be called inside a <code>DAG</code> or <code>Steps</code> context.</p>
 <h4 id="container_op-function"><code>container_op</code> function</h4>
-<p><code>container_op(...)</code> creates a Hera container template for a workflow step. It is used internally by <code>step</code>, but can be used directly for advanced scenarios. Main arguments (see above for details):</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>template</td>
-<td>dict</td>
-<td>Parameters template to pass to .run() method.</td>
-</tr>
-<tr>
-<td>function</td>
-<td>str</td>
-<td>Function name.</td>
-</tr>
-<tr>
-<td>function_id</td>
-<td>str</td>
-<td>Function ID.</td>
-</tr>
-<tr>
-<td>workflow</td>
-<td>str</td>
-<td>Workflow name.</td>
-</tr>
-<tr>
-<td>workflow_id</td>
-<td>str</td>
-<td>Workflow ID.</td>
-</tr>
-<tr>
-<td>name</td>
-<td>str</td>
-<td>Step name.</td>
-</tr>
-<tr>
-<td>inputs</td>
-<td>list</td>
-<td>Step inputs.</td>
-</tr>
-<tr>
-<td>outputs</td>
-<td>list</td>
-<td>Step outputs.</td>
-</tr>
-</tbody>
-</table>
-<p>Returns a Hera <code>Container</code> object, which is used as the template for the step. It must be used outside a <code>DAG</code> or <code>Steps</code> context.</p>
+<p><code>container_op(...)</code> builds a Hera container template for a workflow step. It returns a Hera <code>Container</code> object and accepts similar arguments to <code>step</code> (template, function, name, inputs, outputs, ...). Use it directly for advanced scenarios or custom templates.</p>
 <h4 id="workflow-definition-example">Workflow definition example</h4>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hera.workflows</span><span class="w"> </span><span class="kn">import</span> <span class="n">Workflow</span><span class="p">,</span> <span class="n">DAG</span><span class="p">,</span> <span class="n">Parameter</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">digitalhub_runtime_hera.dsl</span><span class="w"> </span><span class="kn">import</span> <span class="n">step</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># Define the pipeline function with no arguments</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">pipeline</span><span class="p">():</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="c1"># Create a new Workflow with an entrypoint DAG</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="k">with</span> <span class="n">Workflow</span><span class="p">(</span><span class="n">entrypoint</span><span class="o">=</span><span class="s2">&quot;dag&quot;</span><span class="p">,</span> <span class="n">arguments</span><span class="o">=</span><span class="n">Parameter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;url&quot;</span><span class="p">))</span> <span class="k">as</span> <span class="n">w</span><span class="p">:</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>        <span class="k">with</span> <span class="n">DAG</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;dag&quot;</span><span class="p">):</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>            <span class="c1"># Define the first step. It takes inputs from the workflow parameters</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>            <span class="c1"># and outputs a dataset that can be used in subsequent steps.</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>            <span class="n">A</span> <span class="o">=</span> <span class="n">step</span><span class="p">(</span><span class="n">template</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;action&quot;</span><span class="p">:</span><span class="s2">&quot;job&quot;</span><span class="p">,</span> <span class="s2">&quot;inputs&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;{{workflow.parameters.url}}&quot;</span><span class="p">}},</span>
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>                     <span class="n">function</span><span class="o">=</span><span class="s2">&quot;download-data&quot;</span><span class="p">,</span>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>                     <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;dataset&quot;</span><span class="p">])</span>
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>            <span class="c1"># Define subsequent steps</span>
-</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>            <span class="c1"># Note the way inputs are passed from one step to another,</span>
-</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>            <span class="c1"># using the get_parameter method to retrieve outputs from previous steps</span>
-</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>            <span class="c1"># and use the template {{inputs.parameters.parameter_name}}</span>
-</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>            <span class="c1"># This allows chaining data between steps</span>
-</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>            <span class="c1"># Because we shortcut the definition of a container template inside a dag,</span>
-</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>            <span class="c1"># we can pass directly the inputs as a dictionary. The key will be used</span>
-</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>            <span class="c1"># as the input Parameter name, the whole inputs as arguments for the task.</span>
-</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>            <span class="n">B</span> <span class="o">=</span> <span class="n">step</span><span class="p">(</span><span class="n">template</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;action&quot;</span><span class="p">:</span><span class="s2">&quot;job&quot;</span><span class="p">,</span> <span class="s2">&quot;inputs&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;di&quot;</span><span class="p">:</span> <span class="s2">&quot;{{inputs.parameters.di}}&quot;</span><span class="p">}},</span>
-</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>                     <span class="n">function</span><span class="o">=</span><span class="s2">&quot;process-spire&quot;</span><span class="p">,</span>
-</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>                     <span class="n">inputs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;di&quot;</span><span class="p">:</span> <span class="n">A</span><span class="o">.</span><span class="n">get_parameter</span><span class="p">(</span><span class="s2">&quot;dataset&quot;</span><span class="p">)})</span>
-</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>            <span class="n">C</span> <span class="o">=</span> <span class="n">step</span><span class="p">(</span><span class="n">template</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;action&quot;</span><span class="p">:</span><span class="s2">&quot;job&quot;</span><span class="p">,</span> <span class="s2">&quot;inputs&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;di&quot;</span><span class="p">:</span> <span class="s2">&quot;{{inputs.parameters.di}}&quot;</span><span class="p">}},</span>
-</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>                     <span class="n">function</span><span class="o">=</span><span class="s2">&quot;process-measures&quot;</span><span class="p">,</span>
-</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>                     <span class="n">inputs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;di&quot;</span><span class="p">:</span> <span class="n">A</span><span class="o">.</span><span class="n">get_parameter</span><span class="p">(</span><span class="s2">&quot;dataset&quot;</span><span class="p">)})</span>
-</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>
-</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>            <span class="c1"># Chain the steps</span>
-</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>            <span class="n">A</span> <span class="o">&gt;&gt;</span> <span class="p">[</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">]</span>
-</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>
-</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>    <span class="c1"># Return the workflow</span>
-</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>    <span class="k">return</span> <span class="n">w</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">pipeline</span><span class="p">():</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="c1"># Create a new Workflow with an entrypoint DAG and a parameter</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="k">with</span> <span class="n">Workflow</span><span class="p">(</span><span class="n">entrypoint</span><span class="o">=</span><span class="s2">&quot;dag&quot;</span><span class="p">,</span> <span class="n">arguments</span><span class="o">=</span><span class="n">Parameter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;url&quot;</span><span class="p">))</span> <span class="k">as</span> <span class="n">w</span><span class="p">:</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        <span class="k">with</span> <span class="n">DAG</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;dag&quot;</span><span class="p">):</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>            <span class="c1"># First step: takes the workflow parameter and outputs a dataset</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>            <span class="n">A</span> <span class="o">=</span> <span class="n">step</span><span class="p">(</span><span class="n">template</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;action&quot;</span><span class="p">:</span><span class="s2">&quot;job&quot;</span><span class="p">,</span> <span class="s2">&quot;inputs&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;{{workflow.parameters.url}}&quot;</span><span class="p">}},</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>                     <span class="n">function</span><span class="o">=</span><span class="s2">&quot;download-data&quot;</span><span class="p">,</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>                     <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;dataset&quot;</span><span class="p">])</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>            <span class="c1"># Subsequent steps consume A&#39;s output</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>            <span class="n">B</span> <span class="o">=</span> <span class="n">step</span><span class="p">(</span><span class="n">template</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;action&quot;</span><span class="p">:</span><span class="s2">&quot;job&quot;</span><span class="p">,</span> <span class="s2">&quot;inputs&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;di&quot;</span><span class="p">:</span> <span class="s2">&quot;{{inputs.parameters.di}}&quot;</span><span class="p">}},</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>                     <span class="n">function</span><span class="o">=</span><span class="s2">&quot;process-spire&quot;</span><span class="p">,</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>                     <span class="n">inputs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;di&quot;</span><span class="p">:</span> <span class="n">A</span><span class="o">.</span><span class="n">get_parameter</span><span class="p">(</span><span class="s2">&quot;dataset&quot;</span><span class="p">)})</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>            <span class="n">C</span> <span class="o">=</span> <span class="n">step</span><span class="p">(</span><span class="n">template</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;action&quot;</span><span class="p">:</span><span class="s2">&quot;job&quot;</span><span class="p">,</span> <span class="s2">&quot;inputs&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;di&quot;</span><span class="p">:</span> <span class="s2">&quot;{{inputs.parameters.di}}&quot;</span><span class="p">}},</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>                     <span class="n">function</span><span class="o">=</span><span class="s2">&quot;process-measures&quot;</span><span class="p">,</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>                     <span class="n">inputs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;di&quot;</span><span class="p">:</span> <span class="n">A</span><span class="o">.</span><span class="n">get_parameter</span><span class="p">(</span><span class="s2">&quot;dataset&quot;</span><span class="p">)})</span>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>            <span class="c1"># Chain the steps</span>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>            <span class="n">A</span> <span class="o">&gt;&gt;</span> <span class="p">[</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">]</span>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>    <span class="k">return</span> <span class="n">w</span>
 </span></code></pre></div>
 <h3 id="workflow">Workflow</h3>
-<p>The hera runtime introduces a function of kind <code>hera</code>.</p>
+<p>The Hera runtime defines Workflow objects of kind <code>hera</code>.</p>
 <h4 id="workflow-parameters">Workflow parameters</h4>
 <table>
 <thead>
@@ -3978,79 +3915,79 @@ The main components are:</p>
 <tr>
 <td>project</td>
 <td>str</td>
-<td>Project name. Required only if creating from library, otherwise <strong>MUST NOT</strong> be set</td>
+<td>Project name. Required only when creating from the library; otherwise <strong>MUST NOT</strong> be set.</td>
 <td></td>
 </tr>
 <tr>
 <td>name</td>
 <td>str</td>
-<td>Name that identifies the object</td>
+<td>Name that identifies the object.</td>
 <td>required</td>
 </tr>
 <tr>
 <td><a href="#workflow-kinds">kind</a></td>
 <td>str</td>
-<td>Workflow kind</td>
+<td>Workflow kind.</td>
 <td>required</td>
 </tr>
 <tr>
 <td>uuid</td>
 <td>str</td>
-<td>ID of the object in form of UUID4</td>
+<td>Object ID in UUID4 format.</td>
 <td>None</td>
 </tr>
 <tr>
 <td>description</td>
 <td>str</td>
-<td>Description of the object</td>
+<td>Description of the object.</td>
 <td>None</td>
 </tr>
 <tr>
 <td>labels</td>
 <td>list[str]</td>
-<td>List of labels</td>
+<td>List of labels.</td>
 <td>None</td>
 </tr>
 <tr>
 <td>embedded</td>
 <td>bool</td>
-<td>Flag to determine if object must be embedded in project</td>
+<td>Whether the object should be embedded in the project.</td>
 <td>True</td>
 </tr>
 <tr>
 <td><a href="../../configuration/code_src/overview/#code-source-uri">code_src</a></td>
 <td>str</td>
-<td>URI pointer to source code</td>
+<td>URI pointing to the source code.</td>
 <td>None</td>
 </tr>
 <tr>
 <td><a href="../../configuration/code_src/overview/#plain-text-source">code</a></td>
 <td>str</td>
-<td>Source code (plain text)</td>
+<td>Source code provided as plain text.</td>
 <td>None</td>
 </tr>
 <tr>
 <td>base64</td>
 <td>str</td>
-<td>Source code (base64 encoded)</td>
+<td>Source code encoded as base64.</td>
 <td>None</td>
 </tr>
 <tr>
 <td><a href="../../configuration/code_src/overview/#handler">handler</a></td>
 <td>str</td>
-<td>Function entrypoint</td>
+<td>Function entrypoint.</td>
 <td>None</td>
 </tr>
 <tr>
 <td>lang</td>
 <td>str</td>
-<td>Source code language (hint)</td>
+<td>Source code language (informational).</td>
 <td>None</td>
 </tr>
 </tbody>
 </table>
 <h5 id="workflow-kinds">Workflow kinds</h5>
-<p>The <code>kind</code> parameter must be one of the following:</p>
+<p>The <code>kind</code> parameter must be:</p>
 <ul>
 <li><code>hera</code></li>
 </ul>
@@ -4071,8 +4008,7 @@ The main components are:</p>
 </span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>                           <span class="n">handler</span><span class="o">=</span><span class="s2">&quot;handler&quot;</span><span class="p">)</span>
 </span></code></pre></div>
 <h3 id="task">Task</h3>
-<p>The Hera runtime introduces a task of kind <code>pipeline</code> that allows you to run a workflow.
-A <code>Task</code> is created with the <code>run()</code> method, so it's not managed directly by the user. The parameters for the task creation are passed directly to the <code>run()</code> method, and may vary depending on the kind of task.</p>
+<p>The Hera runtime supports a <code>pipeline</code> task action to run workflows. A <code>Task</code> is created by calling <code>run()</code> on the Workflow; task parameters are passed through that call and may vary by action.</p>
 <h4 id="task-parameters">Task parameters</h4>
 <table>
 <thead>
@@ -4088,70 +4024,70 @@ A <code>Task</code> is created with the <code>run()</code> method, so it's not m
 <tr>
 <td><a href="#task-actions">action</a></td>
 <td>str</td>
-<td>Task action</td>
+<td>Task action.</td>
 <td>required</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../configuration/kubernetes/overview/#node-selector">node_selector</a></td>
 <td>list[dict]</td>
-<td>Node selector</td>
+<td>Node selector.</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../configuration/kubernetes/overview/#volumes">volumes</a></td>
 <td>list[dict]</td>
-<td>List of volumes</td>
+<td>List of volumes.</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../configuration/kubernetes/overview/#resources">resources</a></td>
 <td>dict</td>
-<td>Resources restrictions</td>
+<td>Resource limits/requests.</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../configuration/kubernetes/overview/#affinity">affinity</a></td>
 <td>dict</td>
-<td>Affinity</td>
+<td>Affinity configuration.</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../configuration/kubernetes/overview/#tolerations">tolerations</a></td>
 <td>list[dict]</td>
-<td>Tolerations</td>
+<td>Tolerations.</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../configuration/kubernetes/overview/#secrets-envs">envs</a></td>
 <td>list[dict]</td>
-<td>Env variables</td>
+<td>Environment variables.</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../configuration/kubernetes/overview/#secrets-envs">secrets</a></td>
 <td>list[str]</td>
-<td>List of secret names</td>
+<td>List of secret names.</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../configuration/kubernetes/overview/#profile">profile</a></td>
 <td>str</td>
-<td>Profile template</td>
+<td>Profile template.</td>
 <td>None</td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <h5 id="task-actions">Task actions</h5>
-<p>Actions must be one of the following:</p>
+<p>Supported actions:</p>
 <ul>
 <li><code>build</code></li>
 <li><code>pipeline</code></li>
@@ -4162,8 +4098,7 @@ A <code>Task</code> is created with the <code>run()</code> method, so it's not m
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">run_pipeline</span> <span class="o">=</span> <span class="n">workflow</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;pipeline&quot;</span><span class="p">)</span>
 </span></code></pre></div>
 <h3 id="run">Run</h3>
-<p>The <code>Run</code> object is, similar to the <code>Task</code>, created with the <code>run()</code> method.
-The run's parameters are passed alongside the task's ones.</p>
+<p>The <code>Run</code> object is created by calling <code>run()</code> on a Workflow. Run-level parameters are provided alongside task parameters.</p>
 <h4 id="run-parameters">Run parameters</h4>
 <table>
 <thead>

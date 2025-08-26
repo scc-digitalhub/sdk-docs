@@ -2535,18 +2535,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#overwiew" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Overwiew
+      Overview
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#user-howto" class="md-nav__link">
+  <a href="#quick-how-to" class="md-nav__link">
     <span class="md-ellipsis">
-      User HOWTO
+      Quick how-to
     </span>
   </a>
   
@@ -3333,18 +3333,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#overwiew" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Overwiew
+      Overview
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#user-howto" class="md-nav__link">
+  <a href="#quick-how-to" class="md-nav__link">
     <span class="md-ellipsis">
-      User HOWTO
+      Quick how-to
     </span>
   </a>
   
@@ -3370,39 +3370,39 @@
 
 
 <h1 id="python-runtime">Python runtime</h1>
-<p>The <strong>python runtime</strong> allows you to run generic python function.
-The runtime introduces a function of kind <code>python</code> and three task of kind <code>job</code>, <code>serve</code> and <code>build</code>.
-With <code>job</code> action you can run a python function as a job.
-With <code>serve</code> action you can run a python function as a service.
-With <code>build</code> action you build a docker image with all the dependencies and reuse that container to run the function avoiding the overhead of dependencies installation during the runtime.</p>
-<h2 id="prerequisites">Prerequisites</h2>
-<p>Python version and libraries:</p>
+<p>The Python runtime enables you to run user-defined Python handlers. It registers a <code>Function</code> kind <code>python</code> and supports three actions: <code>job</code>, <code>serve</code>, and <code>build</code>.</p>
 <ul>
-<li><code>python &gt;= 3.9, &lt;3.13</code></li>
+<li><code>job</code> — run a Python handler as a one-off job.</li>
+<li><code>serve</code> — run a Python handler as a long-lived service.</li>
+<li><code>build</code> — construct a Docker image that bundles all required dependencies so the runtime can reuse the image and avoid re-installing dependencies at execution time.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Supported Python versions and required package:</p>
+<ul>
+<li>Python &gt;= 3.9, &lt; 3.13</li>
 <li><code>digitalhub-runtime-python</code></li>
 </ul>
-<p>The package is available on PyPI:</p>
+<p>Install from PyPI:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>digitalhub-runtime-python
 </span></code></pre></div>
-<h2 id="overwiew">Overwiew</h2>
-<p>With the python runtime you can use the function's <code>run()</code> method to execute a python function you have defined.
-The python runtime execution workflow follows roughly these steps:</p>
+<h2 id="overview">Overview</h2>
+<p>Use a <code>Function</code> object's <code>run()</code> method to invoke your handler. The Python runtime generally follows these steps:</p>
 <ol>
-<li>Define somewhere a <a href="../2-function/">python function</a>.</li>
-<li>Create a <code>Function</code> object in the platform and execute the function's <code>run()</code> method.</li>
-<li>The runtime collects the <a href="../2-function/#inputs-and-parameters">inputs</a> specified in the function as SDK objects (<code>Dataitem</code>, <code>Artifact</code>, <code>Model</code>).</li>
-<li>It fetches the function <a href="../../../configuration/code_src/overview/">source code</a> and import the function handler.</li>
-<li>It <a href="../2-function/#reserved-arguments">composes</a> the parameters for the handler function.</li>
-<li>It executes the function and map the <a href="../2-function/#handler-and-outputs">outputs</a> as SDK objects or as simple results.</li>
+<li>You write a Python handler function (see <a href="../2-function/">Function definition</a>).</li>
+<li>You create a <code>Function</code> resource on the platform and call its <code>run()</code> method.</li>
+<li>The runtime collects the function's declared inputs (objects such as <code>Dataitem</code>, <code>Artifact</code>, or <code>Model</code>).</li>
+<li>It fetches the function <a href="../../../configuration/code_src/overview/">source code</a> and imports the handler.</li>
+<li>It composes the handler arguments according to the function declaration and reserved parameters (see <a href="../2-function/#reserved-arguments">reserved arguments</a>).</li>
+<li>It executes the handler and maps the outputs back into SDK objects or returns them as simple results (see <a href="../2-function/#handler-and-outputs">handler and outputs</a>).</li>
 </ol>
-<h2 id="user-howto">User HOWTO</h2>
-<p>As delined in the description of the runtime workflow, to execute a python function the user should proceed with the following three steps:</p>
+<h2 id="quick-how-to">Quick how-to</h2>
+<p>To execute a Python handler on the platform:</p>
 <ol>
-<li>Write the function to execute.</li>
-<li>Create a <code>Function</code> object.</li>
-<li>Execute the function's <code>run()</code> method.</li>
+<li>Implement the handler as described in <a href="../2-function/">function definition</a>.</li>
+<li>Create a <code>Function</code> resource that references your handler and declares inputs/outputs.</li>
+<li>Invoke the <code>Function.run()</code> method to execute the handler.</li>
 </ol>
-<p>You can jump now on <a href="../2-function/">function definition</a>.</p>
+<p>For details on handler signatures, inputs/outputs, and examples, see <a href="../2-function/">function definition</a>.</p>
 
 
 

@@ -2633,13 +2633,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      HOW TO
+      Overview
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="HOW TO">
+    <nav class="md-nav" aria-label="Overview">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3490,13 +3490,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      HOW TO
+      Overview
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="HOW TO">
+    <nav class="md-nav" aria-label="Overview">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3686,35 +3686,31 @@
 
 
 <h1 id="dbt-runtime">DBT runtime</h1>
-<p>The <strong>DBT runtime</strong> allows you to run <a href="https://www.getdbt.com/">DBT</a> transformations on your data. It is a wrapper around the DBT CLI tool.
-The runtime introduces a function of kind <code>dbt</code> and a task of kind <code>transform</code>.</p>
+<p>The DBT runtime lets you run <a href="https://www.getdbt.com/">dbt</a> transformations against your data. It wraps the DBT CLI and exposes a Function of kind <code>dbt</code> and a Task action for transformations.</p>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>Python version and libraries:</p>
+<p>Supported Python version and required package:</p>
 <ul>
 <li><code>python &gt;= 3.9, &lt;3.13</code></li>
 <li><code>digitalhub-runtime-dbt</code></li>
 </ul>
-<p>The package is available on PyPI:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>digitalhub-runtime-dbt<span class="w"> </span><span class="c1"># for remote execution only</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>digitalhub-runtime-dbt<span class="o">[</span>local<span class="o">]</span><span class="w"> </span><span class="c1"># for local execution</span>
+<p>Install from PyPI:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>digitalhub-runtime-dbt<span class="w">    </span><span class="c1"># for remote execution</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>digitalhub-runtime-dbt<span class="o">[</span>local<span class="o">]</span><span class="w">  </span><span class="c1"># for local execution</span>
 </span></code></pre></div>
-<h2 id="how-to">HOW TO</h2>
-<p>With the DBT runtime you can use the function's <code>run()</code> method to execute a DBT query you have defined.
-The DBT runtime execution workflow follows roughly these steps:</p>
+<h2 id="overview">Overview</h2>
+<p>Use a Function's <code>run()</code> method to execute a dbt transformation. At a high level the runtime:</p>
 <ol>
-<li>The runtime fetches the input dataitems by downloading them locally. The runtime tries to get the file from the <code>path</code> attribute in the dataitem specification. At the moment, we support the following path types:<ul>
+<li>Downloads input dataitems (attempting to use each dataitem's <code>path</code> attribute). Supported path types include:</li>
 <li><code>http(s)://&lt;url&gt;</code></li>
 <li><code>s3://&lt;bucket&gt;/&lt;path&gt;</code></li>
 <li><code>sql://&lt;database&gt;(/&lt;schema-optional&gt;)/&lt;table&gt;</code></li>
 <li><code>&lt;local-path&gt;</code></li>
-</ul>
-</li>
-<li>The runtime inserts the data into a temporary versioned table in the default postgres database. These tables are named <code>&lt;dataitem-name&gt;_v&lt;dataitem-id&gt;</code>, and will be deleted at the end of the execution.</li>
-<li>The runtime collect the source code of the DBT query and creates all the necessary DBT artifacts (profiles.yml, dbt_project.yml, etc.) and runs the DBT transformation.</li>
-<li>The runtime stores the output table into the default postgres database as result of the DBT execution. The table name is built from the <code>outputs</code> parameter. Then, the runtime creates a dataitem with the <code>outputs</code> name parameter and saves it into the Core backend. You can retrieve the dataitem with the <code>run.outputs()</code> method. In general, the output table versioned is named <code>&lt;dataitem-output-name&gt;_v&lt;dataitem-output-id&gt;</code> and is stored in the default postgres database passed to the runtime via env variable.</li>
+<li>Loads the data into temporary, versioned tables in the configured Postgres database (tables named <code>&lt;dataitem-name&gt;_v&lt;dataitem-id&gt;</code>). Temporary tables are removed after execution.</li>
+<li>Collects the dbt project/code, generates required artifacts (profiles.yml, dbt_project.yml, etc.), and runs the dbt transformation.</li>
+<li>Writes the resulting table back to the configured Postgres database. The table name is derived from the <code>outputs</code> parameter. The runtime then creates a Dataitem representing the output (accessible via run.outputs()). Output tables are typically named <code>&lt;dataitem-output-name&gt;_v&lt;dataitem-output-id&gt;</code>.</li>
 </ol>
 <h3 id="function">Function</h3>
-<p>The DBT runtime introduces a function of kind <code>dbt</code> that allows you to execute sql dbt queries on your data.</p>
+<p>The DBT runtime defines a Function of kind <code>dbt</code> used to run SQL/dbt transformations.</p>
 <h4 id="function-parameters">Function parameters</h4>
 <table>
 <thead>
@@ -3729,73 +3725,73 @@ The DBT runtime execution workflow follows roughly these steps:</p>
 <tr>
 <td>project</td>
 <td>str</td>
-<td>Project name. Required only if creating from library, otherwise <strong>MUST NOT</strong> be set</td>
+<td>Project name. Required only when creating from the library; otherwise <strong>MUST NOT</strong> be set.</td>
 <td></td>
 </tr>
 <tr>
 <td>name</td>
 <td>str</td>
-<td>Name that identifies the object</td>
+<td>Name that identifies the object.</td>
 <td>required</td>
 </tr>
 <tr>
 <td><a href="#function-kinds">kind</a></td>
 <td>str</td>
-<td>Function kind</td>
+<td>Function kind.</td>
 <td>required</td>
 </tr>
 <tr>
 <td>uuid</td>
 <td>str</td>
-<td>ID of the object in form of UUID4</td>
+<td>Object ID in UUID4 format.</td>
 <td>None</td>
 </tr>
 <tr>
 <td>description</td>
 <td>str</td>
-<td>Description of the object</td>
+<td>Description of the object.</td>
 <td>None</td>
 </tr>
 <tr>
 <td>labels</td>
 <td>list[str]</td>
-<td>List of labels</td>
+<td>List of labels.</td>
 <td>None</td>
 </tr>
 <tr>
 <td>embedded</td>
 <td>bool</td>
-<td>Flag to determine if object must be embedded in project</td>
+<td>Whether the object should be embedded in the project.</td>
 <td>True</td>
 </tr>
 <tr>
 <td><a href="../../configuration/code_src/overview/#code-source-uri">code_src</a></td>
 <td>str</td>
-<td>URI pointer to source code</td>
+<td>URI pointing to the source code.</td>
 <td>None</td>
 </tr>
 <tr>
 <td><a href="../../configuration/code_src/overview/#plain-text-source">code</a></td>
 <td>str</td>
-<td>Source code (plain text)</td>
+<td>Source code provided as plain text.</td>
 <td>None</td>
 </tr>
 <tr>
 <td>base64</td>
 <td>str</td>
-<td>Source code (base64 encoded)</td>
+<td>Source code encoded as base64.</td>
 <td>None</td>
 </tr>
 <tr>
 <td><a href="../../configuration/code_src/overview/#handler">handler</a></td>
 <td>str</td>
-<td>Function entrypoint</td>
+<td>Function entrypoint.</td>
 <td>None</td>
 </tr>
 <tr>
 <td>lang</td>
 <td>str</td>
-<td>Source code language (hint)</td>
+<td>Source code language (informational).</td>
 <td>None</td>
 </tr>
 </tbody>
@@ -3823,8 +3819,7 @@ The DBT runtime execution workflow follows roughly these steps:</p>
 </span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="p">)</span>
 </span></code></pre></div>
 <h3 id="task">Task</h3>
-<p>The DBT runtime introduces a task of kind <code>transform</code> that allows you to run a DBT transformation on your data.
-A <code>Task</code> is created with the <code>run()</code> method, so it's not managed directly by the user. The parameters for the task creation are passed directly to the <code>run()</code> method, and may vary depending on the kind of task.</p>
+<p>The DBT runtime provides a <code>transform</code> task action to run dbt transformations. A <code>Task</code> is created by calling <code>run()</code> on the Function; task parameters are passed through that call and may vary by action.</p>
 <h4 id="task-parameters">Task parameters</h4>
 <table>
 <thead>
@@ -3840,72 +3835,72 @@ A <code>Task</code> is created with the <code>run()</code> method, so it's not m
 <tr>
 <td><a href="#task-actions">action</a></td>
 <td>str</td>
-<td>Task action</td>
+<td>Task action.</td>
 <td>required</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../configuration/kubernetes/overview/#node-selector">node_selector</a></td>
 <td>list[dict]</td>
-<td>Node selector</td>
+<td>Node selector.</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../configuration/kubernetes/overview/#volumes">volumes</a></td>
 <td>list[dict]</td>
-<td>List of volumes</td>
+<td>List of volumes.</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../configuration/kubernetes/overview/#resources">resources</a></td>
 <td>dict</td>
-<td>Resources restrictions</td>
+<td>Resource limits/requests.</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../configuration/kubernetes/overview/#affinity">affinity</a></td>
 <td>dict</td>
-<td>Affinity</td>
+<td>Affinity configuration.</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../configuration/kubernetes/overview/#tolerations">tolerations</a></td>
 <td>list[dict]</td>
-<td>Tolerations</td>
+<td>Tolerations.</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../configuration/kubernetes/overview/#secrets-envs">envs</a></td>
 <td>list[dict]</td>
-<td>Env variables</td>
+<td>Environment variables.</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../configuration/kubernetes/overview/#secrets-envs">secrets</a></td>
 <td>list[str]</td>
-<td>List of secret names</td>
+<td>List of secret names.</td>
 <td>None</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../../configuration/kubernetes/overview/#profile">profile</a></td>
 <td>str</td>
-<td>Profile template</td>
+<td>Profile template.</td>
 <td>None</td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <h5 id="task-actions">Task actions</h5>
-<p>Actions must be one of the following:</p>
+<p>Supported actions:</p>
 <ul>
-<li><code>serve</code>: to deploy a service</li>
+<li><code>transform</code> — run a dbt transformation</li>
 </ul>
 <h4 id="task-example">Task example</h4>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">run</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
@@ -3915,8 +3910,7 @@ A <code>Task</code> is created with the <code>run()</code> method, so it's not m
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">)</span>
 </span></code></pre></div>
 <h3 id="run">Run</h3>
-<p>The <code>Run</code> object is, similar to the <code>Task</code>, created with the <code>run()</code> method.
-The run's parameters are passed alongside the task's ones.</p>
+<p>The <code>Run</code> object is created by calling <code>run()</code> on a Function. Run-level parameters are provided alongside task parameters.</p>
 <h4 id="run-parameters">Run parameters</h4>
 <table>
 <thead>
@@ -3929,27 +3923,27 @@ The run's parameters are passed alongside the task's ones.</p>
 </thead>
 <tbody>
 <tr>
-<td>loacal_execution</td>
+<td>local_execution</td>
 <td>bool</td>
-<td>Flag to indicate if the run will be executed locally</td>
+<td>Execute the run locally instead of remotely.</td>
 <td>False</td>
 </tr>
 <tr>
 <td>inputs</td>
 <td>dict</td>
-<td>Input entity key.</td>
+<td>Mapping of function argument names to entity keys.</td>
 <td>None</td>
 </tr>
 <tr>
 <td>outputs</td>
 <td>dict</td>
-<td>Outputs mapped.</td>
+<td>Mapping of outputs.</td>
 <td>None</td>
 </tr>
 <tr>
 <td>parameters</td>
 <td>dict</td>
-<td>Extra parameters for a function.</td>
+<td>Extra parameters passed to the function.</td>
 <td>None</td>
 </tr>
 </tbody>

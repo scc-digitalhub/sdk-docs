@@ -2725,13 +2725,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      HOW TO
+      Overview
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="HOW TO">
+    <nav class="md-nav" aria-label="Overview">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3583,13 +3583,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      HOW TO
+      Overview
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="HOW TO">
+    <nav class="md-nav" aria-label="Overview">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3871,8 +3871,8 @@
   
 
 
-<h1 id="modelserve-runtime">Modelserve runtime</h1>
-<p>The <strong>Modelserve runtime</strong> allows you to deploy ML models on Kubernetes or locally.</p>
+<h1 id="modelserve-runtime">ModelServe runtime</h1>
+<p>The <strong>ModelServe runtime</strong> allows you to deploy ML models on Kubernetes or locally.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <p>Python version and libraries:</p>
 <ul>
@@ -3882,37 +3882,35 @@
 <p>The package is available on PyPI:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>digitalhub-runtime-modelserve
 </span></code></pre></div>
-<h2 id="how-to">HOW TO</h2>
-<p>The modelserve runtime introduces several functions of kind <code>sklearnserve</code>, <code>mlflowserve</code>, <code>huggingfaceserve</code> and <code>kubeai-text</code>,  <code>kubeai-speech</code> that allows you to serve different ML models flavours and a task of kind <code>serve</code>.
-The usage of the runtime is similar to the others:</p>
+<h2 id="overview">Overview</h2>
+<p>The ModelServe runtime provides several serve functions (<code>sklearnserve</code>, <code>mlflowserve</code>, <code>huggingfaceserve</code>, <code>kubeai-text</code>, <code>kubeai-speech</code>) and a <code>serve</code> task action. Typical usage:</p>
 <ol>
-<li>Create a <code>Function</code> object of the desired model and execute it's <code>run()</code> method.</li>
-<li>The runtime collects (if in remote execution), loads and exposes the model as a service.</li>
-<li>With the run's <code>invoke()</code> method you can call the v2 inference API specifying the json payload you want (passed as keyword arguments).</li>
-<li>You can stop the service with the run's <code>stop()</code> method.</li>
+<li>Create a Function for the model and call its <code>run()</code> method.</li>
+<li>The runtime (for remote execution) collects, loads and exposes the model as a service.</li>
+<li>Call the run's <code>invoke()</code> method to send inference requests (the method accepts the same keyword arguments as <code>requests.request</code>).</li>
+<li>Stop the service with <code>run.stop()</code> when finished.</li>
 </ol>
-<p>The <em>modelserve</em> runtime launches a <a href="https://mlserver.readthedocs.io/en/latest/">mlserver</a> inference server is deployed on Kubernetes as deployment and exposed as a service.</p>
+<p>The ModelServe runtime deploys an <a href="https://mlserver.readthedocs.io/en/latest/">mlserver</a> inference server on Kubernetes (Deployment + Service).</p>
 <div class="admonition warning">
 <p class="admonition-title">Service responsiveness</p>
-<p>It takes a while for the service to be ready and notified to the client. You can use the <code>refresh()</code> method and access the <code>status</code> attribute of the run object. When the service is ready, you can see a <code>service</code> attribute in the <code>status</code>.</p>
+<p>It may take some time for the service to become ready. Use <code>run.refresh()</code> and inspect <code>run.status</code>. When ready, the <code>status</code> will include a <code>service</code> attribute.</p>
 </div>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">run</span><span class="o">.</span><span class="n">status</span>
 </span></code></pre></div>
-<p>Once the service is ready, you can use the <code>run.invoke()</code> method to call the inference server.
-The <code>invoke</code> method accept <a href="https://requests.readthedocs.io/en/latest/user/quickstart/#"><code>requests.request</code></a> parameters as kwargs. The <code>url</code> parameter is by default collected from the <code>run</code> object. In case you need to override it, you can use the <code>url</code> parameter.</p>
+<p>After the service is ready, call the inference endpoint with <code>run.invoke()</code>. By default the <code>url</code> is taken from the <code>run</code> object; override it with an explicit <code>url</code> parameter if needed.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In case you passed <code>model_name</code> in the function spec, and you execute the run in remote execution, you need to pass the <code>model_name</code> to the invoke method. This is because the <code>model_name</code> is used to identify the model in the inference server. <code>"http://{url-from-k8s}/v2/models/{model_name}/infer"</code>.</p>
+<p>If you set <code>model_name</code> in the function spec and run remotely, pass <code>model_name</code> to <code>invoke()</code> so the runtime can target the model with the MLServer V2 endpoint ("http://{url-from-k8s}/v2/models/{model_name}/infer").</p>
 </div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">data</span> <span class="o">=</span> <span class="p">[[</span><span class="o">...</span><span class="p">]]</span> <span class="c1">#some array</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">data</span> <span class="o">=</span> <span class="p">[[</span><span class="o">...</span><span class="p">]]</span>  <span class="c1"># some array</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">json</span> <span class="o">=</span> <span class="p">{</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="s2">&quot;inputs&quot;</span><span class="p">:</span> <span class="p">[</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>        <span class="p">{</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;input-0&quot;</span><span class="p">,</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        <span class="s2">&quot;shape&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        <span class="s2">&quot;datatype&quot;</span><span class="p">:</span> <span class="s2">&quot;FP32&quot;</span><span class="p">,</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>        <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">data</span> <span class="c1">#data-array goes here</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;input-0&quot;</span><span class="p">,</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>            <span class="s2">&quot;shape&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>            <span class="s2">&quot;datatype&quot;</span><span class="p">:</span> <span class="s2">&quot;FP32&quot;</span><span class="p">,</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>            <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">data</span>
 </span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>        <span class="p">}</span>
 </span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    <span class="p">]</span>
 </span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="p">}</span>
@@ -3920,9 +3918,9 @@ The <code>invoke</code> method accept <a href="https://requests.readthedocs.io/e
 </span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="n">run</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">json</span><span class="o">=</span><span class="n">json</span><span class="p">)</span>
 </span></code></pre></div>
 <h3 id="function">Function</h3>
-<p>There are different modelserve functions (<code>sklearnserve</code>, <code>mlflowserve</code>, <code>huggingfaceserve</code> and <code>kubeai-text</code>,  <code>kubeai-speech</code>), each one representing a different ML model flavour.</p>
+<p>There are different ModelServe functions (<code>sklearnserve</code>, <code>mlflowserve</code>, <code>huggingfaceserve</code> and <code>kubeai-text</code>, <code>kubeai-speech</code>), each one representing a different ML model flavour.</p>
 <h4 id="function-parameters">Function parameters</h4>
-<p>A modelserve function has the following <code>spec</code> parameters to pass to the <code>new_function()</code> method:</p>
+<p>A ModelServe function has the following <code>spec</code> parameters to pass to the <code>new_function()</code> method:</p>
 <table>
 <thead>
 <tr>
@@ -3979,7 +3977,7 @@ The <code>invoke</code> method accept <a href="https://requests.readthedocs.io/e
 <tr>
 <td>embedded</td>
 <td>bool</td>
-<td>Flag to determine if object must be embedded in project</td>
+<td>Whether the object should be embedded in the project.</td>
 <td>True</td>
 <td></td>
 </tr>
@@ -4009,14 +4007,14 @@ The <code>invoke</code> method accept <a href="https://requests.readthedocs.io/e
 <td>str</td>
 <td>Model url</td>
 <td>None</td>
-<td><code>kubeai-text</code>,  <code>kubeai-speech</code></td>
+<td><code>kubeai-text</code>, <code>kubeai-speech</code></td>
 </tr>
 <tr>
 <td><a href="#adapters">adapters</a></td>
 <td>list[str]</td>
 <td>Adapters</td>
 <td>None</td>
-<td><code>kubeai-text</code>,  <code>kubeai-speech</code></td>
+<td><code>kubeai-text</code>, <code>kubeai-speech</code></td>
 </tr>
 <tr>
 <td><a href="#features">features</a></td>
@@ -4066,12 +4064,12 @@ The <code>invoke</code> method accept <a href="https://requests.readthedocs.io/e
 <li><code>Infinity</code></li>
 </ul>
 <h5 id="model-path">Model path</h5>
-<p>The model path is the path to the model files. In <strong>remote execution</strong>, the path is a remote s3 path (for example: <code>s3://my-bucket/path-to-model</code>). In <strong>local execution</strong>, the path is a local path (for example: <code>./my-path</code> or <code>my-path</code>). According to the kind of modelserve function, the path must follow a specific pattern:</p>
+<p>The model path is the path to the model files. In <strong>remote execution</strong>, the path is a remote s3 path (for example: <code>s3://my-bucket/path-to-model</code>). In <strong>local execution</strong>, the path is a local path (for example: <code>./my-path</code> or <code>my-path</code>). According to the kind of ModelServe function, the path must follow a specific pattern:</p>
 <ul>
 <li><code>sklearnserve</code>: <code>s3://my-bucket/path-to-model/model.pkl</code> or <code>./path-to-model/model.pkl</code>. The remote path is the partition with the model file, the local path is the model file.</li>
 <li><code>mlflowserve</code>: <code>s3://my-bucket/path-to-model-files</code> or <code>./path-to-model-files</code>. The remote path is the partition with all the model files, the local path is the folder containing the MLmodel file according to MLFlow specification.</li>
 </ul>
-<p>Model path is not required for <code>kubeai-text</code>,  <code>kubeai-speech</code>.</p>
+<p>Model path is not required for <code>kubeai-text</code>, <code>kubeai-speech</code>.</p>
 <h5 id="model-url">Model url</h5>
 <p>The model url must follow the pattern:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">regexp</span> <span class="o">=</span> <span class="p">(</span>
@@ -4130,7 +4128,7 @@ The <code>invoke</code> method accept <a href="https://requests.readthedocs.io/e
 </span><span id="__span-5-41"><a id="__codelineno-5-41" name="__codelineno-5-41" href="#__codelineno-5-41"></a><span class="p">)</span>
 </span></code></pre></div>
 <h3 id="task">Task</h3>
-<p>The modelserve runtime introduces one tasks of kind <code>serve</code> that allows you to deploy ML models on Kubernetes or locally.
+<p>A <code>Task</code> of kind <code>serve</code> allows you to deploy ML models on Kubernetes or locally.
 A <code>Task</code> is created with the <code>run()</code> method, so it's not managed directly by the user. The parameters for the task creation are passed directly to the <code>run()</code> method, and may vary depending on the kind of task.</p>
 <h4 id="task-parameters">Task parameters</h4>
 <table>
@@ -4367,7 +4365,7 @@ The run's parameters are passed alongside the task's ones.</p>
 <tr>
 <td>local_execution</td>
 <td>bool</td>
-<td>Flag to determine if the run must be executed locally</td>
+<td>Execute the run locally instead of remotely.</td>
 <td>False</td>
 <td></td>
 </tr>
@@ -4376,42 +4374,42 @@ The run's parameters are passed alongside the task's ones.</p>
 <td>dict</td>
 <td>Environment variables</td>
 <td>None</td>
-<td><code>kubeai-text</code>,  <code>kubeai-speech</code></td>
+<td><code>kubeai-text</code>, <code>kubeai-speech</code></td>
 </tr>
 <tr>
 <td>args</td>
 <td>list[str]</td>
 <td>Arguments</td>
 <td>None</td>
-<td><code>kubeai-text</code>,  <code>kubeai-speech</code></td>
+<td><code>kubeai-text</code>, <code>kubeai-speech</code></td>
 </tr>
 <tr>
 <td>cache_profile</td>
 <td>str</td>
 <td>Cache profile</td>
 <td>None</td>
-<td><code>kubeai-text</code>,  <code>kubeai-speech</code></td>
+<td><code>kubeai-text</code>, <code>kubeai-speech</code></td>
 </tr>
 <tr>
 <td><a href="#files">files</a></td>
 <td>list[KubeaiFile]</td>
 <td>Files</td>
 <td>None</td>
-<td><code>kubeai-text</code>,  <code>kubeai-speech</code></td>
+<td><code>kubeai-text</code>, <code>kubeai-speech</code></td>
 </tr>
 <tr>
 <td><a href="#scaling">scaling</a></td>
 <td>Scaling</td>
 <td>Scaling parameters</td>
 <td>None</td>
-<td><code>kubeai-text</code>,  <code>kubeai-speech</code></td>
+<td><code>kubeai-text</code>, <code>kubeai-speech</code></td>
 </tr>
 <tr>
 <td>processors</td>
 <td>int</td>
 <td>Number of processors</td>
 <td>None</td>
-<td><code>kubeai-text</code>,  <code>kubeai-speech</code></td>
+<td><code>kubeai-text</code>, <code>kubeai-speech</code></td>
 </tr>
 </tbody>
 </table>
