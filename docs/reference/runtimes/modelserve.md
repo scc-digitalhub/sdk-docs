@@ -1,6 +1,6 @@
-# Modelserve runtime
+# ModelServe runtime
 
-The **Modelserve runtime** allows you to deploy ML models on Kubernetes or locally.
+The **ModelServe runtime** allows you to deploy ML models on Kubernetes or locally.
 
 ## Prerequisites
 
@@ -15,41 +15,39 @@ The package is available on PyPI:
 python -m pip install digitalhub-runtime-modelserve
 ```
 
-## HOW TO
+## Overview
 
-The modelserve runtime introduces several functions of kind `sklearnserve`, `mlflowserve`, `huggingfaceserve` and `kubeai-text`,  `kubeai-speech` that allows you to serve different ML models flavours and a task of kind `serve`.
-The usage of the runtime is similar to the others:
+The ModelServe runtime provides several serve functions (`sklearnserve`, `mlflowserve`, `huggingfaceserve`, `kubeai-text`, `kubeai-speech`) and a `serve` task action. Typical usage:
 
-1. Create a `Function` object of the desired model and execute it's `run()` method.
-2. The runtime collects (if in remote execution), loads and exposes the model as a service.
-3. With the run's `invoke()` method you can call the v2 inference API specifying the json payload you want (passed as keyword arguments).
-4. You can stop the service with the run's `stop()` method.
+1. Create a Function for the model and call its `run()` method.
+2. The runtime (for remote execution) collects, loads and exposes the model as a service.
+3. Call the run's `invoke()` method to send inference requests (the method accepts the same keyword arguments as `requests.request`).
+4. Stop the service with `run.stop()` when finished.
 
-The *modelserve* runtime launches a [mlserver](https://mlserver.readthedocs.io/en/latest/) inference server is deployed on Kubernetes as deployment and exposed as a service.
+The ModelServe runtime deploys an [mlserver](https://mlserver.readthedocs.io/en/latest/) inference server on Kubernetes (Deployment + Service).
 
 !!! warning "Service responsiveness"
-    It takes a while for the service to be ready and notified to the client. You can use the `refresh()` method and access the `status` attribute of the run object. When the service is ready, you can see a `service` attribute in the `status`.
+    It may take some time for the service to become ready. Use `run.refresh()` and inspect `run.status`. When ready, the `status` will include a `service` attribute.
 
 ```python
 run.refresh()
 run.status
 ```
 
-Once the service is ready, you can use the `run.invoke()` method to call the inference server.
-The `invoke` method accept [`requests.request`](https://requests.readthedocs.io/en/latest/user/quickstart/#) parameters as kwargs. The `url` parameter is by default collected from the `run` object. In case you need to override it, you can use the `url` parameter.
+After the service is ready, call the inference endpoint with `run.invoke()`. By default the `url` is taken from the `run` object; override it with an explicit `url` parameter if needed.
 
 !!! note
-    In case you passed `model_name` in the function spec, and you execute the run in remote execution, you need to pass the `model_name` to the invoke method. This is because the `model_name` is used to identify the model in the inference server. `"http://{url-from-k8s}/v2/models/{model_name}/infer"`.
+    If you set `model_name` in the function spec and run remotely, pass `model_name` to `invoke()` so the runtime can target the model with the MLServer V2 endpoint ("http://{url-from-k8s}/v2/models/{model_name}/infer").
 
 ```python
-data = [[...]] #some array
+data = [[...]]  # some array
 json = {
     "inputs": [
         {
-        "name": "input-0",
-        "shape": [x, y],
-        "datatype": "FP32",
-        "data": data #data-array goes here
+            "name": "input-0",
+            "shape": [x, y],
+            "datatype": "FP32",
+            "data": data
         }
     ]
 }
@@ -59,11 +57,11 @@ run.invoke(json=json)
 
 ### Function
 
-There are different modelserve functions (`sklearnserve`, `mlflowserve`, `huggingfaceserve` and `kubeai-text`,  `kubeai-speech`), each one representing a different ML model flavour.
+There are different ModelServe functions (`sklearnserve`, `mlflowserve`, `huggingfaceserve` and `kubeai-text`, `kubeai-speech`), each one representing a different ML model flavour.
 
 #### Function parameters
 
-A modelserve function has the following `spec` parameters to pass to the `new_function()` method:
+A ModelServe function has the following `spec` parameters to pass to the `new_function()` method:
 
 | Name | Type | Description | Default | Runtime |
 | --- | --- | --- | --- | --- |
@@ -73,12 +71,12 @@ A modelserve function has the following `spec` parameters to pass to the `new_fu
 | uuid | str | ID of the object in form of UUID4 | None | |
 | description | str | Description of the object | None | |
 | labels | list[str] | List of labels | None | |
-| embedded | bool | Flag to determine if object must be embedded in project | True | |
+| embedded | bool | Whether the object should be embedded in the project. | True | |
 | [path](#model-path) | str | Path to the model files | None | |
 | model_name | str | Name of the model | None | |
 | image | str | Docker image where to serve the model | None | |
-| [url](#model-url) | str | Model url | None | `kubeai-text`,  `kubeai-speech` |
-| [adapters](#adapters) | list[str] | Adapters | None | `kubeai-text`,  `kubeai-speech` |
+| [url](#model-url) | str | Model url | None | `kubeai-text`, `kubeai-speech` |
+| [adapters](#adapters) | list[str] | Adapters | None | `kubeai-text`, `kubeai-speech` |
 | [features](#features) | list[str] | Features | None | `kubeai-text` |
 | [engine](#engine) | KubeaiEngine | Engine | None | `kubeai-text` |
 
@@ -122,12 +120,12 @@ The engine is a `KubeaiEngine` object that represents the engine to use for the 
 
 ##### Model path
 
-The model path is the path to the model files. In **remote execution**, the path is a remote s3 path (for example: `s3://my-bucket/path-to-model`). In **local execution**, the path is a local path (for example: `./my-path` or `my-path`). According to the kind of modelserve function, the path must follow a specific pattern:
+The model path is the path to the model files. In **remote execution**, the path is a remote s3 path (for example: `s3://my-bucket/path-to-model`). In **local execution**, the path is a local path (for example: `./my-path` or `my-path`). According to the kind of ModelServe function, the path must follow a specific pattern:
 
 - `sklearnserve`: `s3://my-bucket/path-to-model/model.pkl` or `./path-to-model/model.pkl`. The remote path is the partition with the model file, the local path is the model file.
 - `mlflowserve`: `s3://my-bucket/path-to-model-files` or `./path-to-model-files`. The remote path is the partition with all the model files, the local path is the folder containing the MLmodel file according to MLFlow specification.
 
-Model path is not required for `kubeai-text`,  `kubeai-speech`.
+Model path is not required for `kubeai-text`, `kubeai-speech`.
 
 ##### Model url
 
@@ -195,7 +193,7 @@ function = project.new_function(
 
 ### Task
 
-The modelserve runtime introduces one tasks of kind `serve` that allows you to deploy ML models on Kubernetes or locally.
+A `Task` of kind `serve` allows you to deploy ML models on Kubernetes or locally.
 A `Task` is created with the `run()` method, so it's not managed directly by the user. The parameters for the task creation are passed directly to the `run()` method, and may vary depending on the kind of task.
 
 #### Task parameters
@@ -278,13 +276,13 @@ The run's parameters are passed alongside the task's ones.
 
 | Name | Type | Description | Default | Runtime |
 | --- | --- | --- | --- | --- |
-| local_execution | bool | Flag to determine if the run must be executed locally | False | |
-| env | dict | Environment variables | None | `kubeai-text`,  `kubeai-speech` |
-| args | list[str] | Arguments | None | `kubeai-text`,  `kubeai-speech` |
-| cache_profile | str | Cache profile | None | `kubeai-text`,  `kubeai-speech` |
-| [files](#files) | list[KubeaiFile] | Files | None | `kubeai-text`,  `kubeai-speech` |
-| [scaling](#scaling) | Scaling | Scaling parameters | None | `kubeai-text`,  `kubeai-speech` |
-| processors | int | Number of processors | None | `kubeai-text`,  `kubeai-speech` |
+| local_execution | bool | Execute the run locally instead of remotely. | False | |
+| env | dict | Environment variables | None | `kubeai-text`, `kubeai-speech` |
+| args | list[str] | Arguments | None | `kubeai-text`, `kubeai-speech` |
+| cache_profile | str | Cache profile | None | `kubeai-text`, `kubeai-speech` |
+| [files](#files) | list[KubeaiFile] | Files | None | `kubeai-text`, `kubeai-speech` |
+| [scaling](#scaling) | Scaling | Scaling parameters | None | `kubeai-text`, `kubeai-speech` |
+| processors | int | Number of processors | None | `kubeai-text`, `kubeai-speech` |
 
 ##### Files
 

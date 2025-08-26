@@ -1,42 +1,41 @@
 # Python runtime
 
-The **python runtime** allows you to run generic python function.
-The runtime introduces a function of kind `python` and three task of kind `job`, `serve` and `build`.
-With `job` action you can run a python function as a job.
-With `serve` action you can run a python function as a service.
-With `build` action you build a docker image with all the dependencies and reuse that container to run the function avoiding the overhead of dependencies installation during the runtime.
+The Python runtime enables you to run user-defined Python handlers. It registers a `Function` kind `python` and supports three actions: `job`, `serve`, and `build`.
+
+- `job` — run a Python handler as a one-off job.
+- `serve` — run a Python handler as a long-lived service.
+- `build` — construct a Docker image that bundles all required dependencies so the runtime can reuse the image and avoid re-installing dependencies at execution time.
 
 ## Prerequisites
 
-Python version and libraries:
+Supported Python versions and required package:
 
-- `python >= 3.9, <3.13`
+- Python >= 3.9, < 3.13
 - `digitalhub-runtime-python`
 
-The package is available on PyPI:
+Install from PyPI:
 
 ```bash
 python -m pip install digitalhub-runtime-python
 ```
 
-## Overwiew
+## Overview
 
-With the python runtime you can use the function's `run()` method to execute a python function you have defined.
-The python runtime execution workflow follows roughly these steps:
+Use a `Function` object's `run()` method to invoke your handler. The Python runtime generally follows these steps:
 
-1. Define somewhere a [python function](2-function.md).
-2. Create a `Function` object in the platform and execute the function's `run()` method.
-3. The runtime collects the [inputs](2-function.md#inputs-and-parameters) specified in the function as SDK objects (`Dataitem`, `Artifact`, `Model`).
-4. It fetches the function [source code](../../configuration/code_src/overview.md) and import the function handler.
-5. It [composes](2-function.md#reserved-arguments) the parameters for the handler function.
-6. It executes the function and map the [outputs](2-function.md#handler-and-outputs) as SDK objects or as simple results.
+1. You write a Python handler function (see [Function definition](2-function.md)).
+2. You create a `Function` resource on the platform and call its `run()` method.
+3. The runtime collects the function's declared inputs (objects such as `Dataitem`, `Artifact`, or `Model`).
+4. It fetches the function [source code](../../configuration/code_src/overview.md) and imports the handler.
+5. It composes the handler arguments according to the function declaration and reserved parameters (see [reserved arguments](2-function.md#reserved-arguments)).
+6. It executes the handler and maps the outputs back into SDK objects or returns them as simple results (see [handler and outputs](2-function.md#handler-and-outputs)).
 
-## User HOWTO
+## Quick how-to
 
-As delined in the description of the runtime workflow, to execute a python function the user should proceed with the following three steps:
+To execute a Python handler on the platform:
 
-1. Write the function to execute.
-2. Create a `Function` object.
-3. Execute the function's `run()` method.
+1. Implement the handler as described in [function definition](2-function.md).
+2. Create a `Function` resource that references your handler and declares inputs/outputs.
+3. Invoke the `Function.run()` method to execute the handler.
 
-You can jump now on [function definition](2-function.md).
+For details on handler signatures, inputs/outputs, and examples, see [function definition](2-function.md).

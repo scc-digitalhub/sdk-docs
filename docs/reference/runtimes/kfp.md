@@ -1,6 +1,6 @@
-# Kfp Pipelines Runtime
+# KFP Pipelines Runtime
 
-The **kfp runtime** allows you to run workflows within the platform.
+The **KFP runtime** allows you to run workflows within the platform.
 The runtime introduces a workflow of kind `kfp` and a task of kind `pipeline`.
 
 ## Prerequisites
@@ -16,28 +16,26 @@ The package is available on PyPI:
 python -m pip install digitalhub-runtime-kfp
 ```
 
-## HOW TO
+## Overview
 
-With the kfp runtime you can use the function's `run()` method to execute a workflow you have defined.
-The kfp runtime execution workflow follows roughly these steps:
+Use a workflow's `run()` method to build and execute Kubeflow Pipelines. The typical flow is:
 
-1. Define one or more functions to be executed. These functions can be from other runtimes.
-2. Define somewhere a [pipeline](./kfp.md#pipeline-definition).
-3. Build the pipeline with the `run(action="build")` method. (Mandatory step!)
-4. Execute the pipeline with `run(action="pipeline")` method. This calls a stepper that executes various Kfp ContainerOP.
+1. Define the functions to be executed (these may belong to other runtimes).
+2. Implement a pipeline function (see [pipeline definition](#pipeline-definition)).
+3. Build the pipeline with `run(action="build")` (required).
+4. Execute the pipeline with `run(action="pipeline")`; the runtime will step through the KFP ContainerOps.
 
 ### Pipeline definition
 
-To define a pipeline you need to define function with the `def` keyword. You can give the function a name and declare its arguments as usual.
-From `digitalhub_runtime_kfp.dsl` you must import `pipeline_context`. Its a context manager object that allows you to order the various steps of execution and chain them together with inputs and outputs. Once you write the pipeline function, store it in a file .py.
-When you define the steps inside the pipeline, you specify also inputs, outputs, parameters and values for the steps.
+To define a pipeline you need to define a function with the `def` keyword. You can give the function a name and declare its arguments as usual. From `digitalhub_runtime_kfp.dsl` import `pipeline_context`. It's a context-manager object that lets you order the steps of execution and chain inputs and outputs. Once you write the pipeline function, store it in a `.py` file.
+When defining the steps inside the pipeline, also specify inputs, outputs, parameters and values for the steps.
 
 #### Step parameters
 
 | Parameter | Type | Example | Description |
 | --- | --- | --- | --- |
 | name | str | "download" | Name of the step |
-| function | str | "downloader-funct" | Name of the dh function to execute. It must exists in the dh project context |
+| function | str | "downloader-funct" | Name of the dh function to execute. It must exist in the dh project context |
 | action | str | "job" | Action to execute |
 | inputs | dict | {"url": "dataitem_key", "dataset": previous_step.outputs["some_key"]} | Input dh parameters keys (dataitems, artifacts, models). The syntax for the inputs is the same as in the `kfp` package when it comes to link an output step to an input. |
 | outputs | dict | {"dataset": "dataset"} | Dh outputs mapped |
@@ -53,7 +51,7 @@ def myhandler(url):
    # Use pipeline_context() manager
    with pipeline_context() as pc:
 
-      # Defaine first step
+    # Define first step
       step1 = pc.step(name="download",                         # Name of the step 1
                       function="downloader-funct",              # Name of the dh function to execute
                       action="job",                             # Action to execute
@@ -70,7 +68,7 @@ def myhandler(url):
 
 ### Workflow
 
-The kfp runtime introduces a function of kind `kfp`.
+The KFP runtime introduces a function of kind `kfp`.
 
 #### Workflow parameters
 
@@ -82,7 +80,7 @@ The kfp runtime introduces a function of kind `kfp`.
 | uuid | str | ID of the object in form of UUID4 | None |
 | description | str | Description of the object | None |
 | labels | list[str] | List of labels | None |
-| embedded | bool | Flag to determine if object must be embedded in project | True |
+| embedded | bool | Whether the object should be embedded in the project. | True |
 | [code_src](../configuration/code_src/overview.md#code-source-uri) | str | URI pointer to source code | None |
 | [code](../configuration/code_src/overview.md#plain-text-source) | str | Source code (plain text)| None |
 | base64 | str | Source code (base64 encoded)| None |
@@ -118,7 +116,7 @@ workflow = dh.new_workflow(project="my-project",
 
 ### Task
 
-The Kfp runtime introduces a task of kind `pipeline` that allows you to run a workflow.
+The KFP runtime introduces a task of kind `pipeline` that allows you to run a workflow.
 A `Task` is created with the `run()` method, so it's not managed directly by the user. The parameters for the task creation are passed directly to the `run()` method, and may vary depending on the kind of task.
 
 #### Task parameters
