@@ -10,9 +10,9 @@ Runtimes define the key point of extension of the platform: new runtimes may be 
 
 ## Supported runtimes
 
-- [Python](python/1-overview.md)
-- [Container](container.md)
-- [DBT](dbt.md)
-- [KFP](kfp.md)
-- [ModelServe](modelserve.md)
-- [Hera](hera.md)
+- [Python](python/1-overview.md) — general-purpose Python functions (job, serve, build).
+- [Container](container.md) — run arbitrary container images as jobs or services.
+- [DBT](dbt.md) — run DBT transformations for data modeling.
+- [KFP](kfp.md) — Kubeflow Pipelines runtime for pipeline orchestration.
+- [ModelServe](modelserve.md) — model serving and inference workloads.
+- [Hera](hera.md) — Hera pipelines runtime (DAG/steps orchestration).

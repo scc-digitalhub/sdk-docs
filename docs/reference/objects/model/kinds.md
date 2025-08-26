@@ -17,7 +17,7 @@ The `model` kind indicates that the model is a generic ML model. It's usefull to
 
 | Parameter | Type | Description | Default |
 | --- | --- | --- | --- |
-| [`path`](../stores.md#entity-paths) | *str* | Path of the model, can be a local path or a remote path, a single filepath or a directory/partition. | *required* |
+| [`path`](../../configuration/paths/overview.md#entity-paths) | *str* | Path of the model, can be a local path or a remote path, a single filepath or a directory/partition. | *required* |
 | `framework` | *str* | Model framework (e.g. 'pytorch'). | `None` |
 | `algorithm` | *str* | Model algorithm (e.g. 'resnet'). | `None` |
 | `base_model` | *str* | Base model. | `None` |
@@ -36,7 +36,7 @@ The `mlflow` kind indicates that the model is an MLflow model. It's usefull to r
 
 | Parameter | Type | Description | Default |
 | --- | --- | --- | --- |
-| [`path`](../stores.md#entity-paths) | *str* | Path of the model, can be a local path or a remote path, a single filepath or a directory/partition. | *required* |
+| [`path`](../../configuration/paths/overview.md#entity-paths) | *str* | Path of the model, can be a local path or a remote path, a single filepath or a directory/partition. | *required* |
 | `framework` | *str* | Model framework (e.g. 'pytorch'). | `None` |
 | `algorithm` | *str* | Model algorithm (e.g. 'resnet'). | `None` |
 | `base_model` | *str* | Base model. | `None` |
@@ -78,7 +78,7 @@ The `sklearn` kind indicates that the model is an Sklearn model. It's usefull to
 
 | Parameter | Type | Description | Default |
 | --- | --- | --- | --- |
-| [`path`](../stores.md#entity-paths) | *str* | Path of the model, can be a local path or a remote path, a single filepath or a directory/partition. | *required* |
+| [`path`](../../configuration/paths/overview.md#entity-paths) | *str* | Path of the model, can be a local path or a remote path, a single filepath or a directory/partition. | *required* |
 | `framework` | *str* | Model framework (e.g. 'pytorch'). | `None` |
 | `algorithm` | *str* | Model algorithm (e.g. 'resnet'). | `None` |
 | `base_model` | *str* | Base model. | `None` |
@@ -97,7 +97,7 @@ The `huggingface` kind indicates that the model is an Huggingface model. It's us
 
 | Parameter | Type | Description | Default |
 | --- | --- | --- | --- |
-| [`path`](../stores.md#entity-paths) | *str* | Path of the model, can be a local path or a remote path, a single filepath or a directory/partition. | *required* |
+| [`path`](../../configuration/paths/overview.md#entity-paths) | *str* | Path of the model, can be a local path or a remote path, a single filepath or a directory/partition. | *required* |
 | `framework` | *str* | Model framework (e.g. 'pytorch'). | `None` |
 | `algorithm` | *str* | Model algorithm (e.g. 'resnet'). | `None` |
 | `base_model` | *str* | Base model. | `None` |

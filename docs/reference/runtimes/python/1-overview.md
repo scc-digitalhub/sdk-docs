@@ -27,7 +27,7 @@ The python runtime execution workflow follows roughly these steps:
 1. Define somewhere a [python function](2-function.md).
 2. Create a `Function` object in the platform and execute the function's `run()` method.
 3. The runtime collects the [inputs](2-function.md#inputs-and-parameters) specified in the function as SDK objects (`Dataitem`, `Artifact`, `Model`).
-4. It fetches the function [source code](../../objects/code_source.md) and import the function handler.
+4. It fetches the function [source code](../../configuration/code_src/overview.md) and import the function handler.
 5. It [composes](2-function.md#reserved-arguments) the parameters for the handler function.
 6. It executes the function and map the [outputs](2-function.md#handler-and-outputs) as SDK objects or as simple results.
 

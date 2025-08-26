@@ -17,10 +17,10 @@ The python runtime introduces a function of kind `python`.
 | description | str | Description of the object | None |
 | labels | list[str] | List of labels | None |
 | embedded | bool | Flag to determine if object must be embedded in project | True |
-| [code_src](../../objects/code_source.md#code-source-uri) | str | URI pointer to source code | None |
-| [code](../../objects/code_source.md#plain-text-source) | str | Source code (plain text)| None |
-| [base64](../../objects/code_source.md#base64-encoded-source) | str | Source code (base64 encoded)| None |
-| [handler](../../objects/code_source.md#handler) | str | Function entrypoint | None |
+| [code_src](../../configuration/code_src/overview.md#code-source-uri) | str | URI pointer to source code | None |
+| [code](../../configuration/code_src/overview.md#plain-text-source) | str | Source code (plain text)| None |
+| base64 | str | Source code (base64 encoded)| None |
+| [handler](../../configuration/code_src/overview.md#handler) | str | Function entrypoint | None |
 | [init_function](#init-function) | str | Init function for remote nuclio execution | None |
 | [python_version](#python-versions) | str | Python version to use | required |
 | lang | str | Source code language (hint)| None |
@@ -92,16 +92,16 @@ A `Task` is created with the `run()` method, so it's not managed directly by the
 | Name | Type | Description | Default | Kind specific |
 | --- | --- | --- | --- | --- |
 | [action](#task-actions) | str | Task action | required | |
-| [node_selector](../kubernetes-resources.md#node-selector) | list[dict] | Node selector | None | |
-| [volumes](../kubernetes-resources.md#volumes) | list[dict] | List of volumes | None | |
-| [resources](../kubernetes-resources.md#resources) | dict | Resources restrictions | None | |
-| [affinity](../kubernetes-resources.md#affinity) | dict | Affinity | None | |
-| [tolerations](../kubernetes-resources.md#tolerations) | list[dict] | Tolerations | None | |
-| [envs](../kubernetes-resources.md#envs) | list[dict] | Env variables | None | |
-| [secrets](../kubernetes-resources.md#secrets) | list[str] | List of secret names | None | |
-| [profile](../kubernetes-resources.md#profile) | str | Profile template | None | |
-| [replicas](../kubernetes-resources.md#replicas) | int | Number of replicas | None | `serve` |
-| [service_type](../kubernetes-resources.md#service-type) | str | Service type | `NodePort` | `serve` |
+| [node_selector](../../configuration/kubernetes/overview.md#node-selector) | list[dict] | Node selector | None | |
+| [volumes](../../configuration/kubernetes/overview.md#volumes) | list[dict] | List of volumes | None | |
+| [resources](../../configuration/kubernetes/overview.md#resources) | dict | Resources restrictions | None | |
+| [affinity](../../configuration/kubernetes/overview.md#affinity) | dict | Affinity | None | |
+| [tolerations](../../configuration/kubernetes/overview.md#tolerations) | list[dict] | Tolerations | None | |
+| [envs](../../configuration/kubernetes/overview.md#secrets-envs) | list[dict] | Env variables | None | |
+| [secrets](../../configuration/kubernetes/overview.md#secrets-envs) | list[str] | List of secret names | None | |
+| [profile](../../configuration/kubernetes/overview.md#profile) | str | Profile template | None | |
+| [replicas](../../configuration/kubernetes/overview.md#replicas) | int | Number of replicas | None | `serve` |
+| [service_type](../../configuration/kubernetes/overview.md#service-port-type) | str | Service type | `NodePort` | `serve` |
 | [instructions](#instructions) | list[str] | Build instructions to be executed as RUN instructions in Dockerfile | None | `build` |
 
 #### Task actions

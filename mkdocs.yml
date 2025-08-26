@@ -80,8 +80,8 @@ nav:
       - Explanations: explanations/index.md
   - Reference:
       - Overview: reference/index.md
-      - Objects:
-          - Entities: reference/objects/entities.md
+      - Entities:
+          - Index: reference/objects/index.md
           - Projects:
               - Entity: reference/objects/project/entity.md
               - CRUD: reference/objects/project/crud.md
@@ -127,10 +127,8 @@ nav:
               - Entity: reference/objects/secret/entity.md
               - CRUD: reference/objects/secret/crud.md
               - Methods: reference/objects/secret/methods.md
-          - Stores: reference/objects/stores.md
-          - Code source: reference/objects/code_source.md
       - Runtimes:
-          - Runtimes: reference/runtimes/runtimes.md
+          - Index: reference/runtimes/index.md
           - Python:
               - Overview: reference/runtimes/python/1-overview.md
               - Function definition: reference/runtimes/python/2-function.md
@@ -141,4 +139,22 @@ nav:
           - Hera: reference/runtimes/hera.md
           - KFP: reference/runtimes/kfp.md
           - Modelserve: reference/runtimes/modelserve.md
-          - Kubernetes resources: reference/runtimes/kubernetes-resources.md
+      - Configuration:
+          - Paths:
+              - Overview: reference/configuration/paths/overview.md
+              - Local: reference/configuration/paths/local.md
+              - S3: reference/configuration/paths/s3.md
+              - Remote: reference/configuration/paths/remote.md
+              - SQL: reference/configuration/paths/sql.md
+          - Code source:
+              - Overview: reference/configuration/code_src/overview.md
+              - Local: reference/configuration/code_src/local.md
+              - HTTP: reference/configuration/code_src/http.md
+              - Git: reference/configuration/code_src/git.md
+              - S3: reference/configuration/code_src/s3.md
+          - Credentials handling:
+              - Overview: reference/configuration/credentials/overview.md
+              - S3: reference/configuration/credentials/s3.md
+              - SQL: reference/configuration/credentials/sql.md
+              - Git: reference/configuration/credentials/git.md
+          - Kubernetes resources: reference/configuration/kubernetes/overview.md

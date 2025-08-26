@@ -203,16 +203,16 @@ A `Task` is created with the `run()` method, so it's not managed directly by the
 | Name | Type | Description | Default | Runtime |
 | --- | --- | --- | --- | --- |
 | [action](#task-actions) | str | Task action | required | |
-| [node_selector](kubernetes-resources.md#node-selector) | list[dict] | Node selector | None | |
-| [volumes](kubernetes-resources.md#volumes) | list[dict] | List of volumes | None | |
-| [resources](kubernetes-resources.md#resources) | dict | Resources restrictions | None | |
-| [affinity](kubernetes-resources.md#affinity) | dict | Affinity | None | |
-| [tolerations](kubernetes-resources.md#tolerations) | list[dict] | Tolerations | None | |
-| [envs](kubernetes-resources.md#envs) | list[dict] | Env variables | None | |
-| [secrets](kubernetes-resources.md#secrets) | list[str] | List of secret names | None | |
-| [profile](kubernetes-resources.md#profile) | str | Profile template | None | |
-| [replicas](kubernetes-resources.md#replicas) | int | Number of replicas | None | |
-| [service_type](kubernetes-resources.md#service-type) | str | Service type | `NodePort` | |
+| [node_selector](../configuration/kubernetes/overview.md#node-selector) | list[dict] | Node selector | None | |
+| [volumes](../configuration/kubernetes/overview.md#volumes) | list[dict] | List of volumes | None | |
+| [resources](../configuration/kubernetes/overview.md#resources) | dict | Resources restrictions | None | |
+| [affinity](../configuration/kubernetes/overview.md#affinity) | dict | Affinity | None | |
+| [tolerations](../configuration/kubernetes/overview.md#tolerations) | list[dict] | Tolerations | None | |
+| [envs](../configuration/kubernetes/overview.md#secrets-envs) | list[dict] | Env variables | None | |
+| [secrets](../configuration/kubernetes/overview.md#secrets-envs) | list[str] | List of secret names | None | |
+| [profile](../configuration/kubernetes/overview.md#profile) | str | Profile template | None | |
+| [replicas](../configuration/kubernetes/overview.md#replicas) | int | Number of replicas | None | |
+| [service_type](../configuration/kubernetes/overview.md#service-port-type) | str | Service type | `NodePort` | |
 | [huggingface_task](#huggingface-task) | str | Huggingface task type | None | `huggingfaceserve` |
 | [backend](#backend) | str | Backend type | None | `huggingfaceserve` |
 | tokenizer_revision | str | Tokenizer revision | None | `huggingfaceserve` |

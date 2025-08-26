@@ -14,7 +14,7 @@ The `artifact` kind indicates that the artifact is a generic artifact. It's usef
 
 | Parameter | Type | Description | Default |
 | --- | --- | --- | --- |
-| [`path`](../stores.md#entity-paths) | *str* | Path of the artifact, can be a local path or a remote path, a single filepath or a directory/partition. | *required* |
+| [`path`](../../configuration/paths/overview.md#entity-paths) | *str* | Path of the artifact, can be a local path or a remote path, a single filepath or a directory/partition. | *required* |
 
 ### Artifact methods
 

@@ -14,7 +14,7 @@ The `table` kind indicates that the dataitem is a generic table. It's usefull if
 
 | Parameter | Type | Description | Default |
 | --- | --- | --- | --- |
-| [`path`](../stores.md#entity-paths) | *str* | Path of the dataitem, can be a local path or a remote path, a single filepath or a directory/partition. | *required* |
+| [`path`](../../configuration/paths/overview.md#entity-paths) | *str* | Path of the dataitem, can be a local path or a remote path, a single filepath or a directory/partition. | *required* |
 | `schema` | [*TableSchema*](https://specs.frictionlessdata.io/table-schema/) | Frictionless table schema | `None` |
 
 ### Table methods
