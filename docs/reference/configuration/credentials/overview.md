@@ -3,7 +3,7 @@
 Credentials handling covers access to protected resources (APIs, databases, cloud storage, Git). The SDK provides integrations for:
 
 - [API DHCore](./dhcore.md)
-- [Databases](./database.md)
+- [Databases](./sql.md)
 - [S3 storage](./s3.md)
 - [Git repositories](./git.md)
 
