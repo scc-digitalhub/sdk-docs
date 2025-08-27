@@ -131,10 +131,14 @@ nav:
       - Runtimes:
           - Index: reference/runtimes/index.md
           - Python:
-              - Overview: reference/runtimes/python/1-overview.md
-              - Function definition: reference/runtimes/python/2-function.md
-              - Entities parameters: reference/runtimes/python/3-entities.md
-              - Examples: reference/runtimes/python/4-examples.md
+              - Overview: reference/runtimes/python/overview.md
+              - Function definition: reference/runtimes/python/define-function.md
+              - Execution: reference/runtimes/python/execution.md
+              - Entities:
+                  - Function: reference/runtimes/python/entities/function.md
+                  - Task: reference/runtimes/python/entities/task.md
+                  - Run: reference/runtimes/python/entities/run.md
+              - Examples: reference/runtimes/python/examples.md
           - DBT: reference/runtimes/dbt.md
           - Container: reference/runtimes/container.md
           - Hera: reference/runtimes/hera.md

@@ -2,7 +2,7 @@
 
 At the moment, we support the following kinds and the related runtime:
 
-- [**`python`**](../../runtimes/python/3-entities.md#function)
+- [**`python`**](../../runtimes/python/entities/function.md)
 - [**`dbt`**](../../runtimes/dbt.md)
 - [**`container`**](../../runtimes/container.md)
 - [**`modelserve`**](../../runtimes/modelserve.md)

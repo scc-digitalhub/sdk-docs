@@ -10,7 +10,7 @@ Runtimes define the key point of extension of the platform: new runtimes may be 
 
 ## Supported runtimes
 
-- [Python](python/1-overview.md) — general-purpose Python functions (job, serve, build).
+- [Python](python/overview.md) — general-purpose Python functions (job, serve, build).
 - [Container](container.md) — run arbitrary container images as jobs or services.
 - [DBT](dbt.md) — run DBT transformations for data modeling.
 - [Hera](hera.md) — Hera pipelines runtime (DAG/steps orchestration).

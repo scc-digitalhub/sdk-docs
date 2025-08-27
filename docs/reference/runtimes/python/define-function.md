@@ -134,4 +134,4 @@ run = sdk_function.run(...,
                                         "param2": "some value"})
 ```
 
-See [create](3-entities.md) for the arguments required to create a `Function` object and start a run.
+[Next section](execution.md) provides an overview of the arguments required to create a `Function` object and start a run. It also gives the list of methods exposed by the kind-specific `Run` object.
