@@ -3,9 +3,9 @@
 At the moment, we support the following kinds and the related runtime:
 
 - [**`python`**](../../runtimes/python/entities/run.md)
-- [**`dbt`**](../../runtimes/dbt.md#run)
-- [**`container`**](../../runtimes/container.md#run)
-- [**`modelserve`**](../../runtimes/modelserve.md#run)
+- [**`dbt`**](../../runtimes/dbt/entities/run.md#run)
+- [**`container`**](../../runtimes/container/execution.md)
+- [**`modelserve`**](../../runtimes/modelserve/entities/run.md#run)
 - [**`kfp`**](../../runtimes/kfp.md#run)
 
 For each different kind, the `Run` object has its own subclass with different `spec` and `status` attributes.

@@ -1,4 +1,4 @@
-# Run Parameters
+# Run
 
 The `Run` object is created via the `run()` method, similar to the `Task`. Run parameters are passed alongside task parameters.
 

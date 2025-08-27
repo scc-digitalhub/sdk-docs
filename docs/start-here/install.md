@@ -27,11 +27,11 @@ python -m pip install digitalhub[mlflow]
 The Digitalhub runtimes are installed in the same way as the SDK. We have distributed the following runtimes at the moment:
 
 - [digitalhub-runtime-python](../reference/runtimes/python/overview.md)
-- [digitalhub-runtime-container](../reference/runtimes/container.md)
-- [digitalhub-runtime-dbt](../reference/runtimes/dbt.md)
-- [digitalhub-runtime-hera](../reference/runtimes/hera.md)
+- [digitalhub-runtime-container](../reference/runtimes/container/overview.md)
+- [digitalhub-runtime-dbt](../reference/runtimes/dbt/overview.md)
+- [digitalhub-runtime-hera](../reference/runtimes/hera/overview.md)
 - [digitalhub-runtime-kfp](../reference/runtimes/kfp.md)
-- [digitalhub-runtime-modelserve](../reference/runtimes/modelserve.md)
+- [digitalhub-runtime-modelserve](../reference/runtimes/modelserve/overview.md)
 
 You can install the runtime directly with pip. It will come with all the required SDK dependencies:
 

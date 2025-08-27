@@ -139,11 +139,40 @@ nav:
                   - Task: reference/runtimes/python/entities/task.md
                   - Run: reference/runtimes/python/entities/run.md
               - Examples: reference/runtimes/python/examples.md
-          - DBT: reference/runtimes/dbt.md
-          - Container: reference/runtimes/container.md
-          - Hera: reference/runtimes/hera.md
+          - DBT:
+              - Overview: reference/runtimes/dbt/overview.md
+              - Execution: reference/runtimes/dbt/execution.md
+              - Entities:
+                  - Function: reference/runtimes/dbt/entities/function.md
+                  - Task: reference/runtimes/dbt/entities/task.md
+                  - Run: reference/runtimes/dbt/entities/run.md
+              - Examples: reference/runtimes/dbt/examples.md
+          - Container:
+              - Overview: reference/runtimes/container/overview.md
+              - Execution: reference/runtimes/container/execution.md
+              - Entities:
+                  - Function: reference/runtimes/container/entities/function.md
+                  - Task: reference/runtimes/container/entities/task.md
+                  - Run: reference/runtimes/container/entities/run.md
+              - Examples: reference/runtimes/container/examples.md
+          - Hera:
+              - Overview: reference/runtimes/hera/overview.md
+              - Pipeline definition: reference/runtimes/hera/define-pipeline.md
+              - Execution: reference/runtimes/hera/execution.md
+              - Entities:
+                  - Workflow: reference/runtimes/hera/entities/workflow.md
+                  - Task: reference/runtimes/hera/entities/task.md
+                  - Run: reference/runtimes/hera/entities/run.md
+              - Examples: reference/runtimes/hera/examples.md
           - KFP: reference/runtimes/kfp.md
-          - Modelserve: reference/runtimes/modelserve.md
+          - Modelserve:
+              - Overview: reference/runtimes/modelserve/overview.md
+              - Execution: reference/runtimes/modelserve/execution.md
+              - Entities:
+                  - Function: reference/runtimes/modelserve/entities/function.md
+                  - Task: reference/runtimes/modelserve/entities/task.md
+                  - Run: reference/runtimes/modelserve/entities/run.md
+              - Examples: reference/runtimes/modelserve/examples.md
       - Configuration:
           - Paths:
               - Overview: reference/configuration/paths/overview.md

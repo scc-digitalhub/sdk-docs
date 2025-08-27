@@ -1,8 +1,8 @@
-# Task Parameters
+# Task
 
 Tasks of kinds `job`, `serve`, and `build` allow you to execute a Python function, serve it as a service, or build its Docker image. A `Task` is created via the `run()` method and is not managed directly by the user. Task parameters are passed directly to the `run()` method and may vary depending on the task kind.
 
-## Shared Parameters
+## Parameters
 
 | Name | Type | Description |
 | --- | --- | --- |

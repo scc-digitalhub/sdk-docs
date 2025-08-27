@@ -1,4 +1,4 @@
-# Function Parameters
+# Function
 
 The Python runtime supports functions of kind `python`.
 
