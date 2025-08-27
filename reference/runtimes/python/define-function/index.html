@@ -2549,9 +2549,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#anatomy-of-a-function" class="md-nav__link">
+  <a href="#function-anatomy" class="md-nav__link">
     <span class="md-ellipsis">
-      Anatomy of a function
+      Function Anatomy
     </span>
   </a>
   
@@ -3480,9 +3480,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#anatomy-of-a-function" class="md-nav__link">
+  <a href="#function-anatomy" class="md-nav__link">
     <span class="md-ellipsis">
-      Anatomy of a function
+      Function Anatomy
     </span>
   </a>
   
@@ -3543,54 +3543,34 @@
   
 
 
-<h1 id="define-a-python-function">Define a Python function</h1>
-<p>You declare a Python handler in the usual way using the <code>def</code> keyword. Handlers can be simple or accept platform-provided objects and inputs; the runtime injects a small set of reserved arguments and provides helpers to map inputs and outputs.</p>
-<h2 id="anatomy-of-a-function">Anatomy of a function</h2>
-<p><img alt="function" src="../asset/function.png" /></p>
-<p>Example handler:</p>
+<h1 id="define-a-python-function">Define a Python Function</h1>
+<p>This section describes how to define a Python function as a handler. A handler is basically a python function declared using the standard <code>def</code> keyword. Handlers can be simple or accept platform-provided objects and inputs. The runtime injects reserved arguments and provides helpers to map inputs and outputs.</p>
+<h2 id="function-anatomy">Function Anatomy</h2>
+<p><img alt="Function Diagram" src="../asset/function.png" /></p>
+<p><strong>Example handler:</strong></p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">digitalhub_runtime_python</span><span class="w"> </span><span class="kn">import</span> <span class="n">handler</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nd">@handler</span><span class="p">(</span><span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;my-sdk-output&quot;</span><span class="p">,</span> <span class="s2">&quot;my-primitive-output&quot;</span><span class="p">])</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="n">project</span><span class="p">,</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>         <span class="n">run</span><span class="p">,</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>         <span class="n">context</span><span class="p">,</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>         <span class="n">event</span><span class="p">,</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>         <span class="n">input_1</span><span class="p">,</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>         <span class="n">parameter_1</span><span class="p">):</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nd">@handler</span><span class="p">(</span><span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;my-sdk-output&quot;</span><span class="p">,</span> <span class="s2">&quot;my-primitive-output&quot;</span><span class="p">])</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">run</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="n">input_1</span><span class="p">,</span> <span class="n">parameter_1</span><span class="p">):</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">project</span><span class="o">.</span><span class="n">log_artifact</span><span class="p">(</span><span class="s2">&quot;my-artifact&quot;</span><span class="p">,</span> <span class="s2">&quot;artifact&quot;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;some-file.ext&quot;</span><span class="p">)</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">run</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="s2">&quot;my-metric&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mf">14.6</span><span class="p">)</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">context</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;log-some-string&quot;</span><span class="p">)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="n">body</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">body</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="c1"># Process the event body</span>
 </span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="n">project</span><span class="o">.</span><span class="n">log_artifact</span><span class="p">(</span><span class="s2">&quot;my-artifact&quot;</span><span class="p">,</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>                         <span class="s2">&quot;artifact&quot;</span><span class="p">,</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>                         <span class="n">source</span><span class="o">=</span><span class="s2">&quot;some-file.ext&quot;</span><span class="p">)</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="n">run</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="s2">&quot;my-metric&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mf">14.6</span><span class="p">)</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    <span class="n">context</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;log-some-string&quot;</span><span class="p">)</span>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    <span class="n">body</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">body</span>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>    <span class="c1"># work with the event body</span>
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>    <span class="n">df</span> <span class="o">=</span> <span class="n">input_1</span><span class="o">.</span><span class="n">as_df</span><span class="p">(</span><span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>    <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">70</span><span class="p">)</span>
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>    <span class="n">parameter_1</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;some-key&quot;</span><span class="p">)</span>
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>
-</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>    <span class="k">return</span> <span class="n">df</span><span class="p">,</span> <span class="mf">19.45</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="n">df</span> <span class="o">=</span> <span class="n">input_1</span><span class="o">.</span><span class="n">as_df</span><span class="p">(</span><span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">70</span><span class="p">)</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    <span class="n">parameter_1</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;some-key&quot;</span><span class="p">)</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    <span class="k">return</span> <span class="n">df</span><span class="p">,</span> <span class="mf">19.45</span>
 </span></code></pre></div>
-<p>Handlers may also be parameterless and return nothing:</p>
+<p><strong>Simple handler (no parameters, no return):</strong></p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">():</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
 </span></code></pre></div>
 <p>The function you define becomes the entrypoint when referenced as the <code>handler</code> in the run configuration.</p>
-<p>The runtime supplies utilities to work with platform objects and to handle inputs/outputs. This document covers:</p>
-<ul>
-<li><a href="#define-a-python-function">Define a Python function</a></li>
-<li><a href="#anatomy-of-a-function">Anatomy of a function</a></li>
-<li><a href="#reserved-arguments">Reserved arguments</a></li>
-<li><a href="#inputs-and-parameters">Inputs and parameters</a></li>
-<li><a href="#handler-and-outputs">Handler and outputs</a></li>
-<li><a href="#init-function">Init function</a></li>
-</ul>
 <h2 id="reserved-arguments">Reserved arguments</h2>
 <p>The runtime injects a small set of reserved arguments when it invokes your handler. Commonly injected values are:</p>
 <ul>

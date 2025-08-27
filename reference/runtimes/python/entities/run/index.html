@@ -2744,6 +2744,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#digitalhub_runtime_python.entities.run.python_run.entity.RunPythonRun.wait" class="md-nav__link">
+    <span class="md-ellipsis">
+      wait
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digitalhub_runtime_python.entities.run.python_run.entity.RunPythonRun.inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      inputs
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3569,6 +3587,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#digitalhub_runtime_python.entities.run.python_run.entity.RunPythonRun.wait" class="md-nav__link">
+    <span class="md-ellipsis">
+      wait
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digitalhub_runtime_python.entities.run.python_run.entity.RunPythonRun.inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      inputs
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3594,8 +3630,7 @@
 
 
 <h1 id="run-parameters">Run Parameters</h1>
-<p>The <code>Run</code> object is, similar to the <code>Task</code>, created with the <code>run()</code> method.
-The run's parameters are passed alongside the task's ones.</p>
+<p>The <code>Run</code> object is created via the <code>run()</code> method, similar to the <code>Task</code>. Run parameters are passed alongside task parameters.</p>
 <h2 id="parameters">Parameters</h2>
 <table>
 <thead>
@@ -3629,7 +3664,7 @@ The run's parameters are passed alongside the task's ones.</p>
 </tbody>
 </table>
 <h2 id="methods">Methods</h2>
-<p>Once the run is created, you can access some of its attributes and methods through the <code>run</code> object.</p>
+<p>Once the run is created, you can access its attributes and methods through the <code>run</code> object.</p>
 
 
 <div class="doc doc-object doc-function">
@@ -4030,6 +4065,150 @@ The run's parameters are passed alongside the task's ones.</p>
             <td>
               <div class="doc-md-description">
                 <p>Response from service.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="digitalhub_runtime_python.entities.run.python_run.entity.RunPythonRun.wait" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">wait</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents first">
+
+        <p>Wait for run to finish.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>log_info</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If True, log information.</p>
+              </div>
+            </td>
+            <td>
+                  <code>True</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="digitalhub.entities.run._base.entity.Run">Run</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Run object.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="digitalhub_runtime_python.entities.run.python_run.entity.RunPythonRun.inputs" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">inputs</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents first">
+
+        <p>Get inputs passed in spec as objects or as dictionaries.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>as_dict</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If True, return inputs as dictionaries.</p>
+              </div>
+            </td>
+            <td>
+                  <code>False</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="dict">dict</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Inputs.</p>
               </div>
             </td>
           </tr>

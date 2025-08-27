@@ -2635,9 +2635,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#function-parameters_1" class="md-nav__link">
+  <a href="#parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      Function parameters
+      Parameters
     </span>
   </a>
   
@@ -2646,51 +2646,45 @@
         <li class="md-nav__item">
   <a href="#function-kinds" class="md-nav__link">
     <span class="md-ellipsis">
-      Function kinds
+      Function Kinds
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Function kinds">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#python-versions" class="md-nav__link">
     <span class="md-ellipsis">
-      Python versions
+      Python Versions
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#init-function" class="md-nav__link">
     <span class="md-ellipsis">
-      Init function
+      Init Function
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#base-image" class="md-nav__link">
     <span class="md-ellipsis">
-      Base image
+      Base Image
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#requirements" class="md-nav__link">
     <span class="md-ellipsis">
       Requirements
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3497,9 +3491,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#function-parameters_1" class="md-nav__link">
+  <a href="#parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      Function parameters
+      Parameters
     </span>
   </a>
   
@@ -3508,51 +3502,45 @@
         <li class="md-nav__item">
   <a href="#function-kinds" class="md-nav__link">
     <span class="md-ellipsis">
-      Function kinds
+      Function Kinds
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Function kinds">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#python-versions" class="md-nav__link">
     <span class="md-ellipsis">
-      Python versions
+      Python Versions
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#init-function" class="md-nav__link">
     <span class="md-ellipsis">
-      Init function
+      Init Function
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#base-image" class="md-nav__link">
     <span class="md-ellipsis">
-      Base image
+      Base Image
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#requirements" class="md-nav__link">
     <span class="md-ellipsis">
       Requirements
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3576,8 +3564,8 @@
 
 
 <h1 id="function-parameters">Function Parameters</h1>
-<p>The Python runtime introduces a Function of kind <code>python</code>.</p>
-<h2 id="function-parameters_1">Function parameters</h2>
+<p>The Python runtime supports functions of kind <code>python</code>.</p>
+<h2 id="parameters">Parameters</h2>
 <table>
 <thead>
 <tr>
@@ -3674,29 +3662,29 @@
 </tr>
 </tbody>
 </table>
-<h2 id="function-kinds">Function kinds</h2>
+<h2 id="function-kinds">Function Kinds</h2>
 <p>The <code>kind</code> parameter must be:</p>
 <ul>
 <li><code>python</code></li>
 </ul>
-<h3 id="python-versions">Python versions</h3>
-<p>The Python runtime supports versions 3.9, 3.10 and 3.11, expressed as:</p>
+<h2 id="python-versions">Python Versions</h2>
+<p>The Python runtime supports versions 3.9, 3.10, and 3.11, expressed as:</p>
 <ul>
 <li><code>PYTHON3_9</code></li>
 <li><code>PYTHON3_10</code></li>
 <li><code>PYTHON3_11</code></li>
 </ul>
-<h3 id="init-function">Init function</h3>
+<h2 id="init-function">Init Function</h2>
 <p>The init function is the entrypoint used by the Nuclio init wrapper. Specify the init function name via the <code>init_function</code> parameter.</p>
-<h3 id="base-image">Base image</h3>
+<h2 id="base-image">Base Image</h2>
 <p>The base image is the image (name:tag) used as the foundation when building the execution image for the function.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Deploying jobs built from certain base images may be restricted by cluster security policies. Confirm allowed base images with your cluster administrator.</p>
 </div>
-<h3 id="requirements">Requirements</h3>
-<p>Requirements are a list of <code>str</code> representing packages to be installed by <code>pip</code> in the image where the function will be executed.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">requirements</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;numpy&quot;</span><span class="p">,</span> <span class="s1">&#39;pandas&gt;1, &lt;3&#39;</span><span class="p">,</span> <span class="s2">&quot;scikit-learn==1.2.0&quot;</span><span class="p">]</span>
+<h2 id="requirements">Requirements</h2>
+<p>Requirements are a list of strings representing packages to be installed by <code>pip</code> in the image where the function will be executed.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">requirements</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;numpy&quot;</span><span class="p">,</span> <span class="s2">&quot;pandas&gt;1,&lt;3&quot;</span><span class="p">,</span> <span class="s2">&quot;scikit-learn==1.2.0&quot;</span><span class="p">]</span>
 </span></code></pre></div>
 
 

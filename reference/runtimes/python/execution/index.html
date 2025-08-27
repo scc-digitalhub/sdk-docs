@@ -2578,6 +2578,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Usage Pattern">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-vs-remote-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local vs Remote Execution
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3468,6 +3483,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Usage Pattern">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-vs-remote-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local vs Remote Execution
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3532,6 +3562,21 @@ First, we examine the usage pattern, then delve into the parameter structure.</p
 </span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;threshold&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">}</span>  <span class="c1"># Run parameter</span>
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="p">)</span>
 </span></code></pre></div>
+<p>You can control whether the execution happens locally on your machine or remotely on the platform by setting the <code>local_execution</code> parameter (see <a href="#local-vs-remote-execution">Local vs Remote Execution</a> for details).</p>
+<h3 id="local-vs-remote-execution">Local vs Remote Execution</h3>
+<p>When executing a function, you can choose between <strong>local execution</strong> and <strong>remote execution</strong> by setting the <code>local_execution</code> parameter in the run parameters.</p>
+<ul>
+<li>
+<p><strong>Local Execution</strong> (<code>local_execution=True</code>): The function runs directly on your local machine. You need to have the required dependencies of your function installed locally.</p>
+</li>
+<li>
+<p><strong>Remote Execution</strong> (<code>local_execution=False</code>, default): The function is executed on a remote server or cluster managed by the platform. Remember to provide the dependencies in the function's <code>requirements</code> parameter or in your <code>requirements.txt</code>.</p>
+</li>
+</ul>
+<div class="admonition note - serve">
+<p class="admonition-title">Note</p>
+<p>Note that some features, like serving functions, are only available with remote execution.</p>
+</div>
 <h2 id="parameter-structure">Parameter Structure</h2>
 <p>Parameters are organized into three categories, each serving a distinct purpose in the function execution lifecycle and in the specification of execution entities (<code>Function</code>, <code>Task</code>, <code>Run</code>):</p>
 <ul>
