@@ -28,6 +28,19 @@ run = function.run(
 )
 ```
 
+You can control whether the execution happens locally on your machine or remotely on the platform by setting the `local_execution` parameter (see [Local vs Remote Execution](#local-vs-remote-execution) for details).
+
+### Local vs Remote Execution
+
+When executing a function, you can choose between **local execution** and **remote execution** by setting the `local_execution` parameter in the run parameters.
+
+- **Local Execution** (`local_execution=True`): The function runs directly on your local machine. You need to have the required dependencies of your function installed locally.
+
+- **Remote Execution** (`local_execution=False`, default): The function is executed on a remote server or cluster managed by the platform. Remember to provide the dependencies in the function's `requirements` parameter or in your `requirements.txt`.
+
+!!! Note - serve
+    Note that some features, like serving functions, are only available with remote execution.
+
 ## Parameter Structure
 
 Parameters are organized into three categories, each serving a distinct purpose in the function execution lifecycle and in the specification of execution entities (`Function`, `Task`, `Run`):

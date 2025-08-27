@@ -1,13 +1,13 @@
 # Examples
 
-Function creation example:
+## Function Creation
 
 ```python
 import digitalhub as dh
 
 project = dh.get_or_create_project("my_project")
 
-# From project
+# Create function from project
 function = project.new_function(
     name="python-function",
     kind="python",
@@ -16,7 +16,7 @@ function = project.new_function(
     python_version="PYTHON3_10"
 )
 
-# Or from sdk
+# Or create function from SDK
 function = dh.new_function(
     project="my-project",
     name="python-function",
@@ -27,24 +27,29 @@ function = dh.new_function(
 )
 ```
 
-Task examples:
+## Task Execution
+
+**Job execution:**
 
 ```python
-# Job execution
 run = function.run(
     action="job",
-    inputs={
-        "dataitem": dataitem.key
-    }
+    inputs={"dataitem": dataitem.key}
 )
+```
 
-# Build image
+**Build image:**
+
+```python
 run = function.run(
     action="build",
     instructions=["apt-get install -y git"]
 )
+```
 
-# Serve as service
+**Serve as service:**
+
+```python
 run = function.run(
     action="serve",
     replicas=2,
@@ -52,19 +57,22 @@ run = function.run(
 )
 ```
 
-Service invocation example:
+## Service Invocation
+
+After deploying a service:
 
 ```python
-# After serving
 run = function.run("serve", ...)
 
-json = {
+json_data = {
     "some-func-param": data
 }
 
-run.invoke(json=json)
+run.invoke(json=json_data)
 ```
 
-You can find a list of tutorials at the [tutorial repository](https://github.com/scc-digitalhub/digitalhub-tutorials) of the DSLab Github organization.
+## Tutorials
 
-In particular the tutorial on [custom ML model train and serve](https://github.com/scc-digitalhub/digitalhub-tutorials/blob/main/s6-custom-ml-model/notebook-cml-darts-ci.ipynb) covers all the possible task accomplished with the Python runtime.
+Find additional examples in the [tutorial repository](https://github.com/scc-digitalhub/digitalhub-tutorials) of the DSLab GitHub organization.
+
+See the [Custom ML Model tutorial](https://github.com/scc-digitalhub/digitalhub-tutorials/blob/main/s6-custom-ml-model/notebook-cml-darts-ci.ipynb) for comprehensive examples of Python runtime usage.

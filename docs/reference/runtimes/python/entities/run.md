@@ -1,7 +1,6 @@
 # Run Parameters
 
-The `Run` object is, similar to the `Task`, created with the `run()` method.
-The run's parameters are passed alongside the task's ones.
+The `Run` object is created via the `run()` method, similar to the `Task`. Run parameters are passed alongside task parameters.
 
 ## Parameters
 
@@ -14,7 +13,7 @@ The run's parameters are passed alongside the task's ones.
 
 ## Methods
 
-Once the run is created, you can access some of its attributes and methods through the `run` object.
+Once the run is created, you can access its attributes and methods through the `run` object.
 
 ::: digitalhub_runtime_python.entities.run.python_run.entity.RunPythonRun.output
     options:
@@ -57,6 +56,26 @@ Once the run is created, you can access some of its attributes and methods throu
         show_root_toc_entry: true
 
 ::: digitalhub_runtime_python.entities.run.python_run.entity.RunPythonRun.invoke
+    options:
+        heading_level: 6
+        show_signature: false
+        show_source: false
+        show_root_heading: true
+        show_symbol_type_heading: true
+        show_root_full_path: false
+        show_root_toc_entry: true
+
+::: digitalhub_runtime_python.entities.run.python_run.entity.RunPythonRun.wait
+    options:
+        heading_level: 6
+        show_signature: false
+        show_source: false
+        show_root_heading: true
+        show_symbol_type_heading: true
+        show_root_full_path: false
+        show_root_toc_entry: true
+
+::: digitalhub_runtime_python.entities.run.python_run.entity.RunPythonRun.inputs
     options:
         heading_level: 6
         show_signature: false

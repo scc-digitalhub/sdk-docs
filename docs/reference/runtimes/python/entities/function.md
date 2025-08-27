@@ -1,8 +1,8 @@
 # Function Parameters
 
-The Python runtime introduces a Function of kind `python`.
+The Python runtime supports functions of kind `python`.
 
-## Function parameters
+## Parameters
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -24,35 +24,35 @@ The Python runtime introduces a Function of kind `python`.
 | [base_image](#base-image) | str | Base image (name:tag) used to build the execution image. |
 | [requirements](#requirements) | list | List of pip requirements to install into the execution image. |
 
-## Function kinds
+## Function Kinds
 
 The `kind` parameter must be:
 
 - `python`
 
-### Python versions
+## Python Versions
 
-The Python runtime supports versions 3.9, 3.10 and 3.11, expressed as:
+The Python runtime supports versions 3.9, 3.10, and 3.11, expressed as:
 
 - `PYTHON3_9`
 - `PYTHON3_10`
 - `PYTHON3_11`
 
-### Init function
+## Init Function
 
 The init function is the entrypoint used by the Nuclio init wrapper. Specify the init function name via the `init_function` parameter.
 
-### Base image
+## Base Image
 
 The base image is the image (name:tag) used as the foundation when building the execution image for the function.
 
 !!! warning
     Deploying jobs built from certain base images may be restricted by cluster security policies. Confirm allowed base images with your cluster administrator.
 
-### Requirements
+## Requirements
 
-Requirements are a list of `str` representing packages to be installed by `pip` in the image where the function will be executed.
+Requirements are a list of strings representing packages to be installed by `pip` in the image where the function will be executed.
 
 ```python
-requirements = ["numpy", 'pandas>1, <3', "scikit-learn==1.2.0"]
+requirements = ["numpy", "pandas>1,<3", "scikit-learn==1.2.0"]
 ```

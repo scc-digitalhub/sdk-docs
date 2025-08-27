@@ -1,35 +1,24 @@
-# Define a Python function
+# Define a Python Function
 
-You declare a Python handler in the usual way using the `def` keyword. Handlers can be simple or accept platform-provided objects and inputs; the runtime injects a small set of reserved arguments and provides helpers to map inputs and outputs.
+This section describes how to define a Python function as a handler. A handler is basically a python function declared using the standard `def` keyword. Handlers can be simple or accept platform-provided objects and inputs. The runtime injects reserved arguments and provides helpers to map inputs and outputs.
 
-## Anatomy of a function
+## Function Anatomy
 
-![function](./asset/function.png)
+![Function Diagram](./asset/function.png)
 
-Example handler:
+**Example handler:**
 
 ```python
 from digitalhub_runtime_python import handler
 
-
 @handler(outputs=["my-sdk-output", "my-primitive-output"])
-def func(project,
-         run,
-         context,
-         event,
-         input_1,
-         parameter_1):
-
-    project.log_artifact("my-artifact",
-                         "artifact",
-                         source="some-file.ext")
-
+def func(project, run, context, event, input_1, parameter_1):
+    project.log_artifact("my-artifact", "artifact", source="some-file.ext")
     run.log_metric("my-metric", -14.6)
-
     context.logger.info("log-some-string")
 
     body = event.body
-    # work with the event body
+    # Process the event body
 
     df = input_1.as_df(sep=";")
     df.head(70)
@@ -39,7 +28,7 @@ def func(project,
     return df, 19.45
 ```
 
-Handlers may also be parameterless and return nothing:
+**Simple handler (no parameters, no return):**
 
 ```python
 def func():
@@ -47,15 +36,6 @@ def func():
 ```
 
 The function you define becomes the entrypoint when referenced as the `handler` in the run configuration.
-
-The runtime supplies utilities to work with platform objects and to handle inputs/outputs. This document covers:
-
-- [Define a Python function](#define-a-python-function)
-  - [Anatomy of a function](#anatomy-of-a-function)
-  - [Reserved arguments](#reserved-arguments)
-  - [Inputs and parameters](#inputs-and-parameters)
-  - [Handler and outputs](#handler-and-outputs)
-  - [Init function](#init-function)
 
 ## Reserved arguments
 
