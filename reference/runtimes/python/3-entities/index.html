@@ -2641,15 +2641,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#function-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Function example
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -2666,14 +2657,23 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#task-parameters" class="md-nav__link">
+  <a href="#task-parameters-shared" class="md-nav__link">
     <span class="md-ellipsis">
-      Task parameters
+      Task parameters (shared)
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Task parameters">
+    <nav class="md-nav" aria-label="Task parameters (shared)">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#action-specific-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Action-specific parameters
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#task-actions" class="md-nav__link">
@@ -2713,15 +2713,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#task-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Task example
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -2741,15 +2732,6 @@
   <a href="#run-parameters" class="md-nav__link">
     <span class="md-ellipsis">
       Run parameters
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#run-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Run example
     </span>
   </a>
   
@@ -2817,6 +2799,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
   
 </li>
       
@@ -3411,6 +3402,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../configuration/credentials/dhcore/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DHCore
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../configuration/credentials/s3/" class="md-nav__link">
         
   
@@ -3615,15 +3629,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#function-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Function example
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -3640,14 +3645,23 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#task-parameters" class="md-nav__link">
+  <a href="#task-parameters-shared" class="md-nav__link">
     <span class="md-ellipsis">
-      Task parameters
+      Task parameters (shared)
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Task parameters">
+    <nav class="md-nav" aria-label="Task parameters (shared)">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#action-specific-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Action-specific parameters
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#task-actions" class="md-nav__link">
@@ -3687,15 +3701,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#task-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Task example
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -3715,15 +3720,6 @@
   <a href="#run-parameters" class="md-nav__link">
     <span class="md-ellipsis">
       Run parameters
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#run-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Run example
     </span>
   </a>
   
@@ -3794,6 +3790,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3824,7 +3829,6 @@
 <th>Name</th>
 <th>Type</th>
 <th>Description</th>
-<th>Default</th>
 </tr>
 </thead>
 <tbody>
@@ -3832,103 +3836,86 @@
 <td>project</td>
 <td>str</td>
 <td>Project name. Required only when creating from the library; otherwise <strong>MUST NOT</strong> be set.</td>
-<td></td>
 </tr>
 <tr>
 <td>name</td>
 <td>str</td>
-<td>Name that identifies the object.</td>
-<td>required</td>
+<td>Name that identifies the object. <strong>Required.</strong></td>
 </tr>
 <tr>
 <td><a href="#function-kinds">kind</a></td>
 <td>str</td>
-<td>Function kind.</td>
-<td>required</td>
+<td>Function kind. <strong>Required.</strong></td>
 </tr>
 <tr>
 <td>uuid</td>
 <td>str</td>
 <td>Object ID in UUID4 format.</td>
-<td>None</td>
 </tr>
 <tr>
 <td>description</td>
 <td>str</td>
 <td>Description of the object.</td>
-<td>None</td>
 </tr>
 <tr>
 <td>labels</td>
 <td>list[str]</td>
 <td>List of labels.</td>
-<td>None</td>
 </tr>
 <tr>
 <td>embedded</td>
 <td>bool</td>
 <td>Whether the object should be embedded in the project.</td>
-<td>True</td>
 </tr>
 <tr>
 <td><a href="../../../configuration/code_src/overview/#code-source-uri">code_src</a></td>
 <td>str</td>
 <td>URI pointing to the source code.</td>
-<td>None</td>
 </tr>
 <tr>
 <td><a href="../../../configuration/code_src/overview/#plain-text-source">code</a></td>
 <td>str</td>
 <td>Source code provided as plain text.</td>
-<td>None</td>
 </tr>
 <tr>
 <td>base64</td>
 <td>str</td>
 <td>Source code encoded as base64.</td>
-<td>None</td>
 </tr>
 <tr>
 <td><a href="../../../configuration/code_src/overview/#handler">handler</a></td>
 <td>str</td>
 <td>Function entrypoint.</td>
-<td>None</td>
 </tr>
 <tr>
 <td><a href="#init-function">init_function</a></td>
 <td>str</td>
 <td>Init function name for remote (Nuclio) execution.</td>
-<td>None</td>
 </tr>
 <tr>
 <td><a href="#python-versions">python_version</a></td>
 <td>str</td>
-<td>Python version to use.</td>
-<td>required</td>
+<td>Python version to use. <strong>Required.</strong></td>
 </tr>
 <tr>
 <td>lang</td>
 <td>str</td>
 <td>Source code language (informational).</td>
-<td>None</td>
 </tr>
 <tr>
 <td>image</td>
 <td>str</td>
 <td>Container image used to execute the function.</td>
-<td>None</td>
 </tr>
 <tr>
 <td><a href="#base-image">base_image</a></td>
 <td>str</td>
 <td>Base image (name:tag) used to build the execution image.</td>
-<td>None</td>
 </tr>
 <tr>
 <td><a href="#requirements">requirements</a></td>
 <td>list</td>
 <td>List of pip requirements to install into the execution image.</td>
-<td>None</td>
 </tr>
 </tbody>
 </table>
@@ -3956,122 +3943,107 @@
 <p>Requirements are a list of <code>str</code> representing packages to be installed by <code>pip</code> in the image where the function will be executed.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">requirements</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;numpy&quot;</span><span class="p">,</span> <span class="s1">&#39;pandas&gt;1, &lt;3&#39;</span><span class="p">,</span> <span class="s2">&quot;scikit-learn==1.2.0&quot;</span><span class="p">]</span>
 </span></code></pre></div>
-<h3 id="function-example">Function example</h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># From project ...</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">function</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;python-function&quot;</span><span class="p">,</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>                                <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;python&quot;</span><span class="p">,</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>                                <span class="n">code_src</span><span class="o">=</span><span class="s2">&quot;main.py&quot;</span><span class="p">,</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>                                <span class="n">handler</span><span class="o">=</span><span class="s2">&quot;function&quot;</span><span class="p">,</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>                                <span class="n">python_version</span><span class="o">=</span><span class="s2">&quot;PYTHON3_10&quot;</span><span class="p">)</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="c1"># .. or from sdk</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="n">function</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s2">&quot;my-project&quot;</span><span class="p">,</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>                           <span class="n">name</span><span class="o">=</span><span class="s2">&quot;python-function&quot;</span><span class="p">,</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>                           <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;python&quot;</span><span class="p">,</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>                           <span class="n">code_src</span><span class="o">=</span><span class="s2">&quot;main.py&quot;</span><span class="p">,</span>
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>                           <span class="n">handler</span><span class="o">=</span><span class="s2">&quot;function&quot;</span><span class="p">,</span>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>                           <span class="n">python_version</span><span class="o">=</span><span class="s2">&quot;PYTHON3_10&quot;</span><span class="p">)</span>
-</span></code></pre></div>
 <h2 id="task">Task</h2>
 <p>A set of tasks of kinds <code>job</code>, <code>serve</code> and <code>build</code> allow you to run a Python function execution, serve a function as a service, or build the Docker image used to execute the function.
 A <code>Task</code> is created with the <code>run()</code> method, so it's not managed directly by the user. The parameters for the task creation are passed directly to the <code>run()</code> method, and may vary depending on the kind of task.</p>
-<h3 id="task-parameters">Task parameters</h3>
+<h3 id="task-parameters-shared">Task parameters (shared)</h3>
 <table>
 <thead>
 <tr>
 <th>Name</th>
 <th>Type</th>
 <th>Description</th>
-<th>Default</th>
-<th>Kind specific</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><a href="#task-actions">action</a></td>
 <td>str</td>
-<td>Task action.</td>
-<td>required</td>
-<td></td>
+<td>Task action. One of: <code>job</code>, <code>build</code>, <code>serve</code>. <strong>Required.</strong></td>
 </tr>
 <tr>
 <td><a href="../../../configuration/kubernetes/overview/#node-selector">node_selector</a></td>
 <td>list[dict]</td>
 <td>Node selector.</td>
-<td>None</td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../../../configuration/kubernetes/overview/#volumes">volumes</a></td>
 <td>list[dict]</td>
 <td>List of volumes.</td>
-<td>None</td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../../../configuration/kubernetes/overview/#resources">resources</a></td>
 <td>dict</td>
 <td>Resource limits/requests.</td>
-<td>None</td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../../../configuration/kubernetes/overview/#affinity">affinity</a></td>
 <td>dict</td>
 <td>Affinity configuration.</td>
-<td>None</td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../../../configuration/kubernetes/overview/#tolerations">tolerations</a></td>
 <td>list[dict]</td>
 <td>Tolerations.</td>
-<td>None</td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../../../configuration/kubernetes/overview/#secrets-envs">envs</a></td>
 <td>list[dict]</td>
 <td>Environment variables.</td>
-<td>None</td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../../../configuration/kubernetes/overview/#secrets-envs">secrets</a></td>
 <td>list[str]</td>
 <td>List of secret names.</td>
-<td>None</td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../../../configuration/kubernetes/overview/#profile">profile</a></td>
 <td>str</td>
 <td>Profile template.</td>
-<td>None</td>
-<td></td>
 </tr>
+</tbody>
+</table>
+<h4 id="action-specific-parameters">Action-specific parameters</h4>
+<ul>
+<li><code>serve</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td><a href="../../../configuration/kubernetes/overview/#replicas">replicas</a></td>
 <td>int</td>
 <td>Number of replicas.</td>
-<td>None</td>
-<td><code>serve</code></td>
 </tr>
 <tr>
 <td><a href="../../../configuration/kubernetes/overview/#service-port-type">service_type</a></td>
 <td>str</td>
 <td>Service type.</td>
-<td><code>NodePort</code></td>
-<td><code>serve</code></td>
 </tr>
+</tbody>
+</table>
+<ul>
+<li><code>build</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td><a href="#instructions">instructions</a></td>
 <td>list[str]</td>
 <td>Build instructions executed as RUN lines in the generated Dockerfile.</td>
-<td>None</td>
-<td><code>build</code></td>
 </tr>
 </tbody>
 </table>
@@ -4090,23 +4062,17 @@ A <code>Task</code> is created with the <code>run()</code> method, so it's not m
 </div>
 <p>After the service is ready, call the inference endpoint with <code>run.invoke()</code>.
 <code>run.invoke()</code> accepts the same keyword arguments as <code>requests.request</code>; by default the <code>url</code> is taken from the <code>run</code> object but you may override it with an explicit <code>url</code> parameter.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">run</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;serve&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">json</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="s2">&quot;some-func-param&quot;</span><span class="p">:</span> <span class="n">data</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="n">run</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">json</span><span class="o">=</span><span class="n">json</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">run</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;serve&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">json</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="s2">&quot;some-func-param&quot;</span><span class="p">:</span> <span class="n">data</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">}</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">run</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">json</span><span class="o">=</span><span class="n">json</span><span class="p">)</span>
 </span></code></pre></div>
 <h4 id="instructions">Instructions</h4>
 <p>List of <code>str</code> representing the instructions to be executed as RUN instructions in Dockerfile.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">instructions</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apt-get install -y git&quot;</span><span class="p">]</span>
-</span></code></pre></div>
-<h3 id="task-example">Task example</h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">run</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="n">action</span><span class="o">=</span><span class="s2">&quot;build&quot;</span><span class="p">,</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">instructions</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;apt-get install -y git&quot;</span><span class="p">]</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">instructions</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apt-get install -y git&quot;</span><span class="p">]</span>
 </span></code></pre></div>
 <h2 id="run">Run</h2>
 <p>The <code>Run</code> object is, similar to the <code>Task</code>, created with the <code>run()</code> method.
@@ -4118,7 +4084,6 @@ The run's parameters are passed alongside the task's ones.</p>
 <th>Name</th>
 <th>Type</th>
 <th>Description</th>
-<th>Default</th>
 </tr>
 </thead>
 <tbody>
@@ -4126,36 +4091,24 @@ The run's parameters are passed alongside the task's ones.</p>
 <td>local_execution</td>
 <td>bool</td>
 <td>Execute the run locally instead of remotely.</td>
-<td>False</td>
 </tr>
 <tr>
 <td>inputs</td>
 <td>dict</td>
 <td>Mapping of function argument names to entity keys.</td>
-<td>None</td>
 </tr>
 <tr>
 <td>parameters</td>
 <td>dict</td>
 <td>Extra parameters passed to the function.</td>
-<td>None</td>
 </tr>
 <tr>
 <td>init_parameters</td>
 <td>dict</td>
 <td>Parameters supplied to the init function.</td>
-<td>None</td>
 </tr>
 </tbody>
 </table>
-<h3 id="run-example">Run example</h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">run</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="n">action</span><span class="o">=</span><span class="s2">&quot;job&quot;</span><span class="p">,</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="n">inputs</span><span class="o">=</span><span class="p">{</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>        <span class="s2">&quot;dataitem&quot;</span><span class="p">:</span> <span class="n">dataitem</span><span class="o">.</span><span class="n">key</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="p">}</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="p">)</span>
-</span></code></pre></div>
 <h3 id="run-methods">Run methods</h3>
 <p>Once the run is created, you can access some of its attributes and methods through the <code>run</code> object.</p>
 
@@ -4567,7 +4520,63 @@ The run's parameters are passed alongside the task's ones.</p>
 
     </div>
 
-</div>
+</div><h2 id="examples">Examples</h2>
+<p>Function creation example:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">digitalhub</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dh</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">project</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">get_or_create_project</span><span class="p">(</span><span class="s2">&quot;my_project&quot;</span><span class="p">)</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1"># From project</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">function</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;python-function&quot;</span><span class="p">,</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;python&quot;</span><span class="p">,</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="n">code_src</span><span class="o">=</span><span class="s2">&quot;main.py&quot;</span><span class="p">,</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="n">handler</span><span class="o">=</span><span class="s2">&quot;function&quot;</span><span class="p">,</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="n">python_version</span><span class="o">=</span><span class="s2">&quot;PYTHON3_10&quot;</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="p">)</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="c1"># Or from sdk</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="n">function</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>    <span class="n">project</span><span class="o">=</span><span class="s2">&quot;my-project&quot;</span><span class="p">,</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;python-function&quot;</span><span class="p">,</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;python&quot;</span><span class="p">,</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>    <span class="n">code_src</span><span class="o">=</span><span class="s2">&quot;main.py&quot;</span><span class="p">,</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>    <span class="n">handler</span><span class="o">=</span><span class="s2">&quot;function&quot;</span><span class="p">,</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>    <span class="n">python_version</span><span class="o">=</span><span class="s2">&quot;PYTHON3_10&quot;</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>Task examples:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Job execution</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">run</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">action</span><span class="o">=</span><span class="s2">&quot;job&quot;</span><span class="p">,</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="n">inputs</span><span class="o">=</span><span class="p">{</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>        <span class="s2">&quot;dataitem&quot;</span><span class="p">:</span> <span class="n">dataitem</span><span class="o">.</span><span class="n">key</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="p">}</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">)</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="c1"># Build image</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="n">run</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>    <span class="n">action</span><span class="o">=</span><span class="s2">&quot;build&quot;</span><span class="p">,</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    <span class="n">instructions</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;apt-get install -y git&quot;</span><span class="p">]</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="p">)</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="c1"># Serve as service</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="n">run</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>    <span class="n">action</span><span class="o">=</span><span class="s2">&quot;serve&quot;</span><span class="p">,</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>    <span class="n">replicas</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>    <span class="n">service_type</span><span class="o">=</span><span class="s2">&quot;NodePort&quot;</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>Service invocation example:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># After serving</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">run</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;serve&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">json</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="s2">&quot;some-func-param&quot;</span><span class="p">:</span> <span class="n">data</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="p">}</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="n">run</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">json</span><span class="o">=</span><span class="n">json</span><span class="p">)</span>
+</span></code></pre></div>
 
 
 
