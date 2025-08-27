@@ -155,6 +155,7 @@ nav:
               - S3: reference/configuration/code_src/s3.md
           - Credentials handling:
               - Overview: reference/configuration/credentials/overview.md
+              - DHCore: reference/configuration/credentials/dhcore.md
               - S3: reference/configuration/credentials/s3.md
               - SQL: reference/configuration/credentials/sql.md
               - Git: reference/configuration/credentials/git.md

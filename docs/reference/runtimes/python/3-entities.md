@@ -8,25 +8,25 @@ The Python runtime introduces a Function of kind `python`.
 
 ### Function parameters
 
-| Name | Type | Description | Default |
-| --- | --- | --- | --- |
-| project | str | Project name. Required only when creating from the library; otherwise **MUST NOT** be set. | |
-| name | str | Name that identifies the object. | required |
-| [kind](#function-kinds) | str | Function kind. | required |
-| uuid | str | Object ID in UUID4 format. | None |
-| description | str | Description of the object. | None |
-| labels | list[str] | List of labels. | None |
-| embedded | bool | Whether the object should be embedded in the project. | True |
-| [code_src](../../configuration/code_src/overview.md#code-source-uri) | str | URI pointing to the source code. | None |
-| [code](../../configuration/code_src/overview.md#plain-text-source) | str | Source code provided as plain text. | None |
-| base64 | str | Source code encoded as base64. | None |
-| [handler](../../configuration/code_src/overview.md#handler) | str | Function entrypoint. | None |
-| [init_function](#init-function) | str | Init function name for remote (Nuclio) execution. | None |
-| [python_version](#python-versions) | str | Python version to use. | required |
-| lang | str | Source code language (informational). | None |
-| image | str | Container image used to execute the function. | None |
-| [base_image](#base-image) | str | Base image (name:tag) used to build the execution image. | None |
-| [requirements](#requirements) | list | List of pip requirements to install into the execution image. | None |
+| Name | Type | Description |
+| --- | --- | --- |
+| project | str | Project name. Required only when creating from the library; otherwise **MUST NOT** be set. |
+| name | str | Name that identifies the object. **Required.** |
+| [kind](#function-kinds) | str | Function kind. **Required.** |
+| uuid | str | Object ID in UUID4 format. |
+| description | str | Description of the object. |
+| labels | list[str] | List of labels. |
+| embedded | bool | Whether the object should be embedded in the project. |
+| [code_src](../../configuration/code_src/overview.md#code-source-uri) | str | URI pointing to the source code. |
+| [code](../../configuration/code_src/overview.md#plain-text-source) | str | Source code provided as plain text. |
+| base64 | str | Source code encoded as base64. |
+| [handler](../../configuration/code_src/overview.md#handler) | str | Function entrypoint. |
+| [init_function](#init-function) | str | Init function name for remote (Nuclio) execution. |
+| [python_version](#python-versions) | str | Python version to use. **Required.** |
+| lang | str | Source code language (informational). |
+| image | str | Container image used to execute the function. |
+| [base_image](#base-image) | str | Base image (name:tag) used to build the execution image. |
+| [requirements](#requirements) | list | List of pip requirements to install into the execution image. |
 
 #### Function kinds
 
@@ -61,48 +61,39 @@ Requirements are a list of `str` representing packages to be installed by `pip` 
 requirements = ["numpy", 'pandas>1, <3', "scikit-learn==1.2.0"]
 ```
 
-### Function example
-
-```python
-# From project ...
-
-function = project.new_function(name="python-function",
-                                kind="python",
-                                code_src="main.py",
-                                handler="function",
-                                python_version="PYTHON3_10")
-
-# .. or from sdk
-
-function = dh.new_function(project="my-project",
-                           name="python-function",
-                           kind="python",
-                           code_src="main.py",
-                           handler="function",
-                           python_version="PYTHON3_10")
-```
-
 ## Task
 
 A set of tasks of kinds `job`, `serve` and `build` allow you to run a Python function execution, serve a function as a service, or build the Docker image used to execute the function.
 A `Task` is created with the `run()` method, so it's not managed directly by the user. The parameters for the task creation are passed directly to the `run()` method, and may vary depending on the kind of task.
 
-### Task parameters
+### Task parameters (shared)
 
-| Name | Type | Description | Default | Kind specific |
-| --- | --- | --- | --- | --- |
-| [action](#task-actions) | str | Task action. | required | |
-| [node_selector](../../configuration/kubernetes/overview.md#node-selector) | list[dict] | Node selector. | None | |
-| [volumes](../../configuration/kubernetes/overview.md#volumes) | list[dict] | List of volumes. | None | |
-| [resources](../../configuration/kubernetes/overview.md#resources) | dict | Resource limits/requests. | None | |
-| [affinity](../../configuration/kubernetes/overview.md#affinity) | dict | Affinity configuration. | None | |
-| [tolerations](../../configuration/kubernetes/overview.md#tolerations) | list[dict] | Tolerations. | None | |
-| [envs](../../configuration/kubernetes/overview.md#secrets-envs) | list[dict] | Environment variables. | None | |
-| [secrets](../../configuration/kubernetes/overview.md#secrets-envs) | list[str] | List of secret names. | None | |
-| [profile](../../configuration/kubernetes/overview.md#profile) | str | Profile template. | None | |
-| [replicas](../../configuration/kubernetes/overview.md#replicas) | int | Number of replicas. | None | `serve` |
-| [service_type](../../configuration/kubernetes/overview.md#service-port-type) | str | Service type. | `NodePort` | `serve` |
-| [instructions](#instructions) | list[str] | Build instructions executed as RUN lines in the generated Dockerfile. | None | `build` |
+| Name | Type | Description |
+| --- | --- | --- |
+| [action](#task-actions) | str | Task action. One of: `job`, `build`, `serve`. **Required.** |
+| [node_selector](../../configuration/kubernetes/overview.md#node-selector) | list[dict] | Node selector. |
+| [volumes](../../configuration/kubernetes/overview.md#volumes) | list[dict] | List of volumes. |
+| [resources](../../configuration/kubernetes/overview.md#resources) | dict | Resource limits/requests. |
+| [affinity](../../configuration/kubernetes/overview.md#affinity) | dict | Affinity configuration. |
+| [tolerations](../../configuration/kubernetes/overview.md#tolerations) | list[dict] | Tolerations. |
+| [envs](../../configuration/kubernetes/overview.md#secrets-envs) | list[dict] | Environment variables. |
+| [secrets](../../configuration/kubernetes/overview.md#secrets-envs) | list[str] | List of secret names. |
+| [profile](../../configuration/kubernetes/overview.md#profile) | str | Profile template. |
+
+#### Action-specific parameters
+
+- `serve`
+
+| Name | Type | Description |
+| --- | --- | --- |
+| [replicas](../../configuration/kubernetes/overview.md#replicas) | int | Number of replicas. |
+| [service_type](../../configuration/kubernetes/overview.md#service-port-type) | str | Service type. |
+
+- `build`
+
+| Name | Type | Description |
+| --- | --- | --- |
+| [instructions](#instructions) | list[str] | Build instructions executed as RUN lines in the generated Dockerfile. |
 
 #### Task actions
 
@@ -140,15 +131,6 @@ List of `str` representing the instructions to be executed as RUN instructions i
 instructions = ["apt-get install -y git"]
 ```
 
-### Task example
-
-```python
-run = function.run(
-    action="build",
-    instructions=["apt-get install -y git"]
-)
-```
-
 ## Run
 
 The `Run` object is, similar to the `Task`, created with the `run()` method.
@@ -156,23 +138,12 @@ The run's parameters are passed alongside the task's ones.
 
 ### Run parameters
 
-| Name | Type | Description | Default |
-| --- | --- | --- | --- |
-| local_execution | bool | Execute the run locally instead of remotely. | False |
-| inputs | dict | Mapping of function argument names to entity keys. | None |
-| parameters | dict | Extra parameters passed to the function. | None |
-| init_parameters | dict | Parameters supplied to the init function. | None |
-
-### Run example
-
-```python
-run = function.run(
-    action="job",
-    inputs={
-        "dataitem": dataitem.key
-    }
-)
-```
+| Name | Type | Description |
+| --- | --- | --- |
+| local_execution | bool | Execute the run locally instead of remotely. |
+| inputs | dict | Mapping of function argument names to entity keys. |
+| parameters | dict | Extra parameters passed to the function. |
+| init_parameters | dict | Parameters supplied to the init function. |
 
 ### Run methods
 
@@ -227,3 +198,70 @@ Once the run is created, you can access some of its attributes and methods throu
         show_symbol_type_heading: true
         show_root_full_path: false
         show_root_toc_entry: true
+
+## Examples
+
+Function creation example:
+
+```python
+import digitalhub as dh
+
+project = dh.get_or_create_project("my_project")
+
+# From project
+function = project.new_function(
+    name="python-function",
+    kind="python",
+    code_src="main.py",
+    handler="function",
+    python_version="PYTHON3_10"
+)
+
+# Or from sdk
+function = dh.new_function(
+    project="my-project",
+    name="python-function",
+    kind="python",
+    code_src="main.py",
+    handler="function",
+    python_version="PYTHON3_10"
+)
+```
+
+Task examples:
+
+```python
+# Job execution
+run = function.run(
+    action="job",
+    inputs={
+        "dataitem": dataitem.key
+    }
+)
+
+# Build image
+run = function.run(
+    action="build",
+    instructions=["apt-get install -y git"]
+)
+
+# Serve as service
+run = function.run(
+    action="serve",
+    replicas=2,
+    service_type="NodePort"
+)
+```
+
+Service invocation example:
+
+```python
+# After serving
+run = function.run("serve", ...)
+
+json = {
+    "some-func-param": data
+}
+
+run.invoke(json=json)
+```
