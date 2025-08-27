@@ -4,47 +4,48 @@ Welcome to the documentation for the [Digitalhub SDK](https://github.com/scc-dig
 
 The SDK is open source under [Apache License 2.0](https://github.com/scc-digitalhub/digitalhub-sdk/blob/main/LICENSE) and is available on [Github](https://github.com/scc-digitalhub/digitalhub-sdk) and [PyPI](https://pypi.org/project/digitalhub/).
 
+## 🚀 Get Started
+
+**New to DigitalHub?** Follow these steps to get up and running:
+
+- **[Installation Guide](./how-to/installation.md)** — Set up the SDK and required runtimes
+- **[Quickstart Tutorial](./how-to/quickstart.md)** — Your first "Hello World" example
+- **[Runtime Guide](./how-to/runtime-guide.md)** — Choose the perfect runtime for your use case
+- **[Environment Setup](./reference/configuration/credentials/overview.md)** — Configure credentials and connections
+
 ## Contents
 
 <div class="grid cards" markdown>
 
-- __Start Here__
+- **Tutorials**
 
     ---
 
-    Get started here with the SDK.
-
-    [Start Here](./start-here/index.md)
-
-- __Tutorials__
-
-    ---
-
-    Step-by-step guides for beginners.
+    **Learning-oriented guides** that take you through a series of steps to complete a project. Perfect for building foundational skills.
 
     [Tutorials](./tutorials/index.md)
 
-- __How-to Guides__
+- **How-to Guides**
 
     ---
 
-    Task-oriented guides for specific problems
+    **Task-oriented guides** for solving specific problems. Focused on practical steps to achieve concrete goals.
 
     [How to guides](./how-to/index.md)
 
-- __Reference__
+- **Reference**
 
     ---
 
-    Technical documentation for the SDK
+    **Information-oriented documentation** providing technical details about the SDK's API, parameters, and configuration options.
 
     [Reference Overview](./reference/index.md)
 
-- __Explanation__
+- **Explanation**
 
     ---
 
-    Conceptual background and design rationale
+    **Understanding-oriented content** that explains concepts, background, and design rationale behind the platform.
 
     [Concepts & Background](./explanations/index.md)
 
