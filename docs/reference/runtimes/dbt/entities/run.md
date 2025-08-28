@@ -15,7 +15,7 @@ The `Run` object is created by calling `run()` on a Function. Run-level paramete
 
 Once the run is created, you can access its attributes and methods through the `run` object.
 
-::: digitalhub_runtime_dbt.entities.run.transform.entity.RunDbtRun.output
+::: digitalhub_runtime_dbt.entities.run.dbt_run.entity.RunDbtRun.output
     options:
         heading_level: 6
         show_signature: false
@@ -25,7 +25,7 @@ Once the run is created, you can access its attributes and methods through the `
         show_root_full_path: false
         show_root_toc_entry: true
 
-::: digitalhub_runtime_dbt.entities.run.transform.entity.RunDbtRun.outputs
+::: digitalhub_runtime_dbt.entities.run.dbt_run.entity.RunDbtRun.outputs
     options:
         heading_level: 6
         show_signature: false
@@ -35,7 +35,7 @@ Once the run is created, you can access its attributes and methods through the `
         show_root_full_path: false
         show_root_toc_entry: true
 
-::: digitalhub_runtime_dbt.entities.run.transform.entity.RunDbtRun.inputs
+::: digitalhub_runtime_dbt.entities.run.dbt_run.entity.RunDbtRun.inputs
     options:
         heading_level: 6
         show_signature: false
