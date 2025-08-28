@@ -29,7 +29,7 @@ func = project.new_function(
     python_version="PYTHON3_10",
 )
 
-run = func.run(action="job", inputs={"name": "World"}, wait=True)
+run = func.run(action="job", parameters={"name": "World"}, wait=True)
 
 print(run.output("message"))
 ```
