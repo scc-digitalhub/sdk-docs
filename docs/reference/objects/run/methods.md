@@ -44,10 +44,21 @@ Crud methods are used to interact with the entity object in the backend or local
 
 There are several generic run methods on the `Run` object.
 
+- `run`: Start the run.
 - `wait`: Wait for the run to finish.
 - `stop`: Stop the run.
 - `resume`: Resume the run.
 - `log_metric`: Log a metric in the run.
+
+::: digitalhub.entities.run._base.entity.Run.run
+    options:
+        heading_level: 3
+        show_signature: false
+        show_source: false
+        show_root_heading: true
+        show_symbol_type_heading: true
+        show_root_full_path: false
+        show_root_toc_entry: true
 
 ::: digitalhub.entities.run._base.entity.Run.wait
     options:

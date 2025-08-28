@@ -72,6 +72,7 @@ nav:
           - Large Language Models: tutorials/llm-model.md
   - How-to Guides:
       - Guides: how-to/index.md
+      - What can I do?: how-to/what-can-i-do.md
       - Quickstart: how-to/quickstart.md
       - Installation: how-to/installation.md
       - Runtime guide: how-to/runtime-guide.md

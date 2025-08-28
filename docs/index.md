@@ -8,6 +8,7 @@ The SDK is open source under [Apache License 2.0](https://github.com/scc-digital
 
 **New to DigitalHub?** Follow these steps to get up and running:
 
+- **[What can I do?](./how-to/what-can-i-do.md)** — Explore the capabilities of the SDK
 - **[Installation Guide](./how-to/installation.md)** — Set up the SDK and required runtimes
 - **[Quickstart Tutorial](./how-to/quickstart.md)** — Your first "Hello World" example
 - **[Runtime Guide](./how-to/runtime-guide.md)** — Choose the perfect runtime for your use case

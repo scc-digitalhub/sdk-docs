@@ -1,69 +1,35 @@
 # Quickstart
 
-This is the quickstart guide for the Digitalhub SDK. It will walk you through how to use the SDK in the execution of a simple python function that produces some data as output.
+This quickstart shows a minimal, copy-paste Python example. It creates a handler that returns a greeting, registers it with a project, runs it, and prints the result.
 
-## Create a project
+Prerequisite: an environment where the SDK is available (installed into the active virtualenv).
 
-We can start creating a project with the following command:
-
-```python
-import digitalhub as dh
-
-project = dh.get_or_create_project(
-    name="my-project",
-    description="My project"
-)
-```
-
-A project is the context in which you can run functions and manage data and artifacts.
-
-## Write a python function
-
-First, write your function in a file called `downloader.py`:
+- Create a file named `hello.py` with the handler:
 
 ```python
 from digitalhub_runtime_python import handler
 
-@handler(outputs=["df"])
-def downloader(url):
-    return url.as_df()
+@handler(outputs=["message"])
+def hello(name: str = "world"):
+    return f"Hello, {name}!"
 ```
 
-## Create a dataitem
-
-Second, create a dataitem to refernce a remote table containing the data we want:
+- Create a short script `run_hello.py` that registers the function and runs it:
 
 ```python
-url = "https://gist.githubusercontent.com/kevin336/acbb2271e66c10a5b73aacf82ca82784/raw/e38afe62e088394d61ed30884dd50a6826eee0a8/employees.csv"
-di = project.new_dataitem(name="employees-table", kind="table", path=url)
-```
+import digitalhub as dh
 
-## Create a function
+project = dh.get_or_create_project(name="hello-quickstart", description="Quickstart project")
 
-Third, create a function with the following command:
-
-```python
 func = project.new_function(
-    name="downloader",
+    name="hello",
     kind="python",
-    code_src="downloader.py",
-    handler="downloader",
-    python_version="PYTHON3_9",
+    code_src="hello.py",
+    handler="hello",
+    python_version="PYTHON3_10",
 )
-```
 
-## Run the function
+run = func.run(action="job", inputs={"name": "World"}, wait=True)
 
-Run the function with the following command:
-
-```python
-run = func.run(action="job",
-               inputs={"url": di.key},
-               wait=True)
-```
-
-And finally get the output result:
-
-```python
-run.output("df").as_df()
+print(run.output("message"))
 ```
