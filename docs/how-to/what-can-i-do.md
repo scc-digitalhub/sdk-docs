@@ -1,6 +1,6 @@
 # What can I do?
 
-A compact, skimmable list of common tasks you can perform with the Digitalhub SDK and where to find short examples or deeper docs.
+A compact list of common tasks you can perform with the Digitalhub SDK and where to find short examples or deeper docs.
 
 ---
 
@@ -61,6 +61,6 @@ Run jobs on Kubernetes or locally. Choose the runtime that fits your use case.
 ## Where to go next
 
 - Quick: follow the [Quickstart](./quickstart.md) example to run a hello-world handler.
-- Install: follow the [Installation Guide](./installation.md) to set up your environment.
+- Install: follow the [Installation Guide](./installation.md) to set up your environment (e.g. if you are on your local machine).
 - Examples: check the [Tutorials](../tutorials/index.md) for step-by-step projects.
 - API: browse the [Reference](../reference/index.md) for object and method details.
