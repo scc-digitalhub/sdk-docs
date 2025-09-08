@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
     
     
       
@@ -1905,6 +1905,15 @@
   <a href="#digitalhub.entities.run._base.entity.Run.log_metric" class="md-nav__link">
     <span class="md-ellipsis">
       log_metric
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digitalhub.entities.run._base.entity.Run.log_metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      log_metrics
     </span>
   </a>
   
@@ -4471,6 +4480,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#digitalhub.entities.run._base.entity.Run.log_metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      log_metrics
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5009,6 +5027,100 @@ If single_value is True, the value will be a single number.</p>
     <div class="language-pycon highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">entity</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="s2">&quot;accuracy&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">],</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </span></code></pre></div>
 
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="digitalhub.entities.run._base.entity.Run.log_metrics" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">log_metrics</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents first">
+
+        <p>Log metrics into entity status. If a metric is a list, it will be logged as a list.
+Otherwise, it will be logged as a single value.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>metrics</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="digitalhub.entities._commons.metrics.MetricType">MetricType</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Dict of metrics to log.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>overwrite</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If True, overwrite existing metrics.</p>
+              </div>
+            </td>
+            <td>
+                  <code>False</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code>None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="see-also" open>
+  <summary>See also</summary>
+  <p>log_metric</p>
+</details>
 
     </div>
 
