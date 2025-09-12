@@ -20,8 +20,9 @@ The kind supports specific actions.
 
 To execute a function, follow this pattern:
 
-1. Use `dh.new_function()` or `project.new_function()` to create the function, passing **function parameters**.
-2. Call `function.run()` with the desired action, passing **task parameters** and **run parameters**.
+1. Implement a Python function (see [Function definition](define-function.md) for detailed instructions on creating Python functions).
+2. Use `dh.new_function()` or `project.new_function()` to create the function, passing **function parameters**.
+3. Call `function.run()` with the desired action, passing **task parameters** and **run parameters**.
 
 ```python
 # Create function with function parameters
