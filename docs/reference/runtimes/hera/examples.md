@@ -67,3 +67,7 @@ run_build = workflow.run(
 # Execute the pipeline
 run_pipeline = workflow.run(action="pipeline")
 ```
+
+## Tutorials
+
+Find additional examples in the [tutorial repository](https://github.com/scc-digitalhub/digitalhub-tutorials) of the DSLab GitHub organization.

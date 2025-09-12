@@ -36,7 +36,7 @@ The runtime provides DSL helpers in `digitalhub_runtime_hera.dsl`:
 `step(**step_kwargs)` creates a workflow step (a Hera Task) inside a DAG or Steps context. Main arguments:
 
 | Parameter   | Type      | Example    | Description |
-|---|---:|---|---|
+|---|---|---|---|
 | template    | dict | {"action": "job"} | Parameters template to pass to `function.run()` or `workflow.run()`. The `action` key is always required. To pass inputs from other steps use the `{{inputs.parameters.parameter_name}}` template syntax. |
 | function    | str  | "download-data" | Name of the digitalhub function to execute. |
 | function_id | str  | "abc123"        | Function ID (optional). |
@@ -81,5 +81,3 @@ def pipeline():
 
     return w
 ```
-
-[Next section](execution.md) provides an overview of the arguments required to create a `Workflow` object and start a run.

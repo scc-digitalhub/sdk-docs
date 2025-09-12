@@ -12,7 +12,7 @@ The Python runtime enables you to execute user-defined Python handlers. It regis
 
 - Python ≥ 3.9, < 3.13
 
-**Required package:**
+**Required packages:**
 
 - `digitalhub-runtime-python`
 
@@ -27,7 +27,8 @@ pip install digitalhub-runtime-python
 To execute a Python handler on the platform:
 
 1. Implement the handler as described in [handler definition](define-function.md).
-2. Create a `Function` resource that references your handler and declares inputs/outputs and call `function.run()` to [execute](execution.md) the handler.
-3. Retrieve eventual outputs from the `Run`.
+2. Create a `Function` resource that references your handler and declares inputs/outputs.
+3. Call `function.run()` to execute the handler.
 
+See [how to](how-to.md) for detailed instructions on which actions you can execute and how to configure your Python functions.
 See [Examples](examples.md) for code samples.

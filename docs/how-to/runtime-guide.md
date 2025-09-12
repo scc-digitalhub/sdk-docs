@@ -11,16 +11,18 @@ This guide helps you choose the right runtime for your use case. The DigitalHub 
 | Orchestrate multiple steps | [Hera Runtime](../reference/runtimes/hera/overview.md) | Workflow orchestration, DAGs |
 | Serve ML models | [ModelServe Runtime](../reference/runtimes/modelserve/overview.md) | Model inference, API serving |
 | Transform tabular data | [DBT Runtime](../reference/runtimes/dbt/overview.md) | Data transformation, SQL workflows |
+| Run federated learning | [Flower Runtime](../reference/runtimes/flower/overview.md) | Federated learning, privacy-preserving ML |
 
 ## Runtime Capabilities Matrix
 
-| Runtime | Local Execution | Remote Execution | Multi-step Workflows | Model Serving | Data Processing |
-|---|---|---|---|---|---|
-| **Python** | ✅ | ✅ | ❌ | ✅ | ✅ |
-| **Container** | ❌ | ✅ | ❌ | ❌ | ✅ |
-| **Hera** | ❌ | ✅ | ✅ | ❌ | ✅ |
-| **ModelServe** | ❌ | ✅ | ❌ | ✅ | ❌ |
-| **DBT** | ✅ | ✅ | ❌ | ❌ | ✅ |
+| Runtime | Local Execution | Remote Execution | Multi-step Workflows | Model Serving | Data Processing | Federated Learning |
+|---|---|---|---|---|---|---|
+| **Python** | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ |
+| **Container** | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
+| **Hera** | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ |
+| **ModelServe** | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+| **DBT** | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ |
+| **Flower** | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ |
 
 ## Detailed Selection Guide
 
@@ -64,6 +66,15 @@ This guide helps you choose the right runtime for your use case. The DigitalHub 
 - You work with tabular data
 - You need SQL-based data transformations
 
+### Flower Runtime
+
+**Choose when:**
+
+- You want to implement federated learning
+- You need privacy-preserving machine learning
+- You work with distributed datasets across multiple parties
+- You want to use the Flower framework for FL
+
 ## Getting Started with Your Chosen Runtime
 
 Once you've selected a runtime, follow these steps:
@@ -82,3 +93,4 @@ If you're still unsure which runtime to use, consider:
 - **Use Hera Runtime** if you have multiple coordinated steps
 - **Use ModelServe Runtime** if you need to serve ML models
 - **Use DBT Runtime** if you work primarily with SQL and tabular data
+- **Use Flower Runtime** if you need federated learning capabilities

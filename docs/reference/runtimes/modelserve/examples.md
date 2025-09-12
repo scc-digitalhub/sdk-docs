@@ -51,3 +51,7 @@ function = project.new_function(
 
 run = function.run(action="serve")
 ```
+
+## Tutorials
+
+Find additional examples in the [tutorial repository](https://github.com/scc-digitalhub/digitalhub-tutorials) of the DSLab GitHub organization.

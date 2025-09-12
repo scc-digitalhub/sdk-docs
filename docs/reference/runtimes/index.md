@@ -1,6 +1,6 @@
 # Runtimes
 
-Func- [Modelserve](modelserve/overview.md) — model serving and inference workloads.ions are the logical description of something that the platform may execute and track for you. A function may represent code to run as a job, an ML model inference to be used as batch procedure or as a service, a data validation, etc.
+Functions are the logical description of something that the platform may execute and track for you. A function may represent code to run as a job, an ML model inference to be used as batch procedure or as a service, a data validation, etc.
 
 In the platform we perform actions over functions (also referred to as "tasks"), such as job execution, deploy, container image build. A single action execution is called run, and the platform keeps track of these runs, with metadata about function version, operation parameters, and runtime parameters for a single execution.
 
@@ -15,4 +15,5 @@ Runtimes define the key point of extension of the platform: new runtimes may be 
 - [DBT](dbt/overview.md) — run DBT transformations for data modeling.
 - [Hera](hera/overview.md) — Hera pipelines runtime (DAG/steps orchestration).
 - [ModelServe](modelserve/overview.md) — model serving and inference workloads.
+- [Flower](flower/overview.md) — federated learning with Flower framework.
 - [KFP](kfp.md) — Kubeflow Pipelines runtime for pipeline orchestration.

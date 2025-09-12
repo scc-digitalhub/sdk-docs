@@ -1,11 +1,24 @@
 # Execution Overview
 
-This section explains how to execute a function in the DBT runtime.
-First, we examine the usage pattern, then delve into the parameter structure.
+This section explains how to execute dbt transformations in the DBT runtime.
+First, we list the function types and actions, then we examine the usage pattern, including local vs remote execution.
+Finally, we provide links to detailed documentation for each parameter category.
+
+## Function types and Actions
+
+There is one function kind in the DBT runtime:
+
+- `dbt`: Execute dbt transformations
+
+The kind supports specific actions.
+
+| Function Kind | Supported Actions |
+| --- | --- |
+| `dbt` | `transform` |
 
 ## Usage Pattern
 
-To execute a dbt function, follow this pattern:
+To execute a dbt transformation, follow this pattern:
 
 1. Use `dh.new_function()` or `project.new_function()` to create the function, passing **function parameters**.
 2. Call `function.run()` with the desired action, passing **task parameters** and **run parameters**.
@@ -36,26 +49,8 @@ When executing a function, you can choose between **local execution** and **remo
 
 - **Remote Execution** (`local_execution=False`, default): The function is executed on a remote server or cluster managed by the platform.
 
-## Parameter Structure
+## Parameter Documentation
 
-Parameters are organized into three categories:
+Here are links to the detailed documentation for each parameter category:
 
-- **Function Parameters**: Define the function's `spec` attributes, such as source code and execution environment. These are set when creating the function.
-
-- **Task Parameters**: Specify the action type and execution environment configuration. For DBT runtimes, the action is `transform`.
-
-- **Run Parameters**: Control runtime behavior, such as local vs. remote execution, input mappings, and output specifications.
-
-## Task Actions
-
-The DBT runtime supports one task action:
-
-- **`transform`**: Execute a dbt transformation
-
-## Detailed Documentation
-
-For comprehensive details on each parameter category:
-
-- [Function Parameters](entities/function.md) — Complete reference for function creation and configuration.
-- [Task Parameters](entities/task.md) — Execution modes and runtime settings.
-- [Run Parameters](entities/run.md) — Input/output mappings and execution options.
+- [DBT Transform](actions/dbt-transform.md) — Complete reference for the transform action including function, task, and run parameters.

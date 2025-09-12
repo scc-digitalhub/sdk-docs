@@ -1,7 +1,20 @@
 # Execution Overview
 
 This section explains how to execute a function in the Python runtime.
-First, we examine the usage pattern, then delve into the parameter structure.
+First, we list the function types and actions, then we examine the usage pattern, including local vs remote execution.
+Finally, we provide links to detailed documentation for each parameter category.
+
+## Function types and Actions
+
+There is one function kind in the Python runtime:
+
+- `python`: Execute Python handlers on Kubernetes
+
+The kind supports specific actions.
+
+| Function Kind | Supported Actions |
+| --- | --- |
+| `python` | `job`, `serve`, `build` |
 
 ## Usage Pattern
 
@@ -38,23 +51,13 @@ When executing a function, you can choose between **local execution** and **remo
 
 - **Remote Execution** (`local_execution=False`, default): The function is executed on a remote server or cluster managed by the platform. Remember to provide the dependencies in the function's `requirements` parameter or in your `requirements.txt`.
 
-!!! Note - serve
+!!! note
     Note that some features, like serving functions, are only available with remote execution.
 
-## Parameter Structure
+## Parameter Documentation
 
-Parameters are organized into three categories, each serving a distinct purpose in the function execution lifecycle and in the specification of execution entities (`Function`, `Task`, `Run`):
+Here are links to the detailed documentation for each Python action:
 
-- **Function Parameters**: Define the function's `spec` attributes, such as source code, handler, Python version, and execution environment. These are set when creating the function using `dh.new_function()` or `project.new_function()`.
-
-- **Task Parameters**: Specify the action type and execution environment configuration. For Python runtimes, actions are `job`, `serve`, or `build`.
-
-- **Run Parameters**: Control runtime behavior, such as local vs. remote execution, input mappings, and additional parameters passed to the function handler.
-
-## Detailed Documentation
-
-For comprehensive details on each parameter category:
-
-- [Function Parameters](entities/function.md) — Complete reference for function creation and configuration.
-- [Task Parameters](entities/task.md) — Execution modes and runtime settings.
-- [Run Parameters](entities/run.md) — Input/output mappings and execution options.
+- [Python Job](actions/python-job.md) — Execute a Python function as a one-off task
+- [Python Serve](actions/python-serve.md) — Deploy a Python function as an HTTP endpoint
+- [Python Build](actions/python-build.md) — Build a container image for a Python function

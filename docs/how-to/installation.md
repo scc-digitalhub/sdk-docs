@@ -29,9 +29,10 @@ The Digitalhub runtimes are installed in the same way as the SDK. We have distri
 - [digitalhub-runtime-python](../reference/runtimes/python/overview.md)
 - [digitalhub-runtime-container](../reference/runtimes/container/overview.md)
 - [digitalhub-runtime-dbt](../reference/runtimes/dbt/overview.md)
+- [digitalhub-runtime-flower](../reference/runtimes/flower/overview.md)
 - [digitalhub-runtime-hera](../reference/runtimes/hera/overview.md)
-- [digitalhub-runtime-kfp](../reference/runtimes/kfp.md)
 - [digitalhub-runtime-modelserve](../reference/runtimes/modelserve/overview.md)
+- [digitalhub-runtime-kfp](../reference/runtimes/kfp.md)
 
 You can install the runtime directly with pip. It will come with all the required SDK dependencies:
 
@@ -43,14 +44,23 @@ python -m pip install digitalhub-runtime-python
 python -m pip install digitalhub-runtime-container
 
 # Install dbt runtime
+python -m pip install digitalhub-runtime-dbt
+
+# Install dbt runtime with local execution support
 python -m pip install digitalhub-runtime-dbt[local]
+
+# Install flower runtime
+python -m pip install digitalhub-runtime-flower
+
+# Install flower runtime with local simulation support
+python -m pip install digitalhub-runtime-flower[local]
 
 # Install hera runtime
 python -m pip install digitalhub-runtime-hera
 
-# Install kfp runtime
-python -m pip install digitalhub-runtime-kfp
-
 # Install modelserve runtime
 python -m pip install digitalhub-runtime-modelserve
+
+# Install kfp runtime
+python -m pip install digitalhub-runtime-kfp
 ```
