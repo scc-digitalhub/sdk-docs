@@ -1,10 +1,42 @@
 # Credentials handling
 
-Credentials handling covers access to protected resources (APIs, databases, cloud storage, Git). The SDK provides integrations for:
+Credentials handling covers access to protected resources (APIs, databases, cloud storage, Git).
+Credentials can be supplied via environment variables or `.dhcore.ini` configuration files.
 
-- [API DHCore](./dhcore.md)
-- [Databases](./sql.md)
-- [S3 storage](./s3.md)
-- [Git repositories](./git.md)
+## Environment variables
 
-Credentials can be supplied via environment variables or configuration files. See each resource page for configuration details and examples.
+Set the variables in your shell or CI environment. Example:
+
+```bash
+export VAR_NAME=value
+
+# Launch your script / jupyter notebook / etc
+```
+
+## Configuration file (.dhcore.ini)
+
+You can also place credentials in the `.dhcore.ini` file under a profile. The file **MUST** be placed in user home directory. The file is structured as follows:
+
+```text
+[DEFAULT]
+current_environment = local
+
+[local]
+dhcore_endpoint = http://192.168.58.2:30180
+aws_endpoint_url = http://192.168.58.2:30080
+...
+
+[other-env]
+dhcore_endpoint = http://other-env:30180
+aws_endpoint_url = http://other-env:30080
+...
+```
+
+The `current_environment` field in the `[DEFAULT]` section selects which credentials profile the SDK will use. There can be multiple profiles (e.g., `local`, `staging`, `production`) and the profile name is user defined. You can use the [`dhcore` CLI](https://scc-digitalhub.github.io/docs/cli/commands/) to manage profiles.
+
+For the fields and values, see each resource page below. Just note that git credentials are **not** stored in the `.dhcore.ini` file.
+
+- [API DHCore](./dhcore.md) - Credentials and utilities for the DigitalHub platform API
+- [S3 storage](./s3.md) - Credentials and utilities for S3 storage
+- [Databases](./sql.md) - Credentials and utilities for SQL databases
+- [Git repositories](./git.md) - Credentials for Git repositories

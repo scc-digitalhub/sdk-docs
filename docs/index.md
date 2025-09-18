@@ -12,7 +12,7 @@ The SDK is open source under [Apache License 2.0](https://github.com/scc-digital
 - **[Installation Guide](./how-to/installation.md)** — Set up the SDK and required runtimes
 - **[Quickstart Tutorial](./how-to/quickstart.md)** — Your first "Hello World" example
 - **[Runtime Guide](./how-to/runtime-guide.md)** — Choose the perfect runtime for your use case
-- **[Environment Setup](./reference/configuration/credentials/overview.md)** — Configure credentials and connections
+- **[Environment Setup and Configuration](./reference/configuration/credentials/overview.md)** — Configure credentials and connections
 
 ## Contents
 

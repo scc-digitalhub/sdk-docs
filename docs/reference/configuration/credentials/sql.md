@@ -31,14 +31,23 @@ export DB_SCHEMA=public
 You can also place credentials in the `.dhcore.ini` file under a profile. Example format:
 
 ```text
-[__default]
-DB_HOST = postgres.example.com
-DB_PORT = 5432
-DB_USERNAME = myuser
-DB_PASSWORD = s3cr3t
-DB_DATABASE = mydb
-DB_PLATFORM = postgres
-DB_SCHEMA = public
+db_host      = postgres.example.com
+db_port      = 5432
+db_username  = myuser
+db_password  = s3cr3t
+db_database  = mydb
+db_platform  = postgres
+db_schema    = public
+```
+
+## Utils
+
+The SDK provides an utility to get a configured SQLAlchemy engine:
+
+```python
+import digitlhub as dh
+
+engine = dh.get_sql_engine()
 ```
 
 ## Notes
