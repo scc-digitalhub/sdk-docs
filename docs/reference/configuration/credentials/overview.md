@@ -32,9 +32,21 @@ aws_endpoint_url = http://other-env:30080
 ...
 ```
 
-The `current_environment` field in the `[DEFAULT]` section selects which credentials profile the SDK will use. There can be multiple profiles (e.g., `local`, `staging`, `production`) and the profile name is user defined. You can use the [`dhcore` CLI](https://scc-digitalhub.github.io/docs/cli/commands/) to manage profiles.
+The `current_environment` field in the `[DEFAULT]` section selects which credentials profile the SDK will use. There can be multiple profiles (e.g., `local`, `staging`, `production`) and the profile name is user defined. You can use the [`dhcore` CLI](https://scc-digitalhub.github.io/docs/cli/commands/) to manage profiles or the following SDK methods:
 
-For the fields and values, see each resource page below. Just note that git credentials are **not** stored in the `.dhcore.ini` file.
+```python
+import digitalhub as dh
+
+# To read the current set of credentials/profile
+dh.get_current_environment()
+
+# To change the current profile
+dh.set_current_environment("other-env")
+```
+
+## Credentials values
+
+For the credentials fields and values, see each resource page below. Just note that git credentials are **not** stored in the `.dhcore.ini` file.
 
 - [API DHCore](./dhcore.md) - Credentials and utilities for the DigitalHub platform API
 - [S3 storage](./s3.md) - Credentials and utilities for S3 storage
