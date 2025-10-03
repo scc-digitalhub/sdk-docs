@@ -65,6 +65,7 @@ Can only be specified when calling `function.run()`.
 | Name | Type | Description |
 | --- | --- | --- |
 | auth_public_keys | list[str] | List of public keys for client authentication. |
+| insecure | bool | Disable TLS verification (default False). |
 
 ## Entity methods
 
