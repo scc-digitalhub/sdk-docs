@@ -1,6 +1,7 @@
-import sys
-import re
 import functools
+import re
+import sys
+
 
 # Normalize version for easier comparison
 def normalize(version):
