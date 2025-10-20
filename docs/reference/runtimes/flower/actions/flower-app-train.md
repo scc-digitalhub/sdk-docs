@@ -8,9 +8,9 @@ The runtime uses the command `flwr run` to start the Flower application.
 
 There are different ways to create a Flower application function, depending on the source of the code:
 
-1. **From a Git repository**: The source code is stored in a Git repository, and the `source` parameter is used to point to the repository URL. In this case, the `appclient` and `appserver` parameters **MUST NOT** be provided, as the code will be fetched from the repository. The repository **MUST** contain a valid `pyproject.toml` file that configures the Flower application. The run parameters are then used to override the configuration in the file by passing options to the `flwr` command with arguments `--federation-config` and `--run-config`.
+1. **From a Git repository**: The source code is stored in a Git repository, and the `source` parameter is used to point to the repository URL. In this case, the `client_app` and `server_app` parameters **MUST NOT** be provided, as the code will be fetched from the repository. The repository **MUST** contain a valid `pyproject.toml` file that configures the Flower application. The run parameters are then used to override the configuration in the file by passing options to the `flwr` command with arguments `--federation-config` and `--run-config`.
 
-2. **From local code references**: The Flower client and server code are provided directly using the `appclient` and `appserver` parameters. In this case, the `source` parameter **MUST NOT** be provided. The client and server code **MUST** be valid Flower implementations. The run parameters are used to create a `pyproject.toml` file that configures the Flower application.
+2. **From local code references**: The Flower client and server code are provided directly using the `client_app` and `server_app` parameters. In this case, the `source` parameter **MUST NOT** be provided. The client and server code **MUST** be valid Flower implementations. The run parameters are used to create a `pyproject.toml` file that configures the Flower application.
 
 ## Quick example with bare minimum parameters
 
@@ -25,13 +25,34 @@ f = dh.new_function(
 )
 run = f.run(action="train")
 
+# Use case using string source code
+client_code = """
+flower Client code here...
+app = ClientClass(...)
+"""
 
-# Use case with client and server
+server_code = """
+flower Server code here...
+app = ServerClass(...)
+"""
 f = dh.new_function(
     name="my-flower-app",
     kind="flower-app",
-    appclient="dir.subdir.clientfile:ClientClass",
-    appserver="dir.subdir.serverfile:ServerClass",
+    client_code=client_code,
+    server_code=server_code,
+    client_app="name-of-client-class-instance",
+    server_app="name-of-server-class-instance",
+)
+
+
+# Use case with client and server in a file reference
+f = dh.new_function(
+    name="my-flower-app",
+    kind="flower-app",
+    client_src="path-to-client-file.py",
+    server_src="path-to-server-file.py",
+    client_app="name-of-client-class-instance",
+    server_app="name-of-server-class-instance",
 )
 run = f.run(
     action="train",
@@ -54,23 +75,35 @@ Must be specified when creating the function.
 | description | str | Description of the object. |
 | labels | list[str] | List of labels. |
 | embedded | bool | Whether the object should be embedded in the project. |
-| [source](../../../configuration/code_src/git.md) | str | URI pointing to the **git** repo source code. For this runtime there is no need to specify a handler. |
-| [appclient](#appcode) | str | Flower client code reference. |
-| [appserver](#appcode) | str | Flower server code reference. |
+| [git_source](../../../configuration/code_src/git.md) | str | URI pointing to the **git** repo source code. For this runtime there is no need to specify a handler. |
+| [client_code](#string-source-code) | str | Source code of the Flower client application as a string. |
+| [server_code](#string-source-code) | str | Source code of the Flower server application as a string. |
+| [client_src](#local-path-source-code) | str | Local path to the Flower client application source code. |
+| [server_src](#local-path-source-code) | str | Local path to the Flower server application source code. |
+| [client_app](#appcode) | str | Name of the Flower client application instance. |
+| [server_app](#appcode) | str | Name of the Flower server application instance. |
 | image | str | Custom Docker image for execution of Flower code. |
 | base_image | str | Base Docker image to use. |
 | requirements | list[str] | Additional Python package requirements. |
 
+#### String source code
+
+The `client_src` and `server_src` parameters contain the source code of the Flower client and server applications as strings. These strings must be valid Python code. The string source code will be encoded in base64 format and included in the `fab_source` field of the function specification.
+
+#### Local path source code
+
+The `client_src` and `server_src` parameters can also be specified as local paths to the Flower client and server application source code files. These paths must point to valid Python files. The files will be read and their content encoded in base64 format and included in the `fab_source` field of the function specification.
+
 #### Appcode
 
-The `appclient` and `appserver` parameters reference two distinct files that contains valid Flower client and server code respectively. The form they **MUST** take is:
+The `client_app` and `server_app` parameters reference two distinct files that contains valid Flower client and server code respectively. The form they **MUST** take is:
 
 ```python
-appclient = "path.to.client:ClientClass"
-appserver = "path.to.server:ServerClass"
+client_app = "name-of-ClientClass-instance"
+server_app = "name-of-ServerClass-instance"
 ```
 
-Where `ClientClass` and `ServerClass` are the names of the classes implementing the Flower client and server respectively. Do not specify the `.py` file extension.
+Where `ClientClass` and `ServerClass` are the classes implementing the Flower client and server respectively.
 
 ### Task Parameters
 
