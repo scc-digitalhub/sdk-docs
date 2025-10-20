@@ -3838,6 +3838,24 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#string-source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      String source code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-path-source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local path source code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#appcode" class="md-nav__link">
     <span class="md-ellipsis">
       Appcode
@@ -4685,6 +4703,24 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#string-source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      String source code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-path-source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local path source code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#appcode" class="md-nav__link">
     <span class="md-ellipsis">
       Appcode
@@ -4786,10 +4822,10 @@
 <p>There are different ways to create a Flower application function, depending on the source of the code:</p>
 <ol>
 <li>
-<p><strong>From a Git repository</strong>: The source code is stored in a Git repository, and the <code>source</code> parameter is used to point to the repository URL. In this case, the <code>appclient</code> and <code>appserver</code> parameters <strong>MUST NOT</strong> be provided, as the code will be fetched from the repository. The repository <strong>MUST</strong> contain a valid <code>pyproject.toml</code> file that configures the Flower application. The run parameters are then used to override the configuration in the file by passing options to the <code>flwr</code> command with arguments <code>--federation-config</code> and <code>--run-config</code>.</p>
+<p><strong>From a Git repository</strong>: The source code is stored in a Git repository, and the <code>source</code> parameter is used to point to the repository URL. In this case, the <code>client_app</code> and <code>server_app</code> parameters <strong>MUST NOT</strong> be provided, as the code will be fetched from the repository. The repository <strong>MUST</strong> contain a valid <code>pyproject.toml</code> file that configures the Flower application. The run parameters are then used to override the configuration in the file by passing options to the <code>flwr</code> command with arguments <code>--federation-config</code> and <code>--run-config</code>.</p>
 </li>
 <li>
-<p><strong>From local code references</strong>: The Flower client and server code are provided directly using the <code>appclient</code> and <code>appserver</code> parameters. In this case, the <code>source</code> parameter <strong>MUST NOT</strong> be provided. The client and server code <strong>MUST</strong> be valid Flower implementations. The run parameters are used to create a <code>pyproject.toml</code> file that configures the Flower application.</p>
+<p><strong>From local code references</strong>: The Flower client and server code are provided directly using the <code>client_app</code> and <code>server_app</code> parameters. In this case, the <code>source</code> parameter <strong>MUST NOT</strong> be provided. The client and server code <strong>MUST</strong> be valid Flower implementations. The run parameters are used to create a <code>pyproject.toml</code> file that configures the Flower application.</p>
 </li>
 </ol>
 <h2 id="quick-example-with-bare-minimum-parameters">Quick example with bare minimum parameters</h2>
@@ -4803,18 +4839,39 @@
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">)</span>
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">run</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;train&quot;</span><span class="p">)</span>
 </span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="c1"># Use case with client and server</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">f</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;my-flower-app&quot;</span><span class="p">,</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;flower-app&quot;</span><span class="p">,</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="n">appclient</span><span class="o">=</span><span class="s2">&quot;dir.subdir.clientfile:ClientClass&quot;</span><span class="p">,</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    <span class="n">appserver</span><span class="o">=</span><span class="s2">&quot;dir.subdir.serverfile:ServerClass&quot;</span><span class="p">,</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="p">)</span>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="n">run</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    <span class="n">action</span><span class="o">=</span><span class="s2">&quot;train&quot;</span><span class="p">,</span>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>    <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="o">...</span><span class="p">},</span>  <span class="c1"># Parameters used to build the pyproject.toml</span>
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="p">)</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># Use case using string source code</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">client_code</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="s2">flower Client code here...</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="s2">app = ClientClass(...)</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="s2">&quot;&quot;&quot;</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="n">server_code</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="s2">flower Server code here...</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="s2">app = ServerClass(...)</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="s2">&quot;&quot;&quot;</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="n">f</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;my-flower-app&quot;</span><span class="p">,</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;flower-app&quot;</span><span class="p">,</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>    <span class="n">client_code</span><span class="o">=</span><span class="n">client_code</span><span class="p">,</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>    <span class="n">server_code</span><span class="o">=</span><span class="n">server_code</span><span class="p">,</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>    <span class="n">client_app</span><span class="o">=</span><span class="s2">&quot;name-of-client-class-instance&quot;</span><span class="p">,</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>    <span class="n">server_app</span><span class="o">=</span><span class="s2">&quot;name-of-server-class-instance&quot;</span><span class="p">,</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="p">)</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="c1"># Use case with client and server in a file reference</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="n">f</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;my-flower-app&quot;</span><span class="p">,</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;flower-app&quot;</span><span class="p">,</span>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>    <span class="n">client_src</span><span class="o">=</span><span class="s2">&quot;path-to-client-file.py&quot;</span><span class="p">,</span>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>    <span class="n">server_src</span><span class="o">=</span><span class="s2">&quot;path-to-server-file.py&quot;</span><span class="p">,</span>
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>    <span class="n">client_app</span><span class="o">=</span><span class="s2">&quot;name-of-client-class-instance&quot;</span><span class="p">,</span>
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>    <span class="n">server_app</span><span class="o">=</span><span class="s2">&quot;name-of-server-class-instance&quot;</span><span class="p">,</span>
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="p">)</span>
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="n">run</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>    <span class="n">action</span><span class="o">=</span><span class="s2">&quot;train&quot;</span><span class="p">,</span>
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>    <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="o">...</span><span class="p">},</span>  <span class="c1"># Parameters used to build the pyproject.toml</span>
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="p">)</span>
 </span></code></pre></div>
 <h2 id="parameters">Parameters</h2>
 <h3 id="function-parameters">Function Parameters</h3>
@@ -4864,19 +4921,39 @@
 <td>Whether the object should be embedded in the project.</td>
 </tr>
 <tr>
-<td><a href="../../../../configuration/code_src/git/">source</a></td>
+<td><a href="../../../../configuration/code_src/git/">git_source</a></td>
 <td>str</td>
 <td>URI pointing to the <strong>git</strong> repo source code. For this runtime there is no need to specify a handler.</td>
 </tr>
 <tr>
-<td><a href="#appcode">appclient</a></td>
+<td><a href="#string-source-code">client_code</a></td>
 <td>str</td>
-<td>Flower client code reference.</td>
+<td>Source code of the Flower client application as a string.</td>
 </tr>
 <tr>
-<td><a href="#appcode">appserver</a></td>
+<td><a href="#string-source-code">server_code</a></td>
 <td>str</td>
-<td>Flower server code reference.</td>
+<td>Source code of the Flower server application as a string.</td>
+</tr>
+<tr>
+<td><a href="#local-path-source-code">client_src</a></td>
+<td>str</td>
+<td>Local path to the Flower client application source code.</td>
+</tr>
+<tr>
+<td><a href="#local-path-source-code">server_src</a></td>
+<td>str</td>
+<td>Local path to the Flower server application source code.</td>
+</tr>
+<tr>
+<td><a href="#appcode">client_app</a></td>
+<td>str</td>
+<td>Name of the Flower client application instance.</td>
+</tr>
+<tr>
+<td><a href="#appcode">server_app</a></td>
+<td>str</td>
+<td>Name of the Flower server application instance.</td>
 </tr>
 <tr>
 <td>image</td>
@@ -4895,12 +4972,16 @@
 </tr>
 </tbody>
 </table>
+<h4 id="string-source-code">String source code</h4>
+<p>The <code>client_src</code> and <code>server_src</code> parameters contain the source code of the Flower client and server applications as strings. These strings must be valid Python code. The string source code will be encoded in base64 format and included in the <code>fab_source</code> field of the function specification.</p>
+<h4 id="local-path-source-code">Local path source code</h4>
+<p>The <code>client_src</code> and <code>server_src</code> parameters can also be specified as local paths to the Flower client and server application source code files. These paths must point to valid Python files. The files will be read and their content encoded in base64 format and included in the <code>fab_source</code> field of the function specification.</p>
 <h4 id="appcode">Appcode</h4>
-<p>The <code>appclient</code> and <code>appserver</code> parameters reference two distinct files that contains valid Flower client and server code respectively. The form they <strong>MUST</strong> take is:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">appclient</span> <span class="o">=</span> <span class="s2">&quot;path.to.client:ClientClass&quot;</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">appserver</span> <span class="o">=</span> <span class="s2">&quot;path.to.server:ServerClass&quot;</span>
+<p>The <code>client_app</code> and <code>server_app</code> parameters reference two distinct files that contains valid Flower client and server code respectively. The form they <strong>MUST</strong> take is:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">client_app</span> <span class="o">=</span> <span class="s2">&quot;name-of-ClientClass-instance&quot;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">server_app</span> <span class="o">=</span> <span class="s2">&quot;name-of-ServerClass-instance&quot;</span>
 </span></code></pre></div>
-<p>Where <code>ClientClass</code> and <code>ServerClass</code> are the names of the classes implementing the Flower client and server respectively. Do not specify the <code>.py</code> file extension.</p>
+<p>Where <code>ClientClass</code> and <code>ServerClass</code> are the classes implementing the Flower client and server respectively.</p>
 <h3 id="task-parameters">Task Parameters</h3>
 <p>Can only be specified when calling <code>function.run()</code>.</p>
 <table>
