@@ -4842,12 +4842,13 @@ To better understand the Kubernetes configuration options, refer to the <a href=
 <li>You need to control pod placement -&gt; <a href="#node-selector">Set node selector</a></li>
 </ul>
 <h2 id="resources">Resources</h2>
-<p>Declare hardware requests/limits using the <code>resources</code> map. Supported keys: <code>cpu</code> and <code>mem</code>. Each is an object with optional <code>requests</code> and <code>limits</code> strings.</p>
+<p>Declare hardware requests/limits using the <code>resources</code> map. Supported keys: <code>cpu</code>, <code>mem</code> and <code>gpu</code>. Each is an object with optional string.</p>
 <p>The SDK validates resource strings with a simple pattern (digits or digits+unit). Examples:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">resources</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="s2">&quot;cpu&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;requests&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;limits&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">},</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="s2">&quot;mem&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;requests&quot;</span><span class="p">:</span> <span class="s2">&quot;4Gi&quot;</span><span class="p">,</span> <span class="s2">&quot;limits&quot;</span><span class="p">:</span> <span class="s2">&quot;8Gi&quot;</span><span class="p">}</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="s2">&quot;cpu&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="s2">&quot;mem&quot;</span><span class="p">:</span> <span class="s2">&quot;4Gi&quot;</span><span class="p">,</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="s2">&quot;gpu&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>For GPU selection you need to use a <code>profile</code> (see below) depending on your cluster setup.</p>
 <h2 id="profile">Profile</h2>
