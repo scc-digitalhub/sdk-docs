@@ -40,13 +40,26 @@ The runtime provides DSL helpers in `digitalhub_runtime_hera.dsl`:
 | template    | dict | {"action": "job"} | Parameters template to pass to `function.run()` or `workflow.run()`. The `action` key is always required. To pass inputs from other steps use the `{{inputs.parameters.parameter_name}}` template syntax. |
 | function    | str  | "download-data" | Name of the digitalhub function to execute. |
 | function_id | str  | "abc123"        | Function ID (optional). |
-| workflow    | str  | "my-workflow"   | Workflow name (optional). |
-| workflow_id | str  | "def456"        | Workflow ID (optional). |
 | name        | str  | "step1"         | Step name. |
-| inputs      | dict | {"some-input": ANOTHER_STEP.get_parameter("some-output")} | Step inputs. Keys become Hera Parameters; values can reference other steps' outputs. |
-| outputs     | list | ["output1"]     | Step outputs. These become Hera Outputs and Artifacts. |
+| [inputs](#step-inputs-and-outputs) | dict | {"some-input": ANOTHER_STEP.get_parameter("some-output")} | Step inputs. Keys become Hera Parameters; values can reference other steps' outputs. |
+| [outputs](#step-inputs-and-outputs) | list | ["output1"]     | Step outputs. These become Hera Outputs and Artifacts. |
 
 Other keyword arguments are forwarded to the underlying container template. `step` must be called inside a `DAG` or `Steps` context.
+
+#### Step Inputs and Outputs
+
+Step inputs are defined via the `inputs` argument to `step(...)`. This is a dictionary where keys are input names and values can reference outputs from other steps using the `get_parameter(...)` method. For example:
+
+```python
+
+# Here the step A (let say a python function) produces an output named "data"
+A = step(template={"action":"job"}, function="step-a", outputs=["data"])
+
+# Step B consumes the output "data" from step A as its input. Because "data" is an output of step A, we use A.get_parameter("data") to reference it. Note that the input name "input_data" in step B can be different from the output name "data" in step A.
+# In the template of step B, we use the template syntax {{inputs.parameters.data-from-b}} to refer to the input parameter.
+# The "inputs" provided in template of step B belongs to the spec of the function "step-b", in this case a python function.
+B = step(template={"action":"job", "inputs": {"parameter-name": "{{inputs.parameters.data-from-b}}"}}, function="step-b", inputs={"data-from-b": A.get_parameter("data")})
+```
 
 ### `container_template` function
 
