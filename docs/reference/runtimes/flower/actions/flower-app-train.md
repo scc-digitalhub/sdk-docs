@@ -131,7 +131,7 @@ Can only be specified when calling `function.run()`.
 | [parameters](#execution-parameters) | dict | Training configuration parameters. |
 | federation | str | Name of the Flower federation for coordination. **Only for remote execution.** |
 | superlink | str | SuperLink service endpoint. **Only for remote execution.** |
-| root_certificates | str | Path to root certificates for secure communication. **Only for remote execution.** |
+| root_certificates | str | Content of the root certificate as string. **Only for remote execution.** |
 
 #### Execution parameters
 

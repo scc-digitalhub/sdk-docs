@@ -66,9 +66,9 @@ Can only be specified when calling `function.run()`.
 | --- | --- | --- |
 | superlink | str | Flower superlink service endpoint for coordination. |
 | node_config | dict | Node configuration parameters for the Flower client. |
-| root_certificates | str | Path to root certificates for secure communication. |
-| private_key_secret | str | Name of the secret containing the private key for secure communication. |
-| public_key_secret | str | Public key in PEM format. |
+| root_certificates | str | Content of the root certificate as string. |
+| private_key_secret | str | Name of the [secret](../../../objects/secret/entity.md) containing the private key for secure communication. |
+| public_key_secret | str | Name of the [secret](../../../objects/secret/entity.md) containing the public key for secure communication. |
 | isolation | str | Isolation mode: `process` or `subprocess`. |
 
 ## Entity methods
