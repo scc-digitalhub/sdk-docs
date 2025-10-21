@@ -16,14 +16,15 @@ To better understand the Kubernetes configuration options, refer to the [Kuberne
 
 ## Resources
 
-Declare hardware requests/limits using the `resources` map. Supported keys: `cpu` and `mem`. Each is an object with optional `requests` and `limits` strings.
+Declare hardware requests/limits using the `resources` map. Supported keys: `cpu`, `mem` and `gpu`. Each is an object with optional string.
 
 The SDK validates resource strings with a simple pattern (digits or digits+unit). Examples:
 
 ```python
 resources = {
-    "cpu": {"requests": "2", "limits": "4"},
-    "mem": {"requests": "4Gi", "limits": "8Gi"}
+    "cpu": "2",
+    "mem": "4Gi",
+    "gpu": "1"
 }
 ```
 
