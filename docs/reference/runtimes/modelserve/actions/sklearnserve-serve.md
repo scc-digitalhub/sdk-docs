@@ -12,7 +12,7 @@ The sklearnserve function kind supports deploying scikit-learn models as REST AP
 function = dh.new_function(
     name="my-sklearn-service",
     kind="sklearnserve",
-    path="s3://my-bucket/path-to-model/model.pkl"
+    path=model.key
 )
 
 run = function.run(
@@ -36,17 +36,13 @@ Must be specified when creating the function.
 | description | str | Description of the object. |
 | labels | list[str] | List of labels. |
 | embedded | bool | Whether the object should be embedded in the project. |
-| [path](#model-path) | str | Path to the model files. **Required.** |
+| [path](#model-path) | str | Model key. **Required.** |
 | model_name | str | Name of the model. |
 | [image](#model-image) | str | Docker image where to serve the model. |
 
 #### Model Path
 
-The model path must follow the pattern:
-
-```python
-path_regex = r"^(store://([^/]+)/model/sklearn/.*)|.*\\.pkl$|.*\\.joblib$"
-```
+The model path must consists of the model key.
 
 #### Model Image
 

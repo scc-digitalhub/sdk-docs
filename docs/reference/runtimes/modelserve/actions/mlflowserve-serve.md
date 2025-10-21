@@ -12,7 +12,7 @@ The mlflowserve function kind supports deploying MLflow models as REST API servi
 function = dh.new_function(
     name="my-mlflow-service",
     kind="mlflowserve",
-    path="s3://my-bucket/path-to-model-files"
+    path=model.key
 )
 
 run = function.run(
@@ -36,23 +36,13 @@ Must be specified when creating the function.
 | description | str | Description of the object. |
 | labels | list[str] | List of labels. |
 | embedded | bool | Whether the object should be embedded in the project. |
-| [path](#model-path) | str | Path to the model files. **Required.** |
+| [path](#model-path) | str | Model key. **Required.** |
 | model_name | str | Name of the model. |
 | [image](#model-image) | str | Docker image where to serve the model. |
 
 #### Model Path
 
-The model path must follow the pattern:
-
-```python
-path_regex = (
-    r"^(store://([^/]+)/model/mlflow/.*)"
-    + r"|"
-    + r".*\\/$"
-    + r"|"
-    + r".*\\.zip$"
-)
-```
+The model path must consists of the model key.
 
 #### Model Image
 
