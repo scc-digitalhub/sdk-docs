@@ -8,7 +8,7 @@ For each different kind, the `Dataitem` object has its own subclass with differe
 
 ## Table
 
-The `table` kind indicates that the dataitem is a generic table. It's usefull if you intend to manipulate the dataitem as a dataframe, infact it has some methods to do so. The default dataframe framework we use to represent a table as dataframe is `pandas`.
+The `table` kind indicates that the dataitem is a generic table. It's usefull if you intend to manipulate the dataitem as a dataframe, in fact it has some methods to do so. The default dataframe framework we use to represent a table as dataframe is `pandas`.
 
 ### Table spec parameters
 
