@@ -4857,7 +4857,7 @@
 <tr>
 <td><a href="#model-path">path</a></td>
 <td>str</td>
-<td>Model key. <strong>Required.</strong></td>
+<td>Model path. <strong>Required.</strong></td>
 </tr>
 <tr>
 <td>model_name</td>
@@ -4872,7 +4872,7 @@
 </tbody>
 </table>
 <h4 id="model-path">Model Path</h4>
-<p>The model path must consists of the model key.</p>
+<p>The model path must consists of the model key or the s3 path partition where the model files are or a zip containing the model files.</p>
 <h4 id="model-image">Model Image</h4>
 <p>Model image must follow the pattern:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">image_regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;^seldonio</span><span class="se">\\</span><span class="s2">/mlserver?:.*-sklearn$&quot;</span>
