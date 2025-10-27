@@ -36,13 +36,13 @@ Must be specified when creating the function.
 | description | str | Description of the object. |
 | labels | list[str] | List of labels. |
 | embedded | bool | Whether the object should be embedded in the project. |
-| [path](#model-path) | str | Model key. **Required.** |
+| [path](#model-path) | str | Model path. **Required.** |
 | model_name | str | Name of the model. |
 | [image](#model-image) | str | Docker image where to serve the model. |
 
 #### Model Path
 
-The model path must consists of the model key.
+The model path must consists of the model key or the s3 path partition where the model files are or a zip containing the model files.
 
 #### Model Image
 

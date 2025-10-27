@@ -1,10 +1,10 @@
 mkdocs-material
 mkdocstrings[python]
-digitalhub[full]>=0.14.0b, <0.15
-digitalhub_runtime_python>=0.14.0b, <0.15
-digitalhub_runtime_container>=0.14.0b, <0.15
-digitalhub_runtime_kfp>=0.14.0b, <0.15
-digitalhub_runtime_modelserve>=0.14.0b, <0.15
-digitalhub_runtime_dbt>=0.14.0b, <0.15
-digitalhub_runtime_hera>=0.14.0b, <0.15
-digitalhub_runtime_flower>=0.14.0b, <0.15
+digitalhub[full]>=0.14.0, <0.15
+digitalhub_runtime_python>=0.14.0, <0.15
+digitalhub_runtime_container>=0.14.0, <0.15
+digitalhub_runtime_kfp>=0.14.0, <0.15
+digitalhub_runtime_modelserve>=0.14.0, <0.15
+digitalhub_runtime_dbt>=0.14.0, <0.15
+digitalhub_runtime_hera>=0.14.0, <0.15
+digitalhub_runtime_flower>=0.14.0, <0.15
