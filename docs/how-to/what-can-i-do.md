@@ -14,7 +14,7 @@ Create or get a project to group runs, functions, data, and artifacts.
 
 ## Functions
 
-Execute Python functions, serve ML models or create containerized tasks. Run them as jobs, and fetch outputs or expose them as services.
+Execute Python functions, serve ML models, create containerized tasks, or run federated learning with Flower. Run them as jobs, and fetch outputs or expose them as services.
 
 [Quickstart](./quickstart.md) · [Runtime guide](./runtime-guide.md)
 

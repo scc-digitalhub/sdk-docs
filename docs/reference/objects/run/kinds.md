@@ -2,11 +2,13 @@
 
 At the moment, we support the following kinds and the related runtime:
 
-- [**`python`**](../../runtimes/python/entities/run.md)
-- [**`dbt`**](../../runtimes/dbt/entities/run.md#run)
-- [**`container`**](../../runtimes/container/execution.md)
-- [**`modelserve`**](../../runtimes/modelserve/entities/run.md#run)
-- [**`kfp`**](../../runtimes/kfp.md#run)
+- [**`python`**](../../runtimes/python/overview.md)
+- [**`dbt`**](../../runtimes/dbt/overview.md)
+- [**`container`**](../../runtimes/container/overview.md)
+- [**`modelserve`**](../../runtimes/modelserve/overview.md)
+- [**`kfp`**](../../runtimes/kfp.md)
+- [**`flower`**](../../runtimes/flower/overview.md)
+- [**`hera`**](../../runtimes/hera/overview.md)
 
 For each different kind, the `Run` object has its own subclass with different `spec` and `status` attributes.
 

@@ -46,13 +46,6 @@ run = function.run(
 )
 ```
 
-**Deploy application workload:**
+## Tutorials
 
-```python
-run = function.run(
-    action='deploy',
-    replicas=3,
-    envs=[{"name": "ENV", "value": "prod"}],
-    volumes=[{"name": "data", "mountPath": "/data"}]
-)
-```
+Find additional examples in the [tutorial repository](https://github.com/scc-digitalhub/digitalhub-tutorials) of the DSLab GitHub organization.

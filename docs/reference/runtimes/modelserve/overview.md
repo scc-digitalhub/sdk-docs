@@ -1,30 +1,37 @@
 # ModelServe Runtime
 
-The ModelServe runtime allows you to deploy ML models on Kubernetes or locally.
+The ModelServe runtime enables deploying ML models as services on Kubernetes. It registers multiple Function kinds for different model formats and supports the `serve` action for model deployment.
+
+- **`sklearnserve`**: Serve scikit-learn models
+- **`mlflowserve`**: Serve MLflow models
+- **`huggingfaceserve`**: Serve HuggingFace models
+- **`kubeai-text`**: Serve text generation models via KubeAI
+- **`kubeai-speech`**: Serve speech to text models via KubeAI
 
 ## Prerequisites
 
-Supported Python version and required package:
+**Supported Python versions:**
 
-- `python >= 3.9, <3.13`
+- Python ≥ 3.9, < 3.13
+
+**Required packages:**
+
 - `digitalhub-runtime-modelserve`
 
 Install from PyPI:
 
 ```bash
-python -m pip install digitalhub-runtime-modelserve
+pip install digitalhub-runtime-modelserve
 ```
 
-## Usage Overview
+## Usage overview
 
-The ModelServe runtime provides several serve functions (`sklearnserve`, `mlflowserve`, `huggingfaceserve`, `kubeai-text`, `kubeai-speech`) and a `serve` task action. Typical usage:
+To deploy ML models as services on the platform:
 
-1. Create a Function for the model and [call](execution.md) its `run()` method.
-2. The runtime collects, loads and exposes the model as a service.
-3. Call the run's `invoke()` method to send inference requests (the method accepts the same keyword arguments as `requests.request`).
-4. Stop the service with `run.stop()` when finished.
-
-The ModelServe runtime deploys an [mlserver](https://mlserver.readthedocs.io/en/latest/) inference server on Kubernetes (Deployment + Service).
+1. Prepare your trained model in the supported format.
+2. Create a `Function` resource that references your model.
+3. Call `function.run()` to deploy the model as a service.
+4. Use the run's `invoke()` method to send inference requests.
 
 !!! warning "Service responsiveness"
     It may take some time for the service to become ready. Use `run.refresh()` and inspect `run.status`. When ready, the `status` will include a `service` attribute.
@@ -55,4 +62,5 @@ json = {
 run.invoke(json=json)
 ```
 
+See [how to](how-to.md) for detailed instructions on deploying different types of models.
 See [Examples](examples.md) for code samples.

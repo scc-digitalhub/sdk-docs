@@ -74,5 +74,3 @@ run.invoke(json=json_data)
 ## Tutorials
 
 Find additional examples in the [tutorial repository](https://github.com/scc-digitalhub/digitalhub-tutorials) of the DSLab GitHub organization.
-
-See the [Custom ML Model tutorial](https://github.com/scc-digitalhub/digitalhub-tutorials/blob/main/s6-custom-ml-model/notebook-cml-darts-ci.ipynb) for comprehensive examples of Python runtime usage.

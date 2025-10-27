@@ -2,10 +2,11 @@
 
 At the moment, we support the following kinds and the related runtime:
 
-- [**`python`**](../../runtimes/python/entities/function.md)
-- [**`dbt`**](../../runtimes/dbt/entities/function.md)
+- [**`python`**](../../runtimes/python/overview.md)
+- [**`dbt`**](../../runtimes/dbt/overview.md)
 - [**`container`**](../../runtimes/container/overview.md)
-- [**`modelserve`**](../../runtimes/modelserve/entities/function.md)
+- [**`modelserve`**](../../runtimes/modelserve/overview.md)
+- [**`flower`**](../../runtimes/flower/overview.md)
 
 For each different kind, the `Function` object has its own subclass with different `spec` and `status` attributes.
 

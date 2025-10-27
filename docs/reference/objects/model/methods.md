@@ -83,6 +83,7 @@ I/O methods are used to handle objects as files.
 There are several generic model methods on the `Model` object.
 
 - `log_metric`: Log a metric in the model.
+- `log_metrics`: Log multiple metrics in the model.
 
 ::: digitalhub.entities.model._base.entity.Model.log_metric
     options:

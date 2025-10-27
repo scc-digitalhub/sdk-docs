@@ -1,31 +1,32 @@
 # Container Runtime
 
-The Container runtime enables launching pods, jobs and services on Kubernetes. It is designed for remote, online execution.
+The Container runtime enables launching pods, jobs and services on Kubernetes. It registers Function kind `container` and supports various actions for containerized workloads including jobs, services and builds.
+
+- **`container`**: Execute containerized workloads on Kubernetes
 
 ## Prerequisites
 
-Supported Python version and required package:
+**Supported Python versions:**
 
-- `python >= 3.9, <3.13`
+- Python ≥ 3.9, < 3.13
+
+**Required packages:**
+
 - `digitalhub-runtime-container`
 
-Install the runtime from PyPI:
+Install from PyPI:
 
 ```bash
-python -m pip install digitalhub-runtime-container
+pip install digitalhub-runtime-container
 ```
 
 ## Usage overview
 
-Use the Container runtime to run containers on Kubernetes. It exposes a Function of kind `container` and several task actions to run jobs, serve services, build images, or deploy workloads.
+To execute container workloads on the platform:
 
-- **`job`**: Execute a container as a one-off job
-- **`serve`**: Deploy a container as a long-lived service
-- **`build`**: Create a Docker image with custom instructions
-- **`deploy`**: Deploy an application workload
+1. Prepare your container image or build instructions.
+2. Create a `Function` resource that references your container configuration.
+3. Call `function.run()` to execute the container workload.
 
-To execute a container workload on the platform:
-
-1. Create a `Function` resource that references your container image and declares inputs/outputs and call `function.run()` to [execute](execution.md) the workload.
-
+See [how to](how-to.md) for detailed instructions on which actions you can execute and how to configure your container workloads.
 See [Examples](examples.md) for code samples.

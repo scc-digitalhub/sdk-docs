@@ -132,47 +132,56 @@ nav:
           - Index: reference/runtimes/index.md
           - Python:
               - Overview: reference/runtimes/python/overview.md
-              - Function definition: reference/runtimes/python/define-function.md
-              - Execution: reference/runtimes/python/execution.md
-              - Entities:
-                  - Function: reference/runtimes/python/entities/function.md
-                  - Task: reference/runtimes/python/entities/task.md
-                  - Run: reference/runtimes/python/entities/run.md
+              - How-to: reference/runtimes/python/how-to.md
+              - Handler definition: reference/runtimes/python/define-function.md
+              - Actions:
+                  - python job: reference/runtimes/python/actions/python-job.md
+                  - python serve: reference/runtimes/python/actions/python-serve.md
+                  - python build: reference/runtimes/python/actions/python-build.md
               - Examples: reference/runtimes/python/examples.md
           - DBT:
               - Overview: reference/runtimes/dbt/overview.md
-              - Execution: reference/runtimes/dbt/execution.md
-              - Entities:
-                  - Function: reference/runtimes/dbt/entities/function.md
-                  - Task: reference/runtimes/dbt/entities/task.md
-                  - Run: reference/runtimes/dbt/entities/run.md
+              - How-to: reference/runtimes/dbt/how-to.md
+              - Actions:
+                  - dbt transform: reference/runtimes/dbt/actions/dbt-transform.md
               - Examples: reference/runtimes/dbt/examples.md
           - Container:
               - Overview: reference/runtimes/container/overview.md
-              - Execution: reference/runtimes/container/execution.md
-              - Entities:
-                  - Function: reference/runtimes/container/entities/function.md
-                  - Task: reference/runtimes/container/entities/task.md
-                  - Run: reference/runtimes/container/entities/run.md
+              - How-to: reference/runtimes/container/how-to.md
+              - Actions:
+                  - container job: reference/runtimes/container/actions/container-job.md
+                  - container serve: reference/runtimes/container/actions/container-serve.md
+                  - container build: reference/runtimes/container/actions/container-build.md
               - Examples: reference/runtimes/container/examples.md
           - Hera:
               - Overview: reference/runtimes/hera/overview.md
+              - How-to: reference/runtimes/hera/how-to.md
               - Pipeline definition: reference/runtimes/hera/define-pipeline.md
-              - Execution: reference/runtimes/hera/execution.md
-              - Entities:
-                  - Workflow: reference/runtimes/hera/entities/workflow.md
-                  - Task: reference/runtimes/hera/entities/task.md
-                  - Run: reference/runtimes/hera/entities/run.md
+              - Actions:
+                  - hera build: reference/runtimes/hera/actions/hera-build.md
+                  - hera pipeline: reference/runtimes/hera/actions/hera-pipeline.md
               - Examples: reference/runtimes/hera/examples.md
           - KFP: reference/runtimes/kfp.md
           - Modelserve:
               - Overview: reference/runtimes/modelserve/overview.md
-              - Execution: reference/runtimes/modelserve/execution.md
-              - Entities:
-                  - Function: reference/runtimes/modelserve/entities/function.md
-                  - Task: reference/runtimes/modelserve/entities/task.md
-                  - Run: reference/runtimes/modelserve/entities/run.md
+              - How-to: reference/runtimes/modelserve/how-to.md
+              - Actions:
+                  - sklearnserve serve: reference/runtimes/modelserve/actions/sklearnserve-serve.md
+                  - mlflowserve serve: reference/runtimes/modelserve/actions/mlflowserve-serve.md
+                  - huggingfaceserve serve: reference/runtimes/modelserve/actions/huggingfaceserve-serve.md
+                  - kubeai-text serve: reference/runtimes/modelserve/actions/kubeai-text-serve.md
+                  - kubeai-speech serve: reference/runtimes/modelserve/actions/kubeai-speech-serve.md
               - Examples: reference/runtimes/modelserve/examples.md
+          - Flower:
+              - Overview: reference/runtimes/flower/overview.md
+              - How-to: reference/runtimes/flower/how-to.md
+              - Actions:
+                  - flower-app train: reference/runtimes/flower/actions/flower-app-train.md
+                  - flower-client build: reference/runtimes/flower/actions/flower-client-build.md
+                  - flower-client deploy: reference/runtimes/flower/actions/flower-client-deploy.md
+                  - flower-server build: reference/runtimes/flower/actions/flower-server-build.md
+                  - flower-server deploy: reference/runtimes/flower/actions/flower-server-deploy.md
+              - Examples: reference/runtimes/flower/examples.md
       - Configuration:
           - Paths:
               - Overview: reference/configuration/paths/overview.md

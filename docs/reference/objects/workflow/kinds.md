@@ -2,6 +2,7 @@
 
 At the moment, we support the following kinds and the related runtime:
 
+- [**`hera`**](../../runtimes/hera/overview.md)
 - [**`kfp`**](../../runtimes/kfp.md)
 
 For each different kind, the `Workflow` object has its own subclass with different `spec` and `status` attributes.

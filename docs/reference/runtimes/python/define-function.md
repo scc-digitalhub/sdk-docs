@@ -113,5 +113,3 @@ run = sdk_function.run(...,
                        init_parameters={"param1": "some value",
                                         "param2": "some value"})
 ```
-
-[Next section](execution.md) provides an overview of the arguments required to create a `Function` object and start a run. It also gives the list of methods exposed by the kind-specific `Run` object.
