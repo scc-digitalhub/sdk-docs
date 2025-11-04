@@ -82,6 +82,18 @@ volumes = [{
 }]
 ```
 
+### Shared volumes
+
+You can mount the same volume in multiple tasks by using the same `name` for the volume in different tasks.
+
+```python
+volumes = [{
+    "volume_type": "shared_volume",
+    "name": "shared-pvc",
+    "mount_path": "/shared-data"
+}]
+```
+
 ## Secrets and Envs {#secrets-envs}
 
 Inject secret names into the pod environment via `secrets` (list of strings). It uses existing digitalhub `Secrets` as reference.

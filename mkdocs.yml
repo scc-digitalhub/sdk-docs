@@ -76,6 +76,7 @@ nav:
       - Quickstart: how-to/quickstart.md
       - Installation: how-to/installation.md
       - Runtime guide: how-to/runtime-guide.md
+      - Kubernetes guide: how-to/kubernetes.md
       - Environment configuration: reference/configuration/credentials/overview.md
   - Explanations:
       - Explanations: explanations/index.md
