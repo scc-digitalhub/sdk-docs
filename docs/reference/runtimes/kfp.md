@@ -25,6 +25,9 @@ Use a workflow's `run()` method to build and execute Kubeflow Pipelines. The typ
 3. Build the pipeline with `run(action="build")` (required).
 4. Execute the pipeline with `run(action="pipeline")`; the runtime will step through the KFP ContainerOps.
 
+!!! warning
+    The KFP runtime will be removed in version 0.15.0 of the SDK. Please migrate to the [Hera runtime](../runtimes/hera/overview.md) for workflows.
+
 ### Pipeline definition
 
 To define a pipeline you need to define a function with the `def` keyword. You can give the function a name and declare its arguments as usual. From `digitalhub_runtime_kfp.dsl` import `pipeline_context`. It's a context-manager object that lets you order the steps of execution and chain inputs and outputs. Once you write the pipeline function, store it in a `.py` file.

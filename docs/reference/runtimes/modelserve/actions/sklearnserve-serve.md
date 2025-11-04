@@ -83,7 +83,7 @@ No specific parameters for run of this action.
 
 Once the run is created, you can access its attributes and methods through the `run` object.
 
-::: digitalhub_runtime_modelserve.entities.run.modelserve_run.entity.RunModelserveRun.invoke
+::: digitalhub_runtime_modelserve.entities.run.sklearnserve_run.entity.RunSklearnserveRun.invoke
     options:
         heading_level: 6
         show_signature: false
