@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
     
     
       
@@ -857,6 +857,29 @@
   
   <span class="md-ellipsis">
     Runtime guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to/kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes guide
     
   </span>
   
@@ -4523,6 +4546,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#shared-volumes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shared volumes
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4714,6 +4746,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#shared-volumes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shared volumes
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4868,31 +4909,39 @@ To better understand the Kubernetes configuration options, refer to the <a href=
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="s2">&quot;spec&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;500Mi&quot;</span><span class="p">}</span>
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">}]</span>
 </span></code></pre></div>
+<h3 id="shared-volumes">Shared volumes</h3>
+<p>You can mount the same volume in multiple tasks by using the same <code>name</code> for the volume in different tasks.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">volumes</span> <span class="o">=</span> <span class="p">[{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="s2">&quot;volume_type&quot;</span><span class="p">:</span> <span class="s2">&quot;shared_volume&quot;</span><span class="p">,</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;shared-pvc&quot;</span><span class="p">,</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="s2">&quot;mount_path&quot;</span><span class="p">:</span> <span class="s2">&quot;/shared-data&quot;</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">}]</span>
+</span></code></pre></div>
 <h2 id="secrets-envs">Secrets and Envs</h2>
 <p>Inject secret names into the pod environment via <code>secrets</code> (list of strings). It uses existing digitalhub <code>Secrets</code> as reference.
 Set environment variables as a list of <code>{name, value}</code> objects.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">secrets</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;my-secret&quot;</span><span class="p">]</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">envs</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ENV_NAME&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">}]</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">secrets</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;my-secret&quot;</span><span class="p">]</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">envs</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ENV_NAME&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">}]</span>
 </span></code></pre></div>
 <h2 id="service-port-type">Service port and type</h2>
 <p>Expose services using <code>service_ports</code> (list of <code>{port, target_port}</code>) and <code>service_type</code> (<code>ClusterIP</code>, <code>LoadBalancer</code>, <code>NodePort</code>, <code>ExternalName</code>).</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">service_ports</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="s2">&quot;target_port&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">}]</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">service_type</span> <span class="o">=</span> <span class="s2">&quot;NodePort&quot;</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">service_ports</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="s2">&quot;target_port&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">}]</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">service_type</span> <span class="o">=</span> <span class="s2">&quot;NodePort&quot;</span>
 </span></code></pre></div>
 <h2 id="security-context">Security context</h2>
 <p>Set <code>run_as_user</code> and <code>run_as_group</code> (integers) to control the UID/GID the container runs as.
 Set <code>fs_group</code> (integer) to control the GID for the filesystem.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">run_as_user</span> <span class="o">=</span> <span class="mi">1000</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">run_as_group</span> <span class="o">=</span> <span class="mi">1000</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">fs_group</span> <span class="o">=</span> <span class="mi">1000</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">run_as_user</span> <span class="o">=</span> <span class="mi">1000</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">run_as_group</span> <span class="o">=</span> <span class="mi">1000</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">fs_group</span> <span class="o">=</span> <span class="mi">1000</span>
 </span></code></pre></div>
 <h2 id="replicas">Replicas</h2>
 <p>Specify the number of replicas for pod/deployment (integer). Some runtimes use this to create a deployment instead of a single pod.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">replicas</span> <span class="o">=</span> <span class="mi">3</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">replicas</span> <span class="o">=</span> <span class="mi">3</span>
 </span></code></pre></div>
 <h2 id="node-selector">Node selector</h2>
 <p>Request a node selector for the pod launched by the task. The SDK accepts a list of objects with <code>key</code>/<code>value</code>.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">node_selector</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;kubernetes.io/arch&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;amd64&quot;</span><span class="p">}]</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">node_selector</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;kubernetes.io/arch&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;amd64&quot;</span><span class="p">}]</span>
 </span></code></pre></div>
 <h2 id="affinity">Affinity</h2>
 <p>Please see <a href="https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity">Kubernetes documentation on affinity and anti-affinity</a>.</p>

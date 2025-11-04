@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
     
     
       
@@ -859,6 +859,29 @@
   
   <span class="md-ellipsis">
     Runtime guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../how-to/kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes guide
     
   </span>
   
@@ -4940,6 +4963,10 @@ The runtime introduces a workflow of kind <code>kfp</code> and a task of kind <c
 <li>Build the pipeline with <code>run(action="build")</code> (required).</li>
 <li>Execute the pipeline with <code>run(action="pipeline")</code>; the runtime will step through the KFP ContainerOps.</li>
 </ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The KFP runtime will be removed in version 0.15.0 of the SDK. Please migrate to the <a href="../hera/overview/">Hera runtime</a> for workflows.</p>
+</div>
 <h3 id="pipeline-definition">Pipeline definition</h3>
 <p>To define a pipeline you need to define a function with the <code>def</code> keyword. You can give the function a name and declare its arguments as usual. From <code>digitalhub_runtime_kfp.dsl</code> import <code>pipeline_context</code>. It's a context-manager object that lets you order the steps of execution and chain inputs and outputs. Once you write the pipeline function, store it in a <code>.py</code> file.
 When defining the steps inside the pipeline, also specify inputs, outputs, parameters and values for the steps.</p>
