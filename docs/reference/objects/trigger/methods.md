@@ -48,9 +48,9 @@ The trigger object has specific attributes based on its kind:
 
 All triggers have these base specifications:
 
+- `template`: Configuration template for the run (dict with parameters/inputs, resources, etc.)
 - `task`: The task to execute
-- `template`: Configuration template
-- `function` or `workflow`: The target to execute (either a function or workflow)
+- `function` or `workflow`: The target process to execute (either a function or workflow)
 
 ### Scheduler Trigger
 
@@ -62,8 +62,8 @@ Additional specifications:
 
 Additional specifications:
 
-- `key`: Entity key to monitor (format: `store://<project>/<entity-type>/<entity-kind>/<name>`)
-- `states`: List of states that will trigger execution
+- `key`: Entity key to monitor (format: `store://<project>/<entity-type>/<entity-kind>/<name>`, can include wildcards `*`)
+- `states`: List of states of the monitored entity that will trigger execution
 
 For more details about trigger kinds and their specific configurations, see the [kinds section](kinds.md).
 
@@ -79,18 +79,19 @@ function = project.get_function("my-function")
 # Create a scheduler trigger
 trigger = function.trigger(
     action="job",
-    trigger_kind="scheduler",
-    trigger_name="daily-function-run",
+    kind="scheduler",
+    name="daily-function-run",
     schedule="0 0 * * *"  # Run daily at midnight
 )
 
-# Create a lifecycle trigger
+# Create a lifecycle trigger when an artifact is uploaded
 trigger = function.trigger(
     action="job",
-    trigger_kind="lifecycle",
-    trigger_name="function-on-event",
-    key="store://project/model/kind/name",
-    states=["COMPLETED"]
+    kind="lifecycle",
+    name="validate-on-upload",
+    key="store://project/artifact/*",
+    states=["READY"]
+    template={"inputs": {"my-param": "{{input.key}}"}},
 )
 ```
 
@@ -102,17 +103,18 @@ workflow = project.get_workflow("my-workflow")
 # Create a scheduler trigger
 trigger = workflow.trigger(
     action="pipeline",
-    trigger_kind="scheduler",
-    trigger_name="weekly-workflow-run",
+    kind="scheduler",
+    name="weekly-workflow-run",
     schedule="0 0 * * 0"  # Run weekly on Sunday
 )
 
 # Create a lifecycle trigger
 trigger = workflow.trigger(
     action="pipeline",
-    trigger_kind="lifecycle",
-    trigger_name="workflow-on-event",
-    key="store://project/model/kind/name",
-    states=["completed"]
+    kind="lifecycle",
+    name="validation-pipeline-on-upload",
+    key="store://project/artifact/*",
+    states=["READY"],
+    template={"parameters": {"param-name": "{{input.key}}"}},
 )
 ```
