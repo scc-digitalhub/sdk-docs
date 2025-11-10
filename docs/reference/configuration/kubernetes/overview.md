@@ -150,4 +150,4 @@ Please see [Kubernetes documentation on taints and tolerations](https://kubernet
 
 ## Runtime class and priority class
 
-TODO.
+For runtime class and priority class, please see the [Kubernetes documentation on runtime classes](https://kubernetes.io/docs/concepts/containers/runtime-class/) and [priority classes](https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/#priorityclass).
