@@ -32,11 +32,10 @@ The `kind` parameter must be:
 
 ## Python Versions
 
-The Python runtime supports versions 3.9, 3.10, and 3.11, expressed as:
+The Python runtime supports versions 3.9 and 3.10, expressed as:
 
 - `PYTHON3_9`
 - `PYTHON3_10`
-- `PYTHON3_11`
 
 ## Init Function
 
