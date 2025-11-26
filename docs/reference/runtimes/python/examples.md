@@ -64,10 +64,12 @@ After deploying a service:
 ```python
 run = function.run("serve", ...)
 
+# Pass some data to the function
 json_data = {
     "some-func-param": data
 }
 
+# run invoke returns a requests.Response object
 run.invoke(json=json_data)
 ```
 

@@ -44,6 +44,14 @@ run = function.run(
     service_ports=[{"port": 8080, "targetPort": 8080}],
     service_type='NodePort'
 )
+
+data = {
+    "message": "Hello, World!"
+}
+
+# Send a request to the service
+response = run.invoke(json=data)
+print(response.json())
 ```
 
 ## Tutorials

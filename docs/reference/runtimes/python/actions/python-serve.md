@@ -150,3 +150,13 @@ Once the run is created, you can access its attributes and methods through the `
         show_symbol_type_heading: true
         show_root_full_path: false
         show_root_toc_entry: true
+
+::: digitalhub_runtime_python.entities.run._base.entity.RunPythonRun.invoke
+    options:
+        heading_level: 6
+        show_signature: false
+        show_source: false
+        show_root_heading: true
+        show_symbol_type_heading: true
+        show_root_full_path: false
+        show_root_toc_entry: true
