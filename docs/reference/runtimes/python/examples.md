@@ -71,6 +71,12 @@ json_data = {
 
 # run invoke returns a requests.Response object
 run.invoke(json=json_data)
+
+# Run invoke method accept requests.request parameters.
+# It accepts also url parameter. The url MUST start
+# with a valid HTTP scheme (http:// or https://) and should
+# include the service url. To check the service url:
+run.status.service['url']
 ```
 
 ## Tutorials
