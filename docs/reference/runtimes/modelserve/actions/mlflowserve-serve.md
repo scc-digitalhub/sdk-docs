@@ -83,7 +83,7 @@ No specific parameters for run of this action.
 
 Once the run is created, you can access its attributes and methods through the `run` object.
 
-::: digitalhub_runtime_modelserve.entities.run.mlflowserve_run.entity.RunMlflowserveServeRun.invoke
+::: digitalhub_runtime_modelserve.entities.run.mlflowserve_serve_run.entity.RunMlflowserveServeRun.invoke
     options:
         heading_level: 6
         show_signature: false
