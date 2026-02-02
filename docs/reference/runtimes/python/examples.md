@@ -34,7 +34,8 @@ function = dh.new_function(
 ```python
 run = function.run(
     action="job",
-    inputs={"dataitem": dataitem.key}
+    inputs={"dataitem": dataitem.key},
+    parameters={"param1": "value1"},
 )
 ```
 
