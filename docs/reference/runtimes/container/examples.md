@@ -61,7 +61,7 @@ run = function.run(
 )
 
 response = run.invoke()
-print(response.text())
+print(response.text)
 ```
 
 ## Tutorials
