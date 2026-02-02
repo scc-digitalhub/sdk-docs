@@ -9,7 +9,7 @@ project = dh.get_or_create_project('my_project')
 function = dh.new_function(
     kind='container',
     name='my_function',
-    image='hello-world:latest'
+    image='my-nonroot-image:latest',
 )
 ```
 
@@ -27,17 +27,26 @@ run = function.run(
 **Build image (builds an image from source using a base image and instructions):**
 
 ```python
+function = dh.new_function(
+    kind='container',
+    name='my_function',
+    base_image='my-image:latest',
+)
 run = function.run(
     action='build',
     base_image='python:3.11-slim',
-    instructions=["apt-get update && apt-get install -y git"],
-    image='myrepo/myapp:0.1.0'
+    instructions=["RUN apt-get update && apt-get install -y git"],
 )
 ```
 
 **Serve as service (exposes a service):**
 
 ```python
+function = dh.new_function(
+    kind='container',
+    name='my_function',
+    image='my-nonroot-image:latest',
+)
 run = function.run(
     action='serve',
     replicas=2,
