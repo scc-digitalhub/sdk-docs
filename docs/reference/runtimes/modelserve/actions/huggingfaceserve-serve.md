@@ -141,7 +141,7 @@ No specific parameters for run of this action.
 
 Once the run is created, you can access its attributes and methods through the `run` object.
 
-::: digitalhub_runtime_modelserve.entities.run.huggingfaceserve_run.entity.RunHuggingfaceserveRun.invoke
+::: digitalhub_runtime_modelserve.entities.run.huggingfaceserve_run.entity.RunHuggingfaceserveServeRun.invoke
     options:
         heading_level: 6
         show_signature: false
