@@ -9,7 +9,7 @@ project = dh.get_or_create_project("my_project")
 
 function = project.new_function(name="mlflow-serve-function",
                                 kind="mlflowserve",
-                                path=model.spec.path + "model")
+                                path=model.key)
 
 run = function.run(action="serve")
 ```
@@ -19,7 +19,7 @@ run = function.run(action="serve")
 ```python
 function = project.new_function(name="sklearn-serve-function",
                                 kind="sklearnserve",
-                                path=model.spec.path)
+                                path=model.key)
 
 run = function.run(action="serve")
 ```
