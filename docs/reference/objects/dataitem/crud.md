@@ -31,6 +31,9 @@ Create:
 
 - [**`new_dataitem`**](#new)
 - [**`log_dataitem`**](#log)
+- [**`log_generic_dataitem`**](#log-generic)
+- [**`log_table`**](#log-table)
+- [**`log_croissant`**](#log-croissant)
 
 Read:
 
@@ -55,9 +58,9 @@ The `kwargs` parameters are the same for both *new* and *log* methods.
 
 ### New
 
-This function create a new entity and saves it into the backend.
+This function creates a new entity and saves it into the backend.
 
-::: digitalhub.entities.dataitem.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -69,9 +72,9 @@ This function create a new entity and saves it into the backend.
 
 ### Log
 
-This function create a new entity into the backend and also upload a local file into a dataitem store (eg. *S3*).
+This function creates a new entity in the backend and also uploads a local file into a dataitem store (eg. *S3*).
 
-::: digitalhub.entities.dataitem.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -80,6 +83,49 @@ This function create a new entity into the backend and also upload a local file 
         show_source: false
         members:
             - log_dataitem
+
+### Log generic
+
+This function creates a generic dataitem by uploading one or more local files.
+
+::: digitalhub.entities
+    options:
+        heading_level: 6
+        show_signature: false
+        show_docstring_description: false
+        show_symbol_type_heading: true
+        show_source: false
+        members:
+            - log_generic_dataitem
+
+### Log table
+
+This function logs a table dataitem from a dataframe or file source.
+
+::: digitalhub.entities
+    options:
+        heading_level: 6
+        show_signature: false
+        show_docstring_description: false
+        show_symbol_type_heading: true
+        show_source: false
+        members:
+            - log_table
+
+### Log croissant
+
+This function creates a Croissant dataitem by uploading a `metadata.json` file and its
+referenced local files.
+
+::: digitalhub.entities
+    options:
+        heading_level: 6
+        show_signature: false
+        show_docstring_description: false
+        show_symbol_type_heading: true
+        show_source: false
+        members:
+            - log_croissant
 
 ## Read
 
@@ -93,7 +139,7 @@ If you want to collect a dataitem from the backend using `get_dataitem()`, you h
 - The first one is to use the `key` parameter which has the pattern `store://<project-name>/<entity-type>/<entity-kind>/<entity-name>:<entity-id>`.
 - The second one is to use the entity name as `identifier`, the project name as `project` and the entity id as `entity_id` parameters. If you do not specify the entity id, you will get the latest version.
 
-::: digitalhub.entities.dataitem.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -107,7 +153,7 @@ If you want to collect a dataitem from the backend using `get_dataitem()`, you h
 
 This function returns all the versions of a dataitem from the backend.
 
-::: digitalhub.entities.dataitem.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -121,7 +167,7 @@ This function returns all the versions of a dataitem from the backend.
 
 This function returns all the latest dataitems from the backend related to a project.
 
-::: digitalhub.entities.dataitem.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -133,9 +179,9 @@ This function returns all the latest dataitems from the backend related to a pro
 
 ### Import
 
-This function load the dataitem from a local yaml file descriptor.
+This function loads the dataitem from a local yaml file descriptor.
 
-::: digitalhub.entities.dataitem.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -149,7 +195,7 @@ This function load the dataitem from a local yaml file descriptor.
 
 To update a dataitem you can use the `update_dataitem()` method.
 
-::: digitalhub.entities.dataitem.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -163,7 +209,7 @@ To update a dataitem you can use the `update_dataitem()` method.
 
 To delete a dataitem you can use the `delete_dataitem()` method.
 
-::: digitalhub.entities.dataitem.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false

@@ -31,6 +31,10 @@ Create:
 
 - [**`new_model`**](#new)
 - [**`log_model`**](#log)
+- [**`log_generic_model`**](#log-generic)
+- [**`log_mlflow`**](#log-mlflow)
+- [**`log_sklearn`**](#log-sklearn)
+- [**`log_huggingface`**](#log-huggingface)
 
 Read:
 
@@ -57,7 +61,7 @@ The `kwargs` parameters are the same for both *new* and *log* methods.
 
 This function create a new entity and saves it into the backend.
 
-::: digitalhub.entities.model.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -71,7 +75,7 @@ This function create a new entity and saves it into the backend.
 
 This function create a new entity into the backend and also upload a local file into a model store (eg. *S3*).
 
-::: digitalhub.entities.model.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -80,6 +84,62 @@ This function create a new entity into the backend and also upload a local file 
         show_source: false
         members:
             - log_model
+
+### Log generic
+
+This function creates a generic model by uploading one or more local files.
+
+::: digitalhub.entities
+    options:
+        heading_level: 6
+        show_signature: false
+        show_docstring_description: false
+        show_symbol_type_heading: true
+        show_source: false
+        members:
+            - log_generic_model
+
+### Log MLflow
+
+This function logs an MLflow model from a local MLflow directory.
+
+::: digitalhub.entities
+    options:
+        heading_level: 6
+        show_signature: false
+        show_docstring_description: false
+        show_symbol_type_heading: true
+        show_source: false
+        members:
+            - log_mlflow
+
+### Log sklearn
+
+This function logs a scikit-learn model from a local file or directory.
+
+::: digitalhub.entities
+    options:
+        heading_level: 6
+        show_signature: false
+        show_docstring_description: false
+        show_symbol_type_heading: true
+        show_source: false
+        members:
+            - log_sklearn
+
+### Log HuggingFace
+
+This function logs a HuggingFace model from a local repository or directory.
+
+::: digitalhub.entities
+    options:
+        heading_level: 6
+        show_signature: false
+        show_docstring_description: false
+        show_symbol_type_heading: true
+        show_source: false
+        members:
+            - log_huggingface
 
 ## Read
 
@@ -93,7 +153,7 @@ If you want to collect a model from the backend using `get_model()`, you have tw
 - The first one is to use the `key` parameter which has the pattern `store://<project-name>/<entity-type>/<entity-kind>/<entity-name>:<entity-id>`.
 - The second one is to use the entity name as `identifier`, the project name as `project` and the entity id as `entity_id` parameters. If you do not specify the entity id, you will get the latest version.
 
-::: digitalhub.entities.model.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -107,7 +167,7 @@ If you want to collect a model from the backend using `get_model()`, you have tw
 
 This function returns all the versions of a model from the backend.
 
-::: digitalhub.entities.model.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -121,7 +181,7 @@ This function returns all the versions of a model from the backend.
 
 This function returns all the latest models from the backend related to a project.
 
-::: digitalhub.entities.model.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -135,7 +195,7 @@ This function returns all the latest models from the backend related to a projec
 
 This function load the model from a local yaml file descriptor.
 
-::: digitalhub.entities.model.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -149,7 +209,7 @@ This function load the model from a local yaml file descriptor.
 
 To update a model you can use the `update_model()` method.
 
-::: digitalhub.entities.model.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -163,7 +223,7 @@ To update a model you can use the `update_model()` method.
 
 To delete a model you can use the `delete_model()` method.
 
-::: digitalhub.entities.model.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false

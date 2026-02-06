@@ -31,6 +31,7 @@ Create:
 
 - [**`new_artifact`**](#new)
 - [**`log_artifact`**](#log)
+- [**`log_generic_artifact`**](#log-generic)
 
 Read:
 
@@ -57,7 +58,7 @@ The `kwargs` parameters are the same for both *new* and *log* methods.
 
 This function create a new entity and saves it into the backend.
 
-::: digitalhub.entities.artifact.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -71,7 +72,7 @@ This function create a new entity and saves it into the backend.
 
 This function create a new entity into the backend and also upload a local file into an artifact store (eg. *S3*).
 
-::: digitalhub.entities.artifact.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -80,6 +81,20 @@ This function create a new entity into the backend and also upload a local file 
         show_source: false
         members:
             - log_artifact
+
+### Log generic
+
+This function creates an artifact from a local path and uploads it to the artifact store.
+
+::: digitalhub.entities
+    options:
+        heading_level: 6
+        show_signature: false
+        show_docstring_description: false
+        show_symbol_type_heading: true
+        show_source: false
+        members:
+            - log_generic_artifact
 
 ## Read
 
@@ -93,7 +108,7 @@ If you want to collect an artifact from the backend using `get_artifact()`, you 
 - The first one is to use the `key` parameter which has the pattern `store://<project-name>/<entity-type>/<entity-kind>/<entity-name>:<entity-id>`.
 - The second one is to use the entity name as `identifier`, the project name as `project` and the entity id as `entity_id` parameters. If you do not specify the entity id, you will get the latest version.
 
-::: digitalhub.entities.artifact.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -107,7 +122,7 @@ If you want to collect an artifact from the backend using `get_artifact()`, you 
 
 This function returns all the versions of an artifact from the backend.
 
-::: digitalhub.entities.artifact.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -121,7 +136,7 @@ This function returns all the versions of an artifact from the backend.
 
 This function returns all the latest artifacts from the backend related to a project.
 
-::: digitalhub.entities.artifact.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -135,7 +150,7 @@ This function returns all the latest artifacts from the backend related to a pro
 
 This function load the artifact from a local yaml file descriptor.
 
-::: digitalhub.entities.artifact.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -149,7 +164,7 @@ This function load the artifact from a local yaml file descriptor.
 
 To update an artifact you can use the `update_artifact()` method.
 
-::: digitalhub.entities.artifact.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -163,7 +178,7 @@ To update an artifact you can use the `update_artifact()` method.
 
 To delete an artifact you can use the `delete_artifact()` method.
 
-::: digitalhub.entities.artifact.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false

@@ -57,7 +57,7 @@ The `kwargs` parameters are determined by the **kind** of the object, and are de
 
 This function create a new entity and saves it into the backend.
 
-::: digitalhub.entities.function.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -79,7 +79,7 @@ If you want to collect a function from the backend using `get_function()`, you h
 - The first one is to use the `key` parameter which has the pattern `store://<project-name>/<entity-type>/<entity-kind>/<entity-name>:<entity-id>`.
 - The second one is to use the entity name as `identifier`, the project name as `project` and the entity id as `entity_id` parameters. If you do not specify the entity id, you will get the latest version.
 
-::: digitalhub.entities.function.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -93,7 +93,7 @@ If you want to collect a function from the backend using `get_function()`, you h
 
 This function returns all the versions of a function from the backend.
 
-::: digitalhub.entities.function.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -107,7 +107,7 @@ This function returns all the versions of a function from the backend.
 
 This function returns all the latest functions from the backend related to a project.
 
-::: digitalhub.entities.function.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -121,7 +121,7 @@ This function returns all the latest functions from the backend related to a pro
 
 This function load the function from a local yaml file descriptor.
 
-::: digitalhub.entities.function.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -135,7 +135,7 @@ This function load the function from a local yaml file descriptor.
 
 To update a function you can use the `update_function()` method.
 
-::: digitalhub.entities.function.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -149,7 +149,7 @@ To update a function you can use the `update_function()` method.
 
 To delete a function you can use the `delete_function()` method.
 
-::: digitalhub.entities.function.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false

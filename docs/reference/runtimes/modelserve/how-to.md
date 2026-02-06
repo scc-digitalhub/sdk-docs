@@ -13,6 +13,9 @@ There are multiple function kinds in the ModelServe runtime:
 - `huggingfaceserve`: Serve HuggingFace models
 - `kubeai-text`: Serve text generation models via KubeAI
 - `kubeai-speech`: Serve speech processing models via KubeAI
+- `vllmserve-text`: Serve vLLM text generation models
+- `vllmserve-speech`: Serve vLLM speech models
+- `vllmserve-polling`: Serve vLLM models with polling support
 
 Each kind supports specific actions.
 
@@ -23,6 +26,9 @@ Each kind supports specific actions.
 | `huggingfaceserve` | `serve` |
 | `kubeai-text` | `serve` |
 | `kubeai-speech` | `serve` |
+| `vllmserve-text` | `serve` |
+| `vllmserve-speech` | `serve` |
+| `vllmserve-polling` | `serve` |
 
 ## Usage Pattern
 
@@ -57,3 +63,6 @@ Here are links to the detailed documentation for each ModelServe action:
 - [huggingfaceserve serve](actions/huggingfaceserve-serve.md) — Deploy HuggingFace models as services
 - [kubeai-text serve](actions/kubeai-text-serve.md) — Deploy text processing models via KubeAI
 - [kubeai-speech serve](actions/kubeai-speech-serve.md) — Deploy speech processing models via KubeAI
+- [vllmserve-text serve](actions/vllmserve-text-serve.md) — Deploy vLLM text generation models
+- [vllmserve-speech serve](actions/vllmserve-speech-serve.md) — Deploy vLLM speech models
+- [vllmserve-polling serve](actions/vllmserve-polling-serve.md) — Deploy vLLM models with polling support

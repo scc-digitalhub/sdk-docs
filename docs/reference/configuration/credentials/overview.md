@@ -37,11 +37,11 @@ The `current_environment` field in the `[DEFAULT]` section selects which credent
 ```python
 import digitalhub as dh
 
-# To read the current set of credentials/profile
-dh.get_current_environment()
+# To read the current profile
+dh.get_current_profile()
 
 # To change the current profile
-dh.set_current_environment("other-env")
+dh.set_current_profile("other-env")
 ```
 
 ## Credentials values
@@ -52,3 +52,8 @@ For the credentials fields and values, see each resource page below. Just note t
 - [S3 storage](./s3.md) - Credentials and utilities for S3 storage
 - [Databases](./sql.md) - Credentials and utilities for SQL databases
 - [Git repositories](./git.md) - Credentials for Git repositories
+
+## Helpers and clients
+
+For SDK helpers that manage credentials profiles, see [credentials helpers](./helpers.md).
+For configured store clients, see [store clients](./store-clients.md).

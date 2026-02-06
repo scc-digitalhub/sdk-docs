@@ -161,7 +161,6 @@ nav:
                   - hera build: reference/runtimes/hera/actions/hera-build.md
                   - hera pipeline: reference/runtimes/hera/actions/hera-pipeline.md
               - Examples: reference/runtimes/hera/examples.md
-          - KFP: reference/runtimes/kfp.md
           - Modelserve:
               - Overview: reference/runtimes/modelserve/overview.md
               - How-to: reference/runtimes/modelserve/how-to.md
@@ -171,6 +170,9 @@ nav:
                   - huggingfaceserve serve: reference/runtimes/modelserve/actions/huggingfaceserve-serve.md
                   - kubeai-text serve: reference/runtimes/modelserve/actions/kubeai-text-serve.md
                   - kubeai-speech serve: reference/runtimes/modelserve/actions/kubeai-speech-serve.md
+                  - vllmserve-text serve: reference/runtimes/modelserve/actions/vllmserve-text-serve.md
+                  - vllmserve-speech serve: reference/runtimes/modelserve/actions/vllmserve-speech-serve.md
+                  - vllmserve-polling serve: reference/runtimes/modelserve/actions/vllmserve-polling-serve.md
               - Examples: reference/runtimes/modelserve/examples.md
           - Flower:
               - Overview: reference/runtimes/flower/overview.md
@@ -201,4 +203,6 @@ nav:
               - S3: reference/configuration/credentials/s3.md
               - SQL: reference/configuration/credentials/sql.md
               - Git: reference/configuration/credentials/git.md
+              - Helpers: reference/configuration/credentials/helpers.md
+              - Store clients: reference/configuration/credentials/store-clients.md
           - Kubernetes resources: reference/configuration/kubernetes/overview.md

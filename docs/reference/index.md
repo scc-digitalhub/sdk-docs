@@ -7,6 +7,6 @@ A compact map to the SDK reference: core topics and where to find them.
 - [Code source](./configuration/code_src/overview.md) — how to provide code: plain, base64, code_src and handler rules.
 - [Kubernetes resources](./configuration/kubernetes/overview.md) — volumes, resources, affinity, service/port conventions.
 - [Environment configuration](./configuration/credentials/overview.md) — runtime and platform environment variables.
-- [Runtimes](./runtimes/index.md) — per-runtime docs (python, dbt, container, hera, kfp).
+- [Runtimes](./runtimes/index.md) — per-runtime docs (python, dbt, container, hera).
 
 Use the sidebar for full API details and examples.

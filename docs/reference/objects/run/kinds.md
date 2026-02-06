@@ -6,7 +6,6 @@ At the moment, we support the following kinds and the related runtime:
 - [**`dbt`**](../../runtimes/dbt/overview.md)
 - [**`container`**](../../runtimes/container/overview.md)
 - [**`modelserve`**](../../runtimes/modelserve/overview.md)
-- [**`kfp`**](../../runtimes/kfp.md)
 - [**`flower`**](../../runtimes/flower/overview.md)
 - [**`hera`**](../../runtimes/hera/overview.md)
 

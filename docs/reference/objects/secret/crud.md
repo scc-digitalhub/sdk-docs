@@ -52,7 +52,7 @@ You can create a secret with the `new_secret()`.
 
 This function create a new entity and saves it into the backend.
 
-::: digitalhub.entities.secret.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -74,7 +74,7 @@ If you want to collect a secret from the backend using `get_secret()`, you have 
 - The first one is to use the `key` parameter which has the pattern `store://<project-name>/<entity-type>/<entity-kind>/<entity-name>:<entity-id>`.
 - The second one is to use the entity name as `identifier`, the project name as `project` and the entity id as `entity_id` parameters. If you do not specify the entity id, you will get the latest version.
 
-::: digitalhub.entities.secret.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -88,7 +88,7 @@ If you want to collect a secret from the backend using `get_secret()`, you have 
 
 This function returns all the versions of a secret from the backend.
 
-::: digitalhub.entities.secret.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -102,7 +102,7 @@ This function returns all the versions of a secret from the backend.
 
 This function returns all the latest secrets from the backend related to a project.
 
-::: digitalhub.entities.secret.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -116,7 +116,7 @@ This function returns all the latest secrets from the backend related to a proje
 
 This function load the secret from a local yaml file descriptor.
 
-::: digitalhub.entities.secret.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -130,7 +130,7 @@ This function load the secret from a local yaml file descriptor.
 
 To update a secret you can use the `update_secret()` method.
 
-::: digitalhub.entities.secret.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -144,7 +144,7 @@ To update a secret you can use the `update_secret()` method.
 
 To delete a secret you can use the `delete_secret()` method.
 
-::: digitalhub.entities.secret.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false

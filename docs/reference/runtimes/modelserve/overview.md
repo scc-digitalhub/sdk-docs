@@ -7,6 +7,9 @@ The ModelServe runtime enables deploying ML models as services on Kubernetes. It
 - **`huggingfaceserve`**: Serve HuggingFace models
 - **`kubeai-text`**: Serve text generation models via KubeAI
 - **`kubeai-speech`**: Serve speech to text models via KubeAI
+- **`vllmserve-text`**: Serve vLLM text generation models
+- **`vllmserve-speech`**: Serve vLLM speech models
+- **`vllmserve-polling`**: Serve vLLM models with polling support
 
 ## Prerequisites
 

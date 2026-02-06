@@ -46,7 +46,7 @@ The `kwargs` parameters are determined by the **kind** of the object, and are de
 
 This function creates a new entity and saves it into the backend.
 
-::: digitalhub.entities.trigger.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -68,7 +68,7 @@ If you want to collect a trigger from the backend using `get_trigger()`, you hav
 - The first one is to use the `key` parameter which has the pattern `store://<project-name>/<entity-type>/<entity-kind>/<entity-name>:<entity-id>`.
 - The second one is to use the entity name as `identifier`, the project name as `project` and the entity id as `entity_id` parameters. If you do not specify the entity id, you will get the latest version.
 
-::: digitalhub.entities.trigger.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -82,7 +82,7 @@ If you want to collect a trigger from the backend using `get_trigger()`, you hav
 
 This function returns all the versions of a trigger from the backend.
 
-::: digitalhub.entities.trigger.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -96,7 +96,7 @@ This function returns all the versions of a trigger from the backend.
 
 This function returns all the latest triggers from the backend related to a project.
 
-::: digitalhub.entities.trigger.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -110,7 +110,7 @@ This function returns all the latest triggers from the backend related to a proj
 
 This function loads the trigger from a local yaml file descriptor.
 
-::: digitalhub.entities.trigger.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -124,7 +124,7 @@ This function loads the trigger from a local yaml file descriptor.
 
 To update a trigger you can use the `update_trigger()` method.
 
-::: digitalhub.entities.trigger.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -138,7 +138,7 @@ To update a trigger you can use the `update_trigger()` method.
 
 To delete a trigger you can use the `delete_trigger()` method.
 
-::: digitalhub.entities.trigger.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false

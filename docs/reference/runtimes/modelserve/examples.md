@@ -52,6 +52,18 @@ function = project.new_function(
 run = function.run(action="serve")
 ```
 
+## vLLM Text Model Example
+
+```python
+function = project.new_function(
+    name="vllm-text-function",
+    kind="vllmserve-text",
+    url="hf://meta-llama/Meta-Llama-3-8B-Instruct",
+)
+
+run = function.run(action="serve")
+```
+
 ## Service Invocation
 
 ```python
