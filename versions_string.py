@@ -25,6 +25,8 @@ GIT_PREFIXES_TO_REMOVE = {
     "main": SpecialVersion.CURRENT.value,
 }
 
+VERSION_PATTERN = re.compile(rf"^(?:{SpecialVersion.CURRENT.value}|\d+\.\d+)$")
+
 
 def normalize_version(version_parts: list[str]) -> tuple[int, int, int]:
     """Normalize version parts for easier comparison.
@@ -165,6 +167,9 @@ def format_versions_string(versions: str) -> str:
 
     # Split into individual versions, filtering out empty strings
     version_list = [version for version in cleaned_versions.split() if version]
+
+    # Keep only supported version labels (current or x.y)
+    version_list = [version for version in version_list if VERSION_PATTERN.match(version)]
 
     if not version_list:
         return ""
