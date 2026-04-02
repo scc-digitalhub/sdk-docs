@@ -8,7 +8,7 @@ The Container runtime enables launching pods, jobs and services on Kubernetes. I
 
 **Supported Python versions:**
 
-- Python ≥ 3.9, < 3.13
+- Python ≥ 3.10, < 3.15
 
 **Required packages:**
 

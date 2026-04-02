@@ -37,8 +37,10 @@ The Digitalhub runtimes are installed in the same way as the SDK. We have distri
 You can install the runtime directly with pip. It will come with all the required SDK dependencies:
 
 ```bash
-# Install python runtime
+# Install python runtime package
 python -m pip install digitalhub-runtime-python
+
+# The same package also enables the guardrail and openinference function kinds
 
 # Install container runtime
 python -m pip install digitalhub-runtime-container

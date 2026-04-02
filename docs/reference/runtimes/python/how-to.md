@@ -6,21 +6,25 @@ Finally, we provide links to detailed documentation for each parameter category.
 
 ## Function types and Actions
 
-There is one function kind in the Python runtime:
+The Python runtime package exposes three function kinds:
 
-- `python`: Execute Python handlers on Kubernetes
+- `python`: Execute general-purpose Python handlers on Kubernetes
+- `guardrail`: Execute Python handlers that process incoming and outgoing requests
+- `openinference`: Execute Python handlers that expose inference-style tensor schemas
 
-The kind supports specific actions.
+Each kind supports a specific action set.
 
 | Function Kind | Supported Actions |
 | --- | --- |
 | `python` | `job`, `serve`, `build` |
+| `guardrail` | `serve`, `build` |
+| `openinference` | `serve`, `build` |
 
 ## Usage Pattern
 
 To execute a function, follow this pattern:
 
-1. Implement a Python function (see [Function definition](define-function.md) for detailed instructions on creating Python functions).
+1. Implement a Python function (see [Function definition](define-function.md) for detailed instructions on creating Python, guardrail, and openinference handlers).
 2. Use `dh.new_function()` or `project.new_function()` to create the function, passing **function parameters**.
 3. Call `function.run()` with the desired action, passing **task parameters** and **run parameters**.
 
@@ -42,6 +46,11 @@ run = function.run(
 )
 ```
 
+The same flow applies to the specialized kinds. The difference is the accepted function parameters and the action set:
+
+- `guardrail` adds `processing_mode` and supports `serve` and `build`.
+- `openinference` adds `model_name`, `inputs`, and `outputs` and supports `serve` and `build`.
+
 You can control whether the execution happens locally on your machine or remotely on the platform by setting the `local_execution` parameter (see [Local vs Remote Execution](#local-vs-remote-execution) for details).
 
 ### Local vs Remote Execution
@@ -59,6 +68,10 @@ When executing a function, you can choose between **local execution** and **remo
 
 Here are links to the detailed documentation for each Python action:
 
-- [Python Job](actions/python-job.md) — Execute a Python function as a one-off task
-- [Python Serve](actions/python-serve.md) — Deploy a Python function as an HTTP endpoint
-- [Python Build](actions/python-build.md) — Build a container image for a Python function
+- [Python Job](actions/python-job.md) — Execute a `python` function as a one-off task
+- [Python Serve](actions/python-serve.md) — Deploy a `python` function as an HTTP endpoint
+- [Python Build](actions/python-build.md) — Build a container image for a `python` function
+- [Guardrail Serve](actions/guardrail-serve.md) — Deploy a `guardrail` function as a request/response processor
+- [Guardrail Build](actions/guardrail-build.md) — Build a container image for a `guardrail` function
+- [OpenInference Serve](actions/openinference-serve.md) — Deploy an `openinference` function as an inference endpoint
+- [OpenInference Build](actions/openinference-build.md) — Build a container image for an `openinference` function

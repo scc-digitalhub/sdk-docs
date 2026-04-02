@@ -1,26 +1,27 @@
-# Python Serve
+# Guardrail Serve
 
-The `serve` action deploys a Python function as an HTTP endpoint on Kubernetes. A `Task` is created by calling `run()` on the Function; task parameters are passed through that call.
+The `serve` action deploys a `guardrail` function as a request/response processor on Kubernetes. A `Task` is created by calling `run()` on the Function; task parameters are passed through that call.
 
 ## Overview
 
-The serve action deploys a Python function as an HTTP endpoint. This is suitable for real-time inference, API endpoints, and other services that need to respond to HTTP requests.
+Guardrail functions are specialized Python handlers that process inbound requests, outbound responses, or both. They are intended for validation, filtering, enrichment, or policy enforcement around an upstream service.
 
 ## Quick example
 
 ```python
 function = dh.new_function(
-    name="my-python-function",
-    kind="python",
-    code_src="handler.py",
-    handler="main",
-    python_version="PYTHON3_10"
+    name="my-guardrail-function",
+    kind="guardrail",
+    code_src="guardrail.py",
+    handler="process",
+    python_version="PYTHON3_10",
+    processing_mode="preprocessor"
 )
 
 run = function.run(
     action="serve",
-    inputs={"data": dataitem.key},
-    parameters={"threshold": 0.5}
+    replicas=1,
+    service_type="ClusterIP"
 )
 ```
 
@@ -34,7 +35,7 @@ Must be specified when creating the function.
 | --- | --- | --- |
 | project | str | Project name. Required only when creating from the library; otherwise **MUST NOT** be set. |
 | name | str | Name that identifies the object. **Required.** |
-| kind | str | Function kind. Must be `python`. **Required.** |
+| kind | str | Function kind. Must be `guardrail`. **Required.** |
 | uuid | str | Object ID in UUID4 format. |
 | description | str | Description of the object. |
 | labels | list[str] | List of labels. |
@@ -43,12 +44,13 @@ Must be specified when creating the function.
 | [code](../../../configuration/code_src/overview.md#plain-text-source) | str | Source code provided as plain text. |
 | base64 | str | Source code encoded as base64. |
 | [handler](../../../configuration/code_src/overview.md#handler) | str | Function entrypoint. |
-| [init_function](#init-function) | str | Init function name for remote (Nuclio) execution. |
+| [init_function](#init-function) | str | Init function name for remote execution. |
 | [python_version](#python-versions) | str | Python version to use. **Required.** |
 | lang | str | Source code language (informational). |
 | image | str | Container image used to execute the function. |
 | [base_image](#base-image) | str | Base image (name:tag) used to build the execution image. |
 | [requirements](#requirements) | list | List of pip requirements to install into the execution image. |
+| [processing_mode](#processing-mode) | str | Guardrail processing mode. **Required.** |
 
 #### Python Versions
 
@@ -67,16 +69,17 @@ The init function is the entrypoint used by the Nuclio init wrapper. Specify the
 
 The base image is the image (name:tag) used as the foundation when building the execution image for the function.
 
-!!! warning
-    Deploying jobs built from certain base images may be restricted by cluster security policies. Confirm allowed base images with your cluster administrator.
-
 #### Requirements
 
 Requirements are a list of strings representing packages to be installed by `pip` in the image where the function will be executed.
 
-```python
-requirements = ["numpy", "pandas>1,<3", "scikit-learn==1.2.0"]
-```
+#### Processing Mode
+
+The processing mode determines where the guardrail is applied in the request/response lifecycle:
+
+- `preprocessor`: modifies or validates incoming traffic before forwarding it upstream
+- `postprocessor`: modifies or validates outgoing traffic before returning it to the client
+- `wrapprocessor`: can inspect both request and response and can short-circuit the flow when needed
 
 ### Task Parameters
 
@@ -93,6 +96,9 @@ Can only be specified when calling `function.run()`.
 | [envs](../../../configuration/kubernetes/overview.md#secrets-envs) | list[dict] | Environment variables. |
 | [secrets](../../../configuration/kubernetes/overview.md#secrets-envs) | list[str] | List of secret names. |
 | [profile](../../../configuration/kubernetes/overview.md#profile) | str | Profile template. |
+| replicas | int | Number of service replicas. |
+| service_type | str | Kubernetes service type. |
+| service_name | str | Name assigned to the created service. |
 
 ### Run Parameters
 
@@ -101,62 +107,4 @@ Can only be specified when calling `function.run()`.
 | Name | Type | Description |
 | --- | --- | --- |
 | local_execution | bool | Execute the run locally instead of remotely. |
-| inputs | dict | Mapping of function argument names to entity keys. |
-| parameters | dict | Extra parameters passed to the function. |
 | init_parameters | dict | Parameters supplied to the init function. |
-
-## Entity methods
-
-### Run methods
-
-Once the run is created, you can access its attributes and methods through the `run` object.
-
-::: digitalhub_runtime_python.entities.run._base.entity.RunPythonRun.output
-    options:
-        heading_level: 6
-        show_signature: false
-        show_source: false
-        show_root_heading: true
-        show_symbol_type_heading: true
-        show_root_full_path: false
-        show_root_toc_entry: true
-
-::: digitalhub_runtime_python.entities.run._base.entity.RunPythonRun.outputs
-    options:
-        heading_level: 6
-        show_signature: false
-        show_source: false
-        show_root_heading: true
-        show_symbol_type_heading: true
-        show_root_full_path: false
-        show_root_toc_entry: true
-
-::: digitalhub_runtime_python.entities.run._base.entity.RunPythonRun.result
-    options:
-        heading_level: 6
-        show_signature: false
-        show_source: false
-        show_root_heading: true
-        show_symbol_type_heading: true
-        show_root_full_path: false
-        show_root_toc_entry: true
-
-::: digitalhub_runtime_python.entities.run._base.entity.RunPythonRun.results
-    options:
-        heading_level: 6
-        show_signature: false
-        show_source: false
-        show_root_heading: true
-        show_symbol_type_heading: true
-        show_root_full_path: false
-        show_root_toc_entry: true
-
-::: digitalhub_runtime_python.entities.run.python_serve.entity.RunPythonRunServe.invoke
-    options:
-        heading_level: 6
-        show_signature: false
-        show_source: false
-        show_root_heading: true
-        show_symbol_type_heading: true
-        show_root_full_path: false
-        show_root_toc_entry: true

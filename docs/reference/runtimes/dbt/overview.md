@@ -6,7 +6,7 @@ The DBT runtime lets you run [dbt](https://www.getdbt.com/) transformations agai
 
 **Supported Python versions:**
 
-- Python ≥ 3.9, < 3.13
+- Python ≥ 3.10, < 3.15
 
 **Required packages:**
 

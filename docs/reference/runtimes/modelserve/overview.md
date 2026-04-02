@@ -9,13 +9,13 @@ The ModelServe runtime enables deploying ML models as services on Kubernetes. It
 - **`kubeai-speech`**: Serve speech to text models via KubeAI
 - **`vllmserve-text`**: Serve vLLM text generation models
 - **`vllmserve-speech`**: Serve vLLM speech models
-- **`vllmserve-polling`**: Serve vLLM models with polling support
+- **`vllmserve-pooling`**: Serve vLLM models with pooling support
 
 ## Prerequisites
 
 **Supported Python versions:**
 
-- Python ≥ 3.9, < 3.13
+- Python ≥ 3.10, < 3.15
 
 **Required packages:**
 

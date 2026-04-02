@@ -5,8 +5,8 @@ This guide helps you choose the right runtime for your use case. The Digitalhub 
 ## Quick Runtime Selection
 
 | If you need to... | Use this runtime | Best for |
-|---|---|---|
-| Execute Python code | [Python Runtime](../reference/runtimes/python/overview.md) | General-purpose Python execution |
+| --- | --- | --- |
+| Execute Python code | [Python Runtime](../reference/runtimes/python/overview.md) | General-purpose Python execution, guardrails, and OpenInference services |
 | Run containerized applications | [Container Runtime](../reference/runtimes/container/overview.md) | Custom containers, complex dependencies |
 | Orchestrate multiple steps | [Hera Runtime](../reference/runtimes/hera/overview.md) | Workflow orchestration, DAGs |
 | Serve ML models | [ModelServe Runtime](../reference/runtimes/modelserve/overview.md) | Model inference, API serving |
@@ -16,7 +16,7 @@ This guide helps you choose the right runtime for your use case. The Digitalhub 
 ## Runtime Capabilities Matrix
 
 | Runtime | Local Execution | Remote Execution | Multi-step Workflows | Model Serving | Data Processing | Federated Learning |
-|---|---|---|---|---|---|---|
+| --- | --- | --- | --- | --- | --- | --- |
 | **Python** | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ |
 | **Container** | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
 | **Hera** | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ |
@@ -32,6 +32,8 @@ This guide helps you choose the right runtime for your use case. The Digitalhub 
 
 - You have Python code that needs to run
 - You want simple job execution or model training
+- You need request/response processing through `guardrail`
+- You need inference endpoints with declared tensor schemas through `openinference`
 - Your workload fits within Python's ecosystem
 
 ### Container Runtime

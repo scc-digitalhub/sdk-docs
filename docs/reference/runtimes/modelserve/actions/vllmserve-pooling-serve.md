@@ -1,17 +1,17 @@
-# ModelServe vllmserve-polling Serve
+# ModelServe vllmserve-pooling Serve
 
-The `serve` action deploys vLLM models with polling support as services on Kubernetes. A `Task` is created by calling `run()` on the Function; task parameters are passed through that call.
+The `serve` action deploys vLLM models with pooling support as services on Kubernetes. A `Task` is created by calling `run()` on the Function; task parameters are passed through that call.
 
 ## Overview
 
-The vllmserve-polling function kind uses the same parameters as `vllmserve`, with a polling-based serving flow.
+The vllmserve-pooling function kind uses the same parameters as `vllmserve`, with a pooling-based serving flow.
 
 ## Quick example
 
 ```python
 function = dh.new_function(
-    name="my-vllm-polling-service",
-    kind="vllmserve-polling",
+    name="my-vllm-pooling-service",
+    kind="vllmserve-pooling",
     url="hf://mistralai/Mistral-7B-v0.1",
 )
 
@@ -31,7 +31,7 @@ Must be specified when creating the function.
 | --- | --- | --- |
 | project | str | Project name. Required only when creating from the library; otherwise **MUST NOT** be set. |
 | name | str | Name that identifies the object. **Required.** |
-| kind | str | Function kind. Must be `vllmserve-polling`. **Required.** |
+| kind | str | Function kind. Must be `vllmserve-pooling`. **Required.** |
 | uuid | str | Object ID in UUID4 format. |
 | description | str | Description of the object. |
 | labels | list[str] | List of labels. |
@@ -89,7 +89,7 @@ Can only be specified when calling `function.run()`.
 
 Once the run is created, you can access its attributes and methods through the `run` object.
 
-::: digitalhub_runtime_modelserve.entities.run.vllmservepolling_run.entity.RunVllmservepollingRun.invoke
+::: digitalhub_runtime_modelserve.entities.run.vllmserve_run.entity.RunVllmserveRun.invoke
     options:
         heading_level: 6
         show_signature: false

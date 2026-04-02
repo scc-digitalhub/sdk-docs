@@ -138,6 +138,10 @@ nav:
                   - python job: reference/runtimes/python/actions/python-job.md
                   - python serve: reference/runtimes/python/actions/python-serve.md
                   - python build: reference/runtimes/python/actions/python-build.md
+                  - guardrail serve: reference/runtimes/python/actions/guardrail-serve.md
+                  - guardrail build: reference/runtimes/python/actions/guardrail-build.md
+                  - openinference serve: reference/runtimes/python/actions/openinference-serve.md
+                  - openinference build: reference/runtimes/python/actions/openinference-build.md
               - Examples: reference/runtimes/python/examples.md
           - DBT:
               - Overview: reference/runtimes/dbt/overview.md
@@ -172,7 +176,7 @@ nav:
                   - kubeai-speech serve: reference/runtimes/modelserve/actions/kubeai-speech-serve.md
                   - vllmserve-text serve: reference/runtimes/modelserve/actions/vllmserve-text-serve.md
                   - vllmserve-speech serve: reference/runtimes/modelserve/actions/vllmserve-speech-serve.md
-                  - vllmserve-polling serve: reference/runtimes/modelserve/actions/vllmserve-polling-serve.md
+                  - vllmserve-pooling serve: reference/runtimes/modelserve/actions/vllmserve-pooling-serve.md
               - Examples: reference/runtimes/modelserve/examples.md
           - Flower:
               - Overview: reference/runtimes/flower/overview.md

@@ -15,7 +15,7 @@ There are multiple function kinds in the ModelServe runtime:
 - `kubeai-speech`: Serve speech processing models via KubeAI
 - `vllmserve-text`: Serve vLLM text generation models
 - `vllmserve-speech`: Serve vLLM speech models
-- `vllmserve-polling`: Serve vLLM models with polling support
+- `vllmserve-pooling`: Serve vLLM models with pooling support
 
 Each kind supports specific actions.
 
@@ -28,7 +28,7 @@ Each kind supports specific actions.
 | `kubeai-speech` | `serve` |
 | `vllmserve-text` | `serve` |
 | `vllmserve-speech` | `serve` |
-| `vllmserve-polling` | `serve` |
+| `vllmserve-pooling` | `serve` |
 
 ## Usage Pattern
 
@@ -65,4 +65,4 @@ Here are links to the detailed documentation for each ModelServe action:
 - [kubeai-speech serve](actions/kubeai-speech-serve.md) — Deploy speech processing models via KubeAI
 - [vllmserve-text serve](actions/vllmserve-text-serve.md) — Deploy vLLM text generation models
 - [vllmserve-speech serve](actions/vllmserve-speech-serve.md) — Deploy vLLM speech models
-- [vllmserve-polling serve](actions/vllmserve-polling-serve.md) — Deploy vLLM models with polling support
+- [vllmserve-pooling serve](actions/vllmserve-pooling-serve.md) — Deploy vLLM models with pooling support

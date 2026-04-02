@@ -52,12 +52,12 @@ Must be specified when creating the function.
 
 #### Python Versions
 
-The Python runtime supports versions 3.9, 3.10, 3.11, and 3.12 expressed as:
+The Python runtime supports versions 3.10, 3.11, 3.12, and 3.13 expressed as:
 
-- `PYTHON3_9`
 - `PYTHON3_10`
 - `PYTHON3_11`
 - `PYTHON3_12`
+- `PYTHON3_13`
 
 #### Init Function
 

@@ -1,16 +1,39 @@
 # Python Runtime
 
-The Python runtime enables you to execute user-defined Python handlers. It registers a `Function` kind `python` and supports three actions: `job`, `serve`, and `build`.
+The Python runtime enables you to execute user-defined Python handlers. The `digitalhub-runtime-python` package registers three `Function` kinds:
 
-- **`job`**: Execute a Python handler as a one-off job
-- **`serve`**: Deploy a Python handler as a long-lived service
-- **`build`**: Create a Docker image with all required dependencies for efficient execution
+- `python` for general-purpose Python jobs and services
+- `guardrail` for request/response processing functions
+- `openinference` for inference-oriented services with explicit tensor schemas
+
+These kinds share the same runtime package and handler model, but expose different actions and function parameters.
+
+## Supported kinds and actions
+
+| Function Kind | Purpose | Supported Actions |
+| --- | --- | --- |
+| `python` | General-purpose Python execution | `job`, `serve`, `build` |
+| `guardrail` | Request/response interception and transformation | `serve`, `build` |
+| `openinference` | Inference services with declared model/tensor metadata | `serve`, `build` |
+
+The shared actions behave as follows:
+
+- **`job`**: Execute a handler as a one-off job
+- **`serve`**: Deploy a handler as a long-lived service
+- **`build`**: Create a Docker image with the required dependencies
 
 ## Prerequisites
 
-**Supported Python versions:**
+**Package Python requirement:**
 
-- Python ≥ 3.9, < 3.13
+- Python >= 3.10, < 3.15
+
+**Execution Python versions:**
+
+- `PYTHON3_10`
+- `PYTHON3_11`
+- `PYTHON3_12`
+- `PYTHON3_13`
 
 **Required packages:**
 
@@ -24,11 +47,11 @@ pip install digitalhub-runtime-python
 
 ## Usage overview
 
-To execute a Python handler on the platform:
+To execute a Python-based handler on the platform:
 
 1. Implement the handler as described in [handler definition](define-function.md).
-2. Create a `Function` resource that references your handler and declares inputs/outputs.
+2. Create a `Function` resource with kind `python`, `guardrail`, or `openinference`.
 3. Call `function.run()` to execute the handler.
 
-See [how to](how-to.md) for detailed instructions on which actions you can execute and how to configure your Python functions.
+See [how to](how-to.md) for detailed instructions on which actions you can execute and how to configure each function kind.
 See [Examples](examples.md) for code samples.
