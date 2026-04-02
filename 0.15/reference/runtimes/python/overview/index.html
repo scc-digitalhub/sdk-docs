@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -2990,6 +2990,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#supported-kinds-and-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supported kinds and actions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3194,6 +3205,118 @@
     
   
     python build
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../actions/guardrail-serve/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    guardrail serve
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../actions/guardrail-build/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    guardrail build
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../actions/openinference-serve/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    openinference serve
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../actions/openinference-build/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    openinference build
   
 
     
@@ -4382,14 +4505,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modelserve/actions/vllmserve-polling-serve/" class="md-nav__link">
+      <a href="../../modelserve/actions/vllmserve-pooling-serve/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    vllmserve-polling serve
+    vllmserve-pooling serve
   
 
     
@@ -5547,6 +5670,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#supported-kinds-and-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supported kinds and actions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5589,16 +5723,57 @@
 
 
 <h1 id="python-runtime">Python Runtime</h1>
-<p>The Python runtime enables you to execute user-defined Python handlers. It registers a <code>Function</code> kind <code>python</code> and supports three actions: <code>job</code>, <code>serve</code>, and <code>build</code>.</p>
+<p>The Python runtime enables you to execute user-defined Python handlers. The <code>digitalhub-runtime-python</code> package registers three <code>Function</code> kinds:</p>
 <ul>
-<li><strong><code>job</code></strong>: Execute a Python handler as a one-off job</li>
-<li><strong><code>serve</code></strong>: Deploy a Python handler as a long-lived service</li>
-<li><strong><code>build</code></strong>: Create a Docker image with all required dependencies for efficient execution</li>
+<li><code>python</code> for general-purpose Python jobs and services</li>
+<li><code>guardrail</code> for request/response processing functions</li>
+<li><code>openinference</code> for inference-oriented services with explicit tensor schemas</li>
+</ul>
+<p>These kinds share the same runtime package and handler model, but expose different actions and function parameters.</p>
+<h2 id="supported-kinds-and-actions">Supported kinds and actions</h2>
+<table>
+<thead>
+<tr>
+<th>Function Kind</th>
+<th>Purpose</th>
+<th>Supported Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>python</code></td>
+<td>General-purpose Python execution</td>
+<td><code>job</code>, <code>serve</code>, <code>build</code></td>
+</tr>
+<tr>
+<td><code>guardrail</code></td>
+<td>Request/response interception and transformation</td>
+<td><code>serve</code>, <code>build</code></td>
+</tr>
+<tr>
+<td><code>openinference</code></td>
+<td>Inference services with declared model/tensor metadata</td>
+<td><code>serve</code>, <code>build</code></td>
+</tr>
+</tbody>
+</table>
+<p>The shared actions behave as follows:</p>
+<ul>
+<li><strong><code>job</code></strong>: Execute a handler as a one-off job</li>
+<li><strong><code>serve</code></strong>: Deploy a handler as a long-lived service</li>
+<li><strong><code>build</code></strong>: Create a Docker image with the required dependencies</li>
 </ul>
 <h2 id="prerequisites">Prerequisites</h2>
-<p><strong>Supported Python versions:</strong></p>
+<p><strong>Package Python requirement:</strong></p>
 <ul>
-<li>Python ≥ 3.9, &lt; 3.13</li>
+<li>Python &gt;= 3.10, &lt; 3.15</li>
+</ul>
+<p><strong>Execution Python versions:</strong></p>
+<ul>
+<li><code>PYTHON3_10</code></li>
+<li><code>PYTHON3_11</code></li>
+<li><code>PYTHON3_12</code></li>
+<li><code>PYTHON3_13</code></li>
 </ul>
 <p><strong>Required packages:</strong></p>
 <ul>
@@ -5608,13 +5783,13 @@
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>digitalhub-runtime-python
 </span></code></pre></div>
 <h2 id="usage-overview">Usage overview</h2>
-<p>To execute a Python handler on the platform:</p>
+<p>To execute a Python-based handler on the platform:</p>
 <ol>
 <li>Implement the handler as described in <a href="../define-function/">handler definition</a>.</li>
-<li>Create a <code>Function</code> resource that references your handler and declares inputs/outputs.</li>
+<li>Create a <code>Function</code> resource with kind <code>python</code>, <code>guardrail</code>, or <code>openinference</code>.</li>
 <li>Call <code>function.run()</code> to execute the handler.</li>
 </ol>
-<p>See <a href="../how-to/">how to</a> for detailed instructions on which actions you can execute and how to configure your Python functions.
+<p>See <a href="../how-to/">how to</a> for detailed instructions on which actions you can execute and how to configure each function kind.
 See <a href="../examples/">Examples</a> for code samples.</p>
 
 

@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -3235,6 +3235,118 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../actions/guardrail-serve/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    guardrail serve
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../actions/guardrail-build/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    guardrail build
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../actions/openinference-serve/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    openinference serve
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../actions/openinference-build/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    openinference build
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -4410,14 +4522,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modelserve/actions/vllmserve-polling-serve/" class="md-nav__link">
+      <a href="../../modelserve/actions/vllmserve-pooling-serve/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    vllmserve-polling serve
+    vllmserve-pooling serve
   
 
     
@@ -5649,11 +5761,13 @@
 First, we list the function types and actions, then we examine the usage pattern, including local vs remote execution.
 Finally, we provide links to detailed documentation for each parameter category.</p>
 <h2 id="function-types-and-actions">Function types and Actions</h2>
-<p>There is one function kind in the Python runtime:</p>
+<p>The Python runtime package exposes three function kinds:</p>
 <ul>
-<li><code>python</code>: Execute Python handlers on Kubernetes</li>
+<li><code>python</code>: Execute general-purpose Python handlers on Kubernetes</li>
+<li><code>guardrail</code>: Execute Python handlers that process incoming and outgoing requests</li>
+<li><code>openinference</code>: Execute Python handlers that expose inference-style tensor schemas</li>
 </ul>
-<p>The kind supports specific actions.</p>
+<p>Each kind supports a specific action set.</p>
 <table>
 <thead>
 <tr>
@@ -5666,12 +5780,20 @@ Finally, we provide links to detailed documentation for each parameter category.
 <td><code>python</code></td>
 <td><code>job</code>, <code>serve</code>, <code>build</code></td>
 </tr>
+<tr>
+<td><code>guardrail</code></td>
+<td><code>serve</code>, <code>build</code></td>
+</tr>
+<tr>
+<td><code>openinference</code></td>
+<td><code>serve</code>, <code>build</code></td>
+</tr>
 </tbody>
 </table>
 <h2 id="usage-pattern">Usage Pattern</h2>
 <p>To execute a function, follow this pattern:</p>
 <ol>
-<li>Implement a Python function (see <a href="../define-function/">Function definition</a> for detailed instructions on creating Python functions).</li>
+<li>Implement a Python function (see <a href="../define-function/">Function definition</a> for detailed instructions on creating Python, guardrail, and openinference handlers).</li>
 <li>Use <code>dh.new_function()</code> or <code>project.new_function()</code> to create the function, passing <strong>function parameters</strong>.</li>
 <li>Call <code>function.run()</code> with the desired action, passing <strong>task parameters</strong> and <strong>run parameters</strong>.</li>
 </ol>
@@ -5691,6 +5813,11 @@ Finally, we provide links to detailed documentation for each parameter category.
 </span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;threshold&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">}</span>  <span class="c1"># Run parameter</span>
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="p">)</span>
 </span></code></pre></div>
+<p>The same flow applies to the specialized kinds. The difference is the accepted function parameters and the action set:</p>
+<ul>
+<li><code>guardrail</code> adds <code>processing_mode</code> and supports <code>serve</code> and <code>build</code>.</li>
+<li><code>openinference</code> adds <code>model_name</code>, <code>inputs</code>, and <code>outputs</code> and supports <code>serve</code> and <code>build</code>.</li>
+</ul>
 <p>You can control whether the execution happens locally on your machine or remotely on the platform by setting the <code>local_execution</code> parameter (see <a href="#local-vs-remote-execution">Local vs Remote Execution</a> for details).</p>
 <h3 id="local-vs-remote-execution">Local vs Remote Execution</h3>
 <p>When executing a function, you can choose between <strong>local execution</strong> and <strong>remote execution</strong> by setting the <code>local_execution</code> parameter in the run parameters.</p>
@@ -5709,9 +5836,13 @@ Finally, we provide links to detailed documentation for each parameter category.
 <h2 id="parameter-documentation">Parameter Documentation</h2>
 <p>Here are links to the detailed documentation for each Python action:</p>
 <ul>
-<li><a href="../actions/python-job/">Python Job</a> — Execute a Python function as a one-off task</li>
-<li><a href="../actions/python-serve/">Python Serve</a> — Deploy a Python function as an HTTP endpoint</li>
-<li><a href="../actions/python-build/">Python Build</a> — Build a container image for a Python function</li>
+<li><a href="../actions/python-job/">Python Job</a> — Execute a <code>python</code> function as a one-off task</li>
+<li><a href="../actions/python-serve/">Python Serve</a> — Deploy a <code>python</code> function as an HTTP endpoint</li>
+<li><a href="../actions/python-build/">Python Build</a> — Build a container image for a <code>python</code> function</li>
+<li><a href="../actions/guardrail-serve/">Guardrail Serve</a> — Deploy a <code>guardrail</code> function as a request/response processor</li>
+<li><a href="../actions/guardrail-build/">Guardrail Build</a> — Build a container image for a <code>guardrail</code> function</li>
+<li><a href="../actions/openinference-serve/">OpenInference Serve</a> — Deploy an <code>openinference</code> function as an inference endpoint</li>
+<li><a href="../actions/openinference-build/">OpenInference Build</a> — Build a container image for an <code>openinference</code> function</li>
 </ul>
 
 

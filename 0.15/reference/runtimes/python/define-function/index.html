@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -3240,6 +3240,118 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../actions/guardrail-serve/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    guardrail serve
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../actions/guardrail-build/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    guardrail build
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../actions/openinference-serve/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    openinference serve
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../actions/openinference-build/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    openinference build
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -4415,14 +4527,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modelserve/actions/vllmserve-polling-serve/" class="md-nav__link">
+      <a href="../../modelserve/actions/vllmserve-pooling-serve/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    vllmserve-polling serve
+    vllmserve-pooling serve
   
 
     
@@ -5655,7 +5767,7 @@
 
 
 <h1 id="define-a-python-function">Define a Python Function</h1>
-<p>This section describes how to define a Python function as a handler. A handler is basically a python function declared using the standard <code>def</code> keyword. Handlers can be simple or accept platform-provided objects and inputs. The runtime injects reserved arguments and provides helpers to map inputs and outputs.</p>
+<p>This section describes how to define a Python-runtime handler. The same handler model is used by <code>python</code>, <code>guardrail</code>, and <code>openinference</code> functions. A handler is a Python function declared with the standard <code>def</code> keyword. Handlers can be simple or accept platform-provided objects and inputs. The runtime injects reserved arguments and provides helpers to map inputs and outputs.</p>
 <h2 id="function-anatomy">Function Anatomy</h2>
 <p><img alt="Function Diagram" src="../asset/function.png" /></p>
 <p><strong>Example handler:</strong></p>
@@ -5688,11 +5800,11 @@
 <li><code>project</code> — the current <a href="../../../objects/project/entity/"><code>Project</code> object</a>.</li>
 <li><code>run</code> — the active <a href="../../../objects/run/entity/"><code>Run</code> object</a>.</li>
 <li><code>context</code> — the Nuclio runtime context object (see Nuclio Python runtime docs) — only available in remote execution.</li>
-<li><code>events</code> — the Nuclio events helper — only available in remote execution.</li>
+<li><code>event</code> — the Nuclio event object — only available in remote execution.</li>
 </ul>
 <div class="admonition warning">
-<p class="admonition-title">Local execution: Nuclio context and events</p>
-<p>When running locally, <code>context</code> and <code>events</code> are not provided automatically; if your handler expects them you must pass them explicitly through <code>function.run()</code>.</p>
+<p class="admonition-title">Local execution: Nuclio context and event</p>
+<p>When running locally, <code>context</code> and <code>event</code> are not provided automatically; if your handler expects them you must pass them explicitly through <code>function.run()</code>.</p>
 </div>
 <h2 id="inputs-and-parameters">Inputs and parameters</h2>
 <p>Inputs and parameters map function argument names to values provided at run time. They are passed to the run via the <code>inputs</code> and <code>parameters</code> arguments of <code>function.run()</code> and are stored in the <code>Run</code> spec.</p>

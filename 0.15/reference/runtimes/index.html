@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -3194,6 +3194,118 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="python/actions/guardrail-serve/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    guardrail serve
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="python/actions/guardrail-build/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    guardrail build
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="python/actions/openinference-serve/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    openinference serve
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="python/actions/openinference-build/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    openinference build
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -4369,14 +4481,14 @@
   
   
     <li class="md-nav__item">
-      <a href="modelserve/actions/vllmserve-polling-serve/" class="md-nav__link">
+      <a href="modelserve/actions/vllmserve-pooling-serve/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    vllmserve-polling serve
+    vllmserve-pooling serve
   
 
     
@@ -5571,7 +5683,7 @@
 <p>Runtimes define the key point of extension of the platform: new runtimes may be added to implement the low-level logic of "translating" the high-level operation definition into an executable run. For example, the DBT runtime allows defining a transformation as a task that, given an input table reference, produces a dataset applying the SQL-defined function. In this case the runtime converts the specification and references into a Kubernetes Job that runs the DBT transformation and stores the resulting dataset.</p>
 <h2 id="supported-runtimes">Supported runtimes</h2>
 <ul>
-<li><a href="python/overview/">Python</a> — general-purpose Python functions (job, serve, build).</li>
+<li><a href="python/overview/">Python</a> — Python-based functions, including <code>python</code>, <code>guardrail</code>, and <code>openinference</code> kinds.</li>
 <li><a href="container/overview/">Container</a> — run arbitrary container images as jobs or services.</li>
 <li><a href="dbt/overview/">DBT</a> — run DBT transformations for data modeling.</li>
 <li><a href="hera/overview/">Hera</a> — Hera pipelines runtime (DAG/steps orchestration).</li>
