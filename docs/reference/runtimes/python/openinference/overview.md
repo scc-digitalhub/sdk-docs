@@ -1,24 +1,15 @@
-# Python Runtime
+# OpenInference Runtime
 
-The Python runtime enables you to execute user-defined Python handlers. The `digitalhub-runtime-python` package registers three `Function` kinds:
-
-- `python` for general-purpose Python jobs and services
-- `guardrail` for request/response processing functions
-- `openinference` for inference-oriented services with explicit tensor schemas
-
-These kinds share the same runtime package and handler model, but expose different actions and function parameters.
+The OpenInference runtime enables you to execute user-defined Python handlers for inference-oriented services with explicit tensor schemas
 
 ## Supported kinds and actions
 
 | Function Kind | Purpose | Supported Actions |
 | --- | --- | --- |
-| `python` | General-purpose Python execution | `job`, `serve`, `build` |
-| `guardrail` | Request/response interception and transformation | `serve`, `build` |
 | `openinference` | Inference services with declared model/tensor metadata | `serve`, `build` |
 
 The shared actions behave as follows:
 
-- **`job`**: Execute a handler as a one-off job
 - **`serve`**: Deploy a handler as a long-lived service
 - **`build`**: Create a Docker image with the required dependencies
 
@@ -50,7 +41,7 @@ pip install digitalhub-runtime-python
 To execute a Python-based handler on the platform:
 
 1. Implement the handler as described in [handler definition](define-function.md).
-2. Create a `Function` resource with kind `python`, `guardrail`, or `openinference`.
+2. Create a `Function` resource with kind `openinference`.
 3. Call `function.run()` to execute the handler.
 
 See [how to](how-to.md) for detailed instructions on which actions you can execute and how to configure each function kind.

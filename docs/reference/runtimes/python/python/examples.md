@@ -27,34 +27,6 @@ function = dh.new_function(
 )
 ```
 
-**Guardrail function:**
-
-```python
-guardrail_function = project.new_function(
-    name="request-guardrail",
-    kind="guardrail",
-    code_src="guardrail.py",
-    handler="process",
-    python_version="PYTHON3_10",
-    processing_mode="preprocessor"
-)
-```
-
-**OpenInference function:**
-
-```python
-openinference_function = project.new_function(
-    name="text-inference",
-    kind="openinference",
-    code_src="inference.py",
-    handler="predict",
-    python_version="PYTHON3_10",
-    model_name="text-classifier",
-    inputs=[{"name": "input-0", "shape": [-1], "datatype": "BYTES"}],
-    outputs=[{"name": "output-0", "shape": [-1], "datatype": "FP32"}]
-)
-```
-
 ## Task Execution
 
 **Job execution:**
@@ -86,25 +58,6 @@ run = function.run(
 )
 ```
 
-**Guardrail serve:**
-
-```python
-run = guardrail_function.run(
-    action="serve",
-    replicas=1,
-    service_type="ClusterIP"
-)
-```
-
-**OpenInference build:**
-
-```python
-run = openinference_function.run(
-    action="build",
-    instructions=["pip install transformers"]
-)
-```
-
 ## Service Invocation
 
 After deploying a service:
@@ -125,24 +78,6 @@ run.invoke(json=json_data)
 # with a valid HTTP scheme (http:// or https://) and should
 # include the service url. To check the service url:
 run.status.service['url']
-```
-
-An OpenInference endpoint typically receives tensor-oriented payloads:
-
-```python
-json_payload = {
-    "inputs": [
-        {
-            "name": "input-0",
-            "shape": [-1],
-            "datatype": "BYTES",
-            "data": ["hello world"]
-        }
-    ]
-}
-
-serve_run = openinference_function.run(action="serve", replicas=1)
-serve_run.invoke(json=json_payload)
 ```
 
 ## Tutorials

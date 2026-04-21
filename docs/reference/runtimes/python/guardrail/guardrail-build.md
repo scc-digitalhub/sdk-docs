@@ -103,5 +103,4 @@ Can only be specified when calling `function.run()`.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| local_execution | bool | Execute the run locally instead of remotely. |
 | init_parameters | dict | Parameters supplied to the init function. |

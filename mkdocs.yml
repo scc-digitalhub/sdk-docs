@@ -131,18 +131,30 @@ nav:
       - Runtimes:
           - Index: reference/runtimes/index.md
           - Python:
-              - Overview: reference/runtimes/python/overview.md
-              - How-to: reference/runtimes/python/how-to.md
-              - Handler definition: reference/runtimes/python/define-function.md
+              - Overview: reference/runtimes/python/python/overview.md
+              - How-to: reference/runtimes/python/python/how-to.md
+              - Handler definition: reference/runtimes/python/python/define-function.md
               - Actions:
-                  - python job: reference/runtimes/python/actions/python-job.md
-                  - python serve: reference/runtimes/python/actions/python-serve.md
-                  - python build: reference/runtimes/python/actions/python-build.md
-                  - guardrail serve: reference/runtimes/python/actions/guardrail-serve.md
-                  - guardrail build: reference/runtimes/python/actions/guardrail-build.md
-                  - openinference serve: reference/runtimes/python/actions/openinference-serve.md
-                  - openinference build: reference/runtimes/python/actions/openinference-build.md
-              - Examples: reference/runtimes/python/examples.md
+                  - python job: reference/runtimes/python/python/python-job.md
+                  - python serve: reference/runtimes/python/python/python-serve.md
+                  - python build: reference/runtimes/python/python/python-build.md
+              - Examples: reference/runtimes/python/python/examples.md
+          - OpenInference (Python):
+              - Overview: reference/runtimes/python/openinference/overview.md
+              - How-to: reference/runtimes/python/openinference/how-to.md
+              - Handler definition: reference/runtimes/python/openinference/define-function.md
+              - Actions:
+                  - openinference serve: reference/runtimes/python/openinference/openinference-serve.md
+                  - openinference build: reference/runtimes/python/openinference/openinference-build.md
+              - Examples: reference/runtimes/python/openinference/examples.md
+          - Guardrail (Python):
+              - Overview: reference/runtimes/python/guardrail/overview.md
+              - How-to: reference/runtimes/python/guardrail/how-to.md
+              - Handler definition: reference/runtimes/python/guardrail/define-function.md
+              - Actions:
+                  - guardrail serve: reference/runtimes/python/guardrail/guardrail-serve.md
+                  - guardrail build: reference/runtimes/python/guardrail/guardrail-build.md
+              - Examples: reference/runtimes/python/guardrail/examples.md
           - DBT:
               - Overview: reference/runtimes/dbt/overview.md
               - How-to: reference/runtimes/dbt/how-to.md
