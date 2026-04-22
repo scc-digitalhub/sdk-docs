@@ -2,13 +2,13 @@
 
 At the moment, we support the following kinds and the related runtime:
 
-- [**`python+job:run`**](../../runtimes/python/actions/python-job.md)
-- [**`python+serve:run`**](../../runtimes/python/actions/python-serve.md)
-- [**`python+build:run`**](../../runtimes/python/actions/python-build.md)
-- [**`guardrail+build:run`**](../../runtimes/python/actions/guardrail-build.md)
-- [**`guardrail+serve:run`**](../../runtimes/python/actions/guardrail-serve.md)
-- [**`openinference+build:run`**](../../runtimes/python/actions/openinference-build.md)
-- [**`openinference+serve:run`**](../../runtimes/python/actions/openinference-serve.md)
+- [**`python+job:run`**](../../runtimes/python/python/python-job.md)
+- [**`python+serve:run`**](../../runtimes/python/python/python-serve.md)
+- [**`python+build:run`**](../../runtimes/python/python/python-build.md)
+- [**`guardrail+build:run`**](../../runtimes/python/guardrail/guardrail-build.md)
+- [**`guardrail+serve:run`**](../../runtimes/python/guardrail/guardrail-serve.md)
+- [**`openinference+build:run`**](../../runtimes/python/openinference/openinference-build.md)
+- [**`openinference+serve:run`**](../../runtimes/python/openinference/openinference-serve.md)
 - [**`dbt`**](../../runtimes/dbt/overview.md)
 - [**`container`**](../../runtimes/container/overview.md)
 - [**`modelserve`**](../../runtimes/modelserve/overview.md)
