@@ -10,7 +10,7 @@ Runtimes define the key point of extension of the platform: new runtimes may be 
 
 ## Supported runtimes
 
-- [Python](python/overview.md) — Python-based functions, including `python`, `guardrail`, and `openinference` kinds.
+- [Python](python/python/overview.md) — Python-based functions, including `python`, `guardrail`, and `openinference` kinds.
 - [Container](container/overview.md) — run arbitrary container images as jobs or services.
 - [DBT](dbt/overview.md) — run DBT transformations for data modeling.
 - [Hera](hera/overview.md) — Hera pipelines runtime (DAG/steps orchestration).

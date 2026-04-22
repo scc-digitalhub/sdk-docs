@@ -2,9 +2,9 @@
 
 At the moment, we support the following kinds and the related runtime:
 
-- [**`python`**](../../runtimes/python/overview.md)
-- [**`guardrail`**](../../runtimes/python/overview.md)
-- [**`openinference`**](../../runtimes/python/overview.md)
+- [**`python`**](../../runtimes/python/python/overview.md)
+- [**`guardrail`**](../../runtimes/python/guardrail/overview.md)
+- [**`openinference`**](../../runtimes/python/openinference/overview.md)
 - [**`dbt`**](../../runtimes/dbt/overview.md)
 - [**`container`**](../../runtimes/container/overview.md)
 - [**`modelserve`**](../../runtimes/modelserve/overview.md)

@@ -43,5 +43,5 @@ run = function.run(
 
 Here are links to the detailed documentation for each action:
 
-- [OpenInference Serve](actions/openinference-serve.md) — Deploy an `openinference` function as an inference endpoint
-- [OpenInference Build](actions/openinference-build.md) — Build a container image for an `openinference` function
+- [OpenInference Serve](openinference-serve.md) — Deploy an `openinference` function as an inference endpoint
+- [OpenInference Build](openinference-build.md) — Build a container image for an `openinference` function

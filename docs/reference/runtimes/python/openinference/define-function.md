@@ -1,6 +1,6 @@
 # Define a Open Infeference v2 Function
 
-This section describes how to define a openinference-runtime handler. A handler is a Python function declared with the standard `def` keyword. The runtime injects reserved arguments and provides helpers to map inputs and outputs. See the [Open Inference Protocol]([../../protocol/openinference.md](https://github.com/open-inference/open-inference-protocol)) for more details.
+This section describes how to define a openinference-runtime handler. A handler is a Python function declared with the standard `def` keyword. The runtime injects reserved arguments and provides helpers to map inputs and outputs. See the [Open Inference Protocol](https://github.com/open-inference/open-inference-protocol) for more details.
 
 
 ## Function Anatomy
@@ -17,7 +17,7 @@ def func(project, run, context, event, request):
     image_bytes = request.inputs[0].data
 
     return {
-        "outputs": 
+        "outputs":
             [
                 {"name": "caption", "datatype": "BYTES", "data": [caption], "shape": [1, len(caption)]}
             ]
@@ -31,8 +31,8 @@ The function you define becomes the entrypoint when referenced as the `handler` 
 
 The runtime injects a small set of reserved arguments when it invokes your handler. Commonly injected values are:
 
-- `project` — the current [`Project` object](../../objects/project/entity.md).
-- `run` — the active [`Run` object](../../objects/run/entity.md).
+- `project` — the current [`Project` object](../../../objects/project/entity.md).
+- `run` — the active [`Run` object](../../../objects/run/entity.md).
 - `context` — the Nuclio runtime context object (see Nuclio Python runtime docs) — only available in remote execution.
 - `event` — the Nuclio event object — only available in remote execution.
 - `request` - A body of the OpenInference InferRequest object with the corresponding fields.

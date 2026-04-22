@@ -27,7 +27,7 @@ python -m pip install digitalhub[mlcroissant]
 
 The Digitalhub runtimes are installed in the same way as the SDK. We have distributed the following runtimes at the moment:
 
-- [digitalhub-runtime-python](../reference/runtimes/python/overview.md)
+- [digitalhub-runtime-python](../reference/runtimes/python/python/overview.md)
 - [digitalhub-runtime-container](../reference/runtimes/container/overview.md)
 - [digitalhub-runtime-dbt](../reference/runtimes/dbt/overview.md)
 - [digitalhub-runtime-flower](../reference/runtimes/flower/overview.md)

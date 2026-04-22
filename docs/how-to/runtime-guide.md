@@ -6,7 +6,7 @@ This guide helps you choose the right runtime for your use case. The Digitalhub 
 
 | If you need to... | Use this runtime | Best for |
 | --- | --- | --- |
-| Execute Python code | [Python Runtime](../reference/runtimes/python/overview.md) | General-purpose Python execution, guardrails, and OpenInference services |
+| Execute Python code | [Python Runtime](../reference/runtimes/python/python/overview.md) | General-purpose Python execution, guardrails, and OpenInference services |
 | Run containerized applications | [Container Runtime](../reference/runtimes/container/overview.md) | Custom containers, complex dependencies |
 | Orchestrate multiple steps | [Hera Runtime](../reference/runtimes/hera/overview.md) | Workflow orchestration, DAGs |
 | Serve ML models | [ModelServe Runtime](../reference/runtimes/modelserve/overview.md) | Model inference, API serving |

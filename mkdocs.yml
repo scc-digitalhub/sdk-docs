@@ -128,12 +128,18 @@ nav:
               - Entity: reference/objects/secret/entity.md
               - CRUD: reference/objects/secret/crud.md
               - Methods: reference/objects/secret/methods.md
+          - Extensions:
+              - Entity: reference/objects/extension/entity.md
+              - CRUD: reference/objects/extension/crud.md
+              - Methods: reference/objects/extension/methods.md
+              - Kinds: reference/objects/extension/kinds.md
       - Runtimes:
           - Index: reference/runtimes/index.md
           - Python:
               - Overview: reference/runtimes/python/python/overview.md
               - How-to: reference/runtimes/python/python/how-to.md
               - Handler definition: reference/runtimes/python/python/define-function.md
+              - Generic handler: reference/runtimes/python/define-function.md
               - Actions:
                   - python job: reference/runtimes/python/python/python-job.md
                   - python serve: reference/runtimes/python/python/python-serve.md
