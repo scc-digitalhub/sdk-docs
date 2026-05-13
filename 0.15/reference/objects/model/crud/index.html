@@ -7083,7 +7083,7 @@ The syntax is the same for all CRUD methods. If you want to manage models from t
 <li><a href="#delete"><strong><code>delete_model</code></strong></a></li>
 </ul>
 <h2 id="create">Create</h2>
-<p>You can create a model with the <code>new_model()</code> or with <code>log_model()</code> method.
+<p>You can create a model with the <code>new_model()</code> or with <code>log_model()</code> method. The main difference between the two methods is that <code>log_model()</code> also uploads a local file into a model store (eg. <em>S3</em>), while <code>new_model()</code> only creates a new entity and saves it into the backend.
 The <code>kwargs</code> parameters are determined by the <strong>kind</strong> of the object, and are described in the <a href="../kinds/">kinds section</a>.
 The <code>kwargs</code> parameters are the same for both <em>new</em> and <em>log</em> methods.</p>
 <h3 id="new">New</h3>
