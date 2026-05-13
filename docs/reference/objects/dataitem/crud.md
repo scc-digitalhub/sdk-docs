@@ -52,7 +52,7 @@ Delete:
 
 ## Create
 
-You can create a dataitem with the `new_dataitem()` or with `log_dataitem()` method.
+You can create a dataitem with the `new_dataitem()` or with `log_dataitem()` method. The main difference between the two methods is that `log_dataitem()` also uploads a local file into a dataitem store (eg. *S3*), while `new_dataitem()` only creates a new entity and saves it into the backend.
 The `kwargs` parameters are determined by the **kind** of the object, and are described in the [kinds section](kinds.md).
 The `kwargs` parameters are the same for both *new* and *log* methods.
 

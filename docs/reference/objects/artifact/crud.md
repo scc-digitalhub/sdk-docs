@@ -50,7 +50,7 @@ Delete:
 
 ## Create
 
-You can create an artifact with the `new_artifact()` or with `log_artifact()` method.
+You can create an artifact with the `new_artifact()` or with `log_artifact()` method. The main difference between the two methods is that `log_artifact()` also uploads a local file into an artifact store (eg. *S3*), while `new_artifact()` only creates a new entity and saves it into the backend.
 The `kwargs` parameters are determined by the **kind** of the object, and are described in the [kinds section](kinds.md).
 The `kwargs` parameters are the same for both *new* and *log* methods.
 

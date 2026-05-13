@@ -53,7 +53,7 @@ Delete:
 
 ## Create
 
-You can create a model with the `new_model()` or with `log_model()` method.
+You can create a model with the `new_model()` or with `log_model()` method. The main difference between the two methods is that `log_model()` also uploads a local file into a model store (eg. *S3*), while `new_model()` only creates a new entity and saves it into the backend.
 The `kwargs` parameters are determined by the **kind** of the object, and are described in the [kinds section](kinds.md).
 The `kwargs` parameters are the same for both *new* and *log* methods.
 
