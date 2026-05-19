@@ -6791,9 +6791,8 @@
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">)</span>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">run</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="n">action</span><span class="o">=</span><span class="s2">&quot;serve&quot;</span><span class="p">,</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="n">replicas</span><span class="o">=</span><span class="mi">1</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="p">)</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="n">action</span><span class="o">=</span><span class="s2">&quot;serve&quot;</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">)</span>
 </span></code></pre></div>
 <h2 id="parameters">Parameters</h2>
 <h3 id="function-parameters">Function Parameters</h3>
@@ -6855,22 +6854,22 @@
 <tr>
 <td><a href="#model-url">url</a></td>
 <td>str</td>
-<td>Model url. <strong>Required.</strong></td>
+<td>Model url.</td>
 </tr>
 <tr>
 <td><a href="#adapters">adapters</a></td>
-<td>list[str]</td>
+<td>list[dict]</td>
 <td>Adapters.</td>
 </tr>
 <tr>
 <td><a href="#features">features</a></td>
 <td>list[str]</td>
-<td>Features. <strong>Required.</strong></td>
+<td>Features.</td>
 </tr>
 <tr>
 <td><a href="#engine">engine</a></td>
 <td>KubeaiEngine</td>
-<td>Engine. <strong>Required.</strong></td>
+<td>Engine.</td>
 </tr>
 </tbody>
 </table>
@@ -6928,31 +6927,6 @@
 <td>Task action. <strong>Required. Must be <code>serve</code></strong></td>
 </tr>
 <tr>
-<td><a href="../../../../configuration/kubernetes/overview/#node-selector">node_selector</a></td>
-<td>list[dict]</td>
-<td>Node selector.</td>
-</tr>
-<tr>
-<td><a href="../../../../configuration/kubernetes/overview/#volumes">volumes</a></td>
-<td>list[dict]</td>
-<td>List of volumes.</td>
-</tr>
-<tr>
-<td><a href="../../../../configuration/kubernetes/overview/#resources">resources</a></td>
-<td>dict</td>
-<td>Resource limits/requests.</td>
-</tr>
-<tr>
-<td><a href="../../../../configuration/kubernetes/overview/#affinity">affinity</a></td>
-<td>dict</td>
-<td>Affinity configuration.</td>
-</tr>
-<tr>
-<td><a href="../../../../configuration/kubernetes/overview/#tolerations">tolerations</a></td>
-<td>list[dict]</td>
-<td>Tolerations.</td>
-</tr>
-<tr>
 <td><a href="../../../../configuration/kubernetes/overview/#secrets-envs">envs</a></td>
 <td>list[dict]</td>
 <td>Environment variables.</td>
@@ -6966,21 +6940,6 @@
 <td><a href="../../../../configuration/kubernetes/overview/#profile">profile</a></td>
 <td>str</td>
 <td>Profile template.</td>
-</tr>
-<tr>
-<td><a href="../../../../configuration/kubernetes/overview/#replicas">replicas</a></td>
-<td>int</td>
-<td>Number of replicas.</td>
-</tr>
-<tr>
-<td><a href="../../../../configuration/kubernetes/overview/#service-port-type">service_type</a></td>
-<td>str</td>
-<td>Service type.</td>
-</tr>
-<tr>
-<td>service_name</td>
-<td>str</td>
-<td>Service name.</td>
 </tr>
 </tbody>
 </table>

@@ -6398,15 +6398,11 @@
 <li>eventual processing errors are suppressed and ignored by the middleware; the request passes through.</li>
 <li>if it is necessary to change the status of the response (in pre- or post mode), it is necessary for handler to return an <code>nuclio_sdk.Response</code> structure containing the <code>status_code</code> field with the corresponding status code different from 0.</li>
 <li>if in case of <code>wrapprocessor</code> upon request event it is necesary to prevent the propagation to the upstream service, the wrap processor should return the result as <code>nuclio_sdk.Response</code> with the corresponding status code.</li>
-<li>
-<p>to distinguish the processing phase of ExtProc, the processing-phase header is appended to the event object. The possible values are:</p>
-<ul>
+<li>to distinguish the processing phase of ExtProc, the processing-phase header is appended to the event object. The possible values are:</li>
 <li>process request headers: 1</li>
 <li>process request body: 2</li>
 <li>process response headers: 4</li>
 <li>process response body: 5</li>
-</ul>
-</li>
 </ul>
 <h2 id="init-function">Init function</h2>
 <p>If defined, Nuclio wrapper calls an <code>init</code> function (if present) before invoking your handler. The runtime injects the Nuclio <code>context</code> into <code>init</code> at invocation time. Additional parameters may be supplied via <code>init_parameters</code> in <code>function.run()</code>.</p>

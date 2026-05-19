@@ -2039,6 +2039,34 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#trigger-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trigger methods
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trigger methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#digitalhub.entities.trigger._base.entity.Trigger.stop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        stop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#trigger-specifications" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6437,6 +6465,34 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#trigger-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trigger methods
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trigger methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#digitalhub.entities.trigger._base.entity.Trigger.stop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        stop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#trigger-specifications" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6518,7 +6574,7 @@
 
 
 <h1 id="trigger-object">Trigger object</h1>
-<p>The <code>Trigger</code> object comes with two sets of methods: CRUD methods and status methods inherited from the <code>VersionedEntity</code> class.</p>
+<p>The <code>Trigger</code> object comes with CRUD methods and trigger-specific methods.</p>
 <h2 id="crud-methods">CRUD methods</h2>
 <p>CRUD methods are used to interact with the entity object in the backend or locally:</p>
 <ul>
@@ -6680,6 +6736,29 @@
 
     </div>
 
+</div><h2 id="trigger-methods">Trigger methods</h2>
+<p>The trigger object exposes the following method:</p>
+<ul>
+<li><code>stop()</code>: Stop the trigger.</li>
+</ul>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="digitalhub.entities.trigger._base.entity.Trigger.stop" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">stop</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents first">
+
+        <p>Stop trigger.</p>
+
+
+    </div>
+
 </div><h2 id="trigger-specifications">Trigger Specifications</h2>
 <p>The trigger object has specific attributes based on its kind:</p>
 <h3 id="base-trigger">Base Trigger</h3>
@@ -6720,7 +6799,7 @@
 </span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;lifecycle&quot;</span><span class="p">,</span>
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;validate-on-upload&quot;</span><span class="p">,</span>
 </span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="n">key</span><span class="o">=</span><span class="s2">&quot;store://project/artifact/*&quot;</span><span class="p">,</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    <span class="n">states</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;READY&quot;</span><span class="p">]</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    <span class="n">states</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;READY&quot;</span><span class="p">],</span>
 </span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    <span class="n">template</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;inputs&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;my-param&quot;</span><span class="p">:</span> <span class="s2">&quot;{{input.key}}&quot;</span><span class="p">}},</span>
 </span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="p">)</span>
 </span></code></pre></div>

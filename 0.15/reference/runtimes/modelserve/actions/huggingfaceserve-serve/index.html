@@ -6732,7 +6732,7 @@
 <tr>
 <td><a href="#model-path">path</a></td>
 <td>str</td>
-<td>Path to the model files. <strong>Required.</strong></td>
+<td>Path to the model files.</td>
 </tr>
 <tr>
 <td>model_name</td>
@@ -6781,11 +6781,6 @@
 <td>Task action. <strong>Required. Must be <code>serve</code></strong></td>
 </tr>
 <tr>
-<td><a href="../../../../configuration/kubernetes/overview/#node-selector">node_selector</a></td>
-<td>list[dict]</td>
-<td>Node selector.</td>
-</tr>
-<tr>
 <td><a href="../../../../configuration/kubernetes/overview/#volumes">volumes</a></td>
 <td>list[dict]</td>
 <td>List of volumes.</td>
@@ -6794,16 +6789,6 @@
 <td><a href="../../../../configuration/kubernetes/overview/#resources">resources</a></td>
 <td>dict</td>
 <td>Resource limits/requests.</td>
-</tr>
-<tr>
-<td><a href="../../../../configuration/kubernetes/overview/#affinity">affinity</a></td>
-<td>dict</td>
-<td>Affinity configuration.</td>
-</tr>
-<tr>
-<td><a href="../../../../configuration/kubernetes/overview/#tolerations">tolerations</a></td>
-<td>list[dict]</td>
-<td>Tolerations.</td>
 </tr>
 <tr>
 <td><a href="../../../../configuration/kubernetes/overview/#secrets-envs">envs</a></td>
@@ -6931,7 +6916,22 @@
 </ul>
 <h3 id="run-parameters">Run Parameters</h3>
 <p>Can only be specified when calling <code>function.run()</code>.</p>
-<p>No specific parameters for run of this action.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>args</td>
+<td>list[str]</td>
+<td>Arguments for the HuggingFace serve command.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="entity-methods">Entity methods</h2>
 <h3 id="run-methods">Run methods</h3>
 <p>Once the run is created, you can access its attributes and methods through the <code>run</code> object.</p>

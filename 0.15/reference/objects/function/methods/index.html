@@ -1733,15 +1733,76 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#trigger-method" class="md-nav__link">
+  <a href="#task-methods" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Trigger method
+        Task methods
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Trigger method">
+    <nav class="md-nav" aria-label="Task methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#digitalhub.entities.function._base.entity.Function.new_task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        new_task
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digitalhub.entities.function._base.entity.Function.get_task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_task
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digitalhub.entities.function._base.entity.Function.list_task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        list_task
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digitalhub.entities.function._base.entity.Function.update_task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        update_task
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trigger-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trigger methods
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trigger methods">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1749,6 +1810,28 @@
     <span class="md-ellipsis">
       
         trigger
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digitalhub.entities.function._base.entity.Function.get_trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_trigger
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digitalhub.entities.function._base.entity.Function.list_triggers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        list_triggers
       
     </span>
   </a>
@@ -6471,15 +6554,76 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#trigger-method" class="md-nav__link">
+  <a href="#task-methods" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Trigger method
+        Task methods
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Trigger method">
+    <nav class="md-nav" aria-label="Task methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#digitalhub.entities.function._base.entity.Function.new_task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        new_task
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digitalhub.entities.function._base.entity.Function.get_task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_task
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digitalhub.entities.function._base.entity.Function.list_task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        list_task
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digitalhub.entities.function._base.entity.Function.update_task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        update_task
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trigger-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trigger methods
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trigger methods">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -6487,6 +6631,28 @@
     <span class="md-ellipsis">
       
         trigger
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digitalhub.entities.function._base.entity.Function.get_trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_trigger
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digitalhub.entities.function._base.entity.Function.list_triggers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        list_triggers
       
     </span>
   </a>
@@ -6530,7 +6696,7 @@
 
 
 <h1 id="function-object">Function object</h1>
-<p>The <code>Function</code> object comes with three sets of methods: CRUD methods, one run method and (eventual) kind specific methods.</p>
+<p>The <code>Function</code> object comes with CRUD methods, a run method, task methods, trigger methods, and kind specific methods.</p>
 <h2 id="crud-methods">CRUD methods</h2>
 <p>Crud methods are used to interact with the entity object in the backend or locally.</p>
 <ul>
@@ -6830,8 +6996,437 @@
 
     </div>
 
-</div><h2 id="trigger-method">Trigger method</h2>
-<p>The <code>trigger()</code> method is used to create a function trigger.</p>
+</div><h2 id="task-methods">Task methods</h2>
+<p>The function object exposes the following methods to manage tasks.</p>
+<ul>
+<li><code>new_task()</code>: Create a task for an action.</li>
+<li><code>get_task()</code>: Get the task for an action.</li>
+<li><code>list_task()</code>: List the tasks related to the function.</li>
+<li><code>update_task()</code>: Update the task for an action.</li>
+</ul>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="digitalhub.entities.function._base.entity.Function.new_task" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">new_task</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents first">
+
+        <p>Create new task. If the task already exists, update it.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>action</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Action name.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>**kwargs</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Task spec keyword arguments.</p>
+              </div>
+            </td>
+            <td>
+                  <code>{}</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="digitalhub.entities.task._base.entity.Task">Task</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>New task.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="digitalhub.entities.function._base.entity.Function.get_task" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">get_task</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents first">
+
+        <p>Get task.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>action</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Action name.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="digitalhub.entities.task._base.entity.Task">Task</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Task.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="digitalhub.entities.function._base.entity.Function.list_task" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">list_task</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents first">
+
+        <p>List tasks of the executable entity from backend.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>q</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Query string to filter objects.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>name</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Object name.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>kind</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Kind of the object.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>user</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>User that created the object.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>state</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Object state.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>created</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Creation date filter.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>updated</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Update date filter.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="list">list</span>[<span title="digitalhub.entities.task._base.entity.Task">Task</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>List of object instances.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="digitalhub.entities.function._base.entity.Function.update_task" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">update_task</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents first">
+
+        <p>Update task.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>action</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Action name.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>**kwargs</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Task spec keyword arguments.</p>
+              </div>
+            </td>
+            <td>
+                  <code>{}</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="digitalhub.entities.task._base.entity.Task">Task</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Task.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div><h2 id="trigger-methods">Trigger methods</h2>
+<p>The function object exposes the following methods to manage triggers.</p>
+<ul>
+<li><code>trigger()</code>: Create a trigger for the function.</li>
+<li><code>get_trigger()</code>: Get a trigger by identifier.</li>
+<li><code>list_triggers()</code>: List the triggers related to the function.</li>
+</ul>
 
 
 <div class="doc doc-object doc-function">
@@ -6959,6 +7554,262 @@
             <td>
               <div class="doc-md-description">
                 <p>Object instance.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="digitalhub.entities.function._base.entity.Function.get_trigger" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">get_trigger</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents first">
+
+        <p>Get object from backend.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>identifier</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Entity key (store://...) or entity ID.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="digitalhub.entities.trigger._base.entity.Trigger">Trigger</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Object instance.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="digitalhub.entities.function._base.entity.Function.list_triggers" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">list_triggers</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents first">
+
+        <p>List triggers of the executable entity from backend.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>q</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Query string to filter objects.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>name</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Object name.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>kind</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Kind of the object.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>user</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>User that created the object.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>created</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Creation date filter.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>updated</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Update date filter.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>versions</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Object version, default is latest.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>task</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Task string filter.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="list">list</span>[<span title="digitalhub.entities.trigger._base.entity.Trigger">Trigger</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>List of object instances.</p>
               </div>
             </td>
           </tr>

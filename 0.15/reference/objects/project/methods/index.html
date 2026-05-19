@@ -1543,6 +1543,39 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#digitalhub.entities.project._base.entity.Project.search_entity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        search_entity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digitalhub.entities.project._base.entity.Project.share" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        share
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digitalhub.entities.project._base.entity.Project.unshare" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        unshare
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -6448,6 +6481,39 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#digitalhub.entities.project._base.entity.Project.search_entity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        search_entity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digitalhub.entities.project._base.entity.Project.share" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        share
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digitalhub.entities.project._base.entity.Project.unshare" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        unshare
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -6638,7 +6704,7 @@ If the objects are not embedded, the objects are exported as a YAML file.</p>
     </div>
 
 </div><h2 id="entity-crud">Entity CRUD</h2>
-<p>The project acts as context for other entities as mentioned in the introduction. With a <code>Project</code> object, you can create, read, update and delete these entities. The methods exposed are basically the same as the CRUD entities, the only difference is that on the project object you omit the project name as parameter. The available methods and are:</p>
+<p>The project acts as context for other entities as mentioned in the introduction. With a <code>Project</code> object, you can create, read, update and delete these entities. The methods exposed are basically the same as the standalone CRUD functions; the only difference is that on the project object you omit the project name parameter. The available methods are:</p>
 <ul>
 <li><strong><code>new</code></strong>: create a new entity</li>
 <li><strong><code>log</code></strong>: create and upload an entity</li>
@@ -6649,7 +6715,7 @@ If the objects are not embedded, the objects are exported as a YAML file.</p>
 <li><strong><code>update</code></strong>: update an entity</li>
 <li><strong><code>delete</code></strong>: delete an entity</li>
 </ul>
-<p>For more information about the entity methods, see the rekative entity documentation:</p>
+<p>For more information about the entity methods, see the related entity documentation:</p>
 <ul>
 <li><a href="../../artifact/crud/"><strong><code>artifacts</code></strong></a></li>
 <li><a href="../../dataitem/crud/"><strong><code>dataitems</code></strong></a></li>
@@ -6663,6 +6729,9 @@ If the objects are not embedded, the objects are exported as a YAML file.</p>
 <p>The project object exposes the following methods:</p>
 <ul>
 <li><strong><code>run</code></strong>: execute a workflow from the project</li>
+<li><strong><code>search_entity</code></strong>: search entities related to the project</li>
+<li><strong><code>share</code></strong>: share the project with a user</li>
+<li><strong><code>unshare</code></strong>: remove project access for a user</li>
 </ul>
 
 
@@ -6743,6 +6812,173 @@ If the objects are not embedded, the objects are exported as a YAML file.</p>
             <td>
               <div class="doc-md-description">
                 <p>Run instance.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="digitalhub.entities.project._base.entity.Project.search_entity" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">search_entity</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents first">
+
+        <p>Search objects from backend.</p>
+
+
+<details class="see-also" open>
+  <summary>See also</summary>
+  <p>digitalhub.search_entity</p>
+</details>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="digitalhub.entities.project._base.entity.Project.share" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">share</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents first">
+
+        <p>Share project.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>user</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>User to share project with.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code>None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="digitalhub.entities.project._base.entity.Project.unshare" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">unshare</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents first">
+
+        <p>Unshare project.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>user</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>User to unshare project with.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code>None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                
               </div>
             </td>
           </tr>

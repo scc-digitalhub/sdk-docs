@@ -3013,13 +3013,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#kind-specific-methods" class="md-nav__link">
+  <a href="#extension-specific-methods" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Kind specific methods
+        Extension specific methods
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Extension specific methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#digitalhub.entities.extension._base.entity.Extension.get_schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_schema
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -6387,13 +6404,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#kind-specific-methods" class="md-nav__link">
+  <a href="#extension-specific-methods" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Kind specific methods
+        Extension specific methods
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Extension specific methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#digitalhub.entities.extension._base.entity.Extension.get_schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_schema
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -6418,7 +6452,7 @@
 
 
 <h1 id="extension-object">Extension object</h1>
-<p>The <code>Extension</code> object comes with a set of methods: CRUD methods.</p>
+<p>The <code>Extension</code> object comes with CRUD methods and extension-specific methods.</p>
 <h2 id="crud-methods">CRUD methods</h2>
 <p>Crud methods are used to interact with the entity object in the backend or locally.</p>
 <ul>
@@ -6580,9 +6614,32 @@
 
     </div>
 
-</div><h2 id="kind-specific-methods">Kind specific methods</h2>
-<p>Kind specific methods are used to express potential behaviors of different object kinds.
-See the <a href="../kinds/">kinds section</a> for more information.</p>
+</div><h2 id="extension-specific-methods">Extension specific methods</h2>
+<p>The extension object exposes the following method:</p>
+<ul>
+<li><code>get_schema()</code>: Get the JSON schema of the extension.</li>
+</ul>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="digitalhub.entities.extension._base.entity.Extension.get_schema" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">get_schema</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents first">
+
+        <p>Get the JSON schema of the extension.</p>
+<p>Returns:
+    str | dict: The JSON schema of the extension.</p>
+
+
+    </div>
+
+</div>
 
 
 
