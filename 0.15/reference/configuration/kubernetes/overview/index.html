@@ -6359,50 +6359,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#node-selector" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Node selector
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#affinity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Affinity
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tolerations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tolerations
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#runtime-class-and-priority-class" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Runtime class and priority class
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -6591,50 +6547,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#node-selector" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Node selector
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#affinity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Affinity
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tolerations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tolerations
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#runtime-class-and-priority-class" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Runtime class and priority class
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -6667,7 +6579,6 @@ To better understand the Kubernetes configuration options, refer to the <a href=
 <li>You need to expose a service -&gt; <a href="#service-port-type">Configure service ports</a></li>
 <li>You need to configure security settings -&gt; <a href="#security-context">Set security context</a></li>
 <li>You need to scale your application -&gt; <a href="#replicas">Set replicas</a></li>
-<li>You need to control pod placement -&gt; <a href="#node-selector">Set node selector</a></li>
 </ul>
 <h2 id="resources">Resources</h2>
 <p>Declare hardware requests/limits using the <code>resources</code> map. Supported keys: <code>cpu</code>, <code>mem</code> and <code>gpu</code>. Each is an object with optional string.</p>
@@ -6743,16 +6654,6 @@ Set <code>fs_group</code> (integer) to control the GID for the filesystem.</p>
 <p>Specify the number of replicas for pod/deployment (integer). Some runtimes use this to create a deployment instead of a single pod.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">replicas</span> <span class="o">=</span> <span class="mi">3</span>
 </span></code></pre></div>
-<h2 id="node-selector">Node selector</h2>
-<p>Request a node selector for the pod launched by the task. The SDK accepts a list of objects with <code>key</code>/<code>value</code>.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">node_selector</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;kubernetes.io/arch&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;amd64&quot;</span><span class="p">}]</span>
-</span></code></pre></div>
-<h2 id="affinity">Affinity</h2>
-<p>Please see <a href="https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity">Kubernetes documentation on affinity and anti-affinity</a>.</p>
-<h2 id="tolerations">Tolerations</h2>
-<p>Please see <a href="https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/">Kubernetes documentation on taints and tolerations</a>.</p>
-<h2 id="runtime-class-and-priority-class">Runtime class and priority class</h2>
-<p>For runtime class and priority class, please see the <a href="https://kubernetes.io/docs/concepts/containers/runtime-class/">Kubernetes documentation on runtime classes</a> and <a href="https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/#priorityclass">priority classes</a>.</p>
 
 
 
