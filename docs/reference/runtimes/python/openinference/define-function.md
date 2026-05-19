@@ -2,7 +2,6 @@
 
 This section describes how to define a openinference-runtime handler. A handler is a Python function declared with the standard `def` keyword. The runtime injects reserved arguments and provides helpers to map inputs and outputs. See the [Open Inference Protocol](https://github.com/open-inference/open-inference-protocol) for more details.
 
-
 ## Function Anatomy
 
 ![Function Diagram](../asset/function.png)

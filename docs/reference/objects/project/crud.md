@@ -38,7 +38,7 @@ For project configuration options, please refer to the [Config](config.md) secti
 
 ## Create
 
-You can create a project with the `new_project()` or with `log_project()` method.
+You can create a project with the `new_project()` method.
 
 ### New
 
@@ -88,7 +88,7 @@ This function load the project from a local yaml file descriptor.
 
 ### Load
 
-This function returns a projects from the backend or from a local file according to the parameter passed to the function. If the parameter is `name`, the function will try to load the project from the backend. If the parameter is `file`, the function will try to load the project from the local file.
+This function loads the project from a local YAML file and updates the existing object into the backend.
 
 ::: digitalhub.entities
     options:

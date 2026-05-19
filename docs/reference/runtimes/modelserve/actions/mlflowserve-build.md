@@ -1,23 +1,23 @@
-# ModelServe vllmserve-speech Serve
+# ModelServe mlflowserve Build
 
-The `serve` action deploys vLLM speech models as services on Kubernetes. A `Task` is created by calling `run()` on the Function; task parameters are passed through that call.
+The `build` action builds an MLflow model-serving container image. A `Task` is created by calling `run()` on the Function; task parameters are passed through that call.
 
 ## Overview
 
-The vllmserve-speech function kind specializes vLLM serving for speech models.
+The mlflowserve function kind supports building MLflow models for serving. The model must be saved in MLflow format with an MLmodel file.
 
 ## Quick example
 
 ```python
 function = dh.new_function(
-    name="my-vllm-speech-service",
-    kind="vllmserve-speech",
-    url="hf://openai/whisper-large-v3",
+    name="my-mlflow-build-function",
+    kind="mlflowserve",
+    path=model.key
 )
 
-run = function.run(
-    action="serve",
-    replicas=1,
+build_run = function.run(
+    action="build",
+    instructions=["pip install -r requirements.txt"]
 )
 ```
 
@@ -31,25 +31,25 @@ Must be specified when creating the function.
 | --- | --- | --- |
 | project | str | Project name. Required only when creating from the library; otherwise **MUST NOT** be set. |
 | name | str | Name that identifies the object. **Required.** |
-| kind | str | Function kind. Must be `vllmserve-speech`. **Required.** |
+| kind | str | Function kind. Must be `mlflowserve`. **Required.** |
 | uuid | str | Object ID in UUID4 format. |
 | description | str | Description of the object. |
 | labels | list[str] | List of labels. |
 | embedded | bool | Whether the object should be embedded in the project. |
+| [path](#model-path) | str | Model path. |
 | model_name | str | Name of the model. |
-| image | str | Docker image where to serve the model. |
-| url | str | Model source URL. |
-| [adapters](#adapters) | list[dict] | List of adapters. |
+| [image](#model-image) | str | Docker image where to serve the model. |
 
-#### Adapters
+#### Model Path
 
-Adapters is a list of dictionaries with the following keys:
+The model path must consists of the model key or the s3 path partition where the model files are or a zip containing the model files.
+
+#### Model Image
+
+Model image must follow the pattern:
 
 ```python
-adapters = [{
-    "name": "adapter-name",
-    "url": "adapter-url"
-}]
+image_regex = r"^seldonio\\/mlserver?:.*-mlflow$"
 ```
 
 ### Task Parameters
@@ -58,7 +58,7 @@ Can only be specified when calling `function.run()`.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| action | str | Task action. **Required. Must be `serve`** |
+| action | str | Task action. **Required. Must be `build`** |
 | [volumes](../../../configuration/kubernetes/overview.md#volumes) | list[dict] | List of volumes. |
 | [resources](../../../configuration/kubernetes/overview.md#resources) | dict | Resource limits/requests. |
 | [envs](../../../configuration/kubernetes/overview.md#secrets-envs) | list[dict] | Environment variables. |
@@ -67,31 +67,24 @@ Can only be specified when calling `function.run()`.
 | [replicas](../../../configuration/kubernetes/overview.md#replicas) | int | Number of replicas. |
 | [service_type](../../../configuration/kubernetes/overview.md#service-port-type) | str | Service type. |
 | service_name | str | Service name. |
+| [instructions](#instructions) | list[str] | Build instructions executed as RUN lines in the generated Dockerfile. |
 
 ### Run Parameters
 
 Can only be specified when calling `function.run()`.
 
-| Name | Type | Description |
-| --- | --- | --- |
-| url | str | URL of the vLLM service. |
-| args | list[str] | Extra arguments passed to the vLLM server. |
-| enable_telemetry | bool | Enable or disable telemetry. |
-| use_cpu_image | bool | Use a CPU image for serving. |
-| storage_space | str | Storage space for model artifacts. |
+No specific parameters for run of this action.
+
+## Instructions
+
+Instructions are executed as `RUN` instructions in the generated Dockerfile. Example:
+
+```python
+instructions = ["apt-get install -y git"]
+```
 
 ## Entity methods
 
 ### Run methods
 
-Once the run is created, you can access its attributes and methods through the `run` object.
-
-::: digitalhub_runtime_modelserve.entities.run.vllmservespeech_run.entity.RunVllmservespeechRun.invoke
-    options:
-        heading_level: 6
-        show_signature: false
-        show_source: false
-        show_root_heading: true
-        show_symbol_type_heading: true
-        show_root_full_path: false
-        show_root_toc_entry: true
+No runtime-specific helper methods are available for this action.

@@ -22,7 +22,7 @@ Each kind supports specific actions.
 | Function Kind | Supported Actions |
 | --- | --- |
 | `sklearnserve` | `serve` |
-| `mlflowserve` | `serve` |
+| `mlflowserve` | `build`, `serve` |
 | `huggingfaceserve` | `serve` |
 | `kubeai-text` | `serve` |
 | `kubeai-speech` | `serve` |
@@ -59,6 +59,7 @@ ModelServe functions are executed remotely on Kubernetes clusters managed by the
 Here are links to the detailed documentation for each ModelServe action:
 
 - [sklearnserve serve](actions/sklearnserve-serve.md) — Deploy scikit-learn models as services
+- [mlflowserve build](actions/mlflowserve-build.md) — Build MLflow model-serving images
 - [mlflowserve serve](actions/mlflowserve-serve.md) — Deploy MLflow models as services
 - [huggingfaceserve serve](actions/huggingfaceserve-serve.md) — Deploy HuggingFace models as services
 - [kubeai-text serve](actions/kubeai-text-serve.md) — Deploy text processing models via KubeAI

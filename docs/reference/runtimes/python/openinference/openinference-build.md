@@ -95,11 +95,8 @@ Can only be specified when calling `function.run()`.
 | Name | Type | Description |
 | --- | --- | --- |
 | action | str | Task action. **Required. Must be `build`** |
-| [node_selector](../../../configuration/kubernetes/overview.md#node-selector) | list[dict] | Node selector configuration. |
 | [volumes](../../../configuration/kubernetes/overview.md#volumes) | list[dict] | List of volumes. |
 | [resources](../../../configuration/kubernetes/overview.md#resources) | dict | Resource limits/requests. |
-| [affinity](../../../configuration/kubernetes/overview.md#affinity) | dict | Affinity configuration. |
-| [tolerations](../../../configuration/kubernetes/overview.md#tolerations) | list[dict] | Tolerations. |
 | [envs](../../../configuration/kubernetes/overview.md#secrets-envs) | list[dict] | Environment variables. |
 | [secrets](../../../configuration/kubernetes/overview.md#secrets-envs) | list[str] | List of secret names. |
 | [profile](../../../configuration/kubernetes/overview.md#profile) | str | Profile template. |
@@ -111,5 +108,4 @@ Can only be specified when calling `function.run()`.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| local_execution | bool | Execute the run locally instead of remotely. |
 | init_parameters | dict | Parameters supplied to the init function. |

@@ -18,8 +18,7 @@ function = dh.new_function(
 )
 
 run = function.run(
-    action="serve",
-    replicas=1
+    action="serve"
 )
 ```
 
@@ -40,10 +39,10 @@ Must be specified when creating the function.
 | embedded | bool | Whether the object should be embedded in the project. |
 | model_name | str | Name of the model. |
 | image | str | Docker image where to serve the model. |
-| [url](#model-url) | str | Model url. **Required.** |
-| [adapters](#adapters) | list[str] | Adapters. |
-| [features](#features) | list[str] | Features. **Required.** |
-| [engine](#engine) | KubeaiEngine | Engine. **Required.** |
+| [url](#model-url) | str | Model url. |
+| [adapters](#adapters) | list[dict] | Adapters. |
+| [features](#features) | list[str] | Features. |
+| [engine](#engine) | KubeaiEngine | Engine. |
 
 #### Adapters
 
@@ -100,17 +99,9 @@ Can only be specified when calling `function.run()`.
 | Name | Type | Description |
 | --- | --- | --- |
 | action | str | Task action. **Required. Must be `serve`** |
-| [node_selector](../../../configuration/kubernetes/overview.md#node-selector) | list[dict] | Node selector. |
-| [volumes](../../../configuration/kubernetes/overview.md#volumes) | list[dict] | List of volumes. |
-| [resources](../../../configuration/kubernetes/overview.md#resources) | dict | Resource limits/requests. |
-| [affinity](../../../configuration/kubernetes/overview.md#affinity) | dict | Affinity configuration. |
-| [tolerations](../../../configuration/kubernetes/overview.md#tolerations) | list[dict] | Tolerations. |
 | [envs](../../../configuration/kubernetes/overview.md#secrets-envs) | list[dict] | Environment variables. |
 | [secrets](../../../configuration/kubernetes/overview.md#secrets-envs) | list[str] | List of secret names. |
 | [profile](../../../configuration/kubernetes/overview.md#profile) | str | Profile template. |
-| [replicas](../../../configuration/kubernetes/overview.md#replicas) | int | Number of replicas. |
-| [service_type](../../../configuration/kubernetes/overview.md#service-port-type) | str | Service type. |
-| service_name | str | Service name. |
 
 ### Run Parameters
 

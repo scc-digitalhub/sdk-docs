@@ -44,7 +44,7 @@ Crud methods are used to interact with the entity object in the backend or local
 
 I/O methods are used to handle objects as files.
 
-- `as_file()`: Dowloads the dataitem into a local temporary destination
+- `as_file()`: Downloads the dataitem into a local temporary destination
 - `download()`: Downloads the dataitem into a specified path
 - `upload()`: Uploads the dataitem to dataitem spec path
 

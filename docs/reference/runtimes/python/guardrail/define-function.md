@@ -43,18 +43,16 @@ The runtime injects a small set of reserved arguments when it invokes your handl
 - `context` — the Nuclio runtime context object (see Nuclio Python runtime docs) — only available in remote execution.
 - `event` — the Nuclio event object — only available in remote execution.
 
-
 For the handler function the following assumptions should be taken into account
 
 - eventual processing errors are suppressed and ignored by the middleware; the request passes through.
 - if it is necessary to change the status of the response (in pre- or post mode), it is necessary for handler to return an ``nuclio_sdk.Response`` structure containing the ``status_code`` field with the corresponding status code different from 0.
 - if in case of ``wrapprocessor`` upon request event it is necesary to prevent the propagation to the upstream service, the wrap processor should return the result as ``nuclio_sdk.Response`` with the corresponding status code.
 - to distinguish the processing phase of ExtProc, the processing-phase header is appended to the event object. The possible values are:
-
-    - process request headers: 1
-    - process request body: 2
-    - process response headers: 4
-    - process response body: 5
+  - process request headers: 1
+  - process request body: 2
+  - process response headers: 4
+  - process response body: 5
 
 ## Init function
 
