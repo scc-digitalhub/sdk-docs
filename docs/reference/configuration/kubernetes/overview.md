@@ -12,7 +12,6 @@ To better understand the Kubernetes configuration options, refer to the [Kuberne
 - You need to expose a service -> [Configure service ports](#service-port-type)
 - You need to configure security settings -> [Set security context](#security-context)
 - You need to scale your application -> [Set replicas](#replicas)
-- You need to control pod placement -> [Set node selector](#node-selector)
 
 ## Resources
 
@@ -131,23 +130,3 @@ Specify the number of replicas for pod/deployment (integer). Some runtimes use t
 ```python
 replicas = 3
 ```
-
-## Node selector
-
-Request a node selector for the pod launched by the task. The SDK accepts a list of objects with `key`/`value`.
-
-```python
-node_selector = [{"key": "kubernetes.io/arch", "value": "amd64"}]
-```
-
-## Affinity
-
-Please see [Kubernetes documentation on affinity and anti-affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity).
-
-## Tolerations
-
-Please see [Kubernetes documentation on taints and tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/).
-
-## Runtime class and priority class
-
-For runtime class and priority class, please see the [Kubernetes documentation on runtime classes](https://kubernetes.io/docs/concepts/containers/runtime-class/) and [priority classes](https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/#priorityclass).
