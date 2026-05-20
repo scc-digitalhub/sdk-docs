@@ -15,7 +15,12 @@ To better understand the Kubernetes configuration options, refer to the [Kuberne
 
 ## Resources
 
-Declare hardware requests/limits using the `resources` map. Supported keys: `cpu`, `mem` and `gpu`. Each is an object with optional string.
+Declare hardware requests/limits using the `resources` map. Supported keys:
+
+- `cpu`, number of CPU cores (for example `2` or `500m` for 0.5 cores)
+- `mem`, ram amount with unit (for example `4Gi`)
+- `gpu`, number of GPUs
+- `disk`, space for mounted default disk with unit (for example `10Gi`)
 
 The SDK validates resource strings with a simple pattern (digits or digits+unit). Examples:
 
@@ -23,7 +28,8 @@ The SDK validates resource strings with a simple pattern (digits or digits+unit)
 resources = {
     "cpu": "2",
     "mem": "4Gi",
-    "gpu": "1"
+    "gpu": "1",
+    "disk": "10Gi"
 }
 ```
 
