@@ -43,7 +43,7 @@ The `kwargs` parameters are determined by the **kind** of the object, and are de
 
 This run create a new entity and saves it into the backend.
 
-::: digitalhub.entities.run.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -65,7 +65,7 @@ If you want to collect a run from the backend using `get_run()`, you have two op
 - The first one is to use the `key` parameter which has the pattern `store://<project-name>/<entity-type>/<entity-kind>/<entity-id>`.
 - The second one is to use the entity id as `identifier`, the project name as `project`.
 
-::: digitalhub.entities.run.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -79,7 +79,7 @@ If you want to collect a run from the backend using `get_run()`, you have two op
 
 This run returns all the latest runs from the backend related to a project.
 
-::: digitalhub.entities.run.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -93,7 +93,7 @@ This run returns all the latest runs from the backend related to a project.
 
 This run load the run from a local yaml file descriptor.
 
-::: digitalhub.entities.run.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -107,7 +107,7 @@ This run load the run from a local yaml file descriptor.
 
 To update a run you can use the `update_run()` method.
 
-::: digitalhub.entities.run.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false
@@ -121,7 +121,7 @@ To update a run you can use the `update_run()` method.
 
 To delete a run you can use the `delete_run()` method.
 
-::: digitalhub.entities.run.crud
+::: digitalhub.entities
     options:
         heading_level: 6
         show_signature: false

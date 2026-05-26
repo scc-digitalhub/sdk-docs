@@ -1,6 +1,6 @@
 # Trigger object
 
-The `Trigger` object comes with two sets of methods: CRUD methods and status methods inherited from the `VersionedEntity` class.
+The `Trigger` object comes with CRUD methods and trigger-specific methods.
 
 ## CRUD methods
 
@@ -31,6 +31,22 @@ CRUD methods are used to interact with the entity object in the backend or local
         show_root_toc_entry: true
 
 ::: digitalhub.entities.trigger._base.entity.Trigger.refresh
+    options:
+        heading_level: 3
+        show_signature: false
+        show_source: false
+        show_root_heading: true
+        show_symbol_type_heading: true
+        show_root_full_path: false
+        show_root_toc_entry: true
+
+## Trigger methods
+
+The trigger object exposes the following method:
+
+- `stop()`: Stop the trigger.
+
+::: digitalhub.entities.trigger._base.entity.Trigger.stop
     options:
         heading_level: 3
         show_signature: false
@@ -90,7 +106,7 @@ trigger = function.trigger(
     kind="lifecycle",
     name="validate-on-upload",
     key="store://project/artifact/*",
-    states=["READY"]
+    states=["READY"],
     template={"inputs": {"my-param": "{{input.key}}"}},
 )
 ```

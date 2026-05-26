@@ -54,11 +54,8 @@ Can only be specified when calling `function.run()`.
 | Name | Type | Description |
 | --- | --- | --- |
 | action | str | Task action. **Required. Must be `serve`** |
-| [node_selector](../../../configuration/kubernetes/overview.md#node-selector) | list[dict] | Node selector. |
 | [volumes](../../../configuration/kubernetes/overview.md#volumes) | list[dict] | List of volumes. |
 | [resources](../../../configuration/kubernetes/overview.md#resources) | dict | Resource limits/requests. Example: `{"limits": {"cpu": "1", "memory": "512Mi"}, "requests": {"cpu": "250m", "memory": "128Mi"}}`. |
-| [affinity](../../../configuration/kubernetes/overview.md#affinity) | dict | Affinity configuration. |
-| [tolerations](../../../configuration/kubernetes/overview.md#tolerations) | list[dict] | Tolerations. |
 | [envs](../../../configuration/kubernetes/overview.md#secrets-envs) | list[dict] | Environment variables. Example: `[{"name": "FOO", "value": "bar"}]`. |
 | [secrets](../../../configuration/kubernetes/overview.md#secrets-envs) | list[str] | List of secret names. |
 | [profile](../../../configuration/kubernetes/overview.md#profile) | str | Profile template. |
@@ -67,6 +64,7 @@ Can only be specified when calling `function.run()`.
 | [service_type](../../../configuration/kubernetes/overview.md#service-port-type) | str | Service type. |
 | [run_as_user](../../../configuration/kubernetes/overview.md#security-context) | int | User ID to run the container. |
 | [run_as_group](../../../configuration/kubernetes/overview.md#security-context) | int | Group ID to run the container. |
+| [fs_group](../../../configuration/kubernetes/overview.md#security-context) | int | File system group ID. |
 
 ### Run Parameters
 

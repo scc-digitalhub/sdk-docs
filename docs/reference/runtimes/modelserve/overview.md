@@ -1,18 +1,21 @@
 # ModelServe Runtime
 
-The ModelServe runtime enables deploying ML models as services on Kubernetes. It registers multiple Function kinds for different model formats and supports the `serve` action for model deployment.
+The ModelServe runtime enables deploying ML models as services on Kubernetes. It registers multiple Function kinds for different model formats and supports the `serve` action for model deployment. The `mlflowserve` kind also supports `build`.
 
 - **`sklearnserve`**: Serve scikit-learn models
-- **`mlflowserve`**: Serve MLflow models
+- **`mlflowserve`**: Build or serve MLflow models
 - **`huggingfaceserve`**: Serve HuggingFace models
 - **`kubeai-text`**: Serve text generation models via KubeAI
 - **`kubeai-speech`**: Serve speech to text models via KubeAI
+- **`vllmserve-text`**: Serve vLLM text generation models
+- **`vllmserve-speech`**: Serve vLLM speech models
+- **`vllmserve-pooling`**: Serve vLLM models with pooling support
 
 ## Prerequisites
 
 **Supported Python versions:**
 
-- Python ≥ 3.9, < 3.13
+- Python ≥ 3.10, < 3.15
 
 **Required packages:**
 

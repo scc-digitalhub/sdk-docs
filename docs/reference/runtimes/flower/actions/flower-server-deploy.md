@@ -49,11 +49,8 @@ Can only be specified when calling `function.run()`.
 | Name | Type | Description |
 | --- | --- | --- |
 | action | str | Task action. **Required. MUST BE `deploy`** |
-| [node_selector](../../../configuration/kubernetes/overview.md#node-selector) | list[dict] | Node selector for deployment. |
 | [volumes](../../../configuration/kubernetes/overview.md#volumes) | list[dict] | List of volumes for the deployment. |
 | [resources](../../../configuration/kubernetes/overview.md#resources) | dict | Resource limits/requests for the deployment. |
-| [affinity](../../../configuration/kubernetes/overview.md#affinity) | dict | Affinity configuration for the deployment. |
-| [tolerations](../../../configuration/kubernetes/overview.md#tolerations) | list[dict] | Tolerations for the deployment. |
 | [envs](../../../configuration/kubernetes/overview.md#secrets-envs) | list[dict] | Environment variables for the deployment. |
 | [secrets](../../../configuration/kubernetes/overview.md#secrets-envs) | list[str] | List of secret names for the deployment. |
 | [profile](../../../configuration/kubernetes/overview.md#profile) | str | Profile template for the deployment. |

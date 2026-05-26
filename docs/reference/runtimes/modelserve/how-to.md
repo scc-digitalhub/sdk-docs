@@ -13,16 +13,22 @@ There are multiple function kinds in the ModelServe runtime:
 - `huggingfaceserve`: Serve HuggingFace models
 - `kubeai-text`: Serve text generation models via KubeAI
 - `kubeai-speech`: Serve speech processing models via KubeAI
+- `vllmserve-text`: Serve vLLM text generation models
+- `vllmserve-speech`: Serve vLLM speech models
+- `vllmserve-pooling`: Serve vLLM models with pooling support
 
 Each kind supports specific actions.
 
 | Function Kind | Supported Actions |
 | --- | --- |
 | `sklearnserve` | `serve` |
-| `mlflowserve` | `serve` |
+| `mlflowserve` | `build`, `serve` |
 | `huggingfaceserve` | `serve` |
 | `kubeai-text` | `serve` |
 | `kubeai-speech` | `serve` |
+| `vllmserve-text` | `serve` |
+| `vllmserve-speech` | `serve` |
+| `vllmserve-pooling` | `serve` |
 
 ## Usage Pattern
 
@@ -53,7 +59,11 @@ ModelServe functions are executed remotely on Kubernetes clusters managed by the
 Here are links to the detailed documentation for each ModelServe action:
 
 - [sklearnserve serve](actions/sklearnserve-serve.md) — Deploy scikit-learn models as services
+- [mlflowserve build](actions/mlflowserve-build.md) — Build MLflow model-serving images
 - [mlflowserve serve](actions/mlflowserve-serve.md) — Deploy MLflow models as services
 - [huggingfaceserve serve](actions/huggingfaceserve-serve.md) — Deploy HuggingFace models as services
 - [kubeai-text serve](actions/kubeai-text-serve.md) — Deploy text processing models via KubeAI
 - [kubeai-speech serve](actions/kubeai-speech-serve.md) — Deploy speech processing models via KubeAI
+- [vllmserve-text serve](actions/vllmserve-text-serve.md) — Deploy vLLM text generation models
+- [vllmserve-speech serve](actions/vllmserve-speech-serve.md) — Deploy vLLM speech models
+- [vllmserve-pooling serve](actions/vllmserve-pooling-serve.md) — Deploy vLLM models with pooling support

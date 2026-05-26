@@ -37,7 +37,7 @@ Must be specified when creating the function.
 | description | str | Description of the object. |
 | labels | list[str] | List of labels. |
 | embedded | bool | Whether the object should be embedded in the project. |
-| [path](#model-path) | str | Path to the model files. **Required.** |
+| [path](#model-path) | str | Path to the model files. |
 | model_name | str | Name of the model. |
 | [image](#model-image) | str | Docker image where to serve the model. |
 
@@ -74,11 +74,8 @@ Can only be specified when calling `function.run()`.
 | Name | Type | Description |
 | --- | --- | --- |
 | action | str | Task action. **Required. Must be `serve`** |
-| [node_selector](../../../configuration/kubernetes/overview.md#node-selector) | list[dict] | Node selector. |
 | [volumes](../../../configuration/kubernetes/overview.md#volumes) | list[dict] | List of volumes. |
 | [resources](../../../configuration/kubernetes/overview.md#resources) | dict | Resource limits/requests. |
-| [affinity](../../../configuration/kubernetes/overview.md#affinity) | dict | Affinity configuration. |
-| [tolerations](../../../configuration/kubernetes/overview.md#tolerations) | list[dict] | Tolerations. |
 | [envs](../../../configuration/kubernetes/overview.md#secrets-envs) | list[dict] | Environment variables. |
 | [secrets](../../../configuration/kubernetes/overview.md#secrets-envs) | list[str] | List of secret names. |
 | [profile](../../../configuration/kubernetes/overview.md#profile) | str | Profile template. |
@@ -133,7 +130,9 @@ You can specify the data type to load the weights in. The data type must be one 
 
 Can only be specified when calling `function.run()`.
 
-No specific parameters for run of this action.
+| Name | Type | Description |
+| --- | --- | --- |
+| args | list[str] | Arguments for the HuggingFace serve command. |
 
 ## Entity methods
 

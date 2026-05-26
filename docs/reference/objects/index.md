@@ -10,3 +10,4 @@ In this section will be described the entities in the Digitalhub SDK.
 - [Dataitems](./dataitem/entity.md)
 - [Models](./model/entity.md)
 - [Secrets](./secret/entity.md)
+- [Extensions](./extension/entity.md)

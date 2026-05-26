@@ -1,10 +1,10 @@
-# Python Build
+# Python Serve
 
-The `build` action builds a container image for a Python function. A `Task` is created by calling `run()` on the Function; task parameters are passed through that call.
+The `serve` action deploys a Python function as an HTTP endpoint on Kubernetes. A `Task` is created by calling `run()` on the Function; task parameters are passed through that call.
 
 ## Overview
 
-The build action creates a container image containing the Python function and its dependencies. This image can then be used for deployment or distribution.
+The serve action deploys a Python function as an HTTP endpoint. This is suitable for real-time inference, API endpoints, and other services that need to respond to HTTP requests.
 
 ## Quick example
 
@@ -18,7 +18,7 @@ function = dh.new_function(
 )
 
 run = function.run(
-    action="build",
+    action="serve",
     inputs={"data": dataitem.key},
     parameters={"threshold": 0.5}
 )
@@ -52,12 +52,12 @@ Must be specified when creating the function.
 
 #### Python Versions
 
-The Python runtime supports versions 3.9, 3.10, 3.11, and 3.12 expressed as:
+The Python runtime supports versions 3.10, 3.11, 3.12, and 3.13 expressed as:
 
-- `PYTHON3_9`
 - `PYTHON3_10`
 - `PYTHON3_11`
 - `PYTHON3_12`
+- `PYTHON3_13`
 
 #### Init Function
 
@@ -82,29 +82,24 @@ requirements = ["numpy", "pandas>1,<3", "scikit-learn==1.2.0"]
 
 Can only be specified when calling `function.run()`.
 
-#### Shared Parameters
-
 | Name | Type | Description |
 | --- | --- | --- |
-| action | str | Task action. **Required. Must be `build`** |
-| [node_selector](../../../configuration/kubernetes/overview.md#node-selector) | list[dict] | Node selector configuration. |
+| action | str | Task action. **Required. Must be `serve`** |
 | [volumes](../../../configuration/kubernetes/overview.md#volumes) | list[dict] | List of volumes. |
 | [resources](../../../configuration/kubernetes/overview.md#resources) | dict | Resource limits/requests. |
-| [affinity](../../../configuration/kubernetes/overview.md#affinity) | dict | Affinity configuration. |
-| [tolerations](../../../configuration/kubernetes/overview.md#tolerations) | list[dict] | Tolerations. |
 | [envs](../../../configuration/kubernetes/overview.md#secrets-envs) | list[dict] | Environment variables. |
 | [secrets](../../../configuration/kubernetes/overview.md#secrets-envs) | list[str] | List of secret names. |
 | [profile](../../../configuration/kubernetes/overview.md#profile) | str | Profile template. |
+| [replicas](../../../configuration/kubernetes/overview.md#replicas) | int | Number of replicas. |
+| service_type | str | Kubernetes service type. |
+| service_name | str | Name assigned to the created service. |
 
 ### Run Parameters
 
 Can only be specified when calling `function.run()`.
 
-#### Run Shared Parameters
-
 | Name | Type | Description |
 | --- | --- | --- |
-| local_execution | bool | Execute the run locally instead of remotely. |
 | inputs | dict | Mapping of function argument names to entity keys. |
 | parameters | dict | Extra parameters passed to the function. |
 | init_parameters | dict | Parameters supplied to the init function. |
@@ -146,6 +141,16 @@ Once the run is created, you can access its attributes and methods through the `
         show_root_toc_entry: true
 
 ::: digitalhub_runtime_python.entities.run._base.entity.RunPythonRun.results
+    options:
+        heading_level: 6
+        show_signature: false
+        show_source: false
+        show_root_heading: true
+        show_symbol_type_heading: true
+        show_root_full_path: false
+        show_root_toc_entry: true
+
+::: digitalhub_runtime_python.entities.run.python_serve.entity.RunPythonRunServe.invoke
     options:
         heading_level: 6
         show_signature: false

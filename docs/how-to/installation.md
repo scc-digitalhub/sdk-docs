@@ -15,30 +15,32 @@ This command will install the SDK with all the dependencies.
 There are more options available:
 
 ```bash
-# Install SDK plus pandas for dataitems handling
+# Install SDK plus pandas/polars for dataitems handling
 python -m pip install digitalhub[pandas]
+python -m pip install digitalhub[polars]
 
-# Install SDK plus mlflow for mlflow model handling
-python -m pip install digitalhub[mlflow]
+# Install SDK plus mlcroissant for croissant dataitem support
+python -m pip install digitalhub[mlcroissant]
 ```
 
 ## Installing Digitalhub Runtimes
 
 The Digitalhub runtimes are installed in the same way as the SDK. We have distributed the following runtimes at the moment:
 
-- [digitalhub-runtime-python](../reference/runtimes/python/overview.md)
+- [digitalhub-runtime-python](../reference/runtimes/python/python/overview.md)
 - [digitalhub-runtime-container](../reference/runtimes/container/overview.md)
 - [digitalhub-runtime-dbt](../reference/runtimes/dbt/overview.md)
 - [digitalhub-runtime-flower](../reference/runtimes/flower/overview.md)
 - [digitalhub-runtime-hera](../reference/runtimes/hera/overview.md)
 - [digitalhub-runtime-modelserve](../reference/runtimes/modelserve/overview.md)
-- [digitalhub-runtime-kfp](../reference/runtimes/kfp.md)
 
 You can install the runtime directly with pip. It will come with all the required SDK dependencies:
 
 ```bash
-# Install python runtime
+# Install python runtime package
 python -m pip install digitalhub-runtime-python
+
+# The same package also enables the guardrail and openinference function kinds
 
 # Install container runtime
 python -m pip install digitalhub-runtime-container
@@ -61,6 +63,4 @@ python -m pip install digitalhub-runtime-hera
 # Install modelserve runtime
 python -m pip install digitalhub-runtime-modelserve
 
-# Install kfp runtime
-python -m pip install digitalhub-runtime-kfp
 ```

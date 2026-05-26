@@ -49,11 +49,8 @@ Can only be specified when calling `function.run()`.
 | Name | Type | Description |
 | --- | --- | --- |
 | action | str | Task action. **Required. MUST BE `build`** |
-| [node_selector](../../../configuration/kubernetes/overview.md#node-selector) | list[dict] | Node selector for build execution. |
 | [volumes](../../../configuration/kubernetes/overview.md#volumes) | list[dict] | List of volumes for build execution. |
 | [resources](../../../configuration/kubernetes/overview.md#resources) | dict | Resource limits/requests for build execution. |
-| [affinity](../../../configuration/kubernetes/overview.md#affinity) | dict | Affinity configuration for build execution. |
-| [tolerations](../../../configuration/kubernetes/overview.md#tolerations) | list[dict] | Tolerations for build execution. |
 | [envs](../../../configuration/kubernetes/overview.md#secrets-envs) | list[dict] | Environment variables for build execution. |
 | [secrets](../../../configuration/kubernetes/overview.md#secrets-envs) | list[str] | List of secret names for build execution. |
 | [profile](../../../configuration/kubernetes/overview.md#profile) | str | Profile template for build execution. |

@@ -1,6 +1,6 @@
 # Define a Python Function
 
-This section describes how to define a Python function as a handler. A handler is basically a python function declared using the standard `def` keyword. Handlers can be simple or accept platform-provided objects and inputs. The runtime injects reserved arguments and provides helpers to map inputs and outputs.
+This section describes how to define a Python-runtime handler. The same handler model is used by `python`, `guardrail`, and `openinference` functions. A handler is a Python function declared with the standard `def` keyword. Handlers can be simple or accept platform-provided objects and inputs. The runtime injects reserved arguments and provides helpers to map inputs and outputs.
 
 ## Function Anatomy
 
@@ -44,10 +44,10 @@ The runtime injects a small set of reserved arguments when it invokes your handl
 - `project` — the current [`Project` object](../../objects/project/entity.md).
 - `run` — the active [`Run` object](../../objects/run/entity.md).
 - `context` — the Nuclio runtime context object (see Nuclio Python runtime docs) — only available in remote execution.
-- `events` — the Nuclio events helper — only available in remote execution.
+- `event` — the Nuclio event object — only available in remote execution.
 
-!!! warning "Local execution: Nuclio context and events"
-    When running locally, `context` and `events` are not provided automatically; if your handler expects them you must pass them explicitly through `function.run()`.
+!!! warning "Local execution: Nuclio context and event"
+    When running locally, `context` and `event` are not provided automatically; if your handler expects them you must pass them explicitly through `function.run()`.
 
 ## Inputs and parameters
 

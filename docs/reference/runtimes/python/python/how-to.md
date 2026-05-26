@@ -6,11 +6,7 @@ Finally, we provide links to detailed documentation for each parameter category.
 
 ## Function types and Actions
 
-There is one function kind in the Python runtime:
-
-- `python`: Execute Python handlers on Kubernetes
-
-The kind supports specific actions.
+The Python runtime supports the following action set
 
 | Function Kind | Supported Actions |
 | --- | --- |
@@ -20,7 +16,7 @@ The kind supports specific actions.
 
 To execute a function, follow this pattern:
 
-1. Implement a Python function (see [Function definition](define-function.md) for detailed instructions on creating Python functions).
+1. Implement a Python function (see [Function definition](define-function.md) for detailed instructions on creating Python, guardrail, and openinference handlers).
 2. Use `dh.new_function()` or `project.new_function()` to create the function, passing **function parameters**.
 3. Call `function.run()` with the desired action, passing **task parameters** and **run parameters**.
 
@@ -59,6 +55,6 @@ When executing a function, you can choose between **local execution** and **remo
 
 Here are links to the detailed documentation for each Python action:
 
-- [Python Job](actions/python-job.md) — Execute a Python function as a one-off task
-- [Python Serve](actions/python-serve.md) — Deploy a Python function as an HTTP endpoint
-- [Python Build](actions/python-build.md) — Build a container image for a Python function
+- [Python Job](python-job.md) — Execute a `python` function as a one-off task
+- [Python Serve](python-serve.md) — Deploy a `python` function as an HTTP endpoint
+- [Python Build](python-build.md) — Build a container image for a `python` function

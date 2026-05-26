@@ -14,6 +14,23 @@ function = project.new_function(name="mlflow-serve-function",
 run = function.run(action="serve")
 ```
 
+## MLflow Build Example
+
+```python
+import digitalhub as dh
+
+project = dh.get_or_create_project("my_project")
+
+function = project.new_function(name="mlflow-build-function",
+                                kind="mlflowserve",
+                                path=model.key)
+
+build_run = function.run(
+    action="build",
+    instructions=["pip install -r requirements.txt"]
+)
+```
+
 ## Scikit-Learn Model Example
 
 ```python
@@ -47,6 +64,18 @@ function = project.new_function(
     url="hf://openai/whisper-large-v3",
     features=["SpeechToText"],
     engine="FasterWhisper"
+)
+
+run = function.run(action="serve")
+```
+
+## vLLM Text Model Example
+
+```python
+function = project.new_function(
+    name="vllm-text-function",
+    kind="vllmserve-text",
+    url="hf://meta-llama/Meta-Llama-3-8B-Instruct",
 )
 
 run = function.run(action="serve")

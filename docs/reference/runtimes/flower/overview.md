@@ -10,7 +10,7 @@ The Flower runtime enables you to execute federated learning tasks using the [Fl
 
 **Supported Python versions:**
 
-- Python ≥ 3.9, < 3.13
+- Python ≥ 3.10, < 3.15
 
 **Required packages:**
 

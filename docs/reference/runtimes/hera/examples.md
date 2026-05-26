@@ -60,8 +60,7 @@ workflow = dh.new_workflow(
 ```python
 # Build the pipeline
 run_build = workflow.run(
-    action="build",
-    parameters={"dataitem": dataitem.key}
+    action="build"
 )
 
 # Execute the pipeline

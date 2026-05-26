@@ -1,6 +1,6 @@
 # Define a Hera Pipeline
 
-This section describes how to define a Hera pipeline function. A pipeline function is a Python function that returns a Hera `Workflow` object. Any arguments in the function signature are passed as `parameters` during `run(action="build")`.
+This section describes how to define a Hera pipeline function. A pipeline function is a Python function that returns a Hera `Workflow` object. The function must not accept arguments; define workflow parameters inside the returned Hera `Workflow` object instead.
 
 ## Pipeline Function Anatomy
 
@@ -10,7 +10,7 @@ Define a pipeline by creating a Python function that returns a Hera `Workflow` o
 from hera.workflows import Workflow, DAG, Parameter
 from digitalhub_runtime_hera.dsl import step
 
-def pipeline(url: str):
+def pipeline():
     # Create a new Workflow with an entrypoint DAG and parameters
     with Workflow(entrypoint="dag", arguments=Parameter(name="url")) as w:
         with DAG(name="dag"):
@@ -35,14 +35,14 @@ The runtime provides DSL helpers in `digitalhub_runtime_hera.dsl`:
 
 `step(**step_kwargs)` creates a workflow step (a Hera Task) inside a DAG or Steps context. Main arguments:
 
-| Parameter   | Type      | Example    | Description |
-|---|---|---|---|
-| template    | dict | {"action": "job"} | Parameters template to pass to `function.run()` or `workflow.run()`. The `action` key is always required. To pass inputs from other steps use the `{{inputs.parameters.parameter_name}}` template syntax. |
-| function    | str  | "download-data" | Name of the digitalhub function to execute. |
-| function_id | str  | "abc123"        | Function ID (optional). |
-| name        | str  | "step1"         | Step name. |
+| Parameter | Type | Example | Description |
+| --- | --- | --- | --- |
+| template | dict | {"action": "job"} | Parameters template to pass to `function.run()` or `workflow.run()`. The `action` key is always required. To pass inputs from other steps use the `{{inputs.parameters.parameter_name}}` template syntax. |
+| function | str | "download-data" | Name of the digitalhub function to execute. |
+| function_id | str | "abc123" | Function ID (optional). |
+| name | str | "step1" | Step name. |
 | [inputs](#step-inputs-and-outputs) | dict | {"some-input": ANOTHER_STEP.get_parameter("some-output")} | Step inputs. Keys become Hera Parameters; values can reference other steps' outputs. |
-| [outputs](#step-inputs-and-outputs) | list | ["output1"]     | Step outputs. These become Hera Outputs and Artifacts. |
+| [outputs](#step-inputs-and-outputs) | list | ["output1"] | Step outputs. These become Hera Outputs and Artifacts. |
 
 Other keyword arguments are forwarded to the underlying container template. `step` must be called inside a `DAG` or `Steps` context.
 

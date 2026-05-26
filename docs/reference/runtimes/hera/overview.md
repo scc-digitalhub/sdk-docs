@@ -8,7 +8,7 @@ The Hera runtime enables running Hera workflows on the platform. It defines Work
 
 **Supported Python versions:**
 
-- Python ≥ 3.9, < 3.13
+- Python ≥ 3.10, < 3.15
 
 **Required packages:**
 
