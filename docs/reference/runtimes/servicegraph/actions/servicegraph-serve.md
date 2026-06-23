@@ -15,7 +15,7 @@ function = dh.new_function(
 
 run = function.run(action="serve", 
     parameters={"input.url": "http://videosource:1984"},
-    service_ports=[{"port": 7777, "targetPort": 7777}]
+    service_ports=[{"port": 7777, "target_port": 7777}]
     )
 
 ```

@@ -18,7 +18,7 @@ function = dh.new_function(
 run = function.run(
     action="serve",
     replicas=3,
-    service_ports=[{"port": 80, "targetPort": 8080}]
+    service_ports=[{"port": 80, "target_port": 8080}]
 )
 ```
 
@@ -60,7 +60,7 @@ Can only be specified when calling `function.run()`.
 | [secrets](../../../configuration/kubernetes/overview.md#secrets-envs) | list[str] | List of secret names. |
 | [profile](../../../configuration/kubernetes/overview.md#profile) | str | Profile template. |
 | [replicas](../../../configuration/kubernetes/overview.md#replicas) | int | Number of replicas. |
-| [service_ports](../../../configuration/kubernetes/overview.md#service-port-type) | list[dict] | Ports to expose for the service. Example: `[{"port": 80, "targetPort": 8080}]`. |
+| [service_ports](../../../configuration/kubernetes/overview.md#service-port-type) | list[dict] | Ports to expose for the service. Example: `[{"port": 80, "target_port": 8080}]`. |
 | [service_type](../../../configuration/kubernetes/overview.md#service-port-type) | str | Service type. |
 | [run_as_user](../../../configuration/kubernetes/overview.md#security-context) | int | User ID to run the container. |
 | [run_as_group](../../../configuration/kubernetes/overview.md#security-context) | int | Group ID to run the container. |
